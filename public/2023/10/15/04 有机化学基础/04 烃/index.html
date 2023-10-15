@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>有机化学基础 · 四 · 「烃」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>有机化学基础 · 四 · 「烃」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p><img src="/./images/4.0.svg"></p>
+<ol>
+<li>按碳原子组成的 <strong>分子骨架</strong> 的不同，含苯环的烃称为 <strong>芳香烃</strong> ，不含苯环的烃称为 <strong>脂肪烃</strong></li>
+<li>根据 <strong>结构中是否含有不饱和键</strong> ，可以将脂肪烃分为 <strong>饱和烃</strong> 和 <strong>不饱和烃</strong> ，烷烃为饱和烃，炔烃和烯烃为不饱和烃</li>
+</ol>
+<h2 id="脂肪烃"><a href="#脂肪烃" class="headerlink" title="脂肪烃"></a>脂肪烃</h2><h3 id="烷烃-ce-C-n-H-2n-2"><a href="#烷烃-ce-C-n-H-2n-2" class="headerlink" title="烷烃 $(\ce{C_{n}H_{2n+ 2}})$"></a>烷烃 $(\ce{C_{n}H_{2n+ 2}})$</h3><ol>
+<li><p><strong>烷烃的存在形式</strong><br> 烷烃是一类最基础的有机化合物，广泛存在于自然界中。生活中的一些常见物质，如天然气、液化石油气、汽油、柴油、凡士林、石蜡等，主要成分都是烷烃</p>
+</li>
+<li><p><strong>烷烃的结构</strong><br>烷烃分子中的碳原子都采取 $sp^3$ 杂化，形成四面体结构；碳原子以 $σ$ 键与其他碳原子或氢原子结合；每个碳原子形成 $4$ 个共价单键；除甲烷外，烷烃分子中既有极性键，又有非极性键</p>
+</li>
+<li><p><strong>烷烃的化学性质</strong><br>烷烃的化学性质一般比较稳定，在通常状况下，烷烃不与强酸、强碱和强氧化剂（如溴水、$\ce{KMnO4}$ 溶液）反应，也难与其他物质化合，但在特定的条件下烷烃能发生下列反应</p>
+<ol>
+<li><p><strong>氧化反应</strong><br>$$\ce{C_{n}H_{2n+2} +}\frac{3n +1}{2}\ce{O2-&gt;[点燃]nCO2 + }(n + 1)\ce{H2O}$$</p>
+</li>
+<li><p><strong>卤代反应</strong><br>在光照条件下，烷烃都能与纯的卤素单质发生取代反应</p>
+<p>$\ce{CH4 + Cl2 -&gt;[光] CH3Cl + HCl\quad CH3Cl + Cl2 -&gt;[光] CH2Cl2 + HCl}\<br>\ce{CH2Cl2 + Cl2 -&gt;[光] CHCl3 + HCl\quad CHCl3 + Cl2 -&gt;[光] CCl4 + HCl}\$</p>
+<blockquote>
+<p>$\ce{CH3Cl}$ 是气体（考察阿伏伽德罗相关时，注意仅 $\ce{CH3Cl}$ 在标况下是 $22.4\ce{L}$）；$\ce{CHCl3}$ 俗名氯仿</p>
+<p>和卤素的反应中，一般不直接用 $\ce{F2}$ 和 $\ce{I2}$，因为 $\ce{F2}$ 反应剧烈，而 $\ce{I2}$ 不易反应</p>
+</blockquote>
+</li>
+<li><p><strong>高温分解</strong><br>烷烃在一定条件(加热、加压,使用催化剂)下发生分解 反应,可生成碳原子数较少的烷烃和烯烃,高温下还可能生成碳单质和氢气</p>
+<p>$\ce{C16H34 -&gt;[加热、加压][催化剂] C8H18 + C8H16 (石油的裂化) \quad CH4-&gt;[高温] C + 2H2}$</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="烯烃-单烯烃-ce-C-nH-2n"><a href="#烯烃-单烯烃-ce-C-nH-2n" class="headerlink" title="烯烃 $($单烯烃 $\ce{C_nH_{2n}})$"></a>烯烃 $($单烯烃 $\ce{C_nH_{2n}})$</h3><ol>
+<li><p><strong>烯烃的结构</strong></p>
+<ul>
+<li>烯烃的官能团是<strong>碳碳双键</strong>。分子中含有一个碳碳双键的烯烃称为单烯烃</li>
+<li>烯烃分子中的碳碳双键上的碳原子均采取 $sp^{2}$ 杂化，碳原子与氢原子间均形成<strong>单键</strong>（ $\sigma$ 键），碳原子与碳原子间以<strong>双键</strong>相连（ $1$ 个 $\sigma$ 键， $1$ 个 $\pi$ 键），键角约为 $120°$ ，分子中<strong>所有原子都处于同一平面内</strong></li>
+</ul>
+</li>
+<li><p><strong>烯烃的化学性质</strong></p>
+<ol>
+<li><p><strong>加成反应</strong>：烯烃能与 $\ce{H2、X2}$(卤素单质)$、\ce{HX、H2O}$ 等发生加成反应</p>
+<ol>
+<li><p>溴水</p>
+<p>$\ce{R-CH&#x3D;CH2 +Br2 -&gt; R-CHBr-CH2Br}$<em>（工业上制备二氯代烃）</em></p>
+<blockquote>
+<p>$\ce{CH2&#x3D;CH2 +Br2-&gt;CH2Br-CH2Br}$</p>
+<p>$\ce{CH2Br-CH2Br}$ 是无色液体，难溶于水，溶于四氯化碳。因此可使溴水或其四氯化碳溶液褪色，且不分层</p>
+</blockquote>
+</li>
+<li><p>$\ce{H2}$</p>
+<p>$\ce{R-CH&#x3D;CH2 +H2 -&gt;[\Delta][催化剂] R-CH2-CH3}$</p>
+<blockquote>
+<p>$\ce{CH3-CH&#x3D;CH2 +H2 -&gt;[\Delta][催化剂] CH3-CH2-CH3}$ <em>（丙烯转化成丙烷）</em></p>
+</blockquote>
+</li>
+<li><p>$\ce{H2O}$</p>
+<p>$\ce{R-CH&#x3D;CH2 +H-OH -&gt;[\Delta][催化剂]}$<img src="/./images/4.2.png"> 或 $\ce{R-CH2-CH2OH}$ <em>（工业制备一元醇）</em></p>
+<blockquote>
+<p>$\ce{CH2&#x3D;CH2 +H2O -&gt;[\Delta][催化剂] CH3-CH2OH}$ <em>（乙烯制乙醇）</em></p>
+</blockquote>
+</li>
+<li><p>$\ce{HCl}$</p>
+<p>$\ce{R-CH&#x3D;CH2 +HCl -&gt;[一定条件] }$<img src="/./images/4.3.png">或 $\ce{R-CH2-CH2Cl}$ <em>（工业制备单卤代烃）</em></p>
+<blockquote>
+<p>$\ce{CH2&#x3D;CH2 +HCl -&gt;[\Delta][催化剂] CH3-CH2-Cl}$ <em>（乙烯制氯乙烷）</em></p>
+</blockquote>
+</li>
+<li><p>氰化物 $\ce{HCN}$</p>
+<p>$\ce{R-CH&#x3D;CH2 +HCN -&gt;[一定条件] }$<img src="/./images/4.4.png">或 $\ce{R-CH2-CH2CN}$ <em>（实现碳链增长）</em></p>
+</li>
+</ol>
+<ul>
+<li><p>烯烃的不对称加成-马氏规则</p>
+  <img title="" src="images/4.5.svg"  height="100" >
+
+<p> 当不对称烯烃与含氢的化合物（ $\ce{HBr、H_{2}}$  等）加成时，氢原子主要加到连有较多氢原子的碳原子上（马氏规则），在过氧化物存在的情况下,氢原子主要加在连有较少氢原子的碳原子上（反马氏规则）</p>
+</li>
+<li><p>实验室制备乙烯，即乙醇的消去fan’y</p>
+ <img src="./images/5.3.svg" style="zoom:25%;" /></li>
+</ul>
+</li>
+<li><p><strong>加聚反应</strong></p>
+<p>在适宜的温度、压强和催化剂存在的条件下，乙烯分子中碳碳双键中的一个键可以断裂，分子间通过碳原子的相互结合形成很长的碳链</p>
+<p>生成聚乙烯：$\ce{nCH2&#x3D;CH2-&gt;[一定条件]}\space[!!!\ce{-CH2-CH2}$ $]!!!-_n$ （聚乙烯，$n$ 为聚合度，$\ce{-CH_2-CH_2 -}$ 是链节）</p>
+ <img title="" src="images/4.6.png"  height="70" >
+
+<p>二烯烃加聚：$\ce{nCH2&#x3D;CH-CH&#x3D;CH_2 -&gt;[一定条件]}\space[!!!\ce{-CH2-CH&#x3D;CH-CH2}$ $]!!!-_n$</p>
+<p>烯烃共聚：$\ce{nCH2&#x3D;CH2 +nCH2&#x3D;CH-CH3-&gt;[一定条件]}\space[!!!\ce{-CH2-CH2-CH(CH3)-CH2}$ $]!!!-_n$</p>
+</li>
+<li><p><strong>氧化反应</strong></p>
+<ol>
+<li><p>烯烃能使酸性高锰酸钾溶液<strong>褪色</strong>：$\ce{CH2&#x3D;CH2-&gt;[H+][KMnO4] CO2}$</p>
+<blockquote>
+<p> 用于催熟果实、鉴别烷烃和烯烃；不能用于除去 $\ce{C2H6}$ 中的 $\ce{CH2&#x3D;CH2}$ 会引入新的杂质 $\ce{CO2}$ ，可用溴水洗气</p>
+</blockquote>
+</li>
+<li><p>可燃性，燃烧通式为 $\ce{C_nH_{2n} + \frac{3n}{2}O_2 -&gt;[点燃] nCO_2 + nH_2O}$（火焰明亮，出现黑烟）</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>共轭二烯烃</strong></p>
+<ol>
+<li><p>定义：分子中含有 $2$ 个碳碳双键的烯烃称为二烯烃；分子中有 $2$ 个碳碳双键且两个双键只相隔一个单键的烯烃叫作共轭二烯烃，如 $1,3-$丁二烯 （ $\ce{C&#x3D;C-C&#x3D;C}$ ）</p>
+</li>
+<li><p>$1,3-$丁二烯与氯单质发生加成反应时有两种情况：</p>
+<ul>
+<li><p>$1,2-$加成（低温）</p>
+<p>$\ce{CH2&#x3D;CH-CH&#x3D;CH2 +Br2 -&gt;}$<img src="/./images/4.7.svg"></p>
+</li>
+<li><p>$1,4-$加成（高温）</p>
+<p>$\ce{CH2&#x3D;CH-CH&#x3D;CH2 +Br2 -&gt;}$<img src="/./images/4.8.svg"></p>
+</li>
+</ul>
+<blockquote>
+<p>如果将低温转变为高温，$1,2-$加成的产物也会向 $1,4-$加成的方向转变</p>
+</blockquote>
+<blockquote>
+<img title="" src="images/4.10.svg"  height="100" ></blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="炔烃-单炔烃-ce-C-n-H-2n-2"><a href="#炔烃-单炔烃-ce-C-n-H-2n-2" class="headerlink" title="炔烃 $($单炔烃 $\ce{C_{n}H_{2n-2}})$"></a>炔烃 $($单炔烃 $\ce{C_{n}H_{2n-2}})$</h3><ol>
+<li><p><strong>炔烃的结构</strong></p>
+<ul>
+<li><p>分子中含有<strong>碳碳三键</strong>的一类脂肪烃称为炔烃。分子中含有一个碳碳三键的炔烃称为单炔烃</p>
+</li>
+<li><p>分子中碳原子采取 $sp$ 杂化，碳原子和氢原子间均以<strong>单键</strong>（ $\sigma$ 键）相连接，碳原子和碳原子之间以<strong>三键</strong>（ $1$ 个 $σ$ 键和 $2$ 个 $π$ 键）相连接，相邻两个键之间的夹角为 $180°$，分子为<strong>直线形</strong>结构</p>
+</li>
+</ul>
+</li>
+<li><p><strong>乙炔</strong></p>
+<ul>
+<li><p>乙炔（俗称电石气）是最简单的炔烃。乙炔是无色、无臭的气体，微溶于水，易溶于有机溶剂</p>
+</li>
+<li><p>乙炔的实验室制法：</p>
+<p>① 发生装置：用<strong>饱和食盐水</strong>代替水的作用是减缓碳化钙 <strong>$\ce{CaC2}$</strong> （电石）与水反应的速率，实验原理为：$\ce{CaC2 + 2H2O -&gt; C2H2↑ + Ca(OH)2}$。因反应剧烈且产生气泡，为防止产生的泡沫涌入导管，可以在装置①的导管口处塞入少量棉花（未画出）</p>
+<blockquote>
+<p>注意事项：制取乙炔<strong>不能使用启普发生器</strong>或具有启普发生器原理的装置，原因如下：<br>a.碳化钙与水反应剧烈，不能随时停止；<br>b.反应过程中放出大量的热，易使得启普发生器炸裂；<br>c.生成的 $\ce{Ca(OH)2}$ 呈糊状，易堵塞球形漏斗。</p>
+</blockquote>
+<p>② <strong>硫酸铜溶液</strong>的作用是除去 $\ce{H2S}$ 等杂质气体，防止 $\ce{H2S}$ 等气体干扰乙炔性质的检验</p>
+<blockquote>
+<p>除去硫化氢： $\ce{H2S + CuSO4 &#x3D; CuS v + H2SO4}$<br>除去磷化氢： $\ce{12H2O + 11PH3 + 24CuSO4 &#x3D; 8Cu3P + 3H3PO4 + 24H2SO4}$</p>
+</blockquote>
+<p>③ 乙炔能使酸性高锰酸钾溶液褪色</p>
+<p>④ 乙炔能使溴的四氯化碳溶液褪色</p>
+<p>⑤ $E$ 处对乙炔点燃，产生的现象为<strong>火焰明亮</strong>，<strong>伴有浓烈黑烟</strong>（点燃前检验其纯度，防止爆炸）</p>
+ <img title="" src="images/4.11.png"  height="180" >
+</li>
+<li><p><strong>乙炔的化学性质</strong></p>
+<ol>
+<li><p><strong>加成反应</strong></p>
+<p> 乙炔在一定条件下能与氢气、氯化氢和水等物质发生加成反应</p>
+<ul>
+<li><p>$\ce{CH#CH + H2 -&gt;[\Delta][催化剂] CH2&#x3D;CH2}\quad\ce{CH#CH + 2H2 -&gt;[\Delta][催化剂] CH3CH3}$</p>
+</li>
+<li><p>$\ce{CH#CH + HCl -&gt;[\Delta][催化剂] CH2&#x3D;CHCl}$</p>
+</li>
+<li><p>$\ce{CH#CH + H2O -&gt;[\Delta][催化剂] CH3-CHO}$</p>
+<blockquote>
+<p>乙炔与水加成后的产物乙烯醇不稳定（ $\ce{CH2&#x3D;CH-OH}$ ），很快转化为乙醛（醇的催化氧化）
+ </p>
+</blockquote>
+</li>
+<li><p>$\ce{HC#CH-&gt;[HCN][催化剂]CH2&#x3D;CH-CN(丙烯晴)-&gt;[H2O、H+][\Delta]CH2&#x3D;CH-COOH}(丙烯酸)$</p>
+<blockquote>
+<p>用于增加碳链长度</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><strong>加聚反应</strong></p>
+<p> 乙炔可发生加聚反应，得到聚乙炔，聚乙炔可用于制备<strong>导电高分子材料</strong></p>
+<p> $\ce{nCH#CH-&gt;[一定条件]}\space[!!!\ce{-CH&#x3D;CH}$ $]!!!-_n$</p>
+</li>
+<li><p><strong>氧化反应</strong></p>
+<ol>
+<li><p>燃烧：$2 \ce{C2H2 + 5 O2 -&gt;[\text{点燃}] 4 CO2 + 2 H2O}$   现象：火焰明显、冒出浓烈黑烟</p>
+<p>在氧气中燃烧时，氧炔焰的温度可达 $3000\ce{°!C}$ 以上，因此常用它来焊接或切割金属</p>
+</li>
+<li><p>与强氧化剂反应：乙炔能被 $\ce{KMnO4}$ 氧化，使酸性 $\ce{KMnO4}$ 溶液褪色</p>
+<p>$2 \ce{KMnO4 + C2H2 + 3 H2SO4 -&gt; K2SO4 + 2 MnCO2 + 2 CO2 + 4 H2O}$</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="烷烃、烯烃、炔烃的结构和性质的比较"><a href="#烷烃、烯烃、炔烃的结构和性质的比较" class="headerlink" title="烷烃、烯烃、炔烃的结构和性质的比较"></a>烷烃、烯烃、炔烃的结构和性质的比较</h3><ol>
+<li><p><strong>物理性质</strong></p>
+<p>烷烃、烯烃、炔烃的物理性质类似，性质的变化规律也类似，都随分子中碳原子数的增加而呈周期性变化</p>
+<table>
+<thead>
+<tr>
+<th align="left">物理性质</th>
+<th>相似性</th>
+<th>递变性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">熔沸点</td>
+<td>一般较低</td>
+<td>逐渐升高</td>
+</tr>
+<tr>
+<td align="left">密度</td>
+<td>均小于水</td>
+<td>逐渐增大</td>
+</tr>
+<tr>
+<td align="left">溶解性</td>
+<td>难溶于水，易溶于有机溶剂</td>
+<td>在水中的溶解度逐渐降低</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>相对分子质量增大</strong>，范德华力增大，沸点升高 一般情况下，同种烷烃的不同同分异构体中，<strong>支链越多</strong>，分子间作用力越小，沸点越低 状态：常温下由气态逐渐过渡到液态、固态，碳原子小于等于 4 的炔烃是气态烃 </p>
+<p>如沸点：正戊烷 &gt; 异戊烷 &gt; 新戊烷</p>
+</blockquote>
+</li>
+<li><p><strong>化学性质</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th>烷烃</th>
+<th>烯烃</th>
+<th>炔烃</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">取代反应</td>
+<td>光照卤代</td>
+<td>$-$</td>
+<td>$-$</td>
+</tr>
+<tr>
+<td align="left">加成反应</td>
+<td>$-$</td>
+<td>能与 $\ce{H2、X2、HX、H2O、HCN}$</td>
+<td>能与 $\ce{H2、X2、HX、H2O、HCN}$</td>
+</tr>
+<tr>
+<td align="left">氧化反应</td>
+<td>燃烧，火焰较明亮；不与 $\ce{KMnO4(H+)}$ 反应</td>
+<td>燃烧，火焰明亮伴有黑烟；能使 $\ce{KMnO4}$ 溶液褪色</td>
+<td>燃烧，火焰很明亮伴有浓烈的黑烟；能使 $\ce{KMnO4}$ 溶液褪色</td>
+</tr>
+<tr>
+<td align="left">加聚反应</td>
+<td>$-$</td>
+<td>能发生</td>
+<td>能发生</td>
+</tr>
+<tr>
+<td align="left">鉴别</td>
+<td>不能使溴水和酸性 $\ce{KMnO4}$ 溶液褪色</td>
+<td>均能使溴水和酸性 $\ce{KMnO4}$ 溶液褪色</td>
+<td>均能使溴水和酸性 $\ce{KMnO4}$ 溶液褪色</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="脂肪烃与石油化工"><a href="#脂肪烃与石油化工" class="headerlink" title="脂肪烃与石油化工"></a>脂肪烃与石油化工</h3><table>
+<thead>
+<tr>
+<th>石油炼制方法</th>
+<th>目的</th>
+<th>原理</th>
+<th>原料</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>常压分馏（物理）</td>
+<td>获得以燃料油为常压主的不同石油分馏产品</td>
+<td>用蒸发和冷凝的方法将原油分成不同沸点范围的馏分</td>
+<td>原油</td>
+</tr>
+<tr>
+<td>减压分馏（物理）</td>
+<td>获得以润滑油为主的不同石油产品</td>
+<td>通过减压降低重油的沸点，从重油中分离出不同沸点范围的馏分</td>
+<td>重油</td>
+</tr>
+<tr>
+<td>催化裂化（化学）</td>
+<td>提高汽油的产量和质量</td>
+<td>在加热、加压和催化剂存在的条件下，将相对分子质量大、沸点高的烃断裂成相对分子质量小、沸点低的烃</td>
+<td>重油、凡士林、石蜡</td>
+</tr>
+<tr>
+<td>裂解（化学）</td>
+<td>获得有机化工原料</td>
+<td>又称深度裂化，在更高温度下，深度裂化，使长链烃断裂成相对分子质量小的气态烃或液态烃</td>
+<td>煤油和柴油</td>
+</tr>
+<tr>
+<td>催化重整（化学）</td>
+<td>获得芳香烃和提高汽油的质量</td>
+<td>在催化剂作用下，把汽油中的直链烃转化为芳香烃和具有支链的异构烷烃</td>
+<td>汽油</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>催化裂化</strong></p>
+<p>$\ce{C16H34-&gt;[一定条件]C8H16 + C8H18}$</p>
+</li>
+<li><p><strong>裂解</strong></p>
+<p>$\ce{C8H18-&gt;[催化剂][加热、加压]C4H10 + C4H8} \quad \ce{C4H10-&gt;[催化剂][加热、加压]C2H4 + C2H6}$</p>
+</li>
+<li><p><strong>沸点顺序</strong></p>
+<p>$石油气&lt;汽油&lt;煤油&lt;柴油&lt;润滑油&lt;重油$</p>
+</li>
+</ul>
+<blockquote>
+<p>煤的气化和液化都是化学变化</p>
+</blockquote>
+<h2 id="芳香烃"><a href="#芳香烃" class="headerlink" title="芳香烃"></a>芳香烃</h2><p>在烃类化合物中，有很多分子里含有一个或多个苯环，这样的化合物属于芳香烃，苯是最简单的芳香烃</p>
+<img title="" src="images/4.1.png"  height="80" >
+
+<h3 id="苯"><a href="#苯" class="headerlink" title="苯"></a>苯</h3><ol>
+<li><p><strong>物理性质</strong></p>
+<p>苯是一种无色、有特殊气味的液体，有毒，不溶于水。苯易挥发。沸点为 $80.1\ce{°!C}$，熔点 $5.5\ce{°!C}$ ，常温下密度为 $0.88g&#x2F;cm^3$ 。苯是一种重要的化工原料和有机溶剂，常用作萃取（用苯萃取碘水中的碘单质、萃取溴水中的溴单质）</p>
+</li>
+<li><p><strong>分子结构</strong></p>
+<p>苯不能使溴的四氯化碳溶液褪色，也不能被酸性高锰酸钾溶液氧化，这说明苯分子中<strong>不存在碳碳双键</strong>，也<strong>不具有碳碳单键和碳碳双键交替出现的结构</strong>。研究表明，<strong>苯分子的碳碳键是一种介于碳碳单键和碳碳双键之间的特殊共价键</strong></p>
+<p>苯分子中 $6$ 个碳原子连接成平面正六边形，每个碳原子分别结合 $1$ 个氢原子，分子中 $6$ 个碳原子和 $6$ 个氢原子完全等价。人们称苯的这种特殊结构为苯环结构</p>
+<img src="./images/4.12.png"  style="zoom:18%;" />
+</li>
+<li><p><strong>化学性质</strong></p>
+<ol>
+<li><p><strong>取代反应</strong></p>
+<ol>
+<li><p>苯和溴在 $\ce{FeBr3}$ 催化下可以发生反应，生成溴苯</p>
+<img src="./images/4.13.svg"  style="zoom:60%;" />
+
+<blockquote>
+<ol>
+<li>苯与溴发生取代反应时，试剂选用纯净的液溴（不得使用溴水，使用溴水发生萃取，而非取代，未形成溴苯）。该反应中催化剂是 $\ce{FeBr3}$ ，实际操作中一般是加入铁粉与液溴，二者反应生成 $\ce{FeBr3}$</li>
+<li>在催化剂作用下，苯也可以与其他纯净卤素单质发生取代反应，这类反应统称为卤代反应</li>
+<li>纯净的溴苯是无色液体，不溶于水，密度比水大。溴苯常因溶有溴单质而显褐色 </li>
+<li>不能由于将产生的气体通入 $\ce{AgNO3}$ 溶液中产生淡黄色的沉淀（ $\ce{AgNO3}$ 与 $\ce{HBr}$ 生成 $\ce{AgBr}$ ）而判断反应的发生，因为产物含有杂质 $\ce{Br2}$ 蒸汽（可用 $\ce{CCl4}$ 洗气）</li>
+</ol>
+</blockquote>
+</li>
+<li><p>在浓硫酸作用下，苯在 $50-60\ce{°!C}$ （水浴加热）与浓硝酸发生硝化反应，生成硝基苯</p>
+<img src="./images/4.14.jpg"  style="zoom:50%;" />
+
+<blockquote>
+<p>纯净的硝基苯是无色、有苦杏仁味、密度比水大、不溶于水的油状液体，有毒，因溶有 $\ce{NO2}$ 而显黄色</p>
+<p>$\ce{H2SO4}$ 用作催化剂、吸水剂；水浴加热用于控制温度，受热均匀</p>
+<p>注意：先加入浓硝酸，后加入浓硫酸（高中阶段浓硫酸均为后加入）</p>
+</blockquote>
+</li>
+<li><p>苯与浓硫酸在 $70-80\ce{°!C}$ 可以发生磺化反应，生成苯磺酸</p>
+<img src="./images/4.15.png"  style="zoom:30%;" />
+
+<blockquote>
+<p>苯磺酸易溶于水，是一种强酸，可以看作是硫酸分子里的一个羟基被苯环取代的产物</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p><strong>加成反应</strong></p>
+<p>在以 $\ce{Pt、N}$ 等为催化剂并加热、加压的条件下，苯能与氢气发生加成反应，生成环己烷</p>
+<img src="./images/4.16.webp"  style="zoom:50%;" />
+
+<blockquote>
+<p>苯反应的特点：易取代，难加成（加成需要破坏苯的主体结构）</p>
+<p>放出热量小于环己二烯，说明不存在三个双键</p>
+</blockquote>
+</li>
+<li><p><strong>氧化反应</strong></p>
+<p>燃烧：苯具有可燃性，在空气里燃烧时火焰明亮，产生浓重的黑烟。</p>
+<p>$$\ce{2C6H6 + 15O2-&gt;[点燃] 12CO2 + 6H2O}$$</p>
+</li>
+<li><p><strong>重要化学性质</strong></p>
+<ol>
+<li><p>苯不能使酸性高锰酸钾溶液褪色</p>
+</li>
+<li><p>苯不能使溴的四氯化碳溶液褪色</p>
+</li>
+<li><p>苯使溴水褪色的原因是萃取而不是加成反应</p>
+</li>
+</ol>
+<blockquote>
+<p>说明不存在三个双键</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="苯的同系物"><a href="#苯的同系物" class="headerlink" title="苯的同系物"></a>苯的同系物</h3><p>苯环上的氢原子被烷基取代所得到的一系列产物称为苯的同系物，其通式为 <strong>$\ce{C_nH_{2n-6}}\quad (n&gt;6)$</strong></p>
+<ol>
+<li><p><strong>物理性质</strong></p>
+<p>苯的同系物一般是具有类似苯的气味的无色液体，不溶于水，易溶于有机溶剂，密度比水的小</p>
+<p>规律性：随着碳原子数的递增，苯的同系物的熔、沸点升高，密度增大，但都小于水的密度</p>
+</li>
+<li><p><strong>化学性质</strong></p>
+<p>苯的同系物与苯都含有苯环，在一定条件下发生<strong>溴代、硝化和催化加氢反应</strong>。但由于苯环与烷基的相互作用，苯的同系物的化学性质与苯又有所不同。</p>
+<ol>
+<li><p><strong>氧化反应</strong></p>
+<ol>
+<li><p>燃烧反应：$\ce{C_{ n }H_{ 2 n - 6 } + }\frac{ 3 n - 3 }{ 2 } \ce{O2 -&gt;[点燃]nCO2 + }(n-3)\ce{H2O}$</p>
+</li>
+<li><p><strong>与强氧化剂反应：苯的同系物大多数能被酸性 $\ce{KMnO4}$ 溶液氧化为 苯甲酸 而使其褪色</strong></p>
+<ol>
+<li><p>烷基上<strong>与苯环直接相连的碳原子上必须有氢原子</strong>，才能被酸性高锰酸钾氧化</p>
+</li>
+<li><p>无论侧链烃基有多少个 $\ce{C}$ 原子，烃基均被氧化为 $\ce{-COOH}$ </p>
+<img src="./images/4.17.png"  style="zoom: 20%;" />
+
+<img src="./images/4.23.svg"  style="zoom:7%;" />
+
+<img src="./images/4.24.svg"  style="zoom:70%;" /></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>取代反应</strong></p>
+<ol>
+<li><p><strong>硝化反应</strong></p>
+<p>甲苯与浓硝酸和浓硫酸的混合物在加热条件下可以发生取代反应，生成一硝基取代物、二硝基取代物和三硝基取代物，硝基取代的位置均以甲基的邻、对位为主</p>
+<img src="./images/4.18.SVG"  style="zoom: 15%;" />
+
+<p>$2,4,6-$三硝基甲苯又叫梯恩梯(TNT)，是一种淡黄色晶体，不溶于水。它是一种烈性炸药，广泛用于国防、采矿、筑路、水利建设等</p>
+</li>
+<li><p><strong>卤代反应</strong></p>
+<p><strong>在光照条件下</strong>，甲苯与氯气发生取代反应时，氯原子取代甲基上的氢原子。反应后可能的有机产物是甲基上的氢原子分别被 $1$ 个、$2$ 个或 $3$ 个氯原子取代所生成的氯甲基苯</p>
+<p><strong>在 $\ce{FeBr3}$ 的催化下</strong>，甲苯与氯发生取代反应生成的一氯代甲苯主要有两种：邻氯甲苯和对氯甲苯。<strong>甲基的存在活化了苯环上处于甲基邻位和对位的氢原子</strong>，使相应的 $\ce{C-H}$ 更容易断裂，发生取代反应。该反应对反应条件的要求更低</p>
+<img src="./images/4.19.svg" style="zoom: 20%;" /></li>
+</ol>
+</li>
+<li><p><strong>加成反应</strong></p>
+<p>在 $\ce{Pt}$ 作催化剂和加热的条件下，甲苯可以与氢气发生加成反应</p>
+<img src="./images/4.21.png"  style="zoom: 20%;" /></li>
+</ol>
+</li>
+</ol>
+<h3 id="稠环芳香烃"><a href="#稠环芳香烃" class="headerlink" title="稠环芳香烃"></a>稠环芳香烃</h3><p>由两个或两个以上的苯环共用相邻的两个碳原子的芳香烃是稠环芳香烃</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>分子式</th>
+<th>结构简式</th>
+<th>物理性质</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>萘</td>
+<td>$\ce{C10H8}$</td>
+<td><img src="./images/4.22.svg" style="zoom: 80%;"></td>
+<td>无色片状晶体，有特殊气味<br/>熔点80℃，易升华，不溶于水</td>
+<td>①曾用于杀菌、防蛀、驱虫<br/>②重要的化工原料，生产增塑剂、农药、染料等</td>
+</tr>
+<tr>
+<td>蒽</td>
+<td>$\ce{C14H10}$</td>
+<td><img src="./images/4.25.svg" style="zoom: 80%;"></td>
+<td>无色晶体，易升华<br/>不溶于水，易溶于苯</td>
+<td>合成染料的重要原料</td>
+</tr>
+</tbody></table>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

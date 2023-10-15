@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>原子结构与元素性质 · 五 · 「电离能 电负性 元素周期律」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>原子结构与元素性质 · 五 · 「电离能 电负性 元素周期律」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="元素的电离能"><a href="#元素的电离能" class="headerlink" title="元素的电离能"></a>元素的电离能</h2><h3 id="元素第一电离能的概念与意义"><a href="#元素第一电离能的概念与意义" class="headerlink" title="元素第一电离能的概念与意义"></a>元素第一电离能的概念与意义</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ol>
+<li><p><strong>第一电离能</strong>：<strong>气态</strong>电中性 <strong>基态原子</strong> 失去一个电子转化为气态基态正离子所需要的最低能量叫做该元素的 第一电离能，用 $I_1$ 符号表示<br> $$M(g)-e^-\longrightarrow M^+(g) \qquad I_1（第一电离能）$$</p>
+<blockquote>
+<p>「气态」、「电中性」、「基态」、「失去一个电子」等都是保证能量最低的条件</p>
+</blockquote>
+</li>
+<li><p><strong>逐级电离能</strong>：气态基态  <strong>一</strong>  价正离子再 <strong>失去</strong>  一个电子成为气态基态  <strong>二</strong>  价正离子所需的最低能量叫做第二电离能，第三电离 能和第四、第五电离能依此类推。由于原子失去电子形成离子后，若再失去电子会更加  <strong>困难</strong> ，<strong>逐级电离能越来越大</strong></p>
+<blockquote>
+<p>$M(g)-e^-\longrightarrow M^+ (g) \quad I_1 $（第一电离能）</p>
+<p>$M^+(g)-e^-\longrightarrow M^{2+}(g) \quad I_2 $（第二电离能）</p>
+<p>$M^{2+}(g)-e^-\longrightarrow M^{3+}(g) \quad I_3 $（第三电离能）</p>
+<p>$I_1&lt;I_2&lt;I_3&lt;…$</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h4><p>第一电离能可以衡量元素的气态原子失去一个电子的<strong>难易程度</strong></p>
+<ul>
+<li><p>第一电离能数值越<strong>小</strong>，原子越<strong>容易失去</strong>一个电子</p>
+</li>
+<li><p>第一电离能数值越<strong>大</strong>，原子越<strong>难失去</strong>一个电子</p>
+</li>
+</ul>
+<h3 id="元素第一电离能变化规律"><a href="#元素第一电离能变化规律" class="headerlink" title="元素第一电离能变化规律"></a>元素第一电离能变化规律</h3><ul>
+<li><p><strong>同主族</strong>的原子最外层电子数相同，<strong>随着原子序数增大</strong>，电子层数逐渐增多，原子半径逐渐增大，原子核对核外电子的有效吸引力作用逐渐减弱，<strong>第一电离能逐渐减小</strong></p>
+</li>
+<li><p><strong>同周期</strong>的主族元素具有相同的电子层数，<strong>随着核电荷数增加</strong>，原子半径逐渐减小，原子核对核外电子的有效吸引力作用逐渐增加，<strong>第一电离能呈现增大趋势</strong>。因此对同周期元素来说，<strong>碱金属的第一电离能最小，稀有气体的第一电离能最大</strong> </p>
+</li>
+<li><p>元素的第一电离能大小还与其原子的核外电子排布（特别是最外围电子排布）有关。通常情况下，当原子核外电子排布在能量相等的轨道上形成全空（ $p$、$d$、$f$ ）、半满( $p^3$、$d^5$、$f^7$ )和全满( $p^6$、$d^{10}$、$f^{14}$ )结构时，原子的能量较低，该元素具有较大的第一电离能。</p>
+</li>
+<li><p><strong>前四周期内的同周期，由左至右，第一电离能逐渐增大，$ⅡA$、$ⅢA$互换，$ⅤA$、$ⅥA$互换</strong></p>
+</li>
+<li><p><strong>第二周期元素第一电离能大小：</strong><br>$$Li&lt;B&lt;Be&lt;C&lt;O&lt;N&lt;F&lt;Ne $$</p>
+<blockquote>
+<p>$B、Be$ 位置互换：$Be$ 为 $2s^2$ 全满稳定结构，失去一个电子需要破坏 $2S$ 全满稳定结构，所需的第一电离能比较大 </p>
+<p>$O、N$ 位置互换：$N:2s^22p^3$，失去一个电子需要破坏 $2p$ 的半充满结构，所需的第一电离能比较大</p>
+</blockquote>
+</li>
+<li><p><strong>第三周期元素第一电离能大小：</strong> </p>
+<p>  $$Na&lt;Al&lt;Mg&lt;Si&lt;S&lt;P&lt;Cl&lt;Ar $$</p>
+<blockquote>
+<p>$Al、Mg$ 位置互换：$Mg$ 为 $3s^2$ 全满稳定结构，失去一个电子需要破坏 $3S$ 全满稳定结构，所需的第一电离能比较大</p>
+<p>$S、P$ 位置互换：$P:3s^23p^3$，失去一个电子需要破坏 $3p$ 的半充满结构，所需的第一电离能比较大 </p>
+</blockquote>
+<img title="" src="images\5.2.png"  data-align="inline" width="240"></li>
+</ul>
+<blockquote>
+<p>下表的数据从上到下是钠、镁、铝逐级失去电子的电离能：</p>
+<table>
+<thead>
+<tr>
+<th>电离能</th>
+<th>$Na$</th>
+<th>$Mg$</th>
+<th>$Al$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$I_1$</td>
+<td>$496$</td>
+<td>$738$</td>
+<td>$579$</td>
+</tr>
+<tr>
+<td>$I_2$</td>
+<td>$4562$</td>
+<td>$1451$</td>
+<td>$1817$</td>
+</tr>
+<tr>
+<td>$I_3$</td>
+<td>$6912$</td>
+<td>$7733$</td>
+<td>$2745$</td>
+</tr>
+<tr>
+<td>$I_4$</td>
+<td>$9543$</td>
+<td>$10540$</td>
+<td>$11545$</td>
+</tr>
+<tr>
+<td>$I_5$</td>
+<td>$13353$</td>
+<td>$13630$</td>
+<td>$14830$</td>
+</tr>
+</tbody></table>
+<p>$Na$ 的 $I_2$ 相比 $I_1$ 剧增：$Na^+ : 1s^22s^22p^6$，此时是全满稳定结构，因此 $I_2$ 相比 $I_1$ 剧增<br>$Mg$ 的 $I_3$ 剧增、$Al$ 的 $I_4$ 剧增 同理<br>（可以通过判断电离能剧增地方，反向判断大致的元素）</p>
+<ol>
+<li>这些数据跟钠、镁、铝的化合价有什么关系？</li>
+</ol>
+<blockquote>
+<p>$∵Na$: $I_2$ &gt; $I_1 $ $∴Na:+1$<br>$∵Mg$: $I_3$ &gt; $I_2$ $∴Mg:+2$<br>$∵Al$: $I_4$ &gt; $I_3$ $∴Al:+3$ </p>
+</blockquote>
+<ol start="2">
+<li>比较钠、镁、铝的 $I_1$ 、 $I_2$ 、 $I_3$ 的大小：</li>
+</ol>
+<blockquote>
+<p>$I_1：$ 同周期，由左至右逐渐增大（$Na$最小），但 $Mg：3s^2$全满 $∴Mg&gt;Al$<br>$I_2：Na&gt;Al&gt;Mg$ 因为 $Na$ 已经失去电子到内层，电离能剧增，所以 $Na$ 的 $I_2$ 最大<br>$I_3：Mg&gt;Na&gt;Al$ 因为 $Mg$ 已经失去电子到内层，电离能剧增，所以 $Mg$ 的 $I_3$ 最大</p>
+</blockquote>
+<p>  <strong>总结：</strong><br>  $I_1：Mg&gt;Al&gt;Na$ （美女呐）<br>  $I_2：Na&gt;Al&gt;Mg$ （哪里美）<br>  $I_3：Mg&gt;Na&gt;Al$ （美那里）</p>
+</blockquote>
+<blockquote>
+<p>[ 2021 福建 ] $\ce{N、O、S}$ 的第一电离能（$I_1$）大小为 $I_1(\ce{N})&gt;I_1(\ce{O})&gt;I_1(\ce{S})$，原因是？</p>
+<blockquote>
+<p>$\ce{N}$ 原子$2p$轨道半充满，比相邻的 $\ce{O}$ 原子更稳定更难失电子</p>
+<p>$\ce{O、S}$ 同主族，（随着原子序数增大，电子层数逐渐增多），$\ce{S}$ 原子半径大于 $\ce{O}$ 原子半径，（原子核对核外电子的有效吸引力作用逐渐减弱），更易失电子</p>
+</blockquote>
+<p><strong>总结</strong>：论证第一电离能变化规律，首先考虑半充满、全充满稳定结构失电子，其次考虑原子半径对核外电子的吸引力作用。</p>
+</blockquote>
+<h2 id="元素的电负性"><a href="#元素的电负性" class="headerlink" title="元素的电负性"></a>元素的电负性</h2><h3 id="有关概念与意义"><a href="#有关概念与意义" class="headerlink" title="有关概念与意义"></a>有关概念与意义</h3><ul>
+<li><p><strong>键合电子</strong>：元素相互化合时，原子中用于形成  <strong>化学键</strong>  的电子称为  <strong>键合电子</strong>  </p>
+</li>
+<li><p><strong>电负性</strong>：用来描述不同元素的原子对键合电子 <strong>吸引力</strong> 的大小。电负性越 <strong>大</strong> 的原子，对键合电子的吸引力越 <strong>大</strong></p>
+</li>
+<li><p><strong>电负性大小的标准</strong>：以 $F$ 的电负性为 $4.0$ 和 $Li$ 的电负性为 $1.0$ 作为相对标准</p>
+</li>
+</ul>
+<h3 id="递变规律"><a href="#递变规律" class="headerlink" title="递变规律"></a>递变规律</h3><ol>
+<li><p><strong>同周期</strong>，自左到右，元素的电负性逐渐  <strong>增大</strong>  ，元素的非金属性逐渐  <strong>增强</strong> 、金属性逐渐  <strong>减弱</strong>  </p>
+</li>
+<li><p><strong>同主族</strong>，自上到下，元素的电负性逐渐  <strong>减小</strong> ，元素的金属性逐渐  <strong>增强</strong> 、非金属性逐渐  <strong>减弱</strong></p>
+</li>
+</ol>
+<p><strong>电负性顺序：$$F(4.0)&gt;O&gt;N、Cl&gt;Br&gt;I、S、C&gt;P、H&gt;类金属（B、Si、Ge）&gt;金属$$</strong></p>
+<img title="" src="images\5.3.png"  data-align="inline" width="240">
+
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>   判断元素的金属性和非金属性强弱</p>
+<ol>
+<li><p>**金属的电负性一般小于 $1.8$，非金属的电负性一般大于 $1.8$**，而位于非金属三角区边界的「类金属」（如锗、锑）的电负性则在 $1.8$ 左右，它们既有金属性，又有非金属性</p>
+</li>
+<li><p>金属元素的电负性  <strong>越小</strong>  ，金属元素越活泼；非金属元素的电负性  <strong>越大</strong> ，非金属元素越活泼</p>
+</li>
+<li><p>电负性可以判断化学键的类型</p>
+<p>$$两成键元素间电负性差值   \begin{cases}<br>大于1.7  &amp; \begin{split}<br>    \ &amp; 通常形成离子键 \<br>    &amp; 相应的化合物为离子化合物<br>\end{split} \<br>小于1.7 &amp; \begin{split}<br>    \ &amp; 通常形成共价键 \<br>    &amp; 相应的化合物为共价化合物<br>\end{split} \<br>\end{cases}$$</p>
+<blockquote>
+<p>如 $H$ 的电负性为 $2.1$ ，$Cl$ 的电负性为 $3.0$ ，$Cl$ 的电负性与 $H$ 的电负性之差为 $3.0－2.1＝0.9&lt;1.7$，故 $HCl$ 为共价化合物；</p>
+<p>如 $Al$ 的电负性为 $1.5$ ，$Cl$ 的电负性与 $Al$ 的电负性之差为 $3.0－1.5＝1.5&lt;1.7$，因此 $AlCl_3$ 为共价化合物；</p>
+<p>同理，$BeCl_2$ 也是共价化合物</p>
+<p>例外：$H$ 的电负性为 $2.1$ ，$F$ 的电负性为 $4.4$，虽然 $HF$ 的电负性差值大于 $1.7$ ，但仍然形成共价键，是共价化合物 </p>
+</blockquote>
+</li>
+<li><p>电负性可以判断化合物中元素的化合价</p>
+<ol>
+<li>电负性数值 <strong>小</strong> 的元素在化合物中吸引电子的能力 <strong>弱</strong> ，元素的化合价为 <strong>正值</strong> </li>
+<li>电负性数值 <strong>大</strong> 的元素在化合物中吸引电子的能力 <strong>强</strong> ，元素的化合价为 <strong>负值</strong></li>
+</ol>
+<blockquote>
+<p>已知：电负性 $\ce{Cl &gt; H &gt; Si}$</p>
+<p>所以在 $\ce{SiHCl}$ 中，$\ce{Si:+4;H:-1;Cl:-1}$</p>
+</blockquote>
+</li>
+<li><p>电负性可以比较极性的大小<br>电负性相差越大，共价键的极性也就越大</p>
+</li>
+</ol>
+<h2 id="对角线规则"><a href="#对角线规则" class="headerlink" title="对角线规则"></a>对角线规则</h2><p>「对角线」规则又称斜线关系，指元素周期表中某一元素及其化合物的性质与它左上方或右下方的另一元素及其化合物的性质相类似。在第$2、3$周期中，<strong>具有典型「对角线」规则的元素有三对：锂与镁，铍与铝，硼与硅</strong>。有人从元素的电负性值相近解释「对角线」规则：锂$1.0$、镁$1.2$；铍$1.5$、铝$1.5$；硼$2.0$、硅$1.8$</p>
+<img title="" src="images\5.4.png"  data-align="inline" width="150">
+
+<blockquote>
+<ol>
+<li>锂和镁的相似性：<ol>
+<li>在氧气中燃烧生成氧化物，而其他碱金属则易生成过氧化物、超氧化物</li>
+<li>能直接与氮作用，生成氮化物 $Li_3N$ 、 $Mg_3N_2$ ，而其他碱金属不与氮直接反应</li>
+<li>氟化物、碳酸盐、磷酸盐都难溶于水，而其他碱金属的相应盐易溶于水等</li>
+</ol>
+</li>
+<li>铍和铝的相似性：<ol>
+<li>单质在冷的浓硝酸中钝化</li>
+<li>氧化物、氢氧化物都有两性</li>
+<li>氯化物都是共价化合物，易汽化，能升华，能溶于有机溶剂等</li>
+</ol>
+</li>
+<li>硼和硅的相似性：<ol>
+<li>硼和硅的密度分别为 $2.35g \cdot cm^{-3}$ 和 $2.336g \cdot cm^{-3}$ ,两者相近</li>
+<li>硼和硅的简单气态氢化物都能直接被氧气氧化</li>
+<li>最高价氧化物的水化物都是弱酸等</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<h2 id="原子半径"><a href="#原子半径" class="headerlink" title="原子半径"></a>原子半径</h2><h3 id="影响原子半径大小的因素"><a href="#影响原子半径大小的因素" class="headerlink" title="影响原子半径大小的因素"></a>影响原子半径大小的因素</h3><p>原子半径的大小取决于两个相反的因素：<strong>电子的能层数</strong> 和 <strong>核电荷数</strong></p>
+<ol>
+<li>电子的能层数：电子的能层越多，电子之间的  <strong>排斥</strong>  作用使原子半径  <strong>增大</strong>  </li>
+<li>核电荷数：核电荷数越  <strong>大</strong> ，核对电子的吸引作用就越  <strong>大</strong>  ，使原子半径  <strong>减小</strong></li>
+</ol>
+<h3 id="原子半径的递变规律"><a href="#原子半径的递变规律" class="headerlink" title="原子半径的递变规律"></a>原子半径的递变规律</h3><img title="" src="images\5.1.png"  data-align="inline" width="260">
+
+<p>总结： 同周期由左至右，原子半径减小；同主族由上至下，原子半径增大</p>
+<blockquote>
+<p>特别：$r_{Li}&gt;r_{Al、Si、P、S、Cl}$</p>
+</blockquote>
+<h3 id="原子或离子半径的比较方法"><a href="#原子或离子半径的比较方法" class="headerlink" title="原子或离子半径的比较方法"></a>原子或离子半径的比较方法</h3><ol>
+<li><p><strong>同种元素的离子半径</strong>：阴离子 <strong>大于</strong>  原子，原子  <strong>大于</strong>  阳离子，低价阳离子  <strong>大于</strong>  高价阳离子。例：<br> $$r(Cl^－)＞r(Cl)，r(Fe)＞r(Fe^{2＋})＞r(Fe^{3＋})$$</p>
+</li>
+<li><p><strong>能层结构相同的离子</strong>：核电荷数越大 ，半径越 <strong>小</strong> 。例：<br>$$r(O^{2－})＞r(F^－)＞r(Na^＋)＞r(Mg^{2＋})＞r(Al^{3＋})$$</p>
+</li>
+<li><p><strong>带相同电荷的离子</strong>：能层数越 <strong>多</strong> ，半径越 <strong>大</strong> 。例：<br>$$\begin{split}<br>\ &amp; r(Li^＋)＜r(Na^＋)＜r(K^＋) \<br>&amp; r(Rb^＋)＜r(Cs^＋)，r(O^{2－})＜r(S^{2－}) ＜ (Se^{2－})＜r(Te^{2－})<br>\end{split}$$</p>
+</li>
+<li><p><strong>核电荷数、能层数均不同的离子</strong>：可选一种离子参照比较。例：<br>比较 $r(K^＋)$ 与 $r(Mg^{2＋})$，可选 $r(Na^＋)$ 为参照，$r(K^＋)  ＞  r(Na^＋)  ＞  r(Mg^{2＋})$</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>解题技巧：粒子半径比较的一般思路</strong></p>
+<ol>
+<li>「一层」：先看能层数，能层数越  <strong>多</strong>  ，一般微粒半径越  <strong>大</strong>  </li>
+<li>「二核」：若能层数相同，则看核电荷数，核电荷数越  <strong>大</strong>  ，微粒半径越  <strong>小</strong>  </li>
+<li>「三电子」：若能层数、核电荷数均相同，则看核外电子数，电子数  <strong>多</strong>  的半径  <strong>大</strong></li>
+</ol>
+</blockquote>
+<h2 id="元素周期律的综合应用"><a href="#元素周期律的综合应用" class="headerlink" title="元素周期律的综合应用"></a>元素周期律的综合应用</h2><table>
+        <tr>
+            <th colspan="2">性质</th>
+            <th>同一周期（从左至右）</th>
+            <th>同一主族（从上至下）</th>
+        </tr>
+        <tr>
+            <th rowspan="2">核外电子的排布</th>
+            <th>能层数</th>
+            <th>相同</th>
+            <th>增加</th>
+        </tr>
+        <tr>
+            <th>最外层电子数</th>
+            <th>1 → 2或8</th>
+            <th>相同</th>
+        </tr>
+        <tr>
+            <th colspan="2">金属性</th>
+            <th>减弱</th>
+            <th>增强</th>
+        </tr>
+        <tr>
+            <th colspan="2">非金属性</th>
+            <th>增强</th>
+            <th>减弱</th>
+        </tr>
+        <tr>
+            <th rowspan="2">单质的氧化性、还原性</th>
+            <th>氧化性</th>
+            <th>增强</th>
+            <th>减弱</th>
+        </tr>
+        <tr>
+            <th>还原性</th>
+            <th>减弱</th>
+            <th>增强</th>
+        </tr>
+        <tr>
+            <th rowspan="2">最高价氧化物对应水化物的酸性</th>
+            <th>酸性</th>
+            <th>增强</th>
+            <th>减弱</th>
+        </tr>
+        <tr>
+            <th>碱性</th>
+            <th>减弱</th>
+            <th>增强</th>
+        </tr>
+        <tr>
+            <th colspan="2">气态氢化物的稳定性</th>
+            <th>增强</th>
+            <th>减弱</th>
+        </tr>
+        <tr>
+            <th colspan="2">第一电离能</th>
+            <th>增强（存在例外）</th>
+            <th>减弱</th>
+        </tr>
+        <tr>
+            <th colspan="2">电负性</th>
+            <th>增强</th>
+            <th>减弱</th>
+        </tr>
+    </table>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

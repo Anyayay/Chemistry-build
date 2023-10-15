@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>原子结构与元素性质 · 二 · 「构造原理、泡利原理、洪特规则」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>原子结构与元素性质 · 二 · 「构造原理、泡利原理、洪特规则」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="原子轨道"><a href="#原子轨道" class="headerlink" title="原子轨道"></a>原子轨道</h2><img title="" src="images/2.1.png"  width="250" data-align="left">
+
+<p>对每个 $n$ 值而言：</p>
+<ul>
+<li><p>有 <strong>$n$</strong> 种能级</p>
+</li>
+<li><p>有 $n^2$ 个原子轨道</p>
+</li>
+<li><p>最多可容纳 $2n^2$ 个 $e^-$</p>
+</li>
+</ul>
+<h2 id="构造原理"><a href="#构造原理" class="headerlink" title="构造原理"></a>构造原理</h2><p><strong>构造原理（aufbau principle）</strong>：从氢开始，随核电荷数递增，新增电子填入能级的顺序称为构造原理。</p>
+<img title="" src="images/2.2.png"  width="200">
+
+<p><strong>顺序</strong> ：$1s - 2s - 2p - 3s -  3p - 4s - 3d - 4p - 5s - 4d - 5p - 6s - …$</p>
+<p>${\displaystyle E_{1l}&lt;E_{2l}&lt;E_{3l}&lt;…&lt;E_{nl}}$</p>
+<p>${\displaystyle E_{ns}&lt;E_{np}&lt;E_{nd}&lt;E_{nf}}$</p>
+<p>${\displaystyle E_{ns}&lt;E_{(n-2)f}&lt;E_{(n-1)d}&lt;E_{np}}$</p>
+<p>我们把第三个不等式中涉及到的能级组成的集合称为能级组。</p>
+<table>
+<thead>
+<tr>
+<th>能级组序号</th>
+<th>一</th>
+<th>二</th>
+<th>三</th>
+<th>四</th>
+<th>五</th>
+<th>六</th>
+<th>七</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>能级</strong></td>
+<td>$1s$</td>
+<td>$2s$ $2p$</td>
+<td>$3s$ $3p$</td>
+<td>$4s$ $3d$ $4p$</td>
+<td>$5s$ $4d$ $5p$</td>
+<td>$6s$ $4f$ $5d$ $6p$</td>
+<td>$7s$ $5f$ $6d$ $7p$</td>
+</tr>
+<tr>
+<td><strong>最大电子容纳量</strong></td>
+<td>$2$</td>
+<td>$8$</td>
+<td>$8$</td>
+<td>$18$</td>
+<td>$18$</td>
+<td>$32$</td>
+<td>$32$</td>
+</tr>
+</tbody></table>
+<h2 id="泡利不相容原理"><a href="#泡利不相容原理" class="headerlink" title="泡利不相容原理"></a>泡利不相容原理</h2><p><strong>泡利原理</strong>：在一个原子轨道里，最多只能容纳  <strong>2</strong>  个电子，它们的自旋  <strong>相反</strong> ，常用上下箭头( ↑ 和 ↓ )表示自旋相反的  <strong>电子</strong>  </p>
+<blockquote>
+<p>$_8O$ 的轨道表示式如下：</p>
+<p>$$<br>_8O \qquad \frac{↑↓}{1s} \quad \frac{↑↓}{2s} \quad \frac{↑↓!\quad↑↓!\quad↑↓!\quad}{2p}<br>$$</p>
+<ul>
+<li>简并轨道： <strong>能量</strong> 相同的原子轨道</li>
+<li>电子对：同一个原子轨道中，自旋方向  <strong>相反</strong>  的一对电子</li>
+<li>单电子：一个原子轨道中若只有一个电子，则该电子称为单电子</li>
+<li>自旋平行：<strong>箭头同向</strong>  的单电子称为自旋平行</li>
+<li>在氧原子中，有  <strong>3</strong>  对电子对，有  <strong>2</strong>  个单电子</li>
+<li>在氧原子中，有  <strong>5</strong>  种<em>空间运动状态</em>，有  <strong>8</strong>  种<em>运动状态不同</em>的电子</li>
+</ul>
+</blockquote>
+<h2 id="洪特规则"><a href="#洪特规则" class="headerlink" title="洪特规则"></a>洪特规则</h2><ol>
+<li>内容：基态原子中，填入  <strong>简并轨道</strong>  的电子总是先单独分占，且自旋平行</li>
+<li>特例：在简并轨道上的电子排布处于全充满、半充满和全空状态时，具有  <strong>较低</strong> 的能量和  <strong>较大</strong> 的稳定性</li>
+</ol>
+<p>$$相对稳定的状态   \begin{cases}<br>全充满&amp; s^2,p^6,d^{10},f^{14} \<br>半充满&amp; s^1,p^3,d^{5},f^{7}\<br>全空&amp; s^0,p^0,d^{0},f^{0} \<br>\end{cases}$$</p>
+<blockquote>
+<p>$<em>{24}Cr$ 的电子排布式为  $[Ar]3d^54s^1$  ，为半充满状态，易错写为 $[Ar]3d^44s^2$<br>$</em>{29}Cu$ 的电子排布式为  $[Ar]3d^{10}4s^1$  ，为全充满状态，易错写为 $[Ar]3d^94s^2$</p>
+</blockquote>
+<blockquote>
+<ol>
+<li><p>基态原子：处于<strong>最低能量</strong>状态的原子</p>
+</li>
+<li><p>激发态原子：基态原子<strong>吸收能量</strong>，它的电子会跃迁到<strong>较高能级</strong>，变成<strong>激发态原子</strong></p>
+</li>
+</ol>
+</blockquote>
+<h2 id="能量最低原理"><a href="#能量最低原理" class="headerlink" title="能量最低原理"></a>能量最低原理</h2><ol>
+<li>内容：在构建基态原子时，电子将尽可能地占据  <strong>能量最低</strong>  的原子轨道，使整个原子的能量最  <strong>低</strong> </li>
+<li>因素：整个原子的能量由  <strong>核电荷数</strong>  、  <strong>电子数</strong>  和  <strong>电子状态</strong>  三个因素共同决定</li>
+</ol>
+<h2 id="原子光谱"><a href="#原子光谱" class="headerlink" title="原子光谱"></a>原子光谱</h2><img title="" src="images/2.4.png"  width="300">
+
+<h3 id="焰色反应"><a href="#焰色反应" class="headerlink" title="焰色反应"></a>焰色反应</h3><p>物理反应，进行焰色反应应使用<strong>铂丝</strong>（镍丝、无锈铁丝）。把嵌在玻璃棒上的金属丝在<strong>稀盐酸</strong>里蘸洗后，放在酒精灯的火焰里灼烧，不同金属元素会使火焰变为各种颜色，这便是焰色反应。焰色反应的形成与原子光谱有关</p>
+<p>详见 <a href="../06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/01%20%E9%92%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9.md">06 元素及其化合物 - 01 钠及其化合物</a></p>
+<h3 id="光谱分析"><a href="#光谱分析" class="headerlink" title="光谱分析"></a>光谱分析</h3><p>在现代化学中，常利用原子光谱上的  <strong>特征谱线</strong>  来鉴定元素，称为光谱分析</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

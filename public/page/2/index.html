@@ -1,0 +1,2984 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hexo</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+</div>
+<div id="home-posts-wrap" true ref="homePostsWrap">
+    <div id="home-posts">
+        
+
+<div class="post">
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/06%20%E5%8C%96%E5%AD%A6%E5%B8%B8%E8%AF%86/">
+        <h2 class="post-title">化学物质基本概念 · 六 · 「化学常识」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="物质俗名"><a href="#物质俗名" class="headerlink" title="物质俗名"></a>物质俗名</h2><table>
+<thead>
+<tr>
+<th>物质</th>
+<th>俗名</th>
+<th>物质</th>
+<th>俗名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生石灰</td>
+<td>$\ce{CaO}$</td>
+<td>刚玉</td>
+<td>$\ce{Al2O3}$</td>
+</tr>
+<tr>
+<td>石灰乳&#x2F;石灰水&#x2F;消石灰&#x2F;熟石灰</td>
+<td>$\ce{Ca(OH)2}$</td>
+<td>漂白粉</td>
+<td>$\ce{Ca(ClO)2 +CaCl2}$</td>
+</tr>
+<tr>
+<td>石灰石&#x2F;大理石</td>
+<td>$\ce{CaCO3}$</td>
+<td>84消毒液</td>
+<td>$\ce{NaClO +NaCl2}$</td>
+</tr>
+<tr>
+<td>碱石灰</td>
+<td>$\ce{CaO +NaOH +KOH}$</td>
+<td>草木灰</td>
+<td>$\ce{K2CO3}$</td>
+</tr>
+<tr>
+<td>苏打&#x2F;纯碱</td>
+<td>$\ce{Na2CO3}$</td>
+<td>电石</td>
+<td>$\ce{CaC2}$</td>
+</tr>
+<tr>
+<td>小苏打</td>
+<td>$\ce{NaHCO3}$</td>
+<td>冰晶石</td>
+<td>$\ce{Na3AlF6}$</td>
+</tr>
+<tr>
+<td>烧碱</td>
+<td>$\ce{NaOH}$</td>
+<td>铁锈</td>
+<td>$\ce{Fe2O3 \cdot xH2O}$</td>
+</tr>
+<tr>
+<td>胆矾</td>
+<td>$\ce{CuSO4 \cdot 5H2O}$</td>
+<td>铜锈&#x2F;铜绿</td>
+<td>$\ce{Cu2(OH)2CO3}$</td>
+</tr>
+<tr>
+<td>绿矾</td>
+<td>$\ce{FeSO4 \cdot 7H2O}$</td>
+<td>王水</td>
+<td>$\ce{3HNO3 +H2SO4}$</td>
+</tr>
+<tr>
+<td>明矾</td>
+<td>$\ce{KAl(SO4)2 \cdot 12H2O}$</td>
+<td>可燃冰</td>
+<td>$\ce{CH4 + H2O}$。</td>
+</tr>
+<tr>
+<td>石膏</td>
+<td>$\ce{CaSO4 \cdot 2H2O}$</td>
+<td>水煤气</td>
+<td>$\ce{H2 + CO}$</td>
+</tr>
+<tr>
+<td>热石膏</td>
+<td>$\ce{2CaSO4 \cdot H2O}$</td>
+<td>合成气</td>
+<td>$\ce{2H2 + CO}$</td>
+</tr>
+<tr>
+<td>重晶石</td>
+<td>$\ce{BaSO4}$</td>
+<td>黄铜矿</td>
+<td>$\ce{CuFeS2}$</td>
+</tr>
+<tr>
+<td>芒硝&#x2F;朴硝</td>
+<td>$\ce{Na2SO4 \cdot 10H2O}$</td>
+<td>倭铅</td>
+<td>$\ce{Pb3O4}$</td>
+</tr>
+<tr>
+<td>石英&#x2F;脉石</td>
+<td>$\ce{SiO2}$</td>
+<td>朱砂</td>
+<td>$\ce{HgS}$</td>
+</tr>
+<tr>
+<td>硅胶</td>
+<td>$\ce{SiO2 \cdot xH2O}$</td>
+<td>硝石</td>
+<td>$\ce{KNO3}$</td>
+</tr>
+<tr>
+<td>泡花碱</td>
+<td>$\ce{Na2SiO3}$</td>
+<td>硇水</td>
+<td>$\ce{As2O3}$</td>
+</tr>
+<tr>
+<td>水玻璃</td>
+<td>$\ce{Na2SiO3}$</td>
+<td>黑火药</td>
+<td>$\ce{S +2KNO3 +3C}$</td>
+</tr>
+</tbody></table>
+<h2 id="特殊物质的用途"><a href="#特殊物质的用途" class="headerlink" title="特殊物质的用途"></a>特殊物质的用途</h2><table>
+<thead>
+<tr>
+<th>特殊物质</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>干冰、$\ce{AgI}$晶体</td>
+<td>人工降雨剂</td>
+</tr>
+<tr>
+<td>$\ce{AgBr}$</td>
+<td>感光剂</td>
+</tr>
+<tr>
+<td>$\ce{K-Na}$合金</td>
+<td>原子反应堆导热剂</td>
+</tr>
+<tr>
+<td>$\ce{NaHCO3}$、$\ce{Al(OH)3}$</td>
+<td>治疗胃酸过多</td>
+</tr>
+<tr>
+<td>$\ce{NaHCO3}$</td>
+<td>作发酵粉</td>
+</tr>
+<tr>
+<td>明矾</td>
+<td>净水剂</td>
+</tr>
+<tr>
+<td>$\ce{BaSO4}$</td>
+<td>钡餐</td>
+</tr>
+<tr>
+<td>$\ce{SO2}$</td>
+<td>漂白剂、防腐剂</td>
+</tr>
+<tr>
+<td>$\ce{Ca(OCl)2}$</td>
+<td>消毒、杀菌漂白</td>
+</tr>
+<tr>
+<td>$\ce{Na2O2}$</td>
+<td>供氧剂、漂白剂</td>
+</tr>
+<tr>
+<td>$\ce{H2O2}$</td>
+<td>氧化剂、漂白剂、消毒剂</td>
+</tr>
+<tr>
+<td>$\ce{O3}$</td>
+<td>漂白剂、杀菌剂、吸收紫外线</td>
+</tr>
+<tr>
+<td>石膏</td>
+<td>水泥硬化调节剂</td>
+</tr>
+<tr>
+<td>苯酚</td>
+<td>消毒剂</td>
+</tr>
+<tr>
+<td>$\ce{Na2SiO3}$溶液</td>
+<td>黏合剂、防火剂</td>
+</tr>
+<tr>
+<td>乙烯</td>
+<td>催熟剂、有机合成基础材料</td>
+</tr>
+<tr>
+<td>维生素C</td>
+<td>抗氧化剂</td>
+</tr>
+<tr>
+<td>$\ce{SiO2}$</td>
+<td>光导纤维</td>
+</tr>
+<tr>
+<td>$\ce{Si}$</td>
+<td>半导体、太阳能电池</td>
+</tr>
+<tr>
+<td>$\ce{Na2FeO4}$</td>
+<td>杀菌净水剂</td>
+</tr>
+<tr>
+<td>硅胶</td>
+<td>干燥剂</td>
+</tr>
+<tr>
+<td>$\ce{Fe}$粉</td>
+<td>抗氧化剂</td>
+</tr>
+</tbody></table>
+<h2 id="物质颜色"><a href="#物质颜色" class="headerlink" title="物质颜色"></a>物质颜色</h2><h3 id="焰色反应"><a href="#焰色反应" class="headerlink" title="焰色反应"></a>焰色反应</h3><p>$\ce{Li}$：紫红色</p>
+<p>$\ce{Na}$：黄色</p>
+<p>$\ce{K}$：紫色</p>
+<p>$\ce{Cu}$：绿色</p>
+<p>$\ce{Ba}$：（黄）绿色</p>
+<h3 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h3><p>$\ce{H2}$与$\ce{C2}$点燃：苍白色火焰</p>
+<p>$\ce{Na}$与$\ce{Cl2}$反应：黄色火焰&#x2F;白烟</p>
+<p>$\ce{Cu}$与$\ce{Cl2}$反应：棕黄色烟</p>
+<p>$\ce{Fe}$与$\ce{Cl2}$反应：棕褐色烟</p>
+<h3 id="铁"><a href="#铁" class="headerlink" title="铁"></a>铁</h3><p>$\ce{Fe}$粉：黑色</p>
+<p>$\ce{FeO}$：黑色</p>
+<p>$\ce{Fe2O3}$：红棕色</p>
+<p>$\ce{Fe3O4}$：黑色</p>
+<p>$\ce{Fe(OH)2}$：白色</p>
+<p>$\ce{Fe(OH)3}$：红褐色</p>
+<p>$\ce{Fe(OH)2}$，在空气中迅速被氧化：白色沉淀，迅速灰绿，最终红褐</p>
+<p>$\ce{Fe^{3+}}$：（棕）黄色</p>
+<p>$\ce{Fe^{2+}}$：浅绿色</p>
+<p>检验$\ce{Fe^{2+}}$：加入$\ce{KFe(CN)6}$→蓝色沉淀</p>
+<p>检验$\ce{Fe^{3+}}$：加入$\ce{KSCN}$→（血）红色溶液</p>
+<h3 id="卤素"><a href="#卤素" class="headerlink" title="卤素"></a>卤素</h3><p>$\ce{F2}$：淡黄绿色（气体）</p>
+<p>$\ce{Cl2}$：黄绿色（气体）</p>
+<p>$\ce{Br2}$：深红棕色（液体）</p>
+<p>$\ce{I2}$：紫黑色（固体）</p>
+<p>氯水：浅黄绿色</p>
+<p>溴水：橙黄色</p>
+<p>碘水：黄色</p>
+<p>溴的四氯化碳（或苯）溶液：橙色</p>
+<p>碘的四氯化碳（或苯）溶液：紫色</p>
+<p>$\ce{AgCl}$：白色沉淀</p>
+<p>$\ce{AgBr}$：淡黄色沉淀</p>
+<p>$\ce{AgI}$：黄色沉淀</p>
+<h3 id="红"><a href="#红" class="headerlink" title="红"></a>红</h3><p>紫红色：单质$\ce{Cu}$</p>
+<p>砖红色：$\ce{Cu2O}$、$\ce{Ag2CrO4}$</p>
+<p>红棕色：气体$\ce{NO2}$、液体$\ce{Br2}$、固体$\ce{Fe2O3}$</p>
+<p>红褐色：$\ce{Fe(OH)3}$、$\ce{Fe(OH)3}$胶体</p>
+<p>（血）红色溶液：$\ce{Fe^{3+}}$溶液中加入$\ce{KSCN}$</p>
+<p>粉红色：苯酚放置时间较长被氧化</p>
+<h3 id="橙"><a href="#橙" class="headerlink" title="橙"></a>橙</h3><p>$\ce{Cr2O7}$溶液：橙色</p>
+<p>$\ce{Br2}$在水中显橙黄色，在$\ce{CCl4}$（或苯）中显橙红色</p>
+<h3 id="黄"><a href="#黄" class="headerlink" title="黄"></a>黄</h3><p>谈黄鱼固体：$\ce{S}$、$\ce{Na2O2}$、$\ce{AgBr}$</p>
+<p>黄色固体（沉淀）：$\ce{AgI}$</p>
+<p>$\ce{CrO4^2-}$溶液：黄色</p>
+<p>$\ce{Na}$元素的焰色：黄色</p>
+<p>黄蛋白实验：带有苯环的蛋白质与浓硝酸混合加热呈现黄色</p>
+<h3 id="绿"><a href="#绿" class="headerlink" title="绿"></a>绿</h3><p>$\ce{Cu(OH)2}$：铜绿、铜锈</p>
+<p>$\ce{CoSO4·7H2O}$：绿矾、青矾</p>
+<p>$\ce{Fe5O4}$水溶液($\ce{Fe^{2+}}$溶液)：浅绿色溶液</p>
+<p>$\ce{F2}$：浅黄绿色气体</p>
+<p>$\ce{Cl2}$：黄绿色气体</p>
+<h3 id="蓝"><a href="#蓝" class="headerlink" title="蓝"></a>蓝</h3><p>淀粉+$\ce{I2}$：蓝色</p>
+<p>$\ce{Cu(OH)2}$：蓝色固体（蓝色沉淀）</p>
+<p>$\ce{CuSO4·5H2O}$：蓝色晶体</p>
+<p>$\ce{CuSO4}$水溶液：（天）蓝色</p>
+<p>$[\ce{Cu(NH3)4}]$$\ce{SO4·5H2O}$：深蓝色晶体</p>
+<h3 id="紫"><a href="#紫" class="headerlink" title="紫"></a>紫</h3><p>紫黑色固体：$\ce{I2}$、$\ce{KMnO4}$</p>
+<p>$\ce{I2}$溶于$\ce{CCl4}$（或是苯）：紫色</p>
+<p>$\ce{KMnO4}$溶液：紫色溶液</p>
+<p>$\ce{K}$元素的焰色：紫色（透过蓝色钴玻璃）</p>
+<p>苯酚与$\ce{FeCl3}$溶液反应：显紫色</p>
+<h3 id="黑"><a href="#黑" class="headerlink" title="黑"></a>黑</h3><p>$\ce{MnO2}$、$\ce{Fe}$粉、$\ce{FeO}$、$\ce{Fe3O4}$、$\ce{CuO}$、$\ce{C}$</p>
+<h3 id="白"><a href="#白" class="headerlink" title="白"></a>白</h3><p>$\ce{BaSO4}$、$\ce{PbSO4}$、$\ce{CaSO4}$、$\ce{AgCl}$、$\ce{CaCO3}$、$\ce{BaCO3}$、$\ce{CaSO3}$、$\ce{BaSO3}$、$\ce{Na2CO3}$、$\ce{NaHCO3}$、$\ce{Mg(OH)2}$、$\ce{Al(OH)3}$、$\ce{Fe(OH)2}$、$\ce{H2SiO3}$、三溴苯酚</p>
+<h3 id="酸碱指示剂"><a href="#酸碱指示剂" class="headerlink" title="酸碱指示剂"></a>酸碱指示剂</h3><p>酚酞：无色$\ce{&lt;-8.2-}$ 淡红 $\ce{ -10.0-&gt;}$红</p>
+<p>石蕊：红色$\ce{&lt;-5-}$ 紫 $\ce{ -8-&gt;}$蓝</p>
+<p>甲基橙：红色$\ce{&lt;-3.1-}$ 橙 $\ce{ -4.4-&gt;}$黄</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/06%20%E5%8C%96%E5%AD%A6%E5%B8%B8%E8%AF%86/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/02%20%E7%89%A9%E8%B4%A8%E7%9A%84%E8%AE%A1%E9%87%8F/">
+        <h2 class="post-title">化学物质基本概念 · 二 · 「物质的计量」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="物质的量-及其相关概念"><a href="#物质的量-及其相关概念" class="headerlink" title="物质的量 及其相关概念"></a>物质的量 及其相关概念</h2><h3 id="物质的量-n"><a href="#物质的量-n" class="headerlink" title="物质的量 $n$"></a>物质的量 $n$</h3><ol>
+<li>符号：$n$</li>
+<li>单位：$\ce{mol}$（摩尔）</li>
+<li>使用范围：适用于微观粒子或微观粒子的特定组合</li>
+<li>阿伏伽德罗常数：指一摩尔任何粒子的粒子数，符号为 $N_A$ ， $N_A\approx 6.02\times10^{23} \ce{mol^{-1}}$ </li>
+<li>公式：$n&#x3D;\dfrac{N}{N_A}$</li>
+</ol>
+<blockquote>
+<p>$\ce{3mol\space CO2}$ 有 $9N_A$ 个原子</p>
+</blockquote>
+<h3 id="摩尔质量-M"><a href="#摩尔质量-M" class="headerlink" title="摩尔质量 $M$"></a>摩尔质量 $M$</h3><ol>
+<li><p>定义：单位物质的量的物质所具有的质量</p>
+</li>
+<li><p>符号：$M$</p>
+</li>
+<li><p>单位：$g&#x2F;\ce{mol}\space(g\cdot\ce{mol^{-1}})$</p>
+</li>
+<li><p>数值：摩尔质量以 $g&#x2F;\ce{mol}$ 为单位时，在数值上等于该粒子的相对原子质量或相对分子质量</p>
+<blockquote>
+<p>$\ce{H2O}$ 的相对分子质量为 $18$（单位为「1」），$\ce{H2O}$ 的摩尔质量为 $18\space g&#x2F;\ce{mol}$</p>
+</blockquote>
+</li>
+<li><p>物质的量、质量、摩尔质量的关系：$n&#x3D;\dfrac{m}{M}$</p>
+</li>
+</ol>
+<h3 id="气体摩尔体积-V-m"><a href="#气体摩尔体积-V-m" class="headerlink" title="气体摩尔体积 $V_m$"></a>气体摩尔体积 $V_m$</h3><ol>
+<li>定义：单位物质的量的气体所占的体积</li>
+<li>符号：$V_m$</li>
+<li>单位：$L&#x2F;\ce{mol}\space(L\cdot\ce{mol^{-1}})$</li>
+<li>公式：$V_m&#x3D;\dfrac{V}{n}$</li>
+<li>气体摩尔体积与气体所处的<strong>温度</strong>与<strong>压强</strong>有关</li>
+<li>在标准状况下（$0\ce{°C}、101\ce{kPa}$）气体的摩尔体积约为 $22.4L&#x2F;\ce{mol}$<ol>
+<li>在标况下，$\ce{1mol}$ 任何气体的体积都为 $22.4L$</li>
+<li>使用时，物质的聚集状态一定为<strong>气体</strong>（可以是混合气），但条件必须为<strong>标准状况</strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="物质的量浓度-c"><a href="#物质的量浓度-c" class="headerlink" title="物质的量浓度 $c$"></a>物质的量浓度 $c$</h3><ol>
+<li>定义：一定温度、压强下，单位溶液中所含溶质的量的多少</li>
+<li>符号：$c$</li>
+<li>单位：$\ce{mol}&#x2F;L\space(\ce{mol}\cdot L^{-1})$</li>
+<li>公式：$c&#x3D;\dfrac{n}{V}$</li>
+</ol>
+<blockquote>
+<p>物质的量 及其相关概念 常见错误</p>
+<ol>
+<li>[×] 摩尔是化学上常用的一个物理量：摩尔是单位</li>
+<li>[×] $\ce{1mol}$ 水含有 $\ce{2mol}$ 氢 和 $\ce{1mol}$ 氧：没有明确粒子的种类</li>
+<li>[×] $\ce{1mol}$ 任何物质都含有 $6.02\times10^{23}$ 个分子：物质不一定都由分子构成</li>
+<li>[×] $\ce{2mol\space H2O}$ 是 $\ce{1mol\space H2O}$ 摩尔质量的 $2$ 倍：摩尔质量与物质的量无关</li>
+</ol>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/02%20%E7%89%A9%E8%B4%A8%E7%9A%84%E8%AE%A1%E9%87%8F/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/01%20%E7%89%A9%E8%B4%A8%E7%9A%84%E7%BB%84%E6%88%90%E5%92%8C%E5%88%86%E7%B1%BB/">
+        <h2 class="post-title">化学物质基本概念 · 一 · 「物质的组成与分类」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="物质的组成"><a href="#物质的组成" class="headerlink" title="物质的组成"></a>物质的组成</h2><ol>
+<li><p>任何物质都是由 <strong>元素</strong> 组成</p>
+</li>
+<li><p>单质：只由 <strong>一种元素</strong> 组成的 <strong>纯净物</strong></p>
+<p>化合物：由 <strong>多种元素</strong> 组成的 <strong>纯净物</strong></p>
+</li>
+<li><p>元素在物质中的存在形态：</p>
+<ol>
+<li>游离态：元素以 单质 形式存在的状态</li>
+<li>化合态：元素以 化合物 形式存在的状态</li>
+</ol>
+</li>
+<li><p>同素异形体</p>
+<ol>
+<li><p><strong>同种元素</strong> 形成不同 <strong>单质</strong> 称为 同素异形体异形体</p>
+<ol>
+<li>原子个数不同：如 $\ce{O2}$ 和 $\ce{O3}$ </li>
+<li>原子排列方式不同：如金刚石和石墨</li>
+</ol>
+</li>
+<li><p>同素异形体之间的性质差异主要体现在<strong>物理性质</strong>上，他们的化学性质相似</p>
+<p>同素异形体之间的转化属于化学变化</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="物质的分类"><a href="#物质的分类" class="headerlink" title="物质的分类"></a>物质的分类</h2><p>$$<br>物质\begin{cases}<br>纯净物<br>\begin{cases}<br>化合物\begin{cases}<br>有机化合物\<br>无机化合物<br>\end{cases}\<br>单质\begin{cases}<br>金属单质\<br>非金属单质<br>\end{cases}\<br>\end{cases}\<br>混合物:溶液、胶体、浊液\<br>\end{cases}\<br>$$</p>
+<h3 id="混合物"><a href="#混合物" class="headerlink" title="混合物"></a>混合物</h3><p>混合物是由两种或两种以上物质混合而成的物质</p>
+<p>下面列举常见的混合物：</p>
+<ol>
+<li><p>分散系：溶液、胶体、浊液等</p>
+</li>
+<li><p>高分子化合物：蛋白质、纤维素、淀粉、塑料等</p>
+</li>
+<li><p>其他物质：石油及其各种馏分、天然气、油脂、福尔马林、氨水、王水、碱石灰等</p>
+</li>
+</ol>
+<h3 id="纯净物"><a href="#纯净物" class="headerlink" title="纯净物"></a>纯净物</h3><h4 id="单质"><a href="#单质" class="headerlink" title="单质"></a>单质</h4><p>单质是由同一种元素组成的纯净物</p>
+<ol>
+<li>金属单质：例如：$\ce{K、Ca、Na、Mg、Al}$ 等</li>
+<li>非金属单质：例如：$\ce{S、Cl2、He}$ 等</li>
+</ol>
+<blockquote>
+<ol>
+<li>只含一种元素的物质不一定是纯净物。如氧气 $\ce{O2}$ 和臭氧 $\ce{O3}$ 混合得到的物质是混合物。</li>
+<li>同种元素的同位素单质混合得到的物质是纯净物。如氢的同位素氕氘氚组成的双原子分子 $\ce{H2、D2、T2}$ 混合在一起得到的是纯净物</li>
+<li>含水的物质不一定是混合物。如胆矾 $\ce{CuSO4 • 5H2O}$、绿矾 $\ce{FeSO4 • 7H2O}$、明矾 $\ce{KAl(SO4)2 • 12H2O}$ 都是纯净物</li>
+</ol>
+</blockquote>
+<h4 id="化合物"><a href="#化合物" class="headerlink" title="化合物"></a>化合物</h4><p>化合物是由两种或两种以上的元素组成的纯净物</p>
+<h5 id="Ⅰ-氧化物"><a href="#Ⅰ-氧化物" class="headerlink" title="Ⅰ 氧化物"></a>Ⅰ 氧化物</h5><p>氧元素与另外一种化学元素组成的二元化合物叫做氧化物<br>$$<br>氧化物<br>    \begin{cases}<br>    不成盐氧化物:\ce{CO、NO}等\<br>    成盐氧化物<br>        \begin{cases}<br>        碱性氧化物:\ce{Na2O、CaO}等\<br>        酸性氧化物:\ce{CO2、P2O5、Mn2O7}等\<br>        两性氧化物:\ce{Al2O3}等\<br>        \end{cases}\<br>    过氧化物:\ce{Na2O2、H2O2}等\<br>    \end{cases}\<br>$$</p>
+<p>​	<strong>a. 酸性氧化物</strong></p>
+<p>​	酸性氧化物指与水反应生成相应价态的酸，或与碱反应只生成一种相应价态的盐和水的氧化物。例如：$\ce{SO2}$、$\ce{SO3}$、$\ce{P2O5}$、$\ce{SiO2}$、$\ce{Mn2O7}$ 等</p>
+<blockquote>
+<ol>
+<li>酸性氧化物不一定是非金属氧化物。如高锰酸酐 $\ce{Mn2O7}$ 既是酸性氧化物，又是金属氧化物</li>
+<li>非金属氧化物不一定是酸性氧化物。如一氧化碳 $\ce{CO}$、一氧化氮 $\ce{NO}$、二氧化氮 $\ce{NO2}$ 都是不成盐氧化物</li>
+<li>酸性氧化物不一定能与水反应生成相应的酸。如二氧化硅 $\ce{SiO2}$ 不与水反应。能与碱反应生成盐和水的氧化物不一定是酸性氧化物。如二氧化氮 $\ce{NO2}$ 是不成盐氧化物，氧化铝 $\ce{Al2O3}$ 是两性氧化物</li>
+<li>酸性氧化物一定是酸酐，但酸酐不一定是酸性氧化物。如乙酸酐 $\ce{CH3COOOCCH3}$ 含有三种元素，不是氧化物，故不是酸性氧化物</li>
+</ol>
+</blockquote>
+<p>​	<strong>b. 碱性氧化物</strong></p>
+<p>​	碱性氧化物指与水反应生成相应价态的碱，或与酸反应只生成一种相应价态的盐和水的氧化物。例如：$\ce{Na2O}$、$\ce{CaO}$、$\ce{MgO}$、$\ce{FeO}$、$\ce{Fe2O3}$ 等</p>
+<blockquote>
+<ol>
+<li>碱性氧化物一定是金属氧化物，但金属氧化物不一定是碱性氧化物。如高锰酸酐 $\ce{Mn2O7}$ 既是金属氧化物，又是酸性氧化物</li>
+<li>碱性氧化物不一定能与水反应生成相应的碱。如氧化铁 $\ce{Fe2O3}$ 不与水反应</li>
+<li>能与酸反应生成盐和水的氧化物不一定是碱性氧化物。如氧化铝 $\ce{Al2O3}$ 是两性氧化物</li>
+</ol>
+</blockquote>
+<p>​	<strong>c. 两性氧化物</strong></p>
+<p>​	两性氧化物是指既可以与酸反应生成相应价态的盐和水，又可以与碱反应生成相应价态的盐和水的氧化物。例如：$\ce{Al2O3}$、$\ce{PbO}$、$\ce{ZnO}$ 等</p>
+<blockquote>
+<p>双性物质：</p>
+<p>单质：$\ce{Al、Zn、Be}$</p>
+<p>氧化物：$\ce{Al2O3、ZnO、BeO}$</p>
+<p>氢氧化物：$\ce{Al(OH)3、Zn(OH)2、Be(OH)2}$</p>
+<p>盐：弱酸酸式盐</p>
+<p>有机物：氨基酸、蛋白质</p>
+</blockquote>
+<p>​	<strong>d. 不成盐氧化物</strong></p>
+<p>​	与两性氧化物完全相对地，不成盐氧化物是指既不可以与酸反应生成相应价态的盐和水，又不可以与碱反应生成相应价态的盐和水的氧化物。例如：$\ce{CO}$、$\ce{NO}$、$\ce{NO2}$ 等</p>
+<h5 id="Ⅱ-酸"><a href="#Ⅱ-酸" class="headerlink" title="Ⅱ 酸"></a>Ⅱ 酸</h5><p>酸是指在水溶液中电离时产生的阳离子都是是氢离子的化合物<br>$$<br>酸<br>    \begin{cases}<br>    按电离出的\ce{H+}数<br>        \begin{cases}<br>        一元酸:\ce{HCl、HNO3}等\<br>        二元酸:\ce{H2SO4、H2S}等\<br>        多元酸:\ce{H3PO4}等\<br>        \end{cases}\<br>    按酸根是否含氧<br>        \begin{cases}<br>        无氧酸:\ce{HCl、H2SO4}等\<br>        含氧酸:\ce{HClO4、H2SO4}等\<br>        \end{cases}\<br>    按酸性强弱<br>        \begin{cases}<br>        强酸:\ce{HCl、H2SO4、HNO3、HClO4、HBr、HI}\<br>        弱酸:\ce{CH3COOH、HF}等\<br>        \end{cases}\<br>    按有无挥发性<br>        \begin{cases}<br>        挥发性酸:\ce{HCl、HNO3}等\<br>        难挥发性酸:\ce{HClO4、H2PO4}等\<br>        \end{cases}\<br>    \end{cases}\<br>$$</p>
+<h5 id="Ⅲ-碱"><a href="#Ⅲ-碱" class="headerlink" title="Ⅲ 碱"></a>Ⅲ 碱</h5><p>碱是指在水溶液中电离时产生的阴离子都是氢氧根离子的化合物<br>$$<br>碱<br>    \begin{cases}<br>    按水溶性<br>        \begin{cases}<br>        可溶性碱:\ce{NaOH、KOH、Ba(OH)2}等\<br>        难溶性碱:\ce{Mg(OH)2、Cu(OH)2}等\<br>        \end{cases}\<br>    按碱性强弱<br>        \begin{cases}<br>        强碱:\ce{KOH、Ca(OH)2、Ba(OH)2、NaOH}\<br>        弱碱:\ce{NH3·H2O、Fe(OH)3}等\<br>        \end{cases}\<br>    \end{cases}\<br>$$</p>
+<h5 id="Ⅳ-盐"><a href="#Ⅳ-盐" class="headerlink" title="Ⅳ 盐"></a>Ⅳ 盐</h5><p>盐是指金属离子或铵根离子（ $\ce{NH+4}$ ）与酸根离子或非金属离子结合的化合物<br>$$<br>盐<br>    \begin{cases}<br>    正盐:\ce{BaSO4、KNO3、NaCl}等\<br>    酸式盐:\ce{NaHCO3、KHSO4}等\<br>    碱式盐:\ce{Cu2(OH)2CO3}等\<br>    复盐:\ce{KAl(SO4)2·12H2O}等\<br>    \end{cases}<br>$$<br>​	<strong>a. 正盐</strong>：在酸和碱完全中和生成的盐中，不含酸中的氢离子，也不含有碱中的氢氧根离子，这样的盐叫做正盐</p>
+<p>​	<strong>b. 酸式盐</strong>：电离时生成的阳离子除金属离子（或  $\ce{NH+4}$ ）外还有氢离子，阴离子为酸根离子的盐叫做酸式盐</p>
+<p>​	<strong>c. 碱式盐</strong>：电离时生成的阴离子除酸根离子外还有氢氧根离子</p>
+<p>​	<strong>d. 复盐：</strong>由两种金属离子（可含  $\ce{NH+4}$ ）和一种酸根离子构成的盐叫做复盐</p>
+<h3 id="材料分类"><a href="#材料分类" class="headerlink" title="材料分类"></a>材料分类</h3><ol>
+<li>金属材料：$\ce{Fe、Cu、Al}$、合金 等</li>
+<li>无机非金属材料<ol>
+<li>传统无机非金属材料：陶瓷、玻璃、水泥 等</li>
+<li>新型无机非金属材料：高温结构陶瓷、光导纤维 等</li>
+</ol>
+</li>
+<li>有机高分子材料<ol>
+<li>天然有机高分子材料：淀粉、纤维素、蛋白质、天然橡胶 等</li>
+<li>合成有机高分子材料：塑料、合成纤维、合成橡胶 等</li>
+</ol>
+</li>
+</ol>
+<h3 id="其他分类方式"><a href="#其他分类方式" class="headerlink" title="其他分类方式"></a>其他分类方式</h3><p>电离程度</p>
+<ul>
+<li><p>电解质</p>
+<p>在水溶液或熔融状态下能够导电的<strong>化合物</strong>，如 $\ce{HCl、NaOH、NaCl}$ 等</p>
+<ul>
+<li>强电解质：强酸、强碱、盐（大部分）、金属氧化物</li>
+<li>弱电解质：弱酸、弱碱、水、盐（$\ce{HgCl2、(CH3COO)2Pb}$）</li>
+</ul>
+</li>
+<li><p>非电解质</p>
+<p>在水溶液和熔融状态下都不能导电的<strong>化合物</strong>，包含大多数有机化合物（酸类除外）、非金属氧化物（H2O除外），如酒精、葡萄糖、$\ce{CH4}$ 等</p>
+</li>
+<li><p>既不是电解质，也不是非电解质：单质和混合物</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>电解质导电条件：水溶液或熔融状态。电解质不是任何状态下都能导电，如固态 $\ce{NaCl}$ 不导电，溶于水或熔融状态下才能导电</li>
+<li>电解质必须自身电离导电。如 $\ce{NH3、CO2、SO2}$ 等溶于水均能导电，但是溶于水后的产物导电，不是自身电离导电，所以均属于非电解质</li>
+</ul>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/01%20%E7%89%A9%E8%B4%A8%E7%9A%84%E7%BB%84%E6%88%90%E5%92%8C%E5%88%86%E7%B1%BB/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/%E8%80%83%E7%82%B9%20%E6%9C%89%E6%9C%BA%E6%8E%A8%E6%96%AD/">
+        <h2 class="post-title">有机化学基础 · 考点 · 「有机推断」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="根据-反应条件-确定官能团"><a href="#根据-反应条件-确定官能团" class="headerlink" title="根据 反应条件 确定官能团"></a>根据 反应条件 确定官能团</h2><ol>
+<li>「$\ce{NaOH}$ <strong>水</strong>溶液、加热」为 $\ce{-X}$ 、酯基、酰胺基的水解反应</li>
+<li>「$\ce{NaOH}$ <strong>醇</strong>溶液、加热」为 $\ce{-X}$ 的消去反应</li>
+<li>「浓 $\ce{HNO3}$、浓 $\ce{H2SO4}$、加热」为苯环上的硝化反应</li>
+<li>「浓 $\ce{H2SO4}$、加热」为 $\ce{R-OH}$ 的消去反应或酯化反应</li>
+<li>「浓 $\ce{H2SO4}$、加热」为酯（ $\ce{R-COO-R’}$ ）的水解反应</li>
+<li>「$\ce{Cl2&#x2F;Fe}$ 或 $\ce{FeCl、Br&#x2F;Fe}$ 或 $\ce{FeBr}$」 为苯环上的取代反应</li>
+<li>「$\ce{Cl2&#x2F;}$光照」优先想到烷烃或烷基（如 $\ce{-CH3}$ ）的氯代、苯的同系物（如甲苯）侧链烷基上的氯代等</li>
+<li>「$\ce{O2&#x2F;Cu、△}$」为醇羟基的催化氧化或醛基的催化氧化</li>
+<li>「$\ce{Ag(NH)2OH&#x2F;△}$」或「新制的$\ce{Cu(OH)2&#x2F;△}$」为醛基的氧化反应</li>
+<li>「$\ce{H2&#x2F;Ni}$」：碳碳双键、碳碳三键、醛基、羰基、苯环与氢气的加成反应</li>
+</ol>
+<h2 id="根据-实际或特征现象-确定官能团"><a href="#根据-实际或特征现象-确定官能团" class="headerlink" title="根据 实际或特征现象 确定官能团"></a>根据 实际或特征现象 确定官能团</h2><h3 id="使-ce-KMnO4-H-褪色的有机化合物"><a href="#使-ce-KMnO4-H-褪色的有机化合物" class="headerlink" title="使 $\ce{KMnO4(H+)}$ 褪色的有机化合物"></a>使 $\ce{KMnO4(H+)}$ 褪色的有机化合物</h3><p>褪色原理一般为发生了氧化反应</p>
+<ol>
+<li>分子中含有<strong>碳碳双键</strong>、<strong>碳碳三键</strong>的不饱和有机化合物</li>
+<li>苯的同系物（与苯环直接相连的碳上有氢原子）</li>
+<li>含有醛基的物质，如醛类、糖类</li>
+<li>与羟基直接相连的碳原子上有氢原子的醇类物质，如甲醇、乙醇等</li>
+<li>酚类物质，由于其氧化产物也可能有颜色，所以其褪色不一定明显</li>
+</ol>
+<h3 id="使溴水褪色的有机化合物"><a href="#使溴水褪色的有机化合物" class="headerlink" title="使溴水褪色的有机化合物"></a>使溴水褪色的有机化合物</h3><ol>
+<li>分子中含有<strong>碳碳双键</strong>、<strong>碳碳三键</strong>的不饱和有机化合物（加成反应）</li>
+<li>含有醛基的物质，如醛类、糖类</li>
+<li>酚羟基所连碳原子的邻、对位上有氢原子的酚类物质（取代反应）</li>
+<li>含有还原性基团的有机化合物（氧化反应）</li>
+<li>萃取<ol>
+<li>密度大于1的溶剂（水在上层）：四氯化碳、氯仿、溴苯、二硫化碳等</li>
+<li>密度小于1的溶剂（水在下层）：液态的饱和烃、直馏汽油、苯及其同系物、液态环烷烃、液态饱和酯</li>
+</ol>
+</li>
+</ol>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
+<li>与 $\ce{H2}$ 发生加成反应：碳碳双键、碳碳三键、醛基、酮羰基、苯</li>
+<li>使溴的四氯化碳溶液褪色的有机化合物：碳碳双键、碳碳三键</li>
+<li>遇 $\ce{FeCl3}$ 溶液发生显色反应，或加入饱和溴水出现白色沉淀：$\ce{-OH(酚)}$</li>
+<li>加入新制的 $\ce{Cu(OH)2}$ ，加热有砖红色沉淀生成或加入银氨溶液，加热有银镜生成：$\ce{-CHO、HCOO-}$（甲酸酯基）</li>
+<li>与 $\ce{Na}$ 反应生成 $\ce{H2}$：$\ce{-COOH、-OH(醇、酚)\sim 0.5mol H2}$</li>
+<li>加入 $\ce{Na2CO3}$ 溶液产生 $\ce{CO2}$：$\ce{-COOH、-OH(酚)}$</li>
+<li>加入  $\ce{NaHCO3}$ 溶液产生 $\ce{CO2}$ ：$\ce{-COOH}$</li>
+<li>加入 $\ce{NaOH}$ 溶液并加热放出 $\ce{NH3}$ ：<img src="/./images/K-2.1.svg"></li>
+<li>遇 $\ce{I2}$ 变蓝：淀粉</li>
+<li>遇浓硝酸娈黄：含有苯环结构的蛋白质</li>
+<li>加入茚三酮溶液并加热，溶液显紫蓝色：蛋白质、$α-$氨基酸</li>
+</ol>
+<h2 id="根据-有机反应中的定量关系-推断-官能团的数目"><a href="#根据-有机反应中的定量关系-推断-官能团的数目" class="headerlink" title="根据 有机反应中的定量关系 推断 官能团的数目"></a>根据 有机反应中的定量关系 推断 官能团的数目</h2><ol>
+<li><p>烃和卤素单质的取代：取代 $\ce{1mol}$ 氢原子，消耗 $\ce{1mol}$ 卤素单质（ $\ce{X2}$ ）</p>
+</li>
+<li><p>碳碳双键的加成：与 $\ce{H2、Br2、HCl、H2O}$ 等加成时按物质的量之比为 $1:1$ 反应</p>
+</li>
+<li><p>含 $\ce{-OH(醇、酚)}$ 的有机物与 $\ce{Na}$ 反应时： $\ce{2mol}$  $\ce{-OH}$ 生成 $\ce{1mol}$  $\ce{H2}$ </p>
+</li>
+<li><p>醛基（ $\ce{-CHO}$ ）的定量关系</p>
+<ol>
+<li>$\ce{1mol}$ $\ce{-CHO}$ 与 $\ce{2mol}$ $\ce{[Ag(NH3)2]OH}$ 反应，生成 $\ce{2mol}$  $\ce{Ag}$</li>
+<li>$\ce{1mol}$ $\ce{-CHO}$ 与 $\ce{2mol}$ $\ce{Cu(OH)2}$ 反应，生成 $\ce{1mol}$ $\ce{Cu2O}$</li>
+<li>$\ce{1mol}$ 甲醛含 $\ce{2mol}$ $\ce{-CHO}$ ，其余定量关系和上述相同</li>
+</ol>
+</li>
+<li><p>$\ce{2mol}$ $\ce{-COOH-&gt;[Na2CO3]}$ $\ce{1mol}$ $\ce{CO2}$ ；$\ce{1mol}$ $\ce{-COOH-&gt;[NaHCO3]}$ $\ce{1mol}$ $\ce{CO2}$</p>
+</li>
+<li><p>有机物与 $\ce{Cu(OH)2}$ 的定量关系</p>
+<ol>
+<li>水解：$\ce{1mol}$ $\ce{-CHO}$ $\ce{-&gt;}$$\ce{2mol}$  $\ce{Cu(OH)2}$ </li>
+<li>中和：$\ce{1mol}$ $\ce{-COOH}$ $\ce{-&gt;}$$\ce{1mol}$  $\ce{Cu(OH)2}$</li>
+</ol>
+</li>
+<li><p>有机物与 $\ce{NaOH}$ 的定量关系</p>
+<ol>
+<li><p>中和：</p>
+<ol>
+<li><p>$\ce{1mol}$ $\ce{-COOH-&gt;}$$\ce{1mol}$ $\ce{NaOH}$</p>
+</li>
+<li><p>$\ce{1mol}$ $\ce{-OH(酚)-&gt;}$$\ce{1mol}$ $\ce{NaOH}$</p>
+</li>
+</ol>
+</li>
+<li><p>水解：</p>
+<ol>
+<li><p>$\ce{1mol}$<img src="/./images/5.38.svg">$\ce{-&gt;}$$\ce{1mol}$ $\ce{NaOH}$（酯基水解）</p>
+</li>
+<li><p>$\ce{1mol}$ <img src="/./images/K-2.2.svg">$\ce{-&gt;}$$\ce{1mol}$ $\ce{NaOH}$（酰胺基水解）</p>
+</li>
+<li><p>$\ce{1mol}$ <img src="/images%5C5.32.svg">$\ce{-&gt;}$$\ce{1mol}$ $\ce{NaOH}$（碳卤键水解）</p>
+</li>
+</ol>
+</li>
+<li><p>注意酚酯，既有水解又有中和</p>
+<blockquote>
+<p>如： $\ce{1mol}$ <img src="./images/K-2.3.svg" style="zoom:80%;" />最多与 $\ce{2mol}$ $\ce{NaOH}$ 反应</p>
+<p>（ $\ce{1mol}$ 酯基水解用去 $\ce{1mol}$ $\ce{NaOH}$ ，水解后生成 $\ce{1mol}$ 的酚羟基再消耗 $\ce{1mol}$ $\ce{NaOH}$）</p>
+</blockquote>
+</li>
+<li><p>卤素原子直接与苯环相连的卤代芳香烃消耗 $\ce{2mol}$ $\ce{NaOH}$ 反应</p>
+<blockquote>
+<p>$\ce{Ph-Br +2NaOH-&gt;Ph-ONa +NaBr +H2O}$</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>苯酚与浓溴水：$\ce{1mol}$ <img src="./images/K-2.4.svg" style="zoom:80%;" />反应，酚羟基的邻位与对位上的 $\ce{-H}$ 被 $\ce{-Br}$ 取代；若是含酚羟基的物质，其邻位或对位若被 $\ce{H}$ 以外的原子占据了，则无法发生取代</p>
+<blockquote>
+<p>如：$\ce{1mol}$<img src="./images/K-2.5.svg" style="zoom:100%;" />最多可以和 $\ce{4mol}$  $\ce{Br2}$ 发生取代反应</p>
+</blockquote>
+</li>
+<li><p>物质转化过程中相对分子质量的变化（ $M$ 代表第一种有机物的相对分子质量）</p>
+<ol>
+<li>$\ce{&amp;RCH2OH&amp;-&gt;&amp;RCHO&amp;-&gt;&amp;RCOOH}\&amp;M&amp;&amp;M-2&amp;&amp;M+14$（醇、醛、酸的连续氧化）</li>
+<li>$\ce{&amp;RCH2OH&amp;-&gt;[CH3COOH][浓 H2SO4,\Delta]&amp;CH3COOCH2R}\&amp;M&amp;&amp;M+42$（乙酸的酯化反应）</li>
+<li>$\ce{&amp;RCHOOH&amp;-&gt;[CH3CH2OH][浓 H2SO4,\Delta]&amp;RCOOCH2CH3}\&amp;M&amp;&amp;M+28$（乙醇的酯化反应）</li>
+</ol>
+</li>
+</ol>
+<h2 id="根据-特征产物-推断-碳骨架结构和官能团位置"><a href="#根据-特征产物-推断-碳骨架结构和官能团位置" class="headerlink" title="根据 特征产物 推断 碳骨架结构和官能团位置"></a>根据 特征产物 推断 碳骨架结构和官能团位置</h2><ol>
+<li>若醇能被氧化为醛或羧酸：含 $\ce{-CH2OH}$ 结构</li>
+<li>若醇能被氧化为酮：含<img src="/./images/K-2.6.svg">结构</li>
+<li>若醇不能被催化氧化：含<img src="/./images/K-2.7.svg">结构</li>
+<li>由消去反应的产物可确定 $\ce{-OH}$ 或<img src="/images%5C5.32.svg">的大致位置</li>
+<li>由取代产物的种类可确定碳骨架结构</li>
+<li>由加氢或加溴后的碳骨架结构可确定<img src="/images%5C3.8.svg">或 $\ce{-C#C-}$ 的位置</li>
+<li>由有机化合物发生酯化反应能生成环酯或高聚酯，可确定该有机化合物中含 $\ce{-OH}$ 和  $\ce{-COOH}$  ，并根据酯环的大小，确定 $\ce{-OH}$ 与 $\ce{-COOH}$ 的相对位置</li>
+</ol>
+<h2 id="根据-特殊的转化关系-推断-有机物类型"><a href="#根据-特殊的转化关系-推断-有机物类型" class="headerlink" title="根据 特殊的转化关系 推断 有机物类型"></a>根据 特殊的转化关系 推断 有机物类型</h2><ol>
+<li>$\ce{醇-&gt;[氧化]醛-&gt;[氧化]羧酸}$</li>
+<li>$\ce{酯-&gt;[无机酸或碱]B &amp; C}$</li>
+<li>有机三角<img src="./images/K-2.8.svg" style="zoom:40%;" /> ，分别是醇、烯烃、卤代烃</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/%E8%80%83%E7%82%B9%20%E6%9C%89%E6%9C%BA%E6%8E%A8%E6%96%AD/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/%E8%80%83%E7%82%B9%20%E6%9C%89%E6%9C%BA%E5%8F%8D%E5%BA%94%E7%B1%BB%E5%9E%8B%E6%A2%B3%E7%90%86/">
+        <h2 class="post-title">有机化学基础 · 考点 · 「有机反应类型梳理」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <table>
+<thead>
+<tr>
+<th></th>
+<th>取代</th>
+<th>加成</th>
+<th>加聚</th>
+<th>缩聚</th>
+<th>水解</th>
+<th>消去</th>
+<th>与活泼金属</th>
+<th>酸性</th>
+<th>硝化</th>
+<th>磺化</th>
+<th>银镜</th>
+<th>强氧化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>烷</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>稀、炔</td>
+<td>$√$</td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>苯</td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>甲苯</td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>苯酚</td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>弱</td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>卤代烃</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>醇</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td>二元</td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>羧酸</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td>二元</td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td>$\ce{HCOOH}$</td>
+<td>$\ce{HCOOH}$</td>
+</tr>
+<tr>
+<td>羟基酸</td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>醛</td>
+<td>$√$</td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>酯</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$\ce{HCOOR}$</td>
+<td>$\ce{HCOOR}$</td>
+</tr>
+<tr>
+<td>油脂</td>
+<td></td>
+<td>植物油</td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>单糖</td>
+<td></td>
+<td>$√$</td>
+<td></td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>二糖</td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>还原糖</td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>多糖</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>还原糖</td>
+<td>$√$</td>
+</tr>
+<tr>
+<td>蛋白质</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>$√$</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="取代反应"><a href="#取代反应" class="headerlink" title="取代反应"></a>取代反应</h2><p>有机物分子里的某些原子或原子团被其他原子或原子团所替代的反应</p>
+<p>$\ce{A1-B1 +A2-B2-&gt;A1-B2 +A2-B1}$</p>
+<h3 id="卤代"><a href="#卤代" class="headerlink" title="卤代"></a>卤代</h3><ol>
+<li><p>在光照条件下，烷烃都能与卤素单质发生取代反应</p>
+<p>$\ce{CH4 +Cl2-&gt;[光]CH3Cl + HCl}\qquad \ce{CH3Cl +Cl2-&gt;[光]CH2Cl2 + HCl}$</p>
+<p>$\ce{CH2Cl +Cl2-&gt;[光]CHCl3 + HCl}\qquad \ce{CHCl3 +Cl2-&gt;[光]CCl4 + HCl}$</p>
+<blockquote>
+<p>标况下，只有 $\ce{CH3Cl}$ 是气态，其余均为液态</p>
+</blockquote>
+</li>
+<li><p>苯和溴在 $\ce{FeBr3}$ 催化下可以发生反应，生成溴苯</p>
+ <img src="./images/4.13.svg"  style="zoom:50%;" />
+
+<p>使用纯净的液溴，不得使用溴水（发生萃取，使溴水因萃取而褪色）</p>
+</li>
+<li><p><strong>在光照条件下</strong>，甲苯与氯气发生取代反应时，氯原子取代甲基上的氢原子。反应后可能的有机产物是甲基上的氢原子分别被 $1$ 个、$2$ 个或 $3$ 个氯原子取代所生成的氯甲基苯</p>
+<p><strong>在 $\ce{FeBr3}$ 的催化下</strong>，甲苯与氯发生取代反应生成的一氯代甲苯主要有两种：邻氯甲苯和对氯甲苯</p>
+ <img src="./images/4.19.svg" style="zoom: 20%;" />
+</li>
+<li><p>苯酚稀溶液的试管里逐滴加入过量饱和的溴水，产生白色沉淀</p>
+  <img src="./images/5.13.svg" alt="" style="zoom: 60%;" />
+</li>
+<li><p>醇与浓的氢卤酸（ $\ce{HCl、HBr、HI}$ ）</p>
+<p>$\ce{C2H5OH +HBr-&gt;[\Delta]C2H5Br + H2O}$</p>
+</li>
+<li><p>$\alpha-\ce{H}$ 被取代的反应</p>
+<p>与官能团直接相连接的碳被称为 $\alpha-\ce{C}$ ，其连接的氢离子易被取代 </p>
+<p>$\ce{CH3-CH&#x3D;CH2 + Cl2-&gt;[\Delta]Cl-CH2-CH&#x3D;CH2 +HCl}$</p>
+</li>
+</ol>
+<h3 id="硝化"><a href="#硝化" class="headerlink" title="硝化"></a>硝化</h3><ol>
+<li><p>在浓硫酸作用下，苯在 $50-60\ce{°!C}$ （水浴加热）与硝酸发生硝化反应，生成硝基苯</p>
+   <img src="./images/4.14.jpg" alt="img" style="zoom:50%;" />
+</li>
+<li><p>甲苯与浓硝酸和浓硫酸的混合物在加热条件下可以发生取代反应，生成一硝基取代物、二硝基取代物和三硝基取代物，硝基取代的位置均以甲基的邻、对位为主</p>
+   <img src="./images/4.18.SVG" alt="image-20230429111425499" style="zoom: 18%;" /></li>
+</ol>
+<h3 id="磺化"><a href="#磺化" class="headerlink" title="磺化"></a>磺化</h3><p>苯与浓硫酸在 $70-80\ce{°!C}$ 可以发生磺化反应，生成苯磺酸苯与浓硫酸在 $70-80\ce{°!C}$ 可以发生磺化反应，生成苯磺酸</p>
+<img src="./images/4.15.png" style="zoom:25%;" />
+
+<h3 id="醇分子间脱水成醚"><a href="#醇分子间脱水成醚" class="headerlink" title="醇分子间脱水成醚"></a>醇分子间脱水成醚</h3><p>如果把乙醇与浓硫酸的混合物的温度控制在 $140\ce{°C}$ 左右，每两个乙醇分子间会脱去一个水分子而生成乙醚</p>
+<img src="./images/5.2.svg" style="zoom:25%;" />
+
+<h3 id="酯化"><a href="#酯化" class="headerlink" title="酯化"></a>酯化</h3><img src="./images/5.1.svg" style="zoom:25%;" />
+
+<blockquote>
+<p>口诀：酸脱羟基醇脱氢</p>
+</blockquote>
+<h3 id="合成酰胺"><a href="#合成酰胺" class="headerlink" title="合成酰胺"></a>合成酰胺</h3><img src="./images/5.26.svg" style="zoom:25%;" />
+
+<h3 id="水解"><a href="#水解" class="headerlink" title="水解"></a>水解</h3><ol>
+<li><p>酯类</p>
+<p>在酸或碱催化的条件下，酯可以发生水解反应生成相应的酸和醇。酯的水解反应是酯化反应的逆反应。在碱性条件下，酯水解产生的羧酸可以与碱发生反应，使羧酸浓度减小，即减小了生成物的浓度，化学平衡正向移动，使酯的水解程度加大</p>
+<p>酸性条件：$\ce{RCOOR’ +H2O &lt;&#x3D;&gt;[稀H2SO4][\Delta] RCOOH +R’OH}\qquad$碱性条件：$\ce{RCOOR’ +NaOH -&gt;[\Delta] RCOONa +R’OH}$</p>
+</li>
+<li><p>油脂</p>
+<ol>
+<li><p><strong>酸性水解</strong>：油脂在酸性条件下水解生成高级脂肪酸和甘油</p>
+ <img src="./images/5.29.svg"  />
+</li>
+<li><p><strong>碱性水解</strong>：油脂在碱性溶液(如$\ce{KOH}$或$\ce{NaOH}$溶液)中水解，生成甘油和高级脂肪酸盐。高级脂肪酸盐常用于生产肥皂，所以油脂在碱性溶液中水解反应又称<strong>皂化反应</strong></p>
+ <img src="./images/5.30.svg"  /></li>
+</ol>
+</li>
+<li><p>卤代烃</p>
+<p>$\ce{C2H5-Br + H-OH-&gt;[\Delta]C2H5-OH + HBr}$</p>
+<p>$\ce{NaOH + HBr&#x3D;NaBr +H2O}$</p>
+<p>总反应：$\ce{C2H5Br + NaOH-&gt;[H2O][\Delta]C2H5OH + NaBr}$</p>
+</li>
+<li><p>酰胺</p>
+<p>酰胺在酸或碱存在并加热的条件下可以发生水解反应。如果水解时加入碱，生成的酸就会变成盐，同时有氨气逸出。</p>
+<p>酸性水解：$\ce{R-CONH2 +H-OH +HCl-&gt;[\Delta]R-COOH +NH4Cl}$</p>
+<p>碱性水解：$\ce{R-CONH2 +NaOH-&gt;[\Delta]R-COONa +NH3 ^}$</p>
+</li>
+</ol>
+<h2 id="加成反应"><a href="#加成反应" class="headerlink" title="加成反应"></a>加成反应</h2><p>有机物分子中的<strong>不饱和键</strong>两端的两个原子与其他原子或原子团直接结合，生成新的化合物的反应叫做加成反应</p>
+<h3 id="烯烃的加成"><a href="#烯烃的加成" class="headerlink" title="烯烃的加成"></a>烯烃的加成</h3><ol>
+<li><p>$\ce{CH3-CH&#x3D;CH2 +H2 \xrightarrow[\Delta]{催化剂} CH3-CH2-CH3}$</p>
+</li>
+<li><p>$\ce{CH2&#x3D;CH2 +HCl \xrightarrow[\Delta]{催化剂} CH3-CH2-Cl}$</p>
+</li>
+<li><p>$\ce{CH2&#x3D;CH2 +H2O -&gt;[\Delta][催化剂] CH3-CH2OH}$</p>
+</li>
+<li><p>$\ce{CH2&#x3D;CH2 +Br2-&gt;CH2Br-CH2Br}$</p>
+<blockquote>
+<p>1,2-二溴乙烷是无色，且溶于四氯化碳，乙烯通到溴的四氯化碳，且溴的四氯化碳褪色且溶液不会分层，证明1,2-二溴乙烷是无色且溶于四氯化碳的</p>
+</blockquote>
+</li>
+<li><p>$\ce{CH3-CH&#x3D;CH2 +HCl-&gt;CH3-CHCl-CH3(主要) &amp; CH3CH2CH2Cl}$</p>
+<blockquote>
+<p>当不对称烯烃与含氢的化合物（ $\ce{HBr、H_{2}}$  等）加成时，氢原子主要加到连有较多氢原子的碳原子上（马氏规则），在过氧化物存在的情况下,氢原子主要加在连有较少氢原子的碳原子上（反马氏规则）</p>
+</blockquote>
+</li>
+<li><p>$1,2-$加成（低温）：$\ce{CH2&#x3D;CH-CH&#x3D;CH2 +Br2 -&gt;}$<img src="/./images/4.7.svg"></p>
+<p>$1,4-$加成（高温）：$\ce{CH2&#x3D;CH-CH&#x3D;CH2 +Br2 -&gt;}$<img src="/./images/4.8.svg"></p>
+</li>
+</ol>
+<h3 id="炔烃的加成"><a href="#炔烃的加成" class="headerlink" title="炔烃的加成"></a>炔烃的加成</h3><ol>
+<li><p>$\ce{CH#CH + H2 -&gt;[\Delta][催化剂] CH2&#x3D;CH2}\quad\ce{CH#CH + 2H2 -&gt;[\Delta][催化剂] CH3CH3}$</p>
+</li>
+<li><p>$\ce{CH#CH + HCl -&gt;[\Delta][催化剂] CH2&#x3D;CHCl}$</p>
+</li>
+<li><p>$\ce{CH#CH + H2O -&gt;[\Delta][催化剂] CH3-CHO}$</p>
+<blockquote>
+<p>乙炔与水加成后的产物乙烯醇不稳定（ $CH_2&#x3D;CH-OH$ ），很快转化为乙醛（醇的催化氧化）</p>
+</blockquote>
+</li>
+<li><p>$\ce{HC#CH-&gt;[HCN][催化剂]CH2&#x3D;CH-CN(丙烯晴)-&gt;[H2O、H+][\Delta]CH2&#x3D;CH-COOH}(丙烯酸)$</p>
+<blockquote>
+<p>用于增加碳链长度</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="苯的加成"><a href="#苯的加成" class="headerlink" title="苯的加成"></a>苯的加成</h3><img src="./images/4.16.webp" alt="img" style="zoom:50%;" />
+
+<img src="./images/4.21.png"  style="zoom: 25%;" />
+
+<h3 id="醛与酮的加成"><a href="#醛与酮的加成" class="headerlink" title="醛与酮的加成"></a>醛与酮的加成</h3><ol>
+<li><p>$\ce{CH3-CHO +H2-&gt;[催化剂][\Delta]CH3CH2OH}$</p>
+<blockquote>
+<p>乙醛与 $\ce{H2}$ 加成变成乙醇，既是加成，也是还原反应</p>
+</blockquote>
+</li>
+<li><img src="./images/K-1.1.svg"  style="zoom: 35%;" />
+</li>
+<li><p>$\ce{CH3-CO-CH3 +H2-&gt;[催化剂][\Delta]CH3-CHOH-CH3}$</p>
+</li>
+</ol>
+<h3 id="油脂的氢化或硬化"><a href="#油脂的氢化或硬化" class="headerlink" title="油脂的氢化或硬化"></a>油脂的氢化或硬化</h3><img src="./images/5.31.png" style="zoom: 33%;" />
+
+<h2 id="缩聚反应"><a href="#缩聚反应" class="headerlink" title="缩聚反应"></a>缩聚反应</h2><ol>
+<li>含义<br>由有机化合物分子间脱去小分子获得高分子化合物的反应称为缩合聚合反应，简称缩聚反应</li>
+<li>缩聚反应的特点<ol>
+<li>缩聚反应生成聚合物的同时，还有小分子副产物（如 $\ce{H2O}$ 等）生成</li>
+<li>缩聚反应的单体通常是具有两个或多个官能团（如 $\ce{-OH、-COOH、-NH2、-X}$ 等）的小分子</li>
+<li>所得聚合物链节的化学组成与单体的化学组成不同</li>
+</ol>
+</li>
+</ol>
+<h3 id="甲醛的缩聚反应"><a href="#甲醛的缩聚反应" class="headerlink" title="甲醛的缩聚反应"></a>甲醛的缩聚反应</h3><p>酚醛树脂的合成</p>
+<img src="./images/5.36.svg" style="zoom: 75%;" />
+
+<img src="./images/5.37.svg" style="zoom: 25%;" />
+
+<h3 id="羟基酸缩聚"><a href="#羟基酸缩聚" class="headerlink" title="羟基酸缩聚"></a>羟基酸缩聚</h3><img src="./images/K-1.3.svg" style="zoom: 30%;" />
+
+<h3 id="醇酸缩聚"><a href="#醇酸缩聚" class="headerlink" title="醇酸缩聚"></a>醇酸缩聚</h3><img src="./images/K-1.4.svg" style="zoom: 30%;" />
+
+<h3 id="氨基酸缩聚"><a href="#氨基酸缩聚" class="headerlink" title="氨基酸缩聚"></a>氨基酸缩聚</h3><img src="./images/K-1.5.svg" style="zoom: 30%;" />
+
+<img src="./images/K-1.6.svg" style="zoom: 30%;" />
+
+<blockquote>
+<p>由 $\ce{n mol}$ 一种单体进行缩聚反应，生成小分子的物质的量应为 $\ce{n-1 mol}$ ；由物质的 $\ce{n mol}$ 的两种单体进行缩聚反小分子的物质的量应为 $\ce{2n-1 mol}$ </p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/%E8%80%83%E7%82%B9%20%E6%9C%89%E6%9C%BA%E5%8F%8D%E5%BA%94%E7%B1%BB%E5%9E%8B%E6%A2%B3%E7%90%86/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/09%20%E6%9C%89%E6%9C%BA%E5%90%88%E6%88%90%E8%BF%9B%E9%98%B6/">
+        <h2 class="post-title">有机化学基础 · 十 · 「有机合成进阶」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p><img src="/./images/9.14.svg"></p>
+<h2 id="碳骨架构建"><a href="#碳骨架构建" class="headerlink" title="碳骨架构建"></a>碳骨架构建</h2><h3 id="碳链增长"><a href="#碳链增长" class="headerlink" title="碳链增长"></a>碳链增长</h3><p>常见的有<strong>加聚反应、缩聚反应、醛或酮的羟醛缩合反应、炔&#x2F;醛&#x2F;酮与 $\ce{HCN}$ 的的加成反应、卤代烃与氰化钠的取代反应、题目所给信息反应</strong>等 </p>
+<h4 id="炔、酮、醛与-ce-HCN-的加成反应"><a href="#炔、酮、醛与-ce-HCN-的加成反应" class="headerlink" title="炔、酮、醛与 $\ce{HCN}$ 的加成反应"></a>炔、酮、醛与 $\ce{HCN}$ 的加成反应</h4><ol>
+<li><p>炔烃与 $\ce{HCN}$ 的加成反应：生成含有氰基（$\ce{-CN}$）的物质，所得产物再经水解生成羧酸<br>$\ce{&amp;HC≡CH&amp;-&gt;[HCN][催化剂]&amp;H2C&#x3D;CH-CN&amp;-&gt;[H2O,H+][\Delta]&amp;CH2&#x3D;CHCOOH}\&amp;丙炔&amp;&amp;丙烯晴&amp;&amp;丙烯酸$</p>
+<p>$\ce{\quad!! CH3-CO-CH3-&gt;[HCN]<a href="CH3">催化剂</a>2C(OH)-CN-&gt;[H2O,H+]<a href="CH3">\Delta</a>2C(OH)-COOH}$</p>
+</li>
+<li><p>醛与 $\ce{HCN}$ 的加成反应：醛中的不饱和键与 $\ce{HCN}$ 发生加成反应生成含有氰基的物质，再经催化加氢还原成胺<br>$\ce{CH3CHO-&gt;[HCN][催化剂]CH3(OH)-CN -&gt;[H2][催化剂] CH3(OH)-CH2NH2}$</p>
+ <img title="" src="images/9.2.svg"  height="100" >
+
+<blockquote>
+<p>此外，炔烃还可以和醛发生加成反应：$\ce{R-C#CH + R’CHO -&gt;[一定条件] R-C#C-C(R’)H-OH}$<br>如果是乙炔，那么两端都可以与醛基加成</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="卤代烃与氰化钠的反应"><a href="#卤代烃与氰化钠的反应" class="headerlink" title="卤代烃与氰化钠的反应"></a>卤代烃与氰化钠的反应</h4><p>如溴乙烷与氰化钠反应时，分子中的溴原子被氰基取代生成氰化物，该氰化物在酸性条件下水解，可以得到比溴乙烷分子多一个碳原子的丙酸分子</p>
+<p>$\ce{HO3CH2Br +NaCN-&gt;CH3CH2CN +NaBr\quad CH3CH2CN-&gt;[H2O][H+]CH3CH2COOH	}$</p>
+<h4 id="羟醛缩合反应-Aldol-Condensation-Reaction"><a href="#羟醛缩合反应-Aldol-Condensation-Reaction" class="headerlink" title="羟醛缩合反应 Aldol Condensation Reaction"></a>羟醛缩合反应 Aldol Condensation Reaction</h4><p>醛分子中在醛基邻位碳原子上的氢原子 ( $α-\ce{H}$ ) 受羰基吸引电子作用的影响，具有一定的活泼性，分子内含有 $α-\ce{H}$ 的醛在一定条件下可以发生加成反应，生成 $\beta-$羟基醛，该产物易失水，得到 $\alpha,\beta-$不饱和醛</p>
+ <img src="./images/5.19.svg" style="zoom: 20%;" />
+
+<blockquote>
+<p>部分高考信息题会跳过 $\beta-$羟基醛 的步骤，直接得到不饱和醛</p>
+<p>乙醛拥有三个 $α-\ce{H}$ ，因此可以发生三次羟醛缩合反应</p>
+</blockquote>
+<h4 id="卤代烃与格氏试剂反应"><a href="#卤代烃与格氏试剂反应" class="headerlink" title="卤代烃与格氏试剂反应"></a>卤代烃与格氏试剂反应</h4><p>卤代烃还可以与金属反应，形成金属有机化合物。其中最负盛名的是有机镁化合物，它是由法国化学家格利雅（V. Grignard）于1901年发现的</p>
+<p>通过卤代烃与镁（用醚作溶剂）作用得到烃基卤化镁（ $\ce{RMgX}$ ，也称为格氏试剂），烃基卤化镁与其他物质（如卤代烃、醛、二氧化碳等）反应可以实现碳链增长，得到烃、醇、羧酸、酮等多种有机化合物</p>
+<p>$$<br>\ce{CH3CH2MgBr} \begin{cases}<br>\ce{-&gt;[ROH或H2O]CH3CH3}\<br>\ce{-&gt;[CH3Br]CH3CH2CH3}\<br>\ce{-&gt;[①CO2②H2O&#x2F;H+]CH3CH2COOH}\<br>\ce{-&gt;[①HCHO,②H2O&#x2F;H+]CH3CH2CH2OH}\<br>\end{cases}<br>$$</p>
+<h4 id="卤代烃与醇钠反应实现不对称醚的合成"><a href="#卤代烃与醇钠反应实现不对称醚的合成" class="headerlink" title="卤代烃与醇钠反应实现不对称醚的合成"></a>卤代烃与醇钠反应实现不对称醚的合成</h4><p>在课本中，我们学习了卤代烃与 $\ce{NaOH}$ 水溶液共热的反应，卤原子被羟基取代生成醇，称为卤代烃的<strong>水解</strong>。而将卤代烃与<strong>醇钠</strong>的醇溶液共热，则卤素原子将被烷氧基取代生成醚，称为卤代烃的<strong>醇解</strong></p>
+<p>$\ce{RONa + R’X -&gt;[无水条件] ROR’ + NaX}$</p>
+<p>这是制备<strong>不对称醚</strong>的一种常用方法（当然也可以合成对称醚），被称为威廉森(Williamson)合成法</p>
+<p>如果尝试使用课本内的方法合成不对称醚将会形成两种对称醚副产物。</p>
+<p>反应示例：<img title="" src="images/9.1.svg" width="450"> </p>
+<h4 id="傅列德尔-克拉夫茨反应-Friedel-Crafts-Reaction（烷基化反应）"><a href="#傅列德尔-克拉夫茨反应-Friedel-Crafts-Reaction（烷基化反应）" class="headerlink" title="傅列德尔-克拉夫茨反应 Friedel-Crafts Reaction（烷基化反应）"></a>傅列德尔-克拉夫茨反应 Friedel-Crafts Reaction（烷基化反应）</h4><p>Friedel- Crafts Reaction 是在芳环上引入烷基和酰基的重要方法，在有机合成上有很大的实用价值</p>
+<p>芳烃在无水 $\ce{AlCl3}$ 等 Lewis酸 的催化下，苯环上的氢被烷基取代的反应：</p>
+<img src="./images/9.3.svg" style="zoom: 90%;" />
+
+<p>$\ce{AlCl3}$ 是烷基化反应中活性最高的催化剂，此外， $\ce{FeCl3、 ZnCl2、 HF、H2SO4}$ 将均可作为催化剂<br>在烷基化反应中，进攻苯环的条电试剂为烷基碳正离子：<br>$$<br>\begin{align}<br>\ce{&amp;R-Cl + AlCl3-&gt;R+ +AlCl-} \tag1 \<br>\ce{&amp;PhH +R+-&gt;H-Ph-R -&gt;[-H+]PhR} \tag2<br>\end{align}<br>$$<br>在催化剂作用下产生碳正离子的化合物，如卤代烃、烯烃、环氧乙烷和醇均可作为烷基化试剂</p>
+<p>$\ce{PhH +CH3CH&#x3D;CH2-&gt;[AlCl3]Ph-CH(CH3)2}$</p>
+<p>$\ce{PhH +CH3CH2OH-&gt;[AlCl3]Ph-CH2CH3}$</p>
+<p>$\ce{PhH +}$<img src="/./images/9.4.svg">$\ce{-&gt;[(1)AlCl3][(2)H2O]}\ce{Ph-CH2CH2OH}$</p>
+<blockquote>
+<p>由于烷基化反应中间体是碳正离子，所以如果卤代烃的碳原子数目大于等于3，常会发生重排反应，生成不同烷基取代的芳香混合物<br>$$<br>\ce{Ph-H +CH2CH2CH2Cl-&gt;[AlCl3]&amp;Ph-CH2CH2CH3&amp; +&amp;Ph-CH(CH3)2}\&amp;丙笨(30%)&amp;&amp;异丙苯(70%)<br>$$<br>且由于生成的烷基苯比苯活泼，易发生多元取代生成二烷基苯和多烷基苯，因此，常加入过量芳烃及调节温度来控制产物</p>
+<p>不过一般高考题里出现的反应物是本溴乙烷，不发生重排。高考中会给出相关信息</p>
+</blockquote>
+<h3 id="碳链缩短"><a href="#碳链缩短" class="headerlink" title="碳链缩短"></a>碳链缩短</h3><p>烯烃、炔烃、芳香烃的氧化反应；羧酸或羧酸盐的脱羧反应；烷烃的裂化反应；题给信息反应等</p>
+<h4 id="高锰酸钾氧化"><a href="#高锰酸钾氧化" class="headerlink" title="高锰酸钾氧化"></a>高锰酸钾氧化</h4><ol>
+<li><p>烯烃被酸性高锰酸钾溶液氧化：不同的结构可以得到不同的氧化产物</p>
+<p>$\ce{-CH2&#x3D;-&gt;HO-CO-OH\quad RCH&#x3D;-&gt;R-COOH\quad CR1R2&#x3D;-&gt;CR1R2&#x3D;O}$</p>
+<blockquote>
+<p>口诀：有氢成酸，无氢成酮，边碳成气</p>
+<p>$\ce{CH3-CH&#x3D;CH2-&gt;HO-CO-OH-&gt;CO2 ^ +H2O}$</p>
+</blockquote>
+</li>
+<li><p>炔烃被酸性高锰酸钾溶液氧化：对于炔烃，大多数情况下，都发生碳碳三键的断裂，生成 <strong>两个羧酸</strong><br>$$<br>\ce{RC#CH-&gt;[KMnO4][H+]RCOOH +CO2}\<br>\ce{CH3CH2CH2C#CCH2CH3-&gt;[KMnO4][H+]CH3CH2CH2COOH +CH3CH2COOH}<br>$$</p>
+</li>
+<li><p>芳香烃的侧链被 $\ce{KMnO4、K2Cr2O7}$ 等强氧化剂氧化时，大多数情况是侧链被氧化成羧</p>
+<p><strong>注意：烷基上与苯环直接相连的碳原子上必须有氢原子，才能被酸性高锰酸钾氧化</strong></p>
+</li>
+</ol>
+<h4 id="酯的水解"><a href="#酯的水解" class="headerlink" title="酯的水解"></a>酯的水解</h4><p>酸性条件：$\ce{RCOOR’ +H2O &lt;&#x3D;&gt;[稀H2SO4][\Delta] RCOOH +R’OH}\qquad$</p>
+<p>碱性条件：$\ce{RCOOR’ +NaOH -&gt;[\Delta] RCOONa +R’OH}$</p>
+<h3 id="成环反应"><a href="#成环反应" class="headerlink" title="成环反应"></a>成环反应</h3><h4 id="狄尔斯-阿尔德反应-Diels-Alder-Reaction"><a href="#狄尔斯-阿尔德反应-Diels-Alder-Reaction" class="headerlink" title="狄尔斯-阿尔德反应 Diels-Alder Reaction"></a>狄尔斯-阿尔德反应 Diels-Alder Reaction</h4><p>狄尔斯-阿尔德反应共轭二烯烃与含碳碳双键（或三键）的化合物在一定条件下反应，得到环加成产物，构建了环状碳骨架，该反应用于构建六元碳环骨架</p>
+<p>如：<img title="" src="images/9.5.svg" width="300"></p>
+<blockquote>
+<p>理解：共轭二烯烃（如1，3-丁二烯）的两根双键各自打开一半，与含亲双烯体（在这里是丙烯酸）的碳碳双键发生加成反应，两个“半截键”与原来的单键共同形成了新的双键，得到了环加成产物，构建了环状碳骨架</p>
+</blockquote>
+<h4 id="酯化成环"><a href="#酯化成环" class="headerlink" title="酯化成环"></a>酯化成环</h4><p>如：二元酸与二元醇的酯化反应、羟基酸的酯化反应</p>
+<h4 id="二元醇成环"><a href="#二元醇成环" class="headerlink" title="二元醇成环"></a>二元醇成环</h4><p>如：$\ce{HOCH2CH2OH-&gt;[浓硫酸][\Delta]}$<img src="/./images/9.4.svg">$\ce{+H2O}$</p>
+<h4 id="二元羧酸成环"><a href="#二元羧酸成环" class="headerlink" title="二元羧酸成环"></a>二元羧酸成环</h4><p>如：$\ce{HOOCCH2CH2COOH-&gt;[浓硫酸][\Delta]}$<img src="/./images/9.6.svg">$\ce{+H2O}$</p>
+<h4 id="氨基酸成环"><a href="#氨基酸成环" class="headerlink" title="氨基酸成环"></a>氨基酸成环</h4><p>如：$\ce{H2NCH2CH2COOH-&gt;[浓硫酸][\Delta]}$<img src="/./images/9.7.svg">$\ce{+H2O}$</p>
+<h2 id="聚合物的生成"><a href="#聚合物的生成" class="headerlink" title="聚合物的生成"></a>聚合物的生成</h2><h3 id="烯烃共聚"><a href="#烯烃共聚" class="headerlink" title="烯烃共聚"></a>烯烃共聚</h3><p>$\ce{nCH2&#x3D;CH2 +nCH2&#x3D;CH-CH3-&gt;[一定条件]}\space[!!!\ce{-CH2-CH2-CH(CH3)-CH2}$ $]!!!-_n$</p>
+<h3 id="酚醛树脂"><a href="#酚醛树脂" class="headerlink" title="酚醛树脂"></a>酚醛树脂</h3> <img src="./images/5.37.svg" style="zoom: 25%;" />
+
+<h2 id="官能团的转化"><a href="#官能团的转化" class="headerlink" title="官能团的转化"></a>官能团的转化</h2><h3 id="引入官能团"><a href="#引入官能团" class="headerlink" title="引入官能团"></a>引入官能团</h3><h4 id="引入碳碳双键"><a href="#引入碳碳双键" class="headerlink" title="引入碳碳双键"></a>引入碳碳双键</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>卤代烃的消去反应</td>
+<td>$\ce{CH3CH2Br +NaOH-&gt;[乙醇][\Delta]CH2&#x3D;CH2 ^ +NaBr +H2O}$</td>
+</tr>
+<tr>
+<td>醇的消去反应</td>
+<td>$\ce{CH3CH2OH-&gt;[浓硫酸][170°C]CH2&#x3D;CH2 ^ +H2O}$</td>
+</tr>
+</tbody></table>
+<h4 id="引入碳卤键"><a href="#引入碳卤键" class="headerlink" title="引入碳卤键"></a>引入碳卤键</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>烃、酚的取代</td>
+<td>①甲烷在光照条件下的氯代<br/>$\ce{CH4 + Cl2 -&gt;[光] CH3Cl + HCl}$<br>②苯与溴苯在 $\ce{Fe}$粉 或 $\ce{FeBr3}$ 催化下生成溴苯<br/><img src="./images/4.13.svg" style="zoom:80%;" ><br/>③甲苯的卤代<br/><img src="./images/4.19.svg" style="zoom: 20%;" /><br/>④苯酚与溴水反应生成三溴苯酚<br/><img src="./images/5.13.svg"  style="zoom: 60%;" /></td>
+</tr>
+<tr>
+<td>不饱和烃与 $\ce{HX、X2}$ 的加成</td>
+<td>$\ce{CH3CH&#x3D;CH2 +HBr-&gt;CH3-CHBr-CH3}$（马氏规则）<br/>$\ce{CH3CH&#x3D;CH2 +HBr-&gt;[过氧化物]CH3-CH2-CH2Br}$（反马氏规则）</td>
+</tr>
+<tr>
+<td>醇与氢卤酸（$\ce{HX}$）的取代</td>
+<td>$\ce{CH3CH2OH +HBr-&gt;[\Delta]CH3CH2Br +H2O}$</td>
+</tr>
+</tbody></table>
+<h4 id="引入羟基"><a href="#引入羟基" class="headerlink" title="引入羟基"></a>引入羟基</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>烯烃与水的加成</td>
+<td>$\ce{H2C&#x3D;CH2 +H2O-&gt;[催化剂][加热、加压]CH3CH2OH}$</td>
+</tr>
+<tr>
+<td>醛、酮与氢气的加成</td>
+<td>$\ce{CH3-CHO +H2-&gt;[催化剂][\Delta]CH3CH2OH}(伯醇)$<br/>$\ce{CH3-CO-CH3 +H2-&gt;[催化剂]<a href="CH3">\Delta</a>2-CH-OH}(仲醇)$</td>
+</tr>
+<tr>
+<td>卤代烃在碱性条件下水解</td>
+<td>$\ce{C2H5-Br +NaOH-&gt;[H2O][\Delta]C2H5-OH +NaBr}$</td>
+</tr>
+<tr>
+<td>酯的水解</td>
+<td>$\ce{CH3COOC2H5 +H2O&lt;&#x3D;&gt;[浓硫酸][\Delta]CH3COOH +C2H5OH}$</td>
+</tr>
+<tr>
+<td>通过硼氢化钠引入羟基或醛基</td>
+<td>硼氢化钠具有较强的还原选择性，它可以将羰基还原为羟基，将羧基还原为醛基，但是与碳碳双键、碳碳三键都不发生反应<br>例如：$\ce{CH2&#x3D;CH-CH2-CHO-&gt;[NaBH_{4}]CH2&#x3D;CH-CH2-CH2OH} $</td>
+</tr>
+</tbody></table>
+<h4 id="引入醛基或羰基（引入碳氧双键）"><a href="#引入醛基或羰基（引入碳氧双键）" class="headerlink" title="引入醛基或羰基（引入碳氧双键）"></a>引入醛基或羰基（引入碳氧双键）</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>醇的催化氧化</td>
+<td>$\ce{2CH3CH2OH + O2 -&gt;[Cu&#x2F;Ag][△]2CH3CHO + 2H2O}$</td>
+</tr>
+<tr>
+<td>含碳碳三键的物质与水加成</td>
+<td>$\ce{HC#CH +H2O-&gt;[催化剂][\Delta]H2C&#x3D;CH-OH-&gt;[异构化]CH3-CHO}$</td>
+</tr>
+<tr>
+<td>碳碳双键氧化</td>
+<td><img src="./images/9.8.svg"></td>
+</tr>
+</tbody></table>
+<h4 id="引入羧基"><a href="#引入羧基" class="headerlink" title="引入羧基"></a>引入羧基</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>醇与强氧化剂反应</td>
+<td>$\ce{C2H5OH}$ 与与酸性 $\ce{KMnO4}$ 溶液或酸性 $\ce{K2Cr2O7}$ 溶液反应生成 $\ce{CH3COOH}$</td>
+</tr>
+<tr>
+<td>醛的氧化</td>
+<td>$\ce{CH3-CHO +O2-&gt;[催化剂][\Delta]2CH3COOH}$<br>银镜反应：$\ce{CH3CHO + 2[Ag(NH3)2]OH -&gt;[\Delta]H2O + 2Ag v + 3NH3 + CH3COONH4}$<br>与新制氢氧化铜反应：<br>$\ce{CH3CHO + 2Cu(OH)2 + NaOH-&gt;[\Delta] CH3COONa + Cu_2O v +3H2O}$<br>$\ce{CH3COONH4-&gt;[H+]CH3COOH\quad CH3COONa-&gt;[H+]CH3COOH}$</td>
+</tr>
+<tr>
+<td>酯、酰胺键的水解</td>
+<td><img src="./images/9.9.svg"></td>
+</tr>
+<tr>
+<td>某些苯环侧链上的烷基与<br>酸性高锰酸钾溶液的氧化反应</td>
+<td><img src="./images/9.10.svg"></td>
+</tr>
+<tr>
+<td>碳碳双键的氧化</td>
+<td>$\ce{R-CH&#x3D;CH-R-&gt;[KMnO4(H+)]RCOOH}$</td>
+</tr>
+</tbody></table>
+<h4 id="引入酯基"><a href="#引入酯基" class="headerlink" title="引入酯基"></a>引入酯基</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>酯化反应</td>
+<td>$\ce{CH3COOH +C2H5OH&lt;&#x3D;&gt;[浓硫酸][\Delta]CH3COOC2H5 +H2O}$</td>
+</tr>
+<tr>
+<td>酰基化反应</td>
+<td><img src="./images/9.11.svg"></td>
+</tr>
+</tbody></table>
+<h3 id="消除官能团"><a href="#消除官能团" class="headerlink" title="消除官能团"></a>消除官能团</h3><ol>
+<li><p>通过加成反应消除不饱和键</p>
+</li>
+<li><p>通过消去、氧化、酯化反应消除羟基</p>
+</li>
+<li><p>通过加成、氧化反应消除醛基</p>
+</li>
+<li><p>通过水解反应消去酯基、酰胺基、碳卤键</p>
+</li>
+</ol>
+<h3 id="改变官能团"><a href="#改变官能团" class="headerlink" title="改变官能团"></a>改变官能团</h3><h4 id="改变官能团的种类"><a href="#改变官能团的种类" class="headerlink" title="改变官能团的种类"></a>改变官能团的种类</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="./images/9.12.png" style="zoom:50%;" /></h4><h4 id="改变官能团的数目"><a href="#改变官能团的数目" class="headerlink" title="改变官能团的数目"></a>改变官能团的数目</h4><p>如：$\ce{CH3CH2OH-&gt;[消去][-H2O]CH2&#x3D;CH2-&gt;[加成][+Cl2]Cl-CH2-CH2-Cl-&gt;[水解]HO-CH2-CH2-OH}$</p>
+<h4 id="改变目标官能团的物质"><a href="#改变目标官能团的物质" class="headerlink" title="改变目标官能团的物质"></a>改变目标官能团的物质</h4><p>通过不对称烯烃与卤化氢的加成改变官能团的位置（运用马氏规则）</p>
+<p>如：$\ce{CH3CH2CH2Cl-&gt;[消去][-HCl]CH3CH&#x3D;CH2-&gt;[加成][+HCl]CH3-CH(Cl)-CH3}$</p>
+<h2 id="官能团的保护与恢复"><a href="#官能团的保护与恢复" class="headerlink" title="官能团的保护与恢复"></a>官能团的保护与恢复</h2><p>含有多个官能团的有机化合物在进行反应时，非目标官能团也可能受到影响，此时需要将受影响的官能团保护起来，先将其转化为不受该反应影响的其他官能团，反应后再将受影响的官能团复原。此类题目在命题时往往会给出已知信息</p>
+<ol>
+<li><p>羟基的保护</p>
+<p>$\ce{R-OH-&gt;[引入保护基]R-O-R’}\stackrel{合成反应}{\longrightarrow\cdots\longrightarrow}\ce{R’’-O-R’-&gt;[脱除保护基]R’’-OH}$</p>
+<blockquote>
+<p>合成反应会影响羟基，无法直接转化</p>
+<p>如果体系受强碱影响，就用成醚反应保护，如果要受氧化，就要用酯化反应保护</p>
+</blockquote>
+</li>
+<li><p>碳碳双键的保护</p>
+<p>碳碳双键易被氧化，在氧化其他基团前，可通过与卤素单质、卤化氢等加成的方法先将碳碳双键保护起来，待氧化其他基团后，再通过消去反应（$\ce{NaOH}$ 醇溶液，加热）重新转化为碳碳双键</p>
+</li>
+<li><p>羧基</p>
+<p>羧基遇到高温容易脱羧，可以用酯化反应保护</p>
+</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/09%20%E6%9C%89%E6%9C%BA%E5%90%88%E6%88%90%E8%BF%9B%E9%98%B6/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/08%20%E5%90%88%E6%88%90%E9%AB%98%E5%88%86%E5%AD%90/">
+        <h2 class="post-title">有机化学基础 · 九 · 「合成高分子」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="加聚反应"><a href="#加聚反应" class="headerlink" title="加聚反应"></a>加聚反应</h2><ol>
+<li>含义：具有不饱和键的有机化合物通过加聚反应得到高分子化合物的反应称为加聚反应</li>
+<li>特点：没有副产物生成</li>
+</ol>
+<blockquote>
+<img title="" src="images/4.6.png"  height="130" >
+
+<p>例如：生成聚乙烯：$\ce{nCH2&#x3D;CH2-&gt;[一定条件]}\space[!!!\ce{-CH2-CH2}$ $]!!!-_n$ （聚乙烯，$n$ 为聚合度，$\ce{-CH_2-CH_2 -}$ 是链节）</p>
+</blockquote>
+<h2 id="缩聚反应"><a href="#缩聚反应" class="headerlink" title="缩聚反应"></a>缩聚反应</h2><ol>
+<li>含义<br>由有机化合物分子间脱去小分子获得高分子化合物的反应称为缩合聚合反应，简称缩聚反应</li>
+<li>缩聚反应的特点<ol>
+<li>缩聚反应生成聚合物的同时，还有小分子副产物（如 $\ce{H2O}$ 等）生成</li>
+<li>缩聚反应的单体通常是具有两个或多个官能团（如 $\ce{-OH、-COOH、-NH2、-X}$ 等）的小分子</li>
+<li>所得聚合物链节的化学组成与单体的化学组成不同</li>
+</ol>
+</li>
+</ol>
+<h3 id="甲醛的缩聚反应"><a href="#甲醛的缩聚反应" class="headerlink" title="甲醛的缩聚反应"></a>甲醛的缩聚反应</h3><p>酚醛树脂的合成</p>
+<img src="./images/5.36.svg" style="zoom: 75%;" />
+
+<img src="./images/5.37.svg" style="zoom: 25%;" />
+
+<h3 id="羟基酸缩聚"><a href="#羟基酸缩聚" class="headerlink" title="羟基酸缩聚"></a>羟基酸缩聚</h3><img src="./images/K-1.3.svg" style="zoom: 30%;" />
+
+<h3 id="醇酸缩聚"><a href="#醇酸缩聚" class="headerlink" title="醇酸缩聚"></a>醇酸缩聚</h3><img src="./images/K-1.4.svg" style="zoom: 30%;" />
+
+<h3 id="氨基酸缩聚"><a href="#氨基酸缩聚" class="headerlink" title="氨基酸缩聚"></a>氨基酸缩聚</h3><img src="./images/K-1.5.svg" style="zoom: 30%;" />
+
+<img src="./images/K-1.6.svg" style="zoom: 30%;" />
+
+<blockquote>
+<p>由 $\ce{n mol}$ 一种单体进行缩聚反应，生成小分子的物质的量应为 $\ce{n-1 mol}$ ；由物质的 $\ce{n mol}$ 的两种单体进行缩聚反小分子的物质的量应为 $\ce{2n-1 mol}$ </p>
+</blockquote>
+<h2 id="高分子材料"><a href="#高分子材料" class="headerlink" title="高分子材料"></a>高分子材料</h2><p>三大合成材料：塑料 合成纤维 合成橡胶</p>
+<h3 id="塑料"><a href="#塑料" class="headerlink" title="塑料"></a>塑料</h3><p>例如：合成树脂，如聚乙烯、聚氯乙烯、酚醛树脂</p>
+<ol>
+<li><p>“树脂”的含义是：未加工的处理物</p>
+</li>
+<li><p>聚乙烯制成的塑料是热塑性塑料，而酚醛树脂等只能一次成形，是热固性塑料。具有网状结构的高分子受热都不能软化或熔融，也不溶于任何溶剂</p>
+</li>
+<li><p>不能用含增塑剂的聚氯乙烯薄膜等做食品包装材料</p>
+</li>
+<li><p>超高相对分子质量（大于100万）的聚乙烯可用作防弹头盔和防弹衣的材料</p>
+</li>
+</ol>
+<h3 id="橡胶"><a href="#橡胶" class="headerlink" title="橡胶"></a>橡胶</h3><ol>
+<li><p>橡胶是一种具有高弹性的高分子材料。</p>
+</li>
+<li><p>天然橡胶的成分主要是顺式聚异戊二烯</p>
+</li>
+</ol>
+<p>合成橡胶主要有：顺丁橡胶、丁苯橡胶、丁腈橡胶、乙丙橡胶、硅橡胶等</p>
+<h3 id="合成纤维"><a href="#合成纤维" class="headerlink" title="合成纤维"></a>合成纤维</h3><ol>
+<li>棉花、羊毛、蚕丝和麻等是大自然赋予人们的天然纤维</li>
+<li>以木材、秸秆等农副产品为原料，经加工处理可以得到再生纤维</li>
+<li>以石油、天然气、煤、农副产品为原料，将其转化为单体，再经过聚合反应得到的是合成纤维</li>
+</ol>
+<blockquote>
+<p>纤维，分为天然纤维（蚕丝、羊毛、棉花、天然纤维纺纱）和化学纤维，其中化学纤维又分为人造纤维（再生纤维）和合成纤维</p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/08%20%E5%90%88%E6%88%90%E9%AB%98%E5%88%86%E5%AD%90/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/07%20%E5%8C%96%E5%AD%A6%E5%93%81%E7%9A%84%E5%90%88%E7%90%86%E4%BD%BF%E7%94%A8(Shirley%20Amika)/">
+        <h2 class="post-title">有机化学基础 · 八 · 「化学品的合理使用(Shirley Amika)」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>本课针对新方案高考课本编写。</p>
+<p>1.化肥与农药</p>
+<p>有机氯、磷农药、氨基甲酸酯和拟除虫酯等有机合成农药：高效、低毒、低残留。</p>
+<p><img src="https://pic2.zhimg.com/80/v2-acb4542e44b7d7cad2176386a0746539_720w.webp"></p>
+<blockquote>
+<p>有机氯农药：DDT 转变为DDE后毒性降低昆虫表现出抗药性。</p>
+</blockquote>
+<p>2.药物</p>
+<p>阿司匹林（乙酰水杨酸）</p>
+<p>解热镇痛，以水杨酸为原料：</p>
+<p><img src="https://pic3.zhimg.com/80/v2-9559d62113e565286b9137e5064f366a_720w.webp"><br>将阿司匹林和聚甲基丙烯酸（试着写出其结构简式？）连接，得到的缓释阿司匹林可作为抗血栓长效药。</p>
+<p>青蒿素：抗疟疾。对青蒿素进行修饰、改造后得到新药。</p>
+<p>3.食品添加剂（有二十多类功能）</p>
+<p>①着色剂、增味剂</p>
+<p>天然色素有：红曲红、β-胡萝卜素、姜黄、叶绿素铜钠盐、焦糖色</p>
+<p>合成色素有：苋菜红、柠檬黄、靛蓝</p>
+<p>味精（谷氨酸钠）是常用的增味剂，最早是从海带中发现并提取的，现在主要通过淀粉发酵生产。</p>
+<p><img src="https://pic3.zhimg.com/80/v2-c029e03e626992e6aee03e9b2a6e8b2e_720w.webp"></p>
+<blockquote>
+<p>谷氨酸钠（可以不画出立体结构）<br>②凝固剂</p>
+</blockquote>
+<p>葡萄糖酸-<br> 内酯（现代制豆腐常用）</p>
+<p>③防腐剂、抗氧化剂</p>
+<p>·苯甲酸及其钠盐、山梨酸及其钾盐是常用的防腐剂。</p>
+<p>·抗坏血酸（即维生素C）可被氧化为脱氢抗坏血酸，是水果罐头、饮料中常用的抗氧化剂。</p>
+<p>·叔丁基对苯二酚（TBHQ）是一种抗氧化剂，在市售食用油中普遍加入。</p>
+<p>由于不饱和脂肪酸甘油酯中含有碳碳双键，在空气中放置久了会被氧化，产生过氧化物和醛类等，变质的油脂有一种难闻的“哈喇”味，不能食用。<br>·丁基羟基茴香醚（BHA）在脂肪、乳化脂肪制品中使用。</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/07%20%E5%8C%96%E5%AD%A6%E5%93%81%E7%9A%84%E5%90%88%E7%90%86%E4%BD%BF%E7%94%A8(Shirley%20Amika)/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/06%20%E7%94%9F%E7%89%A9%E5%A4%A7%E5%88%86%E5%AD%90/">
+        <h2 class="post-title">有机化学基础 · 七 · 「生物大分子」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="糖类"><a href="#糖类" class="headerlink" title="糖类"></a>糖类</h2><ol>
+<li><p>定义：指多羟基醛或多羟基酮以及能水解生成它们的物质</p>
+</li>
+<li><p>分类</p>
+<ol>
+<li>单糖：葡萄糖、果糖、核糖、脱氧核糖等<ol>
+<li>按照分子中所含碳原子数的多少，单糖可以分为丙糖、丁糖、戊糖（如核糖、脱氧核糖）和己糖（如葡萄 糖、半乳糖、果糖）等 </li>
+<li>按照所含官能团的不同，单糖又可以分为醛糖和酮糖</li>
+</ol>
+</li>
+<li>低聚糖（也称寡糖）：蔗糖、麦芽糖、乳糖等</li>
+<li>多糖：淀粉、纤维素、甲壳质等</li>
+</ol>
+<blockquote>
+<p>低聚糖和多糖在一定条件下可以水解生成单糖；单糖一般就是多羟基醛或多羟基酮，不能再水解</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="单糖"><a href="#单糖" class="headerlink" title="单糖"></a>单糖</h3><p><strong>葡萄糖与果糖的比较</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>分子式</th>
+<th>结构简式</th>
+<th>官能团</th>
+<th>类别</th>
+<th>颜色</th>
+<th>甜味</th>
+<th>溶解性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>葡萄糖</td>
+<td>$\ce{C6H12O6}$</td>
+<td>$\ce{CH2OH(CHOH)4CHO}$</td>
+<td>$\ce{-OH、-CHO}$</td>
+<td>多羟基醛</td>
+<td>无色</td>
+<td>有</td>
+<td>水中溶解，乙醇中稍溶，乙醚中不溶</td>
+</tr>
+<tr>
+<td>果糖</td>
+<td>$\ce{C6H12O6}$</td>
+<td>$\ce{CH2OH(CHOH)3COCH2OH}$</td>
+<td>$\ce{-OH、-CO-}$</td>
+<td>多羟基酮</td>
+<td>无色</td>
+<td>有</td>
+<td>在水、乙醇、乙醚中均易溶</td>
+</tr>
+</tbody></table>
+<p><strong>葡萄糖的化学性质</strong></p>
+<ol>
+<li><p>氧化反应</p>
+<p>$\ce{CH2OH(CHOH)4CHO +2[Ag(NH3)2]OH-&gt;[\Delta]CH2OH(CHOH)4COONH4 +2Ag v +3NH3 +2H2O}$<br>$\ce{CH2OH(CHOH)4CHO +2Cu(OH)2 +NaOH-&gt;[\Delta]CH2OH(CHOH)4COONa +Cu2O v +3H2O}$</p>
+</li>
+<li><p>加成反应</p>
+<p>$\ce{}$$\ce{CH2OH(CHOH)4CHO +2H2-&gt;[催化剂][\Delta]CH2OH(CHOH)4CH2OH}$</p>
+</li>
+<li><p>发酵反应</p>
+<p>$\ce{C6H12O6-&gt;[酒化酶]2C2H5OH +2CO2 ^}$</p>
+</li>
+<li><p>生理反应——人体主要供能反应</p>
+<p>$\ce{C6H12O6(s) +6O2(g)-&gt;6CO2(g) +6H2O(l)\qquad\Delta&#x3D;-2804kJ\cdot mol^{-1}}$</p>
+</li>
+</ol>
+<h3 id="二糖"><a href="#二糖" class="headerlink" title="二糖"></a>二糖</h3><ol>
+<li><p>常见二糖</p>
+<ol>
+<li>蔗糖：无色晶体，易溶于水，较难溶于乙醇，甜度仅次于果糖，是重要的甜味剂</li>
+<li>麦芽糖：由两分子葡萄糖脱水形成，主要存在于发芽的谷粒和麦芽中。含有 $\ce{-CHO}$，属于还原糖</li>
+</ol>
+</li>
+<li><p>水解反应</p>
+<p>$\ce{&amp;C12H22O11&amp;+H2O-&gt;[酶或酸]&amp;C6H12O6&amp;+&amp;C6H12O6}\&amp;蔗糖&amp;&amp;葡萄糖&amp;&amp;果糖$</p>
+<p>$\ce{&amp;C12H22O11&amp;+H2O-&gt;[酶或酸]&amp;2C6H12O6}\&amp;麦芽糖&amp;&amp;葡萄糖$</p>
+</li>
+</ol>
+<h3 id="多糖"><a href="#多糖" class="headerlink" title="多糖"></a>多糖</h3><ol>
+<li><p>淀粉与纤维素的组成</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>淀粉</th>
+<th>纤维素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分子式</td>
+<td>$\ce{(C6H10O5)_n}$</td>
+<td>$\ce{(C6H10O5)_n}$</td>
+</tr>
+<tr>
+<td>$n$ 值大小</td>
+<td>大</td>
+<td>更大</td>
+</tr>
+<tr>
+<td>结构特点</td>
+<td>无 $\ce{-CHO}$，有 $\ce{-OH}$</td>
+<td>无 $\ce{-CHO}$，有 $\ce{-OH}$</td>
+</tr>
+<tr>
+<td>水解最终产物</td>
+<td>葡萄糖</td>
+<td>葡萄糖</td>
+</tr>
+<tr>
+<td>性质差别</td>
+<td>遇碘变蓝，在人体内可水解</td>
+<td>在人体内不能水解</td>
+</tr>
+<tr>
+<td>是否为纯净物</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>是否为同分异构体</td>
+<td>否</td>
+<td>否</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>化学性质</p>
+<ol>
+<li><p>水解反应</p>
+<p>$\ce{&amp;(C6H10O5)_n&amp;+nH2O-&gt;[酶或酸]&amp;nC6H12O6}\&amp;淀粉、纤维素&amp;&amp;葡萄糖$</p>
+</li>
+<li><p>淀粉的特征反应：常温下，遇碘变蓝</p>
+</li>
+<li><p>两者均不发生银镜反应</p>
+</li>
+</ol>
+</li>
+<li><p>用途</p>
+<ol>
+<li>淀粉：食物的重要组成成分，是主要供能物质；还可用于制备葡萄糖、酿醋、酿酒等<br>纤维素：可用于纺织工业、造纸工业，制硝酸纤维、醋酸纤维等</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>实验：判断淀粉的水解程度</p>
+<ol>
+<li><p>实验原理：淀粉在酸作用下发生水解反应最终生成葡萄糖，反应物淀粉遇碘变蓝色，不能发生银镜反应；产物葡萄糖遇碘不变蓝，能发生银镜反应</p>
+</li>
+<li><p>实验步骤：</p>
+<img src="./images/6.1.svg" style="zoom:20%;" />
+</li>
+<li><p>实验现象及相关结论</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>现象A</th>
+<th>现象B</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>未出现银镜</td>
+<td>溶液变蓝色</td>
+<td>淀粉尚未水解</td>
+</tr>
+<tr>
+<td>2</td>
+<td>出现银镜</td>
+<td>溶液变蓝色</td>
+<td>淀粉部分水解</td>
+</tr>
+<tr>
+<td>3</td>
+<td>出现银镜</td>
+<td>溶液不变蓝色</td>
+<td>淀粉完全水解</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p>说明：</p>
+<ol>
+<li>验证水解产物时，首先要加入 $\ce{NaOH}$ 溶液中和后再进行实验</li>
+<li>要验证混合液中是否还有淀粉应直接取水解液加碘水，而不能在加入 $\ce{NaOH}$ 中和后再加碘水，因碘水与 $\ce{NaOH}$ 溶液反应</li>
+</ol>
+</blockquote>
+</blockquote>
+<h2 id="氨基酸"><a href="#氨基酸" class="headerlink" title="氨基酸"></a>氨基酸</h2><ol>
+<li><p>$\ce{\alpha}-$氨基酸</p>
+<ol>
+<li>结构特点：羧基和氨基连在同一个碳原子上</li>
+<li>物理性质：天然的氨基酸均为无色晶体，熔点较高，在 200~300℃ 熔化时分解。除少数外一般都能溶于水，而难溶于乙醇、乙醚等有机溶剂</li>
+</ol>
+</li>
+<li><p>氨基酸的化学性质</p>
+<ol>
+<li><p>氨基酸的两性：既能和强酸反应，又能和强碱反应</p>
+<p>$\ce{CH2(NH2)-COOH +NaOH-&gt;CH2(NH2)-COONa +H2O}$</p>
+<p>$\ce{CH2(NH2)-COOH +HCl-&gt;CH2(NH3Cl)-COOH}$</p>
+</li>
+<li><p>成肽反应</p>
+<img src="./images/6.2.svg" style="zoom:40%;" /></li>
+</ol>
+</li>
+</ol>
+<h2 id="蛋白质"><a href="#蛋白质" class="headerlink" title="蛋白质"></a>蛋白质</h2><ol>
+<li><p>蛋白质的组成与结构</p>
+<ol>
+<li>元素：$\ce{C、H、O、N、(S、P)}$</li>
+<li>高分子化合物：蛋白质是由氨基酸通过缩聚反应产生的，蛋白质属于高分子化合物</li>
+<li>所含官能团：肽键（<img src="/./images/6.3.svg">  ），多肽链两端存在氨基和羧基))</li>
+</ol>
+</li>
+<li><p>双性：既能和强酸反应，又能和强碱反应</p>
+</li>
+<li><p>水解：蛋白质$\ce{-&gt;[酸、碱或酶]}$多肽类$\ce{-&gt;[逐步水解]}$氨基酸</p>
+</li>
+<li><p>盐析（物理变化）</p>
+<ol>
+<li>条件：加人浓的轻金属盐溶液，如 $\ce{(NH4)2SO4、Na2SO4}$ 等</li>
+<li>结果：蛋白质的溶解度降低而从溶液中析出</li>
+<li>特点：发生可逆的物理过程，加水稀释沉淀重新溶解，活性不变</li>
+<li>应用：采用多次盐析和溶解，可以分离提纯蛋白质</li>
+</ol>
+</li>
+<li><p>变性（化学变化）</p>
+<ol>
+<li><p>影响因素：</p>
+<ol>
+<li><p>物理因素：加热、加压、搅拌、振荡、紫外线照射、超声波等</p>
+</li>
+<li><p>化学因素：强酸、强碱、重金属盐、某些有机物（甲醛、酒精、苯甲酸等）</p>
+</li>
+</ol>
+</li>
+<li><p>结果：蛋白质的性质和生理功能发生改变而形成沉淀</p>
+</li>
+<li><p>特点：发生不可逆的化学过程</p>
+</li>
+<li><p>应用：</p>
+<ol>
+<li>乙醇、碘酒杀菌消毒的原理是使细菌、病毒蛋白质变性死亡</li>
+<li>食物加热烹调使蛋白质变性，利于酶发挥作用使其消化</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>显色反应：浓硝酸与某些蛋白质发生显色（黄色）反应，可用于蛋白质的检验</p>
+</li>
+<li><p>灼烧：产生烧焦羽毛的气味，可以用来鉴别蛋白质</p>
+</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/06%20%E7%94%9F%E7%89%A9%E5%A4%A7%E5%88%86%E5%AD%90/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/05%20%E7%83%83%E7%9A%84%E8%A1%8D%E7%94%9F%E7%89%A9/">
+        <h2 class="post-title">有机化学基础 · 五 · 「烃的衍生物」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p><img src="/./images/5.0.svg"></p>
+<p>根据官能团对有机化合物进行分类，是有机化学中常用的分类方法。用这种分类方法 可以将烃的衍生物分为 <strong>卤代烃、醇、酚、醚、 醛、酮、羧酸、酯、胺、酰胺</strong> 等</p>
+<h2 id="醇"><a href="#醇" class="headerlink" title="醇"></a>醇</h2><h3 id="醇的分类"><a href="#醇的分类" class="headerlink" title="醇的分类"></a>醇的分类</h3><ol>
+<li>根据醇分子中所含羟基的数目：一元醇、二元醇、多元醇</li>
+<li>根据羟基所连烃基种类：<br>$<br>\begin{cases}<br>脂肪醇 \begin{cases}<br>饱和醇(饱和一元醇\quad!!\ce{C_nH_{2n+1}OH}\quad n \ge 1) \<br>不饱和醇 \<br>\end{cases}\<br>脂环醇(环己醇\quad!!\ce{⌬!-OH})\<br>芳香醇(苯甲醇\quad!!\ce{⌬!-CH2OH})\<br>\end{cases}<br>$</li>
+</ol>
+<h3 id="生活中常见的醇"><a href="#生活中常见的醇" class="headerlink" title="生活中常见的醇"></a>生活中常见的醇</h3><ol>
+<li>甲醇( $\ce{CHOH}$ 木精)：无色、具有挥发性的液体易溶于水，沸点为 $65\ce{°!C}$。甲醇有毒，误服会损伤视神经，甚至致人死亡。甲醇广泛应用于化工生产也可作为车用燃料</li>
+<li>乙二醇、丙三醇都是无色、粘稠、有甜味的液体，都易溶于水和乙醇，是重要的化工原料<ol>
+<li>乙二醇是汽车发动机防冻液的主要化学成分，也是合成涤纶等高分子化合物的主要原料</li>
+<li>丙三醇具有很强的吸水能力，可用于制造日用化妆品</li>
+</ol>
+</li>
+</ol>
+<h3 id="物理性质"><a href="#物理性质" class="headerlink" title="物理性质"></a>物理性质</h3><ol>
+<li><p>沸点</p>
+<ol>
+<li><strong>饱和一元醇</strong>的熔沸点随分子中<strong>碳原子数</strong>的递增而逐渐增大</li>
+<li>相对分子质量相近的醇和烷烃相比，<strong>醇的沸点远远高于烷烃的沸点</strong>（<strong>氢键的影响</strong>）</li>
+<li>碳原子数相同时，<strong>羟基个数</strong>越多，醇的沸点越高；羟基的个数不限，但由于不稳定不存在一个 $\ce{C}$ 原子上连有2个羟基的醇<blockquote>
+<p>①丙醇 ②丙二醇 ③丙烷 ④乙醇 ⑤丙三醇 等物质的沸点排列顺序：<br>$⑤&gt;②&gt;①&gt;④&gt;③$</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>溶解性：<br>醇在水中的溶解度一般随分子中<strong>碳原子数的增加而降低</strong>。<strong>羟基越多，溶解度越大</strong></p>
+<blockquote>
+<p>理解：烷基是憎水基，羟基是亲水基，接的烷基越多，使得羟基形成氢键导致溶解度增加的效果减弱，因此溶解性降低</p>
+<p>甲醇、乙醇、丙醇、乙二醇、丙三醇等低级醇(碳数比较少的醇)可与水以任意比例混溶</p>
+</blockquote>
+</li>
+<li><p>密度：醇的密度比水的密度小</p>
+</li>
+</ol>
+<h3 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h3><p>醇的化学性质主要由<strong>羟基</strong>官能团所决定。在醇分子中，由于氧原子吸引电子的能力比氢原子和碳原子的强(氧的电负性更大，吸引电子的能力更强)，使 $\ce{O-H}$ 和 $\ce{C-O}$ 的电子都向氧原子偏移。因此，醇在发生反应时， $\ce{O-H}$ 容易断裂，使羟基中的氢原子被取代，同样， $\ce{C-O}$也易断裂，使羟基被取代或脱去，从而发生取代反应或消去反应</p>
+<h4 id="与活泼金属单质的置换反应"><a href="#与活泼金属单质的置换反应" class="headerlink" title="与活泼金属单质的置换反应"></a>与活泼金属单质的置换反应</h4><p>$\ce{2CH3CH2OH +2Na -&gt; 2CH3CH2ONa + H2 ^}$</p>
+<p>现象：钠沉于无水乙醇的底部（或因产生的氢气使得钠上下跳动），表面有气泡产生，慢慢消失；放出的气体可在空气中安静地燃烧，火焰呈淡蓝色（ $\ce{H2}$ ）；烧杯壁上有水珠生成；澄清石灰水未变浑浊（无 $\ce{CO2}$ ）</p>
+<ol>
+<li><p><strong>乙醇羟基的 $\ce{H}$ 原子活泼性较水的 $\ce{H}$ 原子弱</strong>（醇分子中的烷基具有<strong>推电子作用</strong>）</p>
+<blockquote>
+<p>推电子作用：$\vec{\ce{CH3CH2}}\ce{-O-H}$</p>
+<p>由于烷基具有推电子作用，使得 $\ce{O-H}$ 键极性变弱，因此反应不会很剧烈</p>
+<p>「芙蓉犹想红，尘漫且不容」</p>
+</blockquote>
+</li>
+<li><p>其它活泼金属如钾、钙等也可与乙醇反应产生  $\ce{H2}$</p>
+</li>
+<li><p>产物乙醇钠在水中强烈水解：$\ce{CH3CH2ONa + H2O→CH3CH2OH + NaOH}$</p>
+</li>
+</ol>
+<blockquote>
+<p>与 $\ce{Na}$ 反应生成 $\ce{H2}$ 的官能团：$\ce{-COOH、-OH}$ (醇、酚)</p>
+</blockquote>
+<h4 id="取代反应（以乙醇为例）"><a href="#取代反应（以乙醇为例）" class="headerlink" title="取代反应（以乙醇为例）"></a>取代反应（以乙醇为例）</h4><ol>
+<li><p><strong>醇与浓的氢卤酸</strong>（ $\ce{HCl、HBr、HI}$ ）</p>
+<p>分子的碳氧键发生断裂，羟基被卤素原子取代，生成相应的卤代烃和水</p>
+<p>$\ce{CH3CH2-!!!⁞\enspace OH + H-!!!⁞\enspace Br -&gt; CH3CH2\mathbf{Br} + H2O}$</p>
+<blockquote>
+<p>加热是为了蒸发为气体进入反应装置，加热并不是反应条件</p>
+<p>实验室中会使用 $\ce{NaBr}$ 和浓硫酸代替浓氢溴酸</p>
+</blockquote>
+<blockquote>
+<p>$\ce{C2H5Br + NaOH-&gt;[H2O][\Delta]C2H5OH + NaBr}$</p>
+</blockquote>
+</li>
+<li><p><strong>酯化反应</strong></p>
+<img src="./images/5.1.svg" style="zoom:25%;" />
+
+<blockquote>
+<p><strong>口诀：酸脱羟基醇脱氢</strong></p>
+<p>对乙醇上的氧原子进行 $^{18}\ce{O}$ 进行追踪，发现出现在乙酸乙酯中，证明不是乙醇的碳氧键断裂（但一部分 $^{18}\ce{O}$ 还会留着乙醇中，因为是可逆反应）</p>
+</blockquote>
+<img src="./images/5.39.png" style="zoom: 50%;" />
+
+<ul>
+<li>实验器材：铁架台 试管 导管 酒精灯</li>
+<li>试剂加入顺序：乙醇 3mL 乙酸 2mL 浓硫酸 2mL （可以集成「醇，硫，酸」）</li>
+<li>反应过程中右侧试管内液体上层有无色透明的油状液体产生，并且可以闻到香味</li>
+<li>饱和碳酸钠的作用：①吸收乙醇 ②中和乙酸 ③降低酯的溶解度</li>
+<li>浓硫酸的作用：①催化剂 ②吸收反应生成的水，使酯化反应平衡正向移动</li>
+</ul>
+</li>
+<li><p><strong>醇分子间脱水成醚</strong></p>
+<p>如果把乙醇与浓硫酸的混合物的温度控制在 <strong>$140\ce{°C}$</strong> 左右，每两个乙醇分子间会脱去一个水分子而生成乙醚</p>
+<img src="./images/5.2.svg" style="zoom:25%;" />
+
+<p>乙醚是一种无色、易挥发的液体，有特殊气味，有麻醉作用，易溶于有机溶剂。像乙醚这样由<strong>两个烃基通过一个氧原子连接起来的化合物叫做醚</strong>，<strong>醚的结构可用 $\ce{R-O-R’}$ 来表示</strong>， $\ce{R}$ 和 $\ce{R’}$ 都是烃基，可以相同，也可不同</p>
+<p>醚类物质在化工生产中被广泛用作溶剂，有的醚可被用作麻醉剂</p>
+</li>
+</ol>
+<h4 id="消去反应"><a href="#消去反应" class="headerlink" title="消去反应"></a>消去反应</h4><ul>
+<li><p>将 <strong>浓硫酸与乙醇按体积比 $3:1$</strong> 混合，即将 $15mL$ 浓硫酸緩缓加入到盛有 $5mL\enspace95%$ 乙醇的烧杯中混合均匀（<strong>浓硫酸加入乙醇中</strong>），冷却后再倒入长颈圆底烧瓶中，并加入碎瓷片防止暴沸</p>
+</li>
+<li><p>加热混合溶液，<strong>迅速升温到 $170\ce{°C}$<strong>，将生成的气体</strong>先通入 $\ce{NaOH}$ 溶液除去杂质</strong>再分别通入 $\ce{KMnO4}$ 酸性溶液和溴的四氯化碳溶液中，观察现象</p>
+</li>
+</ul>
+<blockquote>
+<p>硫酸酒精 $3:1$：浓硫酸作催化剂与脱水剂</p>
+<p>温度迅速 $170$ ：由于在 $140\ce{°C}$ 会发生脱水成醚，为避免产生杂质，应迅速升温</p>
+<p> $\ce{NaOH}$ 溶液除杂：通过导管的不仅有乙烯，还有挥发出来的乙醇，同时浓硫酸发生碳化，碳与浓硫酸再次反应，产生二氧化硫杂质，浓硫酸有强氧化性，生成 $\ce{CO2}$ 杂质。因此，不能将其不经除杂直接通入 $\ce{KMnO4}$ 或 溴水 中验证乙烯具有还原性，乙醇和 $\ce{SO2}$ 会使前者褪色， $\ce{SO2}$ 会使后者褪色</p>
+</blockquote>
+<img src="./images/5.4.png" style="zoom:33%;" />
+
+<p>实验现象：产生了气体，该气体使酸性高锰酸钾溶液褪色，使溴的四氯化碳溶液褪色，烧瓶内有黑色固体生成</p>
+<ul>
+<li>原理：</li>
+</ul>
+<img src="./images/5.3.svg" style="zoom:25%;" />
+
+<ul>
+<li><p><strong>反应条件：邻位 $\ce{C}$ 原子上有 $\ce{H}$</strong></p>
+<blockquote>
+<p>若邻位碳原子上有多种化学环境的氢原子，则有多种可能的消去方式</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="氧化反应"><a href="#氧化反应" class="headerlink" title="氧化反应"></a>氧化反应</h4><ol>
+<li><p><strong>乙醇的燃烧</strong>：火焰呈淡蓝色，放出大量的热</p>
+<p>$\ce{CH3CH2OH + 3O2-&gt;[点燃]2CO2 + 3H2O}$</p>
+</li>
+<li><p><strong>醇的催化氧化</strong></p>
+<img src="./images/5.5.svg" style="zoom:25%;" />
+
+<img src="./images/5.6.png" style="zoom:33%;" />
+
+<p><strong>条件：与$\ce{-OH}$相连的碳必须有 $\ce{H}$，才能发生催化氧化反应</strong></p>
+<p><strong>氧化反应</strong>：有机物分子中失去氢原子或加入氧原子的反应（**去$\ce{H}$加$\ce{O}$<strong>）<br><strong>还原反应</strong>：有机物分子中加入氢原子或失去氧原子的反应（</strong>加$\ce{H}$去$\ce{O}$**）</p>
+<ul>
+<li><p><strong>乙醇的催化氧化</strong><br> $$<br> {\mathop{\ce{CH3CH2OH}}\limits_{乙醇}\ce{-&gt;[氧化][2e-]} \mathop{\ce{CH3CHO}}\limits_{乙醛}\ce{-&gt;[氧化][2e-]}\mathop{\ce{CH3COOH}}\limits_{乙酸}}<br> $$<br>  $\ce{2CH3CH2OH + O2 -&gt;[Cu&#x2F;Ag][△]2CH3CHO + 2H2O}$</p>
+<p>  $\ce{铜丝-&gt;[\Delta]变黑-&gt;[插入乙醇溶液]变红,有刺激性气味产生}$</p>
+<p>  分析：$\ce{2Cu + O2\xlongequal{\Delta}2CuO}$</p>
+<p>  ​		   	$\ce{2CuO + 2CH3CH2OH-&gt;[\Delta]2Cu + 2CH3CHO + 2H2O}$</p>
+<p> ​			   $\ce {2CH3CH2OH + O2 -&gt;[Cu][△]2CH3CHO + 2H2O}$</p>
+<p> 如果遇到强氧化剂（例如酸性高锰酸钾、酸性重铬酸钾溶液），直接氧化为乙酸</p>
+</li>
+</ul>
+</li>
+<li><p><strong>醇与酸性重铬酸钾</strong></p>
+<p>   $\ce{K2Cr2O7(橙红色) + C2H5OH + H2SO4-&gt;Cr2(SO4)3(绿色) + CH3COOH + K2SO4 + H}$</p>
+<blockquote>
+<p>交警利用乙醇能使橙色的酸性重铬酸钾变绿，检查司机是否酒后驾车</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="乙醇的反应与断键位置总结"><a href="#乙醇的反应与断键位置总结" class="headerlink" title="乙醇的反应与断键位置总结"></a>乙醇的反应与断键位置总结</h4><table>
+    <thead>
+        <tr>
+            <td colspan="2">反应类型</td>
+            <td>反应物</td>
+            <td>反应条件</td>
+            <td>断键位置</td>
+            <td rowspan="8"><img src="./images/5.7.png" style="zoom: 30%;" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">置换反应</td>
+            <td>乙醇、活泼金属</td>
+            <td>-</td>
+            <td>①</td>
+        </tr>
+        <tr>
+            <td rowspan="3">取代反应</td>
+            <td>卤代</td>
+            <td>乙醇、浓HX</td>
+            <td>-</td>
+            <td>②</td>
+        </tr>
+        <tr>
+            <td>分子间脱水</td>
+            <td>乙醇</td>
+            <td>浓硫酸，140℃</td>
+            <td>①/②</td>
+        </tr>
+        <tr>
+            <td>酯化</td>
+            <td>乙醇、羧酸</td>
+            <td>浓硫酸，△</td>
+            <td>①</td>
+        </tr>
+        <tr>
+            <td colspan="2">消去反应</td>
+            <td>乙醇</td>
+            <td>浓硫酸，170℃</td>
+            <td>②⑤</td>
+        </tr>
+        <tr>
+            <td rowspan="2">氧化反应</td>
+            <td>催化氧化</td>
+            <td>乙醇、O<sub>2</sub></td>
+            <td>Cu或Ag,△</td>
+            <td>①③</td>
+        </tr>
+        <tr>
+            <td>燃烧</td>
+            <td>乙醇、O<sub>2</sub></td>
+            <td>点燃</td>
+            <td>全部</td>
+        </tr>
+    </thead>
+</table>
+### 醇的同分异构体
+
+<p>饱和一元醇的通式为$\ce{C_nH_{2n+1}OH}$，分子式满足$\ce{C_nH_{2n+2}O}$的有机物，可能是醇，也可能是醚，在醇醚里再分别考虑碳链异构、官能团位置异构。因此，$\ce{C3H8O}$、$\ce{C4H10O}$、$\ce{C5H12O}$ 不一定为同系物</p>
+<h2 id="酚"><a href="#酚" class="headerlink" title="酚"></a>酚</h2><ul>
+<li><p>定义：(酚)羟基( $\ce{-OH}$ )与苯环直接相连的化合物称为酚</p>
+<blockquote>
+<p>与 $\ce{-OH}$ 相连的苯环可以是单环，也可以是稠环</p>
+</blockquote>
+</li>
+<li><p>苯酚结构</p>
+<img src="./images/5.8.png"  style="zoom: 25%;" />
+
+<blockquote>
+<p>至少有 12 个原子共平面，最多有 13 个原子共平面</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="苯酚的物理性质"><a href="#苯酚的物理性质" class="headerlink" title="苯酚的物理性质"></a>苯酚的物理性质</h3><table>
+<thead>
+<tr>
+<th>颜色</th>
+<th>味道</th>
+<th>状态</th>
+<th>熔点</th>
+<th>溶解度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无色</td>
+<td>特殊气味</td>
+<td>晶体</td>
+<td>$43\ce{°C}$</td>
+<td>$9.2g$（可以与水形成氢键）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>溶解在水中出现白色浑浊。当温度高于$65\ce{°C}$时能与水混溶；苯酚易溶于酒精、苯等有机溶剂</li>
+<li>苯酚有毒，也具有消毒作用，对皮肤有腐蚀性。如不慎沾到皮肤上，应立即用酒精冲洗，再用水冲洗（苯酚对酒精的溶解度比较大）</li>
+<li>放置时间较长的苯酚往往是粉红色的，这是部分苯酚被空气中的氧气氧化所致（苯醌）。因此，苯酚应密封保存</li>
+</ul>
+<h3 id="苯酚的化学性质"><a href="#苯酚的化学性质" class="headerlink" title="苯酚的化学性质"></a>苯酚的化学性质</h3><h4 id="弱酸性"><a href="#弱酸性" class="headerlink" title="弱酸性"></a>弱酸性</h4><p>由于苯酚中的羟基和苯环直接相连，苯环与羟基之间的相互作用使酚羟基在性质上与醇羟基有显著差异。<br>酚羟基中的氢原子比醇羟基中的氢原子更活泼，<strong>苯酚的羟基在水溶液中能够发生部分电离，显示弱酸性</strong>，故苯酚俗称石炭酸</p>
+<p><strong>苯酚水溶液不能使酸碱指示剂变色</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>实验操作及现象</th>
+<th>方程式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>向盛有0.3g苯酚晶体的试管中加入2毫升蒸馏水<br>振荡试管震荡后，液体呈乳白色沉淀</td>
+<td><img src="./images/5.9.svg"  height="60"/></td>
+</tr>
+<tr>
+<td>2</td>
+<td>滴加5%氢氧化钠溶液并振荡试管<br>液体由浑浊变澄清</td>
+<td><img src="./images/5.10.svg" height="60"/></td>
+</tr>
+<tr>
+<td>3</td>
+<td>向试管中继续滴加稀盐酸后<br>溶液由澄清又重新变浑浊</td>
+<td><img src="./images/5.11.svg"  height="60"/></td>
+</tr>
+<tr>
+<td>4</td>
+<td>向苯酚钠溶液中通入二氧化碳</td>
+<td><img src="./images/5.12.svg" height="60"/></td>
+</tr>
+<tr>
+<td>5</td>
+<td>向苯酚溶液中通入碳酸钠</td>
+<td><img src="./images/5.42.svg" height="60"/></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>结论与说明：</p>
+<ol>
+<li>常温下苯酚在水中的溶解度不大</li>
+<li>苯酚有酪酸性；苯酚钠易溶于水；苯酚可以与 $\ce{NaOH}$ 发生中和反应</li>
+<li>常温下苯酚在水中的溶解度不大，生成的苯酚不能完全溶于水</li>
+<li>酸性：碳酸 &gt; 苯酚 &gt; 碳酸根；反应产物与通入 $\ce{CO2}$ 的量无关</li>
+</ol>
+</blockquote>
+<h4 id="取代反应"><a href="#取代反应" class="headerlink" title="取代反应"></a>取代反应</h4><p>向盛有少量苯酚稀溶液的试管里逐滴加入过量饱和的溴水，边加边振荡</p>
+<p>实验现象：立即产生<strong>白色沉淀</strong>（该反应很灵敏，可用于苯酚的定性检验和定量测定）</p>
+<img src="./images/5.13.svg"  style="zoom: 60%;" />
+
+<p>羟基对苯环的影响，<strong>使苯环上羟基邻、对位氢原子更活泼，易被取代</strong></p>
+<p>酚与浓溴水发生取代反应时，只取代羟基的邻，对位氢原子，间位氢原子不取代</p>
+<blockquote>
+<p>由于相似相容原理（2，4，6-三溴苯酚溶于苯）该反应不能用于苯中苯酚的除杂</p>
+</blockquote>
+<blockquote>
+<p>苯酚与苯取代反应的不同</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>苯酚</th>
+<th>苯</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>反应物</td>
+<td>浓溴水与苯酚反应次</td>
+<td>液溴与苯</td>
+</tr>
+<tr>
+<td>反应条件</td>
+<td>不用催化剂</td>
+<td>$\ce{FeBr}$ 作催化剂</td>
+</tr>
+<tr>
+<td>反应速率</td>
+<td>反应灵敏，速率快</td>
+<td>反应速率较慢</td>
+</tr>
+<tr>
+<td>取代苯环上的氢原子数</td>
+<td>取代苯环上$3$个氢原子</td>
+<td>一次取代苯环上$1$个氢原子</td>
+</tr>
+</tbody></table>
+<p>结论：苯酚与溴取代反应比苯容易<br>原因：酚羟基对苯环影响，使苯环上（邻、对位）氢原子变得活泼</p>
+</blockquote>
+<h4 id="显色反应"><a href="#显色反应" class="headerlink" title="显色反应"></a>显色反应</h4><p>实验：向盛有少量苯酚的稀溶液的试管中，滴入几滴  $\ce{FeCl3}$ 溶液，振荡，观察现象<br>现象：溶液显紫色（利用这一反应也可以检验苯酚的存在）</p>
+<p>原理：</p>
+<p>$$\ce{6C6H5OH + Fe^{3+} -&gt; [Fe(C6H5O)6]^{3-} + 6H+}$$</p>
+<p>酚类物质一般都可以与 $\ce{FeCl3}$ 作用显色，可用于检验其存在</p>
+<h4 id="氧化反应-1"><a href="#氧化反应-1" class="headerlink" title="氧化反应"></a>氧化反应</h4><p>苯酚晶体在常温下易被空气中的氧气氧化生成粉红色物质<br><strong>苯酚可以被酸性高锰酸钾溶液等强氧化剂氧化，使高锰酸钾溶液褪色</strong>（与醇羟基类似）</p>
+<h4 id="加成反应"><a href="#加成反应" class="headerlink" title="加成反应"></a>加成反应</h4><p>苯酚中含有苯环，可以与氢气发生加成：</p>
+<img src="./images/5.14.svg" style="zoom: 67%;" />
+
+<h2 id="醛"><a href="#醛" class="headerlink" title="醛"></a>醛</h2><h3 id="醛的定义"><a href="#醛的定义" class="headerlink" title="醛的定义"></a>醛的定义</h3><ul>
+<li><p><strong>定义</strong>：由烃基（或氢原子）与醛基相连而构成的化合物，简写为 $\ce{RCHO}$</p>
+</li>
+<li><p><strong>官能团</strong>：醛基，结构式为<img src="./images/5.15.svg" style="zoom: 67%;" />，可简写为 $\ce{-CHO}$</p>
+</li>
+<li><p><strong>通式</strong>：饱和一元醛的通式为 $\ce{C_nH_{2n}O}( n\geq1 )$ 或 $\ce{C_nH_{2n+1}CHO}( n\geq0 )$</p>
+<blockquote>
+<p>前者可能存在同分异构体，后者直接指向饱和一元醛</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="物理性质-1"><a href="#物理性质-1" class="headerlink" title="物理性质"></a>物理性质</h3><ol>
+<li><p><strong>熔、沸点</strong>：通常情况下，醛类除甲醛是气体外，其他醛都是无色液体或固体。醛类的熔、沸点随着分子内碳原子数的增加而呈增大趋势</p>
+</li>
+<li><p>溶解性：醛类物质在水中的溶解度随分子内碳原子数的增加而呈减小趋势，这是由于属于极性基团的 $\ce{-CHO}$ 在分子中所占的比例减小</p>
+</li>
+<li><p>乙醇的物理性质</p>
+</li>
+</ol>
+<p>   乙醛( $\ce{CH3CHO}$ )是无色、具有刺激性气味的液体，密度比水小，沸点为$\ce{20.8°!C}$，易挥发，易燃烧，能与水$^1$、乙醇等互溶</p>
+<blockquote>
+<p>$^1$本身不形成氢键，与水形成氢键</p>
+</blockquote>
+<h3 id="化学性质-1"><a href="#化学性质-1" class="headerlink" title="化学性质"></a>化学性质</h3><h4 id="加成反应-1"><a href="#加成反应-1" class="headerlink" title="加成反应"></a>加成反应</h4><ol>
+<li><p><strong>催化加氢</strong></p>
+<p>乙醛蒸气和氢气的混合气体通过热的镍催化剂，发生催化加氢反应，得到乙醇</p>
+<img src="./images/5.16.svg" style="zoom: 25%;" />
+
+<blockquote>
+<ol>
+<li>醛基催化加氢一定生成端醇</li>
+<li>醛的催化加氢反应也是<strong>还原反应</strong></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>$\ce{}$乙醇氧化成乙醛：$\ce {2CH3CH2OH + O2 -&gt;[Cu&#x2F;Ag][△]2CH3CHO + 2H2O}$</p>
+</blockquote>
+</li>
+<li><p><strong>与 $\ce{HCN}$ 加成</strong></p>
+<blockquote>
+<p>在醛基的碳氧双键中，由于氧原子的电负性较大，碳氧双键中的电子偏向氧原子，<strong>使氧原子带部分负电荷，碳原子带部分正电荷</strong>，从而使醛基具有较强的极性<img src="./images/5.17.svg" style="zoom:20%;" /></p>
+</blockquote>
+<p>醛基与极性分子加成时，极性分子中带正电荷的原子或原子团连接在醛基的氧原子上，带负电荷的原子或原子团连接在碳原子（此类加成反应可用于增长碳链）</p>
+<img src="./images/5.18.svg" style="zoom: 25%;" />
+</li>
+<li><p><strong>羟醛缩合反应</strong>（常用的增长碳链的方法）<br>醛分子中在醛基邻位碳原子上的氢原子 ( $α-\ce{H}$ ) 受羰基吸引电子作用的影响，具有一定的活泼性，分子内含有 $α-\ce{H}$ 的醛在一定条件下可以发生加成反应，生成 $\beta-$羟基醛，该产物易失水，得到 $\alpha,\beta-$不饱和醛</p>
+<img src="./images/5.19.svg" style="zoom: 25%;" /></li>
+</ol>
+<h4 id="氧化反应-2"><a href="#氧化反应-2" class="headerlink" title="氧化反应"></a>氧化反应</h4><ol>
+<li><p><strong>银镜反应</strong></p>
+<ul>
+<li><p>银氨溶液的配制：<br>取 $1mL\space 2%$ 的 $\ce{AgNO3}$ ，溶液于 <strong>洁净</strong> 试管中，然后边振荡试管边 <strong>逐滴</strong> 滴入 $2%$ 的稀氨水，至产生的 <strong>沉淀恰好完全溶解</strong>，制得银氨溶液，化学反应方程式为：</p>
+<p>$\ce{AgNO3 + NH3<em>H2O&#x3D;AgOH v + NH4NO3 \qquad AgOH + 2NH3</em>H2O&#x3D;[Ag(NH3)2]OH + 2H2O}$</p>
+</li>
+<li><p>向银氨溶液中滴入3滴乙醛，振荡后将试管放在热水浴中温热。观察实验现象</p>
+<img src="./images/5.20.png" style="zoom: 40%;" />
+
+<p>化学方程式：$\ce{CH3CHO + 2[Ag(NH3)2]OH -&gt;[\Delta]H2O + 2Ag v + 3NH3 + CH3COONH4}$</p>
+<p>离子方程式：$\ce{CH3CHO + 2[Ag(NH3)2]+ + OH- -&gt;[\Delta] H2O + 2Ag v + 3NH3 + CH3COO- + NH+4}$</p>
+<blockquote>
+<p>记忆：水银铵，$123$，再加一个羧酸铵</p>
+</blockquote>
+</li>
+<li><p>该反应可以用来检验分子中是否存在醛基并可以确定醛基个数</p>
+<p>工业上可用银镜反应对玻璃涂银制镜和制保温瓶瓶胆</p>
+</li>
+</ul>
+</li>
+<li><p><strong>与新制 $\ce{Cu(OH)2}$ 反应</strong></p>
+<p>$\ce{2NaOH +CuSO4&#x3D;Cu(OH)2 v +Na2SO4}$</p>
+<p>$\ce{CH3CHO + 2Cu(OH)2 + NaOH-&gt;[\Delta] CH3COONa + Cu_2O v +3H2O}$</p>
+<blockquote>
+<p>$\ce{Cu(OH)2}$：蓝色$\quad\ce{Cu2O}$：砖红色</p>
+</blockquote>
+<p>该反应可以用来检验分子中是否存在醛基并可以确定醛基个数<br>医院里，利用这一反应原理检查尿糖是否正常：斐林试剂检验葡萄糖（<strong>检验葡萄糖的醛基</strong>）</p>
+</li>
+</ol>
+<ul>
+<li><p><strong>醛类的两个特征反应及 $\ce{-CHO}$ 的检验</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">特征反应</th>
+<th align="left">银镜反应</th>
+<th align="left">与新制的 $\ce{Cu(OH)2}$ 反应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">现象</td>
+<td align="left">产生光亮的银镜</td>
+<td align="left">产生砖红色沉淀</td>
+</tr>
+<tr>
+<td align="left">注意事项</td>
+<td align="left">1. 试管内壁必须洁净<br>2. 银氨溶液现用现配<br>3. 水浴加热，不可用酒精灯直接加热<br>4. 醛用量不宜太多，如乙醛一般滴3滴<br>5. 银镜可用稀硝酸浸泡洗涤除去</td>
+<td align="left">1. 新制的 $\ce{Cu(OH)2}$ 要现用现配<br>2. 配制新制的 $\ce{Cu(OH)2}$ 时，所用 $\ce{NaOH}$ 溶液必须过量<br/>3. 该反应必须加热到沸腾，才有明显的红色沉淀产生，但不能太久，否则会有黑色的沉淀$\ce{CuO}$生成</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>可以检验含醛基的物质：醛类、甲酸、甲酸酯、葡萄糖等还原糖</p>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li><p><strong>被强氧化剂氧化</strong></p>
+<ul>
+<li><p>酸性 $\ce{KMnO4}$ 溶液 $\ce{-&gt;[醛]}$ <strong>紫红色</strong>变为<strong>无色</strong></p>
+</li>
+<li><p>酸性 $\ce{K2Cr2O7}$ 溶液 $\ce{-&gt;[醛]}$<strong>橙色</strong>变为<strong>绿色</strong></p>
+</li>
+<li><p>可以使溴水褪色，但不能使溴的 $\ce{CCl4}$ 溶液褪色</p>
+<p>$\ce{Br2 +H2O&lt;&#x3D;&gt;HBr +HBrO\quad CH3CHO + HBrO-&gt;CH3COOH +HBr}$</p>
+<p>$\ce{\Rightarrow CH3CHO +H2O-&gt;CH3COOH +2HBr}$</p>
+</li>
+</ul>
+</li>
+<li><p><strong>燃烧</strong>（具有可燃性） </p>
+<p>$\ce{2C2H4O + 5O2-&gt;[点燃] 4CO2 + 4H2O}$</p>
+</li>
+</ol>
+<h4 id="缩聚反应"><a href="#缩聚反应" class="headerlink" title="缩聚反应"></a>缩聚反应</h4><p><strong>酚醛树脂的合成</strong></p>
+<img src="./images/5.36.svg" style="zoom: 75%;" />
+
+<img src="./images/5.37.svg" style="zoom: 25%;" />
+
+<h3 id="常见的醛类"><a href="#常见的醛类" class="headerlink" title="常见的醛类"></a>常见的醛类</h3><h4 id="甲醛"><a href="#甲醛" class="headerlink" title="甲醛"></a>甲醛</h4><p>俗名蚁醛，最简单的醛类物质，是一种无色、有强烈刺激性气味的<strong>气体</strong>，易溶于水，质量分数为35%~40%的水溶液叫做<strong>福尔马林</strong>，具有防腐和杀菌能力，常作防腐杀菌剂（消毒、浸制标本）；制药（农药、消毒剂），香料，染料；制造酚醛树脂、脲醛树脂、维纶等</p>
+<ul>
+<li><p>氧化</p>
+<img src="./images/5.21.svg" style="zoom: 25%;" >
+</li>
+<li><p>银镜反应：$\ce{HCHO + 4[Ag(NH3)2]OH -&gt;[\Delta]2H2O + 4Ag v + 6NH3 + (NH4)2CO3}$</p>
+</li>
+<li><p>与新制 $\ce{Cu(OH)2}$ 反应：$\ce{HCHO + 4Cu(OH)2 + 2NaOH-&gt;[\Delta] Na2CO3 + 2Cu2O v + 6H2O}$</p>
+<blockquote>
+<p>$\ce{HCHO + 2[Ag(NH3)2]OH -&gt;[\Delta]H2O + 2Ag v + 3NH3 + HCOONH4}$</p>
+<p>$\ce{HCOONH4 + 2[Ag(NH3)2]OH -&gt;[\Delta]H2O + 2Ag v + 3NH3 + (NH4)2CO3}$</p>
+</blockquote>
+</li>
+<li><p>加成反应：$\ce{HCHO +H2-&gt;[催化剂][\Delta]CH3OH}$</p>
+</li>
+</ul>
+<h4 id="苯甲醛"><a href="#苯甲醛" class="headerlink" title="苯甲醛"></a>苯甲醛</h4><ul>
+<li>物理性质：<strong>苯甲醛是最简单的芳香醛</strong>，俗称苦杏仁油，是一种有苦杏仁味的无色液体</li>
+<li>用途：苯甲醛是制造染料、香料及药物的重要原料</li>
+</ul>
+<h2 id="酮"><a href="#酮" class="headerlink" title="酮"></a>酮</h2><h3 id="酮的定义"><a href="#酮的定义" class="headerlink" title="酮的定义"></a>酮的定义</h3><ol>
+<li>概念：羰基与两个烃基相连的化合物</li>
+<li>官能团：酮羰基（羰基，<img src="./images/5.24.svg" style="zoom: 70%;" >）</li>
+<li>酮结构可以表示为：<img src="./images/5.22.svg" style="zoom: 70%;" ></li>
+<li>饱和一元酮的通式为：$\ce{C_nH_{2n}O}\quad (n&gt;3)$</li>
+<li>分子中含相同碳原子数的<strong>饱和一元醛</strong>与<strong>饱和一元酮</strong>的分子式相同，结构不同，互为同分异构体</li>
+</ol>
+<h3 id="丙酮"><a href="#丙酮" class="headerlink" title="丙酮"></a>丙酮</h3><ol>
+<li><p>结构简式：$\ce{CH3COCH3}$</p>
+</li>
+<li><p>丙酮的性质：无色透明的液体，沸点$56.2\ce{°C}$，易挥发，能与水、乙醇等互溶</p>
+</li>
+<li><p>丙酮<strong>不能</strong>被银氨溶液、新制的氢氧化铜等弱氧化剂氧化</p>
+<p>在催化剂存在的条件下，<strong>丙酮可以发生催化加氢反应，也能与氰化氢加成</strong></p>
+<p>$\ce{CH3COCH3 +H2-&gt;[催化剂][\Delta]CH3CH(OH)CH3}$</p>
+</li>
+<li><p>酮是重要的有机溶剂和化工原料。例如，丙酮可用作化学纤维、钢瓶储存乙炔等的溶剂，还用于生产有机玻璃、农药和涂料等</p>
+</li>
+</ol>
+<h3 id="醛与酮的区别与联系"><a href="#醛与酮的区别与联系" class="headerlink" title="醛与酮的区别与联系"></a>醛与酮的区别与联系</h3><table id="tg-5070X">
+<tbody>
+  <tr>
+    <td colspan="2"></td>
+    <td>醛</td>
+    <td>酮</td>
+  </tr>
+  <tr>
+    <td colspan="2">官能团</td>
+    <td>醛基</td>
+    <td>酮羰基</td>
+  </tr>
+  <tr>
+    <td colspan="2">官能团位置</td>
+    <td>碳链末端（最简单的醛是甲醛）</td>
+    <td>碳链中间（最简单的酮是丙酮）</td>
+  </tr>
+  <tr>
+    <td rowspan="2">化学性质</td>
+    <td>加成反应</td>
+      <td colspan="2">均可与H<sub>2</sub>、HCN加成</td>
+  </tr>
+  <tr>
+    <td>氧化反应</td>
+    <td>能被银氨溶液、新制氢氧化铜等弱氧化剂氧化</td>
+    <td>不能被银氨溶液、新制氢氧化铜等弱氧化剂氧化</td>
+  </tr>
+  <tr>
+    <td colspan="2">联系</td>
+    <td colspan="2">碳原子数相同的饱和一元脂肪醛和饱和一元脂肪酮 互为同分异构体</td>
+  </tr>
+</tbody>
+</table>
+
+<h2 id="羧酸"><a href="#羧酸" class="headerlink" title="羧酸"></a>羧酸</h2><ol>
+<li><p><strong>定义</strong>：由烃基（或氢原子）与羧基相连而构成的化合物</p>
+</li>
+<li><p><strong>官能团：$\ce{-COOH}$</strong></p>
+</li>
+<li><p><strong>饱和一元脂肪酸的通式</strong>：**$\ce{C_{n}H_{2n}O2}\quad (n\geq1)\quad$** 或 <strong>$\quad\ce{C_{n}H_{2n+1}COOH}\quad (n\geq0)$</strong></p>
+</li>
+<li><p><strong>分类</strong>：<br>$$<br>羧酸\begin{cases}<br>根据烃基\begin{cases}<br>低级脂肪酸\quad\ce{CH3COOH}\<br>高级脂肪酸\begin{cases}<br>硬脂酸&amp;\ce{C17H35COOH}\<br>软脂酸&amp;\ce{C15H31COOH}\<br>油酸&amp;\ce{C17H33COOH}\<br>\end{cases}\<br>\end{cases}\<br>根据羟基数目\begin{cases}<br>一元羧酸&amp;\ce{CH3COOH}\<br>二元羧酸&amp;\ce{HOOC-COOH}\<br>多元羧酸&amp;柠檬酸\<br>\end{cases}\<br>根据羟基是否饱和\begin{cases}<br>饱和羧酸&amp;\ce{CH3COOH}\<br>不饱和羧酸&amp;\ce{CH2&#x3D;COOH}\<br>\end{cases}\<br>\end{cases}<br>$$</p>
+</li>
+</ol>
+<h3 id="物理性质-2"><a href="#物理性质-2" class="headerlink" title="物理性质"></a>物理性质</h3><ol>
+<li><strong>溶解性</strong>：<strong>分子中碳原子数在 4 以下的羧酸能与水氨溶</strong>。随着分子中碳原子数的增加，一元羧酸在水中的溶解度迅速减小，甚至不溶于水（高级脂防酸是不溶于水的蜡状固体）</li>
+<li><strong>沸点</strong>：羧酸分子间可以形成<strong>氢键</strong>，由于羧酸分子形成氢键的机会比相对分子质量相近的醇多，<strong>羧酸的沸点比相应的醇的沸点高</strong>，并且<strong>随着分子中碳原子数的增加，一元羧酸的沸点逐渐升高</strong></li>
+</ol>
+<h3 id="常见羧酸"><a href="#常见羧酸" class="headerlink" title="常见羧酸"></a>常见羧酸</h3><ul>
+<li><p><strong>甲酸</strong>（最简单的羧酸）</p>
+<p>俗称蚁酸，是一种无色、有刺激性气味的液体，有腐蚀性，能与水、乙醇等互溶。甲酸在工业上可用作还原剂，在医疗上可用作消毒剂。甲酸中<strong>既有醛基</strong>，<strong>又有羧基</strong>，所以甲酸既具有醛的性质（银镜反应、与氢氧化铜反应、与高锰酸钾反应），又具有羧酸的性质（酸的通性、酯化反应）</p>
+</li>
+<li><p><strong>乙酸</strong></p>
+<p>是具有强烈刺激性气味的液体，纯净的乙酸又称为<strong>冰醋酸</strong></p>
+</li>
+<li><p><strong>苯甲酸</strong></p>
+<p>俗称安息香酸，是一种无色晶体，易升华，微溶于水，易溶于乙醇。其钠盐是常用的<strong>食品防腐剂</strong></p>
+</li>
+<li><p><strong>乙二酸</strong></p>
+<p>俗称<strong>草酸</strong>，是无色透明晶体，通常含有结晶水，可溶于水和乙醇，以钠盐或钙盐形式广泛存在于植物中。草酸钙($\ce{CaC2O4}$)难溶于水，是人体肾结石和膀胱结石的主要成分。乙二酸是化学分析中常用的还原剂</p>
+</li>
+</ul>
+<h3 id="化学性质-2"><a href="#化学性质-2" class="headerlink" title="化学性质"></a>化学性质</h3><p>羧酸的化学性质主要取决于羧基官能团。由于受氧原子电负性较大等因素的影响，$\ce{O-H}$ 键、$\ce{C-O}$ 键容易断裂：<br><strong>当$\ce{O-H}$ 键断裂时</strong>：会解离出 $\ce{H+}$，使羧酸表现出酸性<br><strong>当$\ce{C-O}$ 键断裂时</strong>：$\ce{-OH}$ 可以被其他基团取代，生成酯、酰胺等羧酸衍生物</p>
+<h4 id="弱酸性-1"><a href="#弱酸性-1" class="headerlink" title="弱酸性"></a>弱酸性</h4><ol>
+<li>一元羧酸的电离方程式：$\ce{R-COOH&lt;&#x3D;&gt;R-COO- +H+}$</li>
+<li>能使酸碱指示剂变色：使得紫红色石蕊试纸变红</li>
+<li>与活泼金属发生置换反应：$\ce{2CH3COOH + Mg&#x3D;Mg(CH3COO)2 +H2 ^}$</li>
+<li>与碱性氧化物反应：$\ce{2CH3COOH + CuO&#x3D;Cu(CH3COO)2 +H2O}$</li>
+<li>中和反应：$\ce{CH3COOH + NaOH&#x3D;CH3COONa +H2O}$</li>
+<li>与某些盐反应：$\ce{2CH3COOH + CaCO3&#x3D;Ca(CH3COO)2 +H2O + CO2 ^}$</li>
+</ol>
+<p><strong>乙酸、碳酸 和 苯酚 的酸性比较</strong></p>
+<img src="./images/5.25.png"  style="zoom: 33%;" />
+
+<ol>
+<li>A 装置：有无色气体产生，说明酸性：乙酸 $&gt;$ 碳酸;<br>方程式：$\ce{2CH3COOH +Na2CO3→2CH3COONa +CO2 ^ +H2O}$</li>
+<li>C 装置：溶液变浑浊，说明酸性：碳酸 $&gt;$ 苯酚<br>方程式：$\ce{CO2 +H2O +C6H5ONa-&gt;C6H5OH +NaHCO3} $</li>
+<li>B 装置：<br>除去 $\ce{CO2}$ 中的乙酸蒸气，防止对碳酸酸性大于苯酚的检验产生干扰</li>
+<li>实验结论：酸性乙酸 $&gt;$ 碳酸 $&gt;$ 苯酚</li>
+</ol>
+<blockquote>
+<p>常见物质的酸性强弱：乙二酸 $&gt;$ 甲酸 $&gt;$ 苯甲酸 $&gt;$ 乙酸 $&gt;$ 丙酸 $&gt;$ 碳酸 $&gt;$ 苯酚 $&gt;$ $\ce{HCO^-_3}$</p>
+</blockquote>
+<h4 id="取代反应-1"><a href="#取代反应-1" class="headerlink" title="取代反应"></a>取代反应</h4><img src="./images/5.1.svg" style="zoom:25%;" />
+
+<img src="./images/5.26.svg" style="zoom:25%;" />
+
+<h4 id="还原反应"><a href="#还原反应" class="headerlink" title="还原反应"></a>还原反应</h4><p>与醛、酮的联基相比，羧基中的羰基较难发生加成反应，只有在特定条件或催化剂作用下，反应才能进行。羧酸很难通过催化加氢的方法被还原，<strong>用氢化铝锂能将羧酸还原为相应的醇</strong></p>
+<p>$\ce{R-COOH-&gt;[LiAlH4]R-CH2OH}$</p>
+<h4 id="alpha-ce-H-被取代的反应"><a href="#alpha-ce-H-被取代的反应" class="headerlink" title="$\alpha-\ce{H}$ 被取代的反应"></a>$\alpha-\ce{H}$ 被取代的反应</h4><p>羧酸分子中的 $\alpha-\ce{H}$ 较活泼，易被取代。通过羧酸 $\alpha-\ce{H}$ 的取代反应，可以合成卤代酸，进而制得氨基酸、羟基酸等</p>
+<p>$\ce{RCH2COOH +Cl2-&gt;[催化剂][\Delta] R-CHClCOOH +HCl}$</p>
+<h2 id="酯"><a href="#酯" class="headerlink" title="酯"></a>酯</h2><ol>
+<li><strong>定义</strong>：酯是羧酸分子羧基中的 $\ce{-OH}$ 被 $\ce{-OR’}$ 取代后的产物，结构简写为 $\ce{RCOOR’}$ 其中 $\ce{R}$ 和 $\ce{R’}$ 可以相同，也可以不同，但 $\ce{R’}$<br>不能接氢</li>
+<li><strong>官能团</strong>：<img src="./images/5.38.svg" style="zoom:100%;" /> （酯基）</li>
+<li><strong>通式</strong>：饱和一元脂肪羧酸酯的分子通式为 $\ce{C_nH_{2n}O_2\quad(n\geq2)}$</li>
+<li><strong>命名</strong>：依据水解后生成的酸和醇的名称来命名：命名时，羧酸的名称写在前面，醇的名称写在后面，去掉「醇」换成「酯」，即命名为「<strong>某酸某酯</strong>」</li>
+<li><strong>存在</strong>：酯类广泛存在于自然界中，很多鲜花和水果的香味都来自酯。如苹果里含有戊酸戊酯，菠萝里含有丁酸乙酯，香蕉里含有乙酸异戊酯等</li>
+<li><strong>用途</strong>：日常生活中的饮料、糖果和糕点等常使用酯类香料</li>
+</ol>
+<h3 id="物理性质-3"><a href="#物理性质-3" class="headerlink" title="物理性质"></a>物理性质</h3><ol>
+<li>低级酯是具有芳香气味的液体</li>
+<li>难溶于水，密度一般比水小</li>
+<li>易溶于苯、$\ce{CCl4}$、乙醇等有机溶剂中</li>
+</ol>
+<h3 id="化学性质-3"><a href="#化学性质-3" class="headerlink" title="化学性质"></a>化学性质</h3><p><strong>水解反应（取代反应）</strong></p>
+<p>​	在酸或碱催化的条件下，酯可以发生水解反应生成相应的酸和醇。酯的水解反应是酯化反应的逆反应。在碱性条件下，酯水解产生的羧酸可以与碱发生反应，使羧酸浓度减小，即减小了生成物的浓度，化学平衡正向移动，使酯的水解程度加大</p>
+<p>​	酸性条件：$\ce{RCOOR’ +H2O &lt;&#x3D;&gt;[稀H2SO4][\Delta] RCOOH +R’OH}$</p>
+<p>​	碱性条件：$\ce{RCOOR’ +NaOH -&gt;[\Delta] RCOONa +R’OH}$</p>
+<blockquote>
+<p><strong>$\ce{C_nH_{2n}O_2}$ 的同分异构体（羧酸、酯、羟基醛）</strong></p>
+<p>例如：$\ce{C4H8O2}$（11种）</p>
+<ul>
+<li><p>羧酸：$\ce{C3H7-COOH}$（丙基有2种不同结构）</p>
+</li>
+<li><p>酯（4种）</p>
+<p>$\ce{H-COO-C3H7}$（2种）、$\ce{CH3-COO-C2H5}$（1种）、$\ce{CH3CH2-COO-CH3}$（1种）</p>
+</li>
+<li><p>羟基醛（5种）</p>
+<p>$\ce{C^1 - C^2 - C^3 - CHO}$（3种）、$\ce{C^1 - C^2(C^1) - CHO}$（2种）</p>
+</li>
+</ul>
+<p>例如：$\ce{C5H10O2}$（25种）</p>
+<ul>
+<li><p>羧酸：$\ce{C4H9-COOH}$（丁基有4种不同结构）</p>
+</li>
+<li><p>酯（9种）</p>
+<p>$\ce{H-COO-C4H9}$（4种）、$\ce{CH3-COO-C3H7}$（2种）、$\ce{C2H5-COO-C2H5}$（1种）、$\ce{C3H7-COO-CH3}$（2种）</p>
+</li>
+<li><p>羟基醛（12种）</p>
+<p>$\ce{C^1 - C^2 - C^3 - C^4 - CHO}$（4种）、$\ce{C^4 - C^3 - C^2(C^1) - CHO}$（4种）、$\ce{C^1 - C^2(C^1) - C^3 - CHO}$（3种）、$\ce{C^1(C^2)3 - CHO}$（1种）</p>
+<blockquote>
+<ul>
+<li>能与 $\ce{NaOH(aq)}$ 反应：4（中和）+9（水解）&#x3D; 13</li>
+<li>能发生银镜反应：12（醛基）+4（甲酸酯）&#x3D; 16</li>
+<li>既能与 $\ce{NaOH(aq)}$ 反应，又能发生银镜反应：4 种（甲酸酯）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h2 id="卤代烃"><a href="#卤代烃" class="headerlink" title="卤代烃"></a>卤代烃</h2><ol>
+<li>烃分子中的<strong>氢原子</strong>被<strong>卤素原子</strong>取代后生成的化合物</li>
+<li>官能团：碳卤键（<img src="./images/5.32.svg" style="zoom: 70%;" />）</li>
+<li>一元卤代烃可表示为：$\ce{R-X}$</li>
+<li>按卤素原子种类分：氟代烃、氯代烃、溴代烃、碘代烃 </li>
+<li>根据烃基的不同分为 饱和卤代烃 、不饱和卤代烃 和 芳香卤代烃 等</li>
+<li>常见卤代烃<ol>
+<li>$\ce{CHCl3}$：氯仿 过去曾经作麻醉剂，能够与空气中的氧气作用生成「光气」</li>
+<li>$\ce{CCl2F2}$：一种氟氯烃（氟利昂）造成臭氧层空洞</li>
+<li>$\ce{CCl4}$：一种常用的有机溶剂</li>
+<li>$\ce{CH3CH2Br}$：汽化时大量吸热，具有麻醉镇痛作用</li>
+</ol>
+</li>
+</ol>
+<h3 id="物理性质-4"><a href="#物理性质-4" class="headerlink" title="物理性质"></a>物理性质</h3><ol>
+<li><p><strong>状态</strong>：常温下卤代烃除 $\ce{CH3Cl、CH3CH2Cl、CH2&#x3D;CHCl}$ 等少数是气体外，大多数为液体或固体</p>
+</li>
+<li><p><strong>溶解度</strong>：<strong>卤代烃不溶于水</strong>，可溶于有机溶剂。某些卤代烃本身是很好的有机溶剂</p>
+</li>
+<li><p><strong>密度</strong>：高于同碳原子数的烃，<strong>除脂肪烃的一氟代物和一氯代物密度比水小</strong>，其余的密度都比水大。密度随着烃基中碳原子数目的增加而减小。卤代烃的密度随碳原子数目的增加而减小</p>
+</li>
+<li><p><strong>熔沸点</strong>：</p>
+<p>熔沸点大于同碳个数的烃，随碳原子数增多，沸点依次升高（碳原子数相同时，支链越多沸点越低）</p>
+</li>
+</ol>
+<h3 id="溴乙烷"><a href="#溴乙烷" class="headerlink" title="溴乙烷"></a>溴乙烷</h3><ol>
+<li>物理性质：<br>溴乙烷是无色液体，沸点为38.4℃，密度比水的大，难溶于水，可溶于多种有机溶剂</li>
+<li>溴乙烷的结构：<br>分子式：$\ce{C2H5Br}$   结构简式：$\ce{CH3CH2Br}$   官能团：碳溴键</li>
+<li>在溴乙烷分子中，由于<strong>溴原子的电负性比碳原子的大</strong>，使 $\ce{C-Br}$ 的电子向 $\ce{Br}$ 原子偏移，进而使碳原子带部分正电荷( <strong>$\ce{\delta+}$</strong> )， $\ce{Br}$ 原子带部分负电荷( <strong>$\ce{\delta-}$</strong> )，这样就形成一个极性较强的共价键： <strong>$\ce{C^{\delta+}-Br^{\delta-}}$</strong> ，其键长大而键能较小。因此在化学反应中， <strong>$\ce{C-Br}$ 较易断裂</strong>，使碳原子与带负电荷的基团结合， $\ce{Br}$ 原子被其他原子或原子团所取代，生成负离子离去</li>
+</ol>
+<h3 id="化学性质（以溴乙烷为例）"><a href="#化学性质（以溴乙烷为例）" class="headerlink" title="化学性质（以溴乙烷为例）"></a>化学性质（以溴乙烷为例）</h3><h4 id="水解反应（取代反应）"><a href="#水解反应（取代反应）" class="headerlink" title="水解反应（取代反应）"></a>水解反应（取代反应）</h4><img src="./images/5.33.png" style="zoom:33%;" />
+
+<p>现象：①中溶液<strong>分层</strong>；②中有机层厚度减小；④中有<strong>淡黄色沉淀</strong>生成</p>
+<p>解释：溴乙烷与 $\ce{NaOH}$ 溶液共热产生了 $\ce{Br}$ </p>
+<p>条件： $\ce{NaOH}$ 水溶液、加热</p>
+<p>原理：羟基取代溴原子</p>
+<p>​	$\ce{C2H5-Br + H-OH-&gt;[\Delta]C2H5-OH + HBr}$</p>
+<p>​	$\ce{NaOH + HBr&#x3D;NaBr +H2O}$</p>
+<p>​	<strong>总反应：$\ce{C2H5Br + NaOH-&gt;[H2O][\Delta]C2H5OH + NaBr}$</strong></p>
+<blockquote>
+<p><strong>用实验的方法证明溴乙烷中含有溴元素</strong></p>
+<p>取溴乙烷，先加氢氧化钠溶液，加热，冷却后，取上层清液体，<strong>先加过量的稀硝酸酸化（中和溶液中的 $\ce{NaOH}$，$\ce{Ag+ +OH- &#x3D;AgOH v -&gt;Ag2O v}$）</strong>，再加硝酸银溶液。结果产生浅黄色沉淀（$\ce{AgBr v}$），说明有溴原子</p>
+<p>$\ce{AgCl(白)-&gt;C2H5Cl\quad AgBr(浅黄)-&gt;C2H5Br\quad AgI(黄)-&gt;C2H5I}$</p>
+</blockquote>
+<h4 id="消去反应（消除反应）"><a href="#消去反应（消除反应）" class="headerlink" title="消去反应（消除反应）"></a>消去反应（消除反应）</h4><p>有机化合物在一定条件下，从一个分子中脱去一个或几个小分子(如 $\ce{H2O}$、$\ce{HX}$ 等)，而生成含不饱和键的化合物的反应</p>
+<p>$\ce{CH3CH2Br +NaOH-&gt;[乙醇][\Delta]CH2&#x3D;CH2 ^ +NaBr +H2O}$</p>
+<ol>
+<li><p><strong>反应条件</strong>：</p>
+<ol>
+<li><p>至少有<strong>两个碳</strong>的卤代烃，否则不能发生消去反应</p>
+</li>
+<li><p>$\beta$ 碳原子上必须有 $\ce{H}$ 原子存在，否则不能发生消去反应</p>
+<blockquote>
+<p>接卤素原子的为 $\alpha-\ce{C}$ 原子</p>
+<img src="./images/5.35.svg" style="zoom:33%;" />
+</blockquote>
+</li>
+<li><p>直接连接在苯环上的卤原子不能消去</p>
+</li>
+</ol>
+</li>
+<li><p>当卤素原子所在碳原子有两个邻位碳原子，且邻位碳原子上均有氢原子时，发主消去反应可能生成不同的产物</p>
+<blockquote>
+<p>如：2-氯丁烷发生消去反应的产物为1-丁烯和2-丁烯</p>
+<p>$\ce{CH3-CH2Cl-CH2-CH3-&gt;CH2&#x3D;CH-CH2-CH3 or CH3-CH&#x3D;CH-CH3}$</p>
+</blockquote>
+</li>
+<li><p>二元卤代烃发生消去反应后可以在有机物中引入碳碳三键或两个碳碳双键</p>
+<blockquote>
+<p>$\ce{CH3-CH2-CCl2 + 2NaOH-&gt;[醇][\Delta]CH3-C\equiv CH + 2NaCl +2H2O}$</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>如果将溴乙烷与强碱（如 $\ce{NaOH}$ 或 $\ce{KOH}$ ）的乙醇溶液共热，溴乙烷可以从分子中脱去 $\ce{HBr}$，生成乙烯</strong></p>
+<p>$\ce{CH3-CH2Br + NaOH-&gt;[乙醇][\Delta]CH2&#x3D;CH2 ^ +NaBr + H2O}$</p>
+<img src="./images/5.34.png" style="zoom:33%;" />
+
+<p>现象：反应产生的气体经水洗后，<strong>使酸性$\ce{KMnO4}$溶液褪色</strong><br>解释：生成的气体分子中含有<strong>碳碳不饱和键</strong></p>
+<blockquote>
+<p>水洗气的目的：除去挥发出来的乙醇</p>
+</blockquote>
+<h4 id="卤代烃的水解反应和消去反应对比"><a href="#卤代烃的水解反应和消去反应对比" class="headerlink" title="卤代烃的水解反应和消去反应对比"></a>卤代烃的水解反应和消去反应对比</h4><table>
+<thead>
+<tr>
+<th>反应类型</th>
+<th>水解（取代）反应</th>
+<th>消去（消除）反应</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>反应条件</td>
+<td>$\ce{NaOH}$ 水溶液、加热</td>
+<td>$\ce{NaOH}$ 醇溶液、加热</td>
+</tr>
+<tr>
+<td>有机反应物结构特点</td>
+<td>含 $\ce{C-X}$ 键即可</td>
+<td>与$\ce{-X}$ 相连的 $\ce{C}$ 原子的邻位  $\ce{C}$ 原子上有 $\ce{H}$ 原子</td>
+</tr>
+<tr>
+<td>产物特征</td>
+<td>在碳原子上引入 $\ce{-OH}$ ，生成含 $\ce{-OH}$ 的有机物（醇）</td>
+<td>消去 $\ce{HX}$ ，引入碳碳双键或三键</td>
+</tr>
+</tbody></table>
+<h2 id="酰胺"><a href="#酰胺" class="headerlink" title="酰胺"></a>酰胺</h2><h3 id="胺"><a href="#胺" class="headerlink" title="胺"></a>胺</h3><ol>
+<li><p><strong>结构</strong>：胺可以看作是氨（ $\ce{NH3}$ ）分子中的氢原子被烃基取代的衍生物。胺的分子结构与氨气相似，都是三角锥形</p>
+</li>
+<li><p><strong>分类</strong></p>
+<ol>
+<li>根据氨分子中一个、两个或三个氢原子被烃基取代的情况，将胺分为伯胺（一级胺）、仲胺（二级胺）、叔胺（三级胺）</li>
+<li>根据分子中氮原子所连烃基种类不同，胺可分为脂肪胺（ 如乙胺$\ce{CH3CH2NH2}$ ）和芳香胺（ 如苯胺$\ce{C6H5NH2}$ ）</li>
+</ol>
+</li>
+<li><p><strong>物理性质</strong></p>
+<ol>
+<li>低级脂肪胺在常温下为气体，如甲胺、二甲胺、三甲胺、乙胺等，其他低级胺为液体。相对分子质量低的胺具有氨的气味，如三甲胺有鱼腥气味</li>
+<li>胺可形成分子间氢键，故沸点比相对分子质量相近的烷烃高，比相应的醇和羧酸低。低级胺能与水形成氢键而易溶于水，随着相对分子质量的增加，溶解度降低</li>
+<li>芳香胺是无色液体或固体，有特殊臭味，有毒，使用时应注意，避免芳香胺接触皮肤或吸入人体内而中毒</li>
+</ol>
+</li>
+<li><p><strong>化学性质</strong></p>
+<ul>
+<li><p>氨气是一种碱性气体，可以与酸反应生成盐。胺和氨气结构相似，胺分子中氮原子的未共用电子对，能接受 $\ce{H}$ ，与酸反应生成类似铵盐的物质，故显出碱性</p>
+</li>
+<li><p>胺可以与大多数酸作用生成盐：$\ce{CH3CH2NH2 + HCl-&gt;CH3CN2NH3Cl}$</p>
+</li>
+<li><p>胺的碱性比较弱，它的盐与氢氧化钠或氢氧化钾溶液作用时可以得到有机胺：</p>
+<p>$\ce{CH3CH2NH3Cl +NaOH-&gt;CH3CH2NH2 +NaCl +H2O}$</p>
+</li>
+<li><p>在胺类药物的合成中，常利用上述反应将某些难溶于水、易被氧化的胺，转化为可溶于水的铵盐，增强药物的稳定性，便于保存和运输</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="酰胺-1"><a href="#酰胺-1" class="headerlink" title="酰胺"></a>酰胺</h3><ol>
+<li><p><strong>结构</strong></p>
+<p>酰胺可看作是羧酸分子中羧基中的羟基被氨基或烃氨基（ $\ce{-NHR}$ 或 $\ce{-NR2}$ ）取代而成的化合物，也可看作是氨或胺分子中氨氮原子上的氢被酰基取代而成的化合物</p>
+<blockquote>
+<p>如：乙酰胺的结构<img src="./images/5.40.svg" style="zoom:33%;" /></p>
+</blockquote>
+</li>
+<li><p><strong>分类</strong></p>
+<p>根据氮原子上取代基的多少，酰胺可分为伯酰胺（$\ce{-CONH2}$）、仲酰胺（$\ce{-CONHR}$）、叔酰胺（$\ce{-CONR2}$）</p>
+</li>
+<li><p><strong>化学性质</strong></p>
+<ul>
+<li><p>酰胺在酸或碱存在并加热的条件下可以发生水解反应。在酸性条件下生成对应的羧酸和铵盐，在碱性条件下生成对应的羧酸盐并放出氨气</p>
+<p>$$<br>\ce{&amp;RCONH2 +H2O +HCl-&gt;[\Delta]RCOOH +NH4Cl}\quad \<br>or\quad \ce{&amp;RCONH2 +H2O +H2SO4-&gt;[\Delta]RCOOH +(NH4)2SO4} \ &amp;\ce{RCONH2 +NaOH-&gt;[\Delta]RCOONa +NH3 ^}<br>$$</p>
+</li>
+<li><p>酰胺可以通过氨气（或胺）与羧酸在加热条件下反应得到，或用羧酸的铵盐加热脱水 得到。例如乙酰胺可以通过以下反应合成<br>$$<br>\ce{CH3COOH + NH3-&gt;[\Delta]CH3CONH2 + H2O}<br>$$</p>
+</li>
+<li><p>胺可以转化成酰胺，酰胺又可以水解变成胺，常利用这种转化关系来保护氨基</p>
+<img src="./images/5.41.svg" style="zoom:33%;" /></li>
+</ul>
+</li>
+<li><p><strong>应用</strong></p>
+<p>酰胺常被用作溶剂和化工原料。如 $\ce{N,N -}$二甲基甲酰胺是生产多种化学纤维的良好溶剂，也用作合成农药、医药的原料等</p>
+</li>
+</ol>
+<h2 id="油脂"><a href="#油脂" class="headerlink" title="油脂"></a>油脂</h2><ol>
+<li><p><strong>定义</strong>：高级脂肪酸与甘油（丙三醇、<img src="./images/5.27.svg" style="zoom: 25%;" />）形成的酯</p>
+</li>
+<li><p><strong>结构</strong>：<img src="./images/5.28.svg" style="zoom:100%;" /></p>
+<p>其中 $\ce{R、R’、R’’}$ 可以表示<strong>饱和烃基</strong>或<strong>不饱和烃基</strong></p>
+<ul>
+<li>简单甘油酯： $\ce{R、R’、R’’}$ 相同</li>
+<li>混合甘油酯： $\ce{R、R’、R’’}$ 不同</li>
+</ul>
+<p>天然油脂大都为<strong>混甘油酯</strong>，且动、植物体内的油脂大都为多种混甘油酯的<strong>混合物</strong>，<strong>无固定熔沸点</strong></p>
+<blockquote>
+<p>注意：油脂不是高分子化合物</p>
+</blockquote>
+</li>
+<li><p><strong>分类</strong>：</p>
+<ol>
+<li>油：常温下呈液态，含有较多不饱和脂肪酸成分（含有碳碳双键）的甘油酯，如花生油、芝麻油、大豆油</li>
+<li>脂肪：常温下呈固态，含较多饱和脂肪酸成分的甘油酯，如牛油、羊油</li>
+</ol>
+</li>
+<li><p><strong>常见高级脂肪酸</strong>：</p>
+<p>饱和脂肪酸：</p>
+<ul>
+<li><p>软脂酸：$\ce{C15H31COOH}$</p>
+</li>
+<li><p>硬脂酸：$\ce{C17H35COOH}$</p>
+</li>
+</ul>
+<p>不饱和脂肪酸</p>
+<ul>
+<li><p>油酸：$\ce{C17H33COOH}$</p>
+</li>
+<li><p>亚油酸：$\ce{C17H31COOH}$</p>
+</li>
+</ul>
+<blockquote>
+<p>口诀：软15、硬17、油酸不饱17烯；亚油酸再多一个烯；最后均含一羧基</p>
+<p>植物油含有不饱和脂肪酸，动物油含有饱和脂肪酸</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="化学性质-4"><a href="#化学性质-4" class="headerlink" title="化学性质"></a>化学性质</h3><p>油脂是高级脂肪酸的甘油酯，其化学性质与乙酸乙酯的相似，能够发生水解反应而高级脂肪酸中又有不饱和的，因此许多油脂又兼有烯烃的化学性质，可以发生加成反应</p>
+<h4 id="水解反应"><a href="#水解反应" class="headerlink" title="水解反应"></a>水解反应</h4><ol>
+<li><strong>酸性水解</strong>：油脂在酸性条件下水解生成高级脂肪酸和甘油</li>
+</ol>
+<img src="./images/5.29.svg"  />
+
+<ol start="2">
+<li><p><strong>碱性水解</strong>：油脂在碱性溶液(如$\ce{KOH}$或$\ce{NaOH}$溶液)中水解，生成甘油和高级脂肪酸盐。高级脂肪酸盐常用于生产肥皂，所以油脂在碱性溶液中水解反应又称<strong>皂化反应</strong></p>
+<img src="./images/5.30.svg"  />
+
+<blockquote>
+<p>产物甘油与硬脂酸钠称为皂化液</p>
+<p>$\ce{皂化液-&gt;[饱和NaCl(aq)][盐析]析出C17H35COONa(s)-&gt;[过滤]…-&gt;肥皂}$</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="油脂的氢化"><a href="#油脂的氢化" class="headerlink" title="油脂的氢化"></a>油脂的氢化</h4><p>不饱和程度较高、熔点较低的液态油，通过催化加氢可提高饱和程度，转化为半固态脂肪这个过程称为油脂的氢化，也称油脂的硬化。制得的油脂叫人造脂肪，通常又称为硬化油。硬化油不易被空气氧化变质，便于储存和运输，可以制造肥皂和人造奶油的原料</p>
+<img src="./images/5.31.png" style="zoom: 33%;" />
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/04%20%E6%9C%89%E6%9C%BA%E5%8C%96%E5%AD%A6%E5%9F%BA%E7%A1%80/05%20%E7%83%83%E7%9A%84%E8%A1%8D%E7%94%9F%E7%89%A9/" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
+    
+    <a class="page-num" href="/">
+        <i class="fa-solid fa-caret-left fa-fw"></i>
+    </a>
+    <a class="page-num" href="/">1</a>
+    <span class="page-omit">...</span>
+    
+    <span class="current">2</span>
+    
+    <a class="page-num" href="/page/3">3</a>
+    
+    
+    <a class="page-num" href="/page/4">4</a>
+    
+    
+    <span class="page-omit">...</span>
+    <a class="page-num" href="/page/5">5</a>
+    
+    
+    <a class="page-num" href="/page/3/">
+        <i class="fa-solid fa-caret-right fa-fw"></i>
+    </a>
+    
+</div>
+
+    </div>
+    
+    <div id="home-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">John Doe</div>
+        <div class="description">
+            <p>Description<br>…</p>
+
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+    </div>
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+</body>
+</html>

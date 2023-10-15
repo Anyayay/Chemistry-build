@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>有机化学基础 · 十 · 「有机合成进阶」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>有机化学基础 · 十 · 「有机合成进阶」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p><img src="/./images/9.14.svg"></p>
+<h2 id="碳骨架构建"><a href="#碳骨架构建" class="headerlink" title="碳骨架构建"></a>碳骨架构建</h2><h3 id="碳链增长"><a href="#碳链增长" class="headerlink" title="碳链增长"></a>碳链增长</h3><p>常见的有<strong>加聚反应、缩聚反应、醛或酮的羟醛缩合反应、炔&#x2F;醛&#x2F;酮与 $\ce{HCN}$ 的的加成反应、卤代烃与氰化钠的取代反应、题目所给信息反应</strong>等 </p>
+<h4 id="炔、酮、醛与-ce-HCN-的加成反应"><a href="#炔、酮、醛与-ce-HCN-的加成反应" class="headerlink" title="炔、酮、醛与 $\ce{HCN}$ 的加成反应"></a>炔、酮、醛与 $\ce{HCN}$ 的加成反应</h4><ol>
+<li><p>炔烃与 $\ce{HCN}$ 的加成反应：生成含有氰基（$\ce{-CN}$）的物质，所得产物再经水解生成羧酸<br>$\ce{&amp;HC≡CH&amp;-&gt;[HCN][催化剂]&amp;H2C&#x3D;CH-CN&amp;-&gt;[H2O,H+][\Delta]&amp;CH2&#x3D;CHCOOH}\&amp;丙炔&amp;&amp;丙烯晴&amp;&amp;丙烯酸$</p>
+<p>$\ce{\quad!! CH3-CO-CH3-&gt;[HCN]<a href="CH3">催化剂</a>2C(OH)-CN-&gt;[H2O,H+]<a href="CH3">\Delta</a>2C(OH)-COOH}$</p>
+</li>
+<li><p>醛与 $\ce{HCN}$ 的加成反应：醛中的不饱和键与 $\ce{HCN}$ 发生加成反应生成含有氰基的物质，再经催化加氢还原成胺<br>$\ce{CH3CHO-&gt;[HCN][催化剂]CH3(OH)-CN -&gt;[H2][催化剂] CH3(OH)-CH2NH2}$</p>
+ <img title="" src="images/9.2.svg"  height="100" >
+
+<blockquote>
+<p>此外，炔烃还可以和醛发生加成反应：$\ce{R-C#CH + R’CHO -&gt;[一定条件] R-C#C-C(R’)H-OH}$<br>如果是乙炔，那么两端都可以与醛基加成</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="卤代烃与氰化钠的反应"><a href="#卤代烃与氰化钠的反应" class="headerlink" title="卤代烃与氰化钠的反应"></a>卤代烃与氰化钠的反应</h4><p>如溴乙烷与氰化钠反应时，分子中的溴原子被氰基取代生成氰化物，该氰化物在酸性条件下水解，可以得到比溴乙烷分子多一个碳原子的丙酸分子</p>
+<p>$\ce{HO3CH2Br +NaCN-&gt;CH3CH2CN +NaBr\quad CH3CH2CN-&gt;[H2O][H+]CH3CH2COOH	}$</p>
+<h4 id="羟醛缩合反应-Aldol-Condensation-Reaction"><a href="#羟醛缩合反应-Aldol-Condensation-Reaction" class="headerlink" title="羟醛缩合反应 Aldol Condensation Reaction"></a>羟醛缩合反应 Aldol Condensation Reaction</h4><p>醛分子中在醛基邻位碳原子上的氢原子 ( $α-\ce{H}$ ) 受羰基吸引电子作用的影响，具有一定的活泼性，分子内含有 $α-\ce{H}$ 的醛在一定条件下可以发生加成反应，生成 $\beta-$羟基醛，该产物易失水，得到 $\alpha,\beta-$不饱和醛</p>
+ <img src="./images/5.19.svg" style="zoom: 20%;" />
+
+<blockquote>
+<p>部分高考信息题会跳过 $\beta-$羟基醛 的步骤，直接得到不饱和醛</p>
+<p>乙醛拥有三个 $α-\ce{H}$ ，因此可以发生三次羟醛缩合反应</p>
+</blockquote>
+<h4 id="卤代烃与格氏试剂反应"><a href="#卤代烃与格氏试剂反应" class="headerlink" title="卤代烃与格氏试剂反应"></a>卤代烃与格氏试剂反应</h4><p>卤代烃还可以与金属反应，形成金属有机化合物。其中最负盛名的是有机镁化合物，它是由法国化学家格利雅（V. Grignard）于1901年发现的</p>
+<p>通过卤代烃与镁（用醚作溶剂）作用得到烃基卤化镁（ $\ce{RMgX}$ ，也称为格氏试剂），烃基卤化镁与其他物质（如卤代烃、醛、二氧化碳等）反应可以实现碳链增长，得到烃、醇、羧酸、酮等多种有机化合物</p>
+<p>$$<br>\ce{CH3CH2MgBr} \begin{cases}<br>\ce{-&gt;[ROH或H2O]CH3CH3}\<br>\ce{-&gt;[CH3Br]CH3CH2CH3}\<br>\ce{-&gt;[①CO2②H2O&#x2F;H+]CH3CH2COOH}\<br>\ce{-&gt;[①HCHO,②H2O&#x2F;H+]CH3CH2CH2OH}\<br>\end{cases}<br>$$</p>
+<h4 id="卤代烃与醇钠反应实现不对称醚的合成"><a href="#卤代烃与醇钠反应实现不对称醚的合成" class="headerlink" title="卤代烃与醇钠反应实现不对称醚的合成"></a>卤代烃与醇钠反应实现不对称醚的合成</h4><p>在课本中，我们学习了卤代烃与 $\ce{NaOH}$ 水溶液共热的反应，卤原子被羟基取代生成醇，称为卤代烃的<strong>水解</strong>。而将卤代烃与<strong>醇钠</strong>的醇溶液共热，则卤素原子将被烷氧基取代生成醚，称为卤代烃的<strong>醇解</strong></p>
+<p>$\ce{RONa + R’X -&gt;[无水条件] ROR’ + NaX}$</p>
+<p>这是制备<strong>不对称醚</strong>的一种常用方法（当然也可以合成对称醚），被称为威廉森(Williamson)合成法</p>
+<p>如果尝试使用课本内的方法合成不对称醚将会形成两种对称醚副产物。</p>
+<p>反应示例：<img title="" src="images/9.1.svg" width="450"> </p>
+<h4 id="傅列德尔-克拉夫茨反应-Friedel-Crafts-Reaction（烷基化反应）"><a href="#傅列德尔-克拉夫茨反应-Friedel-Crafts-Reaction（烷基化反应）" class="headerlink" title="傅列德尔-克拉夫茨反应 Friedel-Crafts Reaction（烷基化反应）"></a>傅列德尔-克拉夫茨反应 Friedel-Crafts Reaction（烷基化反应）</h4><p>Friedel- Crafts Reaction 是在芳环上引入烷基和酰基的重要方法，在有机合成上有很大的实用价值</p>
+<p>芳烃在无水 $\ce{AlCl3}$ 等 Lewis酸 的催化下，苯环上的氢被烷基取代的反应：</p>
+<img src="./images/9.3.svg" style="zoom: 90%;" />
+
+<p>$\ce{AlCl3}$ 是烷基化反应中活性最高的催化剂，此外， $\ce{FeCl3、 ZnCl2、 HF、H2SO4}$ 将均可作为催化剂<br>在烷基化反应中，进攻苯环的条电试剂为烷基碳正离子：<br>$$<br>\begin{align}<br>\ce{&amp;R-Cl + AlCl3-&gt;R+ +AlCl-} \tag1 \<br>\ce{&amp;PhH +R+-&gt;H-Ph-R -&gt;[-H+]PhR} \tag2<br>\end{align}<br>$$<br>在催化剂作用下产生碳正离子的化合物，如卤代烃、烯烃、环氧乙烷和醇均可作为烷基化试剂</p>
+<p>$\ce{PhH +CH3CH&#x3D;CH2-&gt;[AlCl3]Ph-CH(CH3)2}$</p>
+<p>$\ce{PhH +CH3CH2OH-&gt;[AlCl3]Ph-CH2CH3}$</p>
+<p>$\ce{PhH +}$<img src="/./images/9.4.svg">$\ce{-&gt;[(1)AlCl3][(2)H2O]}\ce{Ph-CH2CH2OH}$</p>
+<blockquote>
+<p>由于烷基化反应中间体是碳正离子，所以如果卤代烃的碳原子数目大于等于3，常会发生重排反应，生成不同烷基取代的芳香混合物<br>$$<br>\ce{Ph-H +CH2CH2CH2Cl-&gt;[AlCl3]&amp;Ph-CH2CH2CH3&amp; +&amp;Ph-CH(CH3)2}\&amp;丙笨(30%)&amp;&amp;异丙苯(70%)<br>$$<br>且由于生成的烷基苯比苯活泼，易发生多元取代生成二烷基苯和多烷基苯，因此，常加入过量芳烃及调节温度来控制产物</p>
+<p>不过一般高考题里出现的反应物是本溴乙烷，不发生重排。高考中会给出相关信息</p>
+</blockquote>
+<h3 id="碳链缩短"><a href="#碳链缩短" class="headerlink" title="碳链缩短"></a>碳链缩短</h3><p>烯烃、炔烃、芳香烃的氧化反应；羧酸或羧酸盐的脱羧反应；烷烃的裂化反应；题给信息反应等</p>
+<h4 id="高锰酸钾氧化"><a href="#高锰酸钾氧化" class="headerlink" title="高锰酸钾氧化"></a>高锰酸钾氧化</h4><ol>
+<li><p>烯烃被酸性高锰酸钾溶液氧化：不同的结构可以得到不同的氧化产物</p>
+<p>$\ce{-CH2&#x3D;-&gt;HO-CO-OH\quad RCH&#x3D;-&gt;R-COOH\quad CR1R2&#x3D;-&gt;CR1R2&#x3D;O}$</p>
+<blockquote>
+<p>口诀：有氢成酸，无氢成酮，边碳成气</p>
+<p>$\ce{CH3-CH&#x3D;CH2-&gt;HO-CO-OH-&gt;CO2 ^ +H2O}$</p>
+</blockquote>
+</li>
+<li><p>炔烃被酸性高锰酸钾溶液氧化：对于炔烃，大多数情况下，都发生碳碳三键的断裂，生成 <strong>两个羧酸</strong><br>$$<br>\ce{RC#CH-&gt;[KMnO4][H+]RCOOH +CO2}\<br>\ce{CH3CH2CH2C#CCH2CH3-&gt;[KMnO4][H+]CH3CH2CH2COOH +CH3CH2COOH}<br>$$</p>
+</li>
+<li><p>芳香烃的侧链被 $\ce{KMnO4、K2Cr2O7}$ 等强氧化剂氧化时，大多数情况是侧链被氧化成羧</p>
+<p><strong>注意：烷基上与苯环直接相连的碳原子上必须有氢原子，才能被酸性高锰酸钾氧化</strong></p>
+</li>
+</ol>
+<h4 id="酯的水解"><a href="#酯的水解" class="headerlink" title="酯的水解"></a>酯的水解</h4><p>酸性条件：$\ce{RCOOR’ +H2O &lt;&#x3D;&gt;[稀H2SO4][\Delta] RCOOH +R’OH}\qquad$</p>
+<p>碱性条件：$\ce{RCOOR’ +NaOH -&gt;[\Delta] RCOONa +R’OH}$</p>
+<h3 id="成环反应"><a href="#成环反应" class="headerlink" title="成环反应"></a>成环反应</h3><h4 id="狄尔斯-阿尔德反应-Diels-Alder-Reaction"><a href="#狄尔斯-阿尔德反应-Diels-Alder-Reaction" class="headerlink" title="狄尔斯-阿尔德反应 Diels-Alder Reaction"></a>狄尔斯-阿尔德反应 Diels-Alder Reaction</h4><p>狄尔斯-阿尔德反应共轭二烯烃与含碳碳双键（或三键）的化合物在一定条件下反应，得到环加成产物，构建了环状碳骨架，该反应用于构建六元碳环骨架</p>
+<p>如：<img title="" src="images/9.5.svg" width="300"></p>
+<blockquote>
+<p>理解：共轭二烯烃（如1，3-丁二烯）的两根双键各自打开一半，与含亲双烯体（在这里是丙烯酸）的碳碳双键发生加成反应，两个“半截键”与原来的单键共同形成了新的双键，得到了环加成产物，构建了环状碳骨架</p>
+</blockquote>
+<h4 id="酯化成环"><a href="#酯化成环" class="headerlink" title="酯化成环"></a>酯化成环</h4><p>如：二元酸与二元醇的酯化反应、羟基酸的酯化反应</p>
+<h4 id="二元醇成环"><a href="#二元醇成环" class="headerlink" title="二元醇成环"></a>二元醇成环</h4><p>如：$\ce{HOCH2CH2OH-&gt;[浓硫酸][\Delta]}$<img src="/./images/9.4.svg">$\ce{+H2O}$</p>
+<h4 id="二元羧酸成环"><a href="#二元羧酸成环" class="headerlink" title="二元羧酸成环"></a>二元羧酸成环</h4><p>如：$\ce{HOOCCH2CH2COOH-&gt;[浓硫酸][\Delta]}$<img src="/./images/9.6.svg">$\ce{+H2O}$</p>
+<h4 id="氨基酸成环"><a href="#氨基酸成环" class="headerlink" title="氨基酸成环"></a>氨基酸成环</h4><p>如：$\ce{H2NCH2CH2COOH-&gt;[浓硫酸][\Delta]}$<img src="/./images/9.7.svg">$\ce{+H2O}$</p>
+<h2 id="聚合物的生成"><a href="#聚合物的生成" class="headerlink" title="聚合物的生成"></a>聚合物的生成</h2><h3 id="烯烃共聚"><a href="#烯烃共聚" class="headerlink" title="烯烃共聚"></a>烯烃共聚</h3><p>$\ce{nCH2&#x3D;CH2 +nCH2&#x3D;CH-CH3-&gt;[一定条件]}\space[!!!\ce{-CH2-CH2-CH(CH3)-CH2}$ $]!!!-_n$</p>
+<h3 id="酚醛树脂"><a href="#酚醛树脂" class="headerlink" title="酚醛树脂"></a>酚醛树脂</h3> <img src="./images/5.37.svg" style="zoom: 25%;" />
+
+<h2 id="官能团的转化"><a href="#官能团的转化" class="headerlink" title="官能团的转化"></a>官能团的转化</h2><h3 id="引入官能团"><a href="#引入官能团" class="headerlink" title="引入官能团"></a>引入官能团</h3><h4 id="引入碳碳双键"><a href="#引入碳碳双键" class="headerlink" title="引入碳碳双键"></a>引入碳碳双键</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>卤代烃的消去反应</td>
+<td>$\ce{CH3CH2Br +NaOH-&gt;[乙醇][\Delta]CH2&#x3D;CH2 ^ +NaBr +H2O}$</td>
+</tr>
+<tr>
+<td>醇的消去反应</td>
+<td>$\ce{CH3CH2OH-&gt;[浓硫酸][170°C]CH2&#x3D;CH2 ^ +H2O}$</td>
+</tr>
+</tbody></table>
+<h4 id="引入碳卤键"><a href="#引入碳卤键" class="headerlink" title="引入碳卤键"></a>引入碳卤键</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>烃、酚的取代</td>
+<td>①甲烷在光照条件下的氯代<br/>$\ce{CH4 + Cl2 -&gt;[光] CH3Cl + HCl}$<br>②苯与溴苯在 $\ce{Fe}$粉 或 $\ce{FeBr3}$ 催化下生成溴苯<br/><img src="./images/4.13.svg" style="zoom:80%;" ><br/>③甲苯的卤代<br/><img src="./images/4.19.svg" style="zoom: 20%;" /><br/>④苯酚与溴水反应生成三溴苯酚<br/><img src="./images/5.13.svg"  style="zoom: 60%;" /></td>
+</tr>
+<tr>
+<td>不饱和烃与 $\ce{HX、X2}$ 的加成</td>
+<td>$\ce{CH3CH&#x3D;CH2 +HBr-&gt;CH3-CHBr-CH3}$（马氏规则）<br/>$\ce{CH3CH&#x3D;CH2 +HBr-&gt;[过氧化物]CH3-CH2-CH2Br}$（反马氏规则）</td>
+</tr>
+<tr>
+<td>醇与氢卤酸（$\ce{HX}$）的取代</td>
+<td>$\ce{CH3CH2OH +HBr-&gt;[\Delta]CH3CH2Br +H2O}$</td>
+</tr>
+</tbody></table>
+<h4 id="引入羟基"><a href="#引入羟基" class="headerlink" title="引入羟基"></a>引入羟基</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>烯烃与水的加成</td>
+<td>$\ce{H2C&#x3D;CH2 +H2O-&gt;[催化剂][加热、加压]CH3CH2OH}$</td>
+</tr>
+<tr>
+<td>醛、酮与氢气的加成</td>
+<td>$\ce{CH3-CHO +H2-&gt;[催化剂][\Delta]CH3CH2OH}(伯醇)$<br/>$\ce{CH3-CO-CH3 +H2-&gt;[催化剂]<a href="CH3">\Delta</a>2-CH-OH}(仲醇)$</td>
+</tr>
+<tr>
+<td>卤代烃在碱性条件下水解</td>
+<td>$\ce{C2H5-Br +NaOH-&gt;[H2O][\Delta]C2H5-OH +NaBr}$</td>
+</tr>
+<tr>
+<td>酯的水解</td>
+<td>$\ce{CH3COOC2H5 +H2O&lt;&#x3D;&gt;[浓硫酸][\Delta]CH3COOH +C2H5OH}$</td>
+</tr>
+<tr>
+<td>通过硼氢化钠引入羟基或醛基</td>
+<td>硼氢化钠具有较强的还原选择性，它可以将羰基还原为羟基，将羧基还原为醛基，但是与碳碳双键、碳碳三键都不发生反应<br>例如：$\ce{CH2&#x3D;CH-CH2-CHO-&gt;[NaBH_{4}]CH2&#x3D;CH-CH2-CH2OH} $</td>
+</tr>
+</tbody></table>
+<h4 id="引入醛基或羰基（引入碳氧双键）"><a href="#引入醛基或羰基（引入碳氧双键）" class="headerlink" title="引入醛基或羰基（引入碳氧双键）"></a>引入醛基或羰基（引入碳氧双键）</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>醇的催化氧化</td>
+<td>$\ce{2CH3CH2OH + O2 -&gt;[Cu&#x2F;Ag][△]2CH3CHO + 2H2O}$</td>
+</tr>
+<tr>
+<td>含碳碳三键的物质与水加成</td>
+<td>$\ce{HC#CH +H2O-&gt;[催化剂][\Delta]H2C&#x3D;CH-OH-&gt;[异构化]CH3-CHO}$</td>
+</tr>
+<tr>
+<td>碳碳双键氧化</td>
+<td><img src="./images/9.8.svg"></td>
+</tr>
+</tbody></table>
+<h4 id="引入羧基"><a href="#引入羧基" class="headerlink" title="引入羧基"></a>引入羧基</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>醇与强氧化剂反应</td>
+<td>$\ce{C2H5OH}$ 与与酸性 $\ce{KMnO4}$ 溶液或酸性 $\ce{K2Cr2O7}$ 溶液反应生成 $\ce{CH3COOH}$</td>
+</tr>
+<tr>
+<td>醛的氧化</td>
+<td>$\ce{CH3-CHO +O2-&gt;[催化剂][\Delta]2CH3COOH}$<br>银镜反应：$\ce{CH3CHO + 2[Ag(NH3)2]OH -&gt;[\Delta]H2O + 2Ag v + 3NH3 + CH3COONH4}$<br>与新制氢氧化铜反应：<br>$\ce{CH3CHO + 2Cu(OH)2 + NaOH-&gt;[\Delta] CH3COONa + Cu_2O v +3H2O}$<br>$\ce{CH3COONH4-&gt;[H+]CH3COOH\quad CH3COONa-&gt;[H+]CH3COOH}$</td>
+</tr>
+<tr>
+<td>酯、酰胺键的水解</td>
+<td><img src="./images/9.9.svg"></td>
+</tr>
+<tr>
+<td>某些苯环侧链上的烷基与<br>酸性高锰酸钾溶液的氧化反应</td>
+<td><img src="./images/9.10.svg"></td>
+</tr>
+<tr>
+<td>碳碳双键的氧化</td>
+<td>$\ce{R-CH&#x3D;CH-R-&gt;[KMnO4(H+)]RCOOH}$</td>
+</tr>
+</tbody></table>
+<h4 id="引入酯基"><a href="#引入酯基" class="headerlink" title="引入酯基"></a>引入酯基</h4><table>
+<thead>
+<tr>
+<th>反应</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>酯化反应</td>
+<td>$\ce{CH3COOH +C2H5OH&lt;&#x3D;&gt;[浓硫酸][\Delta]CH3COOC2H5 +H2O}$</td>
+</tr>
+<tr>
+<td>酰基化反应</td>
+<td><img src="./images/9.11.svg"></td>
+</tr>
+</tbody></table>
+<h3 id="消除官能团"><a href="#消除官能团" class="headerlink" title="消除官能团"></a>消除官能团</h3><ol>
+<li><p>通过加成反应消除不饱和键</p>
+</li>
+<li><p>通过消去、氧化、酯化反应消除羟基</p>
+</li>
+<li><p>通过加成、氧化反应消除醛基</p>
+</li>
+<li><p>通过水解反应消去酯基、酰胺基、碳卤键</p>
+</li>
+</ol>
+<h3 id="改变官能团"><a href="#改变官能团" class="headerlink" title="改变官能团"></a>改变官能团</h3><h4 id="改变官能团的种类"><a href="#改变官能团的种类" class="headerlink" title="改变官能团的种类"></a>改变官能团的种类</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="./images/9.12.png" style="zoom:50%;" /></h4><h4 id="改变官能团的数目"><a href="#改变官能团的数目" class="headerlink" title="改变官能团的数目"></a>改变官能团的数目</h4><p>如：$\ce{CH3CH2OH-&gt;[消去][-H2O]CH2&#x3D;CH2-&gt;[加成][+Cl2]Cl-CH2-CH2-Cl-&gt;[水解]HO-CH2-CH2-OH}$</p>
+<h4 id="改变目标官能团的物质"><a href="#改变目标官能团的物质" class="headerlink" title="改变目标官能团的物质"></a>改变目标官能团的物质</h4><p>通过不对称烯烃与卤化氢的加成改变官能团的位置（运用马氏规则）</p>
+<p>如：$\ce{CH3CH2CH2Cl-&gt;[消去][-HCl]CH3CH&#x3D;CH2-&gt;[加成][+HCl]CH3-CH(Cl)-CH3}$</p>
+<h2 id="官能团的保护与恢复"><a href="#官能团的保护与恢复" class="headerlink" title="官能团的保护与恢复"></a>官能团的保护与恢复</h2><p>含有多个官能团的有机化合物在进行反应时，非目标官能团也可能受到影响，此时需要将受影响的官能团保护起来，先将其转化为不受该反应影响的其他官能团，反应后再将受影响的官能团复原。此类题目在命题时往往会给出已知信息</p>
+<ol>
+<li><p>羟基的保护</p>
+<p>$\ce{R-OH-&gt;[引入保护基]R-O-R’}\stackrel{合成反应}{\longrightarrow\cdots\longrightarrow}\ce{R’’-O-R’-&gt;[脱除保护基]R’’-OH}$</p>
+<blockquote>
+<p>合成反应会影响羟基，无法直接转化</p>
+<p>如果体系受强碱影响，就用成醚反应保护，如果要受氧化，就要用酯化反应保护</p>
+</blockquote>
+</li>
+<li><p>碳碳双键的保护</p>
+<p>碳碳双键易被氧化，在氧化其他基团前，可通过与卤素单质、卤化氢等加成的方法先将碳碳双键保护起来，待氧化其他基团后，再通过消去反应（$\ce{NaOH}$ 醇溶液，加热）重新转化为碳碳双键</p>
+</li>
+<li><p>羧基</p>
+<p>羧基遇到高温容易脱羧，可以用酯化反应保护</p>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

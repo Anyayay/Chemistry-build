@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>化学物质基本概念 · 一 · 「物质的组成与分类」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>化学物质基本概念 · 一 · 「物质的组成与分类」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="物质的组成"><a href="#物质的组成" class="headerlink" title="物质的组成"></a>物质的组成</h2><ol>
+<li><p>任何物质都是由 <strong>元素</strong> 组成</p>
+</li>
+<li><p>单质：只由 <strong>一种元素</strong> 组成的 <strong>纯净物</strong></p>
+<p>化合物：由 <strong>多种元素</strong> 组成的 <strong>纯净物</strong></p>
+</li>
+<li><p>元素在物质中的存在形态：</p>
+<ol>
+<li>游离态：元素以 单质 形式存在的状态</li>
+<li>化合态：元素以 化合物 形式存在的状态</li>
+</ol>
+</li>
+<li><p>同素异形体</p>
+<ol>
+<li><p><strong>同种元素</strong> 形成不同 <strong>单质</strong> 称为 同素异形体异形体</p>
+<ol>
+<li>原子个数不同：如 $\ce{O2}$ 和 $\ce{O3}$ </li>
+<li>原子排列方式不同：如金刚石和石墨</li>
+</ol>
+</li>
+<li><p>同素异形体之间的性质差异主要体现在<strong>物理性质</strong>上，他们的化学性质相似</p>
+<p>同素异形体之间的转化属于化学变化</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="物质的分类"><a href="#物质的分类" class="headerlink" title="物质的分类"></a>物质的分类</h2><p>$$<br>物质\begin{cases}<br>纯净物<br>\begin{cases}<br>化合物\begin{cases}<br>有机化合物\<br>无机化合物<br>\end{cases}\<br>单质\begin{cases}<br>金属单质\<br>非金属单质<br>\end{cases}\<br>\end{cases}\<br>混合物:溶液、胶体、浊液\<br>\end{cases}\<br>$$</p>
+<h3 id="混合物"><a href="#混合物" class="headerlink" title="混合物"></a>混合物</h3><p>混合物是由两种或两种以上物质混合而成的物质</p>
+<p>下面列举常见的混合物：</p>
+<ol>
+<li><p>分散系：溶液、胶体、浊液等</p>
+</li>
+<li><p>高分子化合物：蛋白质、纤维素、淀粉、塑料等</p>
+</li>
+<li><p>其他物质：石油及其各种馏分、天然气、油脂、福尔马林、氨水、王水、碱石灰等</p>
+</li>
+</ol>
+<h3 id="纯净物"><a href="#纯净物" class="headerlink" title="纯净物"></a>纯净物</h3><h4 id="单质"><a href="#单质" class="headerlink" title="单质"></a>单质</h4><p>单质是由同一种元素组成的纯净物</p>
+<ol>
+<li>金属单质：例如：$\ce{K、Ca、Na、Mg、Al}$ 等</li>
+<li>非金属单质：例如：$\ce{S、Cl2、He}$ 等</li>
+</ol>
+<blockquote>
+<ol>
+<li>只含一种元素的物质不一定是纯净物。如氧气 $\ce{O2}$ 和臭氧 $\ce{O3}$ 混合得到的物质是混合物。</li>
+<li>同种元素的同位素单质混合得到的物质是纯净物。如氢的同位素氕氘氚组成的双原子分子 $\ce{H2、D2、T2}$ 混合在一起得到的是纯净物</li>
+<li>含水的物质不一定是混合物。如胆矾 $\ce{CuSO4 • 5H2O}$、绿矾 $\ce{FeSO4 • 7H2O}$、明矾 $\ce{KAl(SO4)2 • 12H2O}$ 都是纯净物</li>
+</ol>
+</blockquote>
+<h4 id="化合物"><a href="#化合物" class="headerlink" title="化合物"></a>化合物</h4><p>化合物是由两种或两种以上的元素组成的纯净物</p>
+<h5 id="Ⅰ-氧化物"><a href="#Ⅰ-氧化物" class="headerlink" title="Ⅰ 氧化物"></a>Ⅰ 氧化物</h5><p>氧元素与另外一种化学元素组成的二元化合物叫做氧化物<br>$$<br>氧化物<br>    \begin{cases}<br>    不成盐氧化物:\ce{CO、NO}等\<br>    成盐氧化物<br>        \begin{cases}<br>        碱性氧化物:\ce{Na2O、CaO}等\<br>        酸性氧化物:\ce{CO2、P2O5、Mn2O7}等\<br>        两性氧化物:\ce{Al2O3}等\<br>        \end{cases}\<br>    过氧化物:\ce{Na2O2、H2O2}等\<br>    \end{cases}\<br>$$</p>
+<p>​	<strong>a. 酸性氧化物</strong></p>
+<p>​	酸性氧化物指与水反应生成相应价态的酸，或与碱反应只生成一种相应价态的盐和水的氧化物。例如：$\ce{SO2}$、$\ce{SO3}$、$\ce{P2O5}$、$\ce{SiO2}$、$\ce{Mn2O7}$ 等</p>
+<blockquote>
+<ol>
+<li>酸性氧化物不一定是非金属氧化物。如高锰酸酐 $\ce{Mn2O7}$ 既是酸性氧化物，又是金属氧化物</li>
+<li>非金属氧化物不一定是酸性氧化物。如一氧化碳 $\ce{CO}$、一氧化氮 $\ce{NO}$、二氧化氮 $\ce{NO2}$ 都是不成盐氧化物</li>
+<li>酸性氧化物不一定能与水反应生成相应的酸。如二氧化硅 $\ce{SiO2}$ 不与水反应。能与碱反应生成盐和水的氧化物不一定是酸性氧化物。如二氧化氮 $\ce{NO2}$ 是不成盐氧化物，氧化铝 $\ce{Al2O3}$ 是两性氧化物</li>
+<li>酸性氧化物一定是酸酐，但酸酐不一定是酸性氧化物。如乙酸酐 $\ce{CH3COOOCCH3}$ 含有三种元素，不是氧化物，故不是酸性氧化物</li>
+</ol>
+</blockquote>
+<p>​	<strong>b. 碱性氧化物</strong></p>
+<p>​	碱性氧化物指与水反应生成相应价态的碱，或与酸反应只生成一种相应价态的盐和水的氧化物。例如：$\ce{Na2O}$、$\ce{CaO}$、$\ce{MgO}$、$\ce{FeO}$、$\ce{Fe2O3}$ 等</p>
+<blockquote>
+<ol>
+<li>碱性氧化物一定是金属氧化物，但金属氧化物不一定是碱性氧化物。如高锰酸酐 $\ce{Mn2O7}$ 既是金属氧化物，又是酸性氧化物</li>
+<li>碱性氧化物不一定能与水反应生成相应的碱。如氧化铁 $\ce{Fe2O3}$ 不与水反应</li>
+<li>能与酸反应生成盐和水的氧化物不一定是碱性氧化物。如氧化铝 $\ce{Al2O3}$ 是两性氧化物</li>
+</ol>
+</blockquote>
+<p>​	<strong>c. 两性氧化物</strong></p>
+<p>​	两性氧化物是指既可以与酸反应生成相应价态的盐和水，又可以与碱反应生成相应价态的盐和水的氧化物。例如：$\ce{Al2O3}$、$\ce{PbO}$、$\ce{ZnO}$ 等</p>
+<blockquote>
+<p>双性物质：</p>
+<p>单质：$\ce{Al、Zn、Be}$</p>
+<p>氧化物：$\ce{Al2O3、ZnO、BeO}$</p>
+<p>氢氧化物：$\ce{Al(OH)3、Zn(OH)2、Be(OH)2}$</p>
+<p>盐：弱酸酸式盐</p>
+<p>有机物：氨基酸、蛋白质</p>
+</blockquote>
+<p>​	<strong>d. 不成盐氧化物</strong></p>
+<p>​	与两性氧化物完全相对地，不成盐氧化物是指既不可以与酸反应生成相应价态的盐和水，又不可以与碱反应生成相应价态的盐和水的氧化物。例如：$\ce{CO}$、$\ce{NO}$、$\ce{NO2}$ 等</p>
+<h5 id="Ⅱ-酸"><a href="#Ⅱ-酸" class="headerlink" title="Ⅱ 酸"></a>Ⅱ 酸</h5><p>酸是指在水溶液中电离时产生的阳离子都是是氢离子的化合物<br>$$<br>酸<br>    \begin{cases}<br>    按电离出的\ce{H+}数<br>        \begin{cases}<br>        一元酸:\ce{HCl、HNO3}等\<br>        二元酸:\ce{H2SO4、H2S}等\<br>        多元酸:\ce{H3PO4}等\<br>        \end{cases}\<br>    按酸根是否含氧<br>        \begin{cases}<br>        无氧酸:\ce{HCl、H2SO4}等\<br>        含氧酸:\ce{HClO4、H2SO4}等\<br>        \end{cases}\<br>    按酸性强弱<br>        \begin{cases}<br>        强酸:\ce{HCl、H2SO4、HNO3、HClO4、HBr、HI}\<br>        弱酸:\ce{CH3COOH、HF}等\<br>        \end{cases}\<br>    按有无挥发性<br>        \begin{cases}<br>        挥发性酸:\ce{HCl、HNO3}等\<br>        难挥发性酸:\ce{HClO4、H2PO4}等\<br>        \end{cases}\<br>    \end{cases}\<br>$$</p>
+<h5 id="Ⅲ-碱"><a href="#Ⅲ-碱" class="headerlink" title="Ⅲ 碱"></a>Ⅲ 碱</h5><p>碱是指在水溶液中电离时产生的阴离子都是氢氧根离子的化合物<br>$$<br>碱<br>    \begin{cases}<br>    按水溶性<br>        \begin{cases}<br>        可溶性碱:\ce{NaOH、KOH、Ba(OH)2}等\<br>        难溶性碱:\ce{Mg(OH)2、Cu(OH)2}等\<br>        \end{cases}\<br>    按碱性强弱<br>        \begin{cases}<br>        强碱:\ce{KOH、Ca(OH)2、Ba(OH)2、NaOH}\<br>        弱碱:\ce{NH3·H2O、Fe(OH)3}等\<br>        \end{cases}\<br>    \end{cases}\<br>$$</p>
+<h5 id="Ⅳ-盐"><a href="#Ⅳ-盐" class="headerlink" title="Ⅳ 盐"></a>Ⅳ 盐</h5><p>盐是指金属离子或铵根离子（ $\ce{NH+4}$ ）与酸根离子或非金属离子结合的化合物<br>$$<br>盐<br>    \begin{cases}<br>    正盐:\ce{BaSO4、KNO3、NaCl}等\<br>    酸式盐:\ce{NaHCO3、KHSO4}等\<br>    碱式盐:\ce{Cu2(OH)2CO3}等\<br>    复盐:\ce{KAl(SO4)2·12H2O}等\<br>    \end{cases}<br>$$<br>​	<strong>a. 正盐</strong>：在酸和碱完全中和生成的盐中，不含酸中的氢离子，也不含有碱中的氢氧根离子，这样的盐叫做正盐</p>
+<p>​	<strong>b. 酸式盐</strong>：电离时生成的阳离子除金属离子（或  $\ce{NH+4}$ ）外还有氢离子，阴离子为酸根离子的盐叫做酸式盐</p>
+<p>​	<strong>c. 碱式盐</strong>：电离时生成的阴离子除酸根离子外还有氢氧根离子</p>
+<p>​	<strong>d. 复盐：</strong>由两种金属离子（可含  $\ce{NH+4}$ ）和一种酸根离子构成的盐叫做复盐</p>
+<h3 id="材料分类"><a href="#材料分类" class="headerlink" title="材料分类"></a>材料分类</h3><ol>
+<li>金属材料：$\ce{Fe、Cu、Al}$、合金 等</li>
+<li>无机非金属材料<ol>
+<li>传统无机非金属材料：陶瓷、玻璃、水泥 等</li>
+<li>新型无机非金属材料：高温结构陶瓷、光导纤维 等</li>
+</ol>
+</li>
+<li>有机高分子材料<ol>
+<li>天然有机高分子材料：淀粉、纤维素、蛋白质、天然橡胶 等</li>
+<li>合成有机高分子材料：塑料、合成纤维、合成橡胶 等</li>
+</ol>
+</li>
+</ol>
+<h3 id="其他分类方式"><a href="#其他分类方式" class="headerlink" title="其他分类方式"></a>其他分类方式</h3><p>电离程度</p>
+<ul>
+<li><p>电解质</p>
+<p>在水溶液或熔融状态下能够导电的<strong>化合物</strong>，如 $\ce{HCl、NaOH、NaCl}$ 等</p>
+<ul>
+<li>强电解质：强酸、强碱、盐（大部分）、金属氧化物</li>
+<li>弱电解质：弱酸、弱碱、水、盐（$\ce{HgCl2、(CH3COO)2Pb}$）</li>
+</ul>
+</li>
+<li><p>非电解质</p>
+<p>在水溶液和熔融状态下都不能导电的<strong>化合物</strong>，包含大多数有机化合物（酸类除外）、非金属氧化物（H2O除外），如酒精、葡萄糖、$\ce{CH4}$ 等</p>
+</li>
+<li><p>既不是电解质，也不是非电解质：单质和混合物</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>电解质导电条件：水溶液或熔融状态。电解质不是任何状态下都能导电，如固态 $\ce{NaCl}$ 不导电，溶于水或熔融状态下才能导电</li>
+<li>电解质必须自身电离导电。如 $\ce{NH3、CO2、SO2}$ 等溶于水均能导电，但是溶于水后的产物导电，不是自身电离导电，所以均属于非电解质</li>
+</ul>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

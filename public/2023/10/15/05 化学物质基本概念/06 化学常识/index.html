@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>化学物质基本概念 · 六 · 「化学常识」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>化学物质基本概念 · 六 · 「化学常识」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="物质俗名"><a href="#物质俗名" class="headerlink" title="物质俗名"></a>物质俗名</h2><table>
+<thead>
+<tr>
+<th>物质</th>
+<th>俗名</th>
+<th>物质</th>
+<th>俗名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>生石灰</td>
+<td>$\ce{CaO}$</td>
+<td>刚玉</td>
+<td>$\ce{Al2O3}$</td>
+</tr>
+<tr>
+<td>石灰乳&#x2F;石灰水&#x2F;消石灰&#x2F;熟石灰</td>
+<td>$\ce{Ca(OH)2}$</td>
+<td>漂白粉</td>
+<td>$\ce{Ca(ClO)2 +CaCl2}$</td>
+</tr>
+<tr>
+<td>石灰石&#x2F;大理石</td>
+<td>$\ce{CaCO3}$</td>
+<td>84消毒液</td>
+<td>$\ce{NaClO +NaCl2}$</td>
+</tr>
+<tr>
+<td>碱石灰</td>
+<td>$\ce{CaO +NaOH +KOH}$</td>
+<td>草木灰</td>
+<td>$\ce{K2CO3}$</td>
+</tr>
+<tr>
+<td>苏打&#x2F;纯碱</td>
+<td>$\ce{Na2CO3}$</td>
+<td>电石</td>
+<td>$\ce{CaC2}$</td>
+</tr>
+<tr>
+<td>小苏打</td>
+<td>$\ce{NaHCO3}$</td>
+<td>冰晶石</td>
+<td>$\ce{Na3AlF6}$</td>
+</tr>
+<tr>
+<td>烧碱</td>
+<td>$\ce{NaOH}$</td>
+<td>铁锈</td>
+<td>$\ce{Fe2O3 \cdot xH2O}$</td>
+</tr>
+<tr>
+<td>胆矾</td>
+<td>$\ce{CuSO4 \cdot 5H2O}$</td>
+<td>铜锈&#x2F;铜绿</td>
+<td>$\ce{Cu2(OH)2CO3}$</td>
+</tr>
+<tr>
+<td>绿矾</td>
+<td>$\ce{FeSO4 \cdot 7H2O}$</td>
+<td>王水</td>
+<td>$\ce{3HNO3 +H2SO4}$</td>
+</tr>
+<tr>
+<td>明矾</td>
+<td>$\ce{KAl(SO4)2 \cdot 12H2O}$</td>
+<td>可燃冰</td>
+<td>$\ce{CH4 + H2O}$。</td>
+</tr>
+<tr>
+<td>石膏</td>
+<td>$\ce{CaSO4 \cdot 2H2O}$</td>
+<td>水煤气</td>
+<td>$\ce{H2 + CO}$</td>
+</tr>
+<tr>
+<td>热石膏</td>
+<td>$\ce{2CaSO4 \cdot H2O}$</td>
+<td>合成气</td>
+<td>$\ce{2H2 + CO}$</td>
+</tr>
+<tr>
+<td>重晶石</td>
+<td>$\ce{BaSO4}$</td>
+<td>黄铜矿</td>
+<td>$\ce{CuFeS2}$</td>
+</tr>
+<tr>
+<td>芒硝&#x2F;朴硝</td>
+<td>$\ce{Na2SO4 \cdot 10H2O}$</td>
+<td>倭铅</td>
+<td>$\ce{Pb3O4}$</td>
+</tr>
+<tr>
+<td>石英&#x2F;脉石</td>
+<td>$\ce{SiO2}$</td>
+<td>朱砂</td>
+<td>$\ce{HgS}$</td>
+</tr>
+<tr>
+<td>硅胶</td>
+<td>$\ce{SiO2 \cdot xH2O}$</td>
+<td>硝石</td>
+<td>$\ce{KNO3}$</td>
+</tr>
+<tr>
+<td>泡花碱</td>
+<td>$\ce{Na2SiO3}$</td>
+<td>硇水</td>
+<td>$\ce{As2O3}$</td>
+</tr>
+<tr>
+<td>水玻璃</td>
+<td>$\ce{Na2SiO3}$</td>
+<td>黑火药</td>
+<td>$\ce{S +2KNO3 +3C}$</td>
+</tr>
+</tbody></table>
+<h2 id="特殊物质的用途"><a href="#特殊物质的用途" class="headerlink" title="特殊物质的用途"></a>特殊物质的用途</h2><table>
+<thead>
+<tr>
+<th>特殊物质</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>干冰、$\ce{AgI}$晶体</td>
+<td>人工降雨剂</td>
+</tr>
+<tr>
+<td>$\ce{AgBr}$</td>
+<td>感光剂</td>
+</tr>
+<tr>
+<td>$\ce{K-Na}$合金</td>
+<td>原子反应堆导热剂</td>
+</tr>
+<tr>
+<td>$\ce{NaHCO3}$、$\ce{Al(OH)3}$</td>
+<td>治疗胃酸过多</td>
+</tr>
+<tr>
+<td>$\ce{NaHCO3}$</td>
+<td>作发酵粉</td>
+</tr>
+<tr>
+<td>明矾</td>
+<td>净水剂</td>
+</tr>
+<tr>
+<td>$\ce{BaSO4}$</td>
+<td>钡餐</td>
+</tr>
+<tr>
+<td>$\ce{SO2}$</td>
+<td>漂白剂、防腐剂</td>
+</tr>
+<tr>
+<td>$\ce{Ca(OCl)2}$</td>
+<td>消毒、杀菌漂白</td>
+</tr>
+<tr>
+<td>$\ce{Na2O2}$</td>
+<td>供氧剂、漂白剂</td>
+</tr>
+<tr>
+<td>$\ce{H2O2}$</td>
+<td>氧化剂、漂白剂、消毒剂</td>
+</tr>
+<tr>
+<td>$\ce{O3}$</td>
+<td>漂白剂、杀菌剂、吸收紫外线</td>
+</tr>
+<tr>
+<td>石膏</td>
+<td>水泥硬化调节剂</td>
+</tr>
+<tr>
+<td>苯酚</td>
+<td>消毒剂</td>
+</tr>
+<tr>
+<td>$\ce{Na2SiO3}$溶液</td>
+<td>黏合剂、防火剂</td>
+</tr>
+<tr>
+<td>乙烯</td>
+<td>催熟剂、有机合成基础材料</td>
+</tr>
+<tr>
+<td>维生素C</td>
+<td>抗氧化剂</td>
+</tr>
+<tr>
+<td>$\ce{SiO2}$</td>
+<td>光导纤维</td>
+</tr>
+<tr>
+<td>$\ce{Si}$</td>
+<td>半导体、太阳能电池</td>
+</tr>
+<tr>
+<td>$\ce{Na2FeO4}$</td>
+<td>杀菌净水剂</td>
+</tr>
+<tr>
+<td>硅胶</td>
+<td>干燥剂</td>
+</tr>
+<tr>
+<td>$\ce{Fe}$粉</td>
+<td>抗氧化剂</td>
+</tr>
+</tbody></table>
+<h2 id="物质颜色"><a href="#物质颜色" class="headerlink" title="物质颜色"></a>物质颜色</h2><h3 id="焰色反应"><a href="#焰色反应" class="headerlink" title="焰色反应"></a>焰色反应</h3><p>$\ce{Li}$：紫红色</p>
+<p>$\ce{Na}$：黄色</p>
+<p>$\ce{K}$：紫色</p>
+<p>$\ce{Cu}$：绿色</p>
+<p>$\ce{Ba}$：（黄）绿色</p>
+<h3 id="实验现象"><a href="#实验现象" class="headerlink" title="实验现象"></a>实验现象</h3><p>$\ce{H2}$与$\ce{C2}$点燃：苍白色火焰</p>
+<p>$\ce{Na}$与$\ce{Cl2}$反应：黄色火焰&#x2F;白烟</p>
+<p>$\ce{Cu}$与$\ce{Cl2}$反应：棕黄色烟</p>
+<p>$\ce{Fe}$与$\ce{Cl2}$反应：棕褐色烟</p>
+<h3 id="铁"><a href="#铁" class="headerlink" title="铁"></a>铁</h3><p>$\ce{Fe}$粉：黑色</p>
+<p>$\ce{FeO}$：黑色</p>
+<p>$\ce{Fe2O3}$：红棕色</p>
+<p>$\ce{Fe3O4}$：黑色</p>
+<p>$\ce{Fe(OH)2}$：白色</p>
+<p>$\ce{Fe(OH)3}$：红褐色</p>
+<p>$\ce{Fe(OH)2}$，在空气中迅速被氧化：白色沉淀，迅速灰绿，最终红褐</p>
+<p>$\ce{Fe^{3+}}$：（棕）黄色</p>
+<p>$\ce{Fe^{2+}}$：浅绿色</p>
+<p>检验$\ce{Fe^{2+}}$：加入$\ce{KFe(CN)6}$→蓝色沉淀</p>
+<p>检验$\ce{Fe^{3+}}$：加入$\ce{KSCN}$→（血）红色溶液</p>
+<h3 id="卤素"><a href="#卤素" class="headerlink" title="卤素"></a>卤素</h3><p>$\ce{F2}$：淡黄绿色（气体）</p>
+<p>$\ce{Cl2}$：黄绿色（气体）</p>
+<p>$\ce{Br2}$：深红棕色（液体）</p>
+<p>$\ce{I2}$：紫黑色（固体）</p>
+<p>氯水：浅黄绿色</p>
+<p>溴水：橙黄色</p>
+<p>碘水：黄色</p>
+<p>溴的四氯化碳（或苯）溶液：橙色</p>
+<p>碘的四氯化碳（或苯）溶液：紫色</p>
+<p>$\ce{AgCl}$：白色沉淀</p>
+<p>$\ce{AgBr}$：淡黄色沉淀</p>
+<p>$\ce{AgI}$：黄色沉淀</p>
+<h3 id="红"><a href="#红" class="headerlink" title="红"></a>红</h3><p>紫红色：单质$\ce{Cu}$</p>
+<p>砖红色：$\ce{Cu2O}$、$\ce{Ag2CrO4}$</p>
+<p>红棕色：气体$\ce{NO2}$、液体$\ce{Br2}$、固体$\ce{Fe2O3}$</p>
+<p>红褐色：$\ce{Fe(OH)3}$、$\ce{Fe(OH)3}$胶体</p>
+<p>（血）红色溶液：$\ce{Fe^{3+}}$溶液中加入$\ce{KSCN}$</p>
+<p>粉红色：苯酚放置时间较长被氧化</p>
+<h3 id="橙"><a href="#橙" class="headerlink" title="橙"></a>橙</h3><p>$\ce{Cr2O7}$溶液：橙色</p>
+<p>$\ce{Br2}$在水中显橙黄色，在$\ce{CCl4}$（或苯）中显橙红色</p>
+<h3 id="黄"><a href="#黄" class="headerlink" title="黄"></a>黄</h3><p>谈黄鱼固体：$\ce{S}$、$\ce{Na2O2}$、$\ce{AgBr}$</p>
+<p>黄色固体（沉淀）：$\ce{AgI}$</p>
+<p>$\ce{CrO4^2-}$溶液：黄色</p>
+<p>$\ce{Na}$元素的焰色：黄色</p>
+<p>黄蛋白实验：带有苯环的蛋白质与浓硝酸混合加热呈现黄色</p>
+<h3 id="绿"><a href="#绿" class="headerlink" title="绿"></a>绿</h3><p>$\ce{Cu(OH)2}$：铜绿、铜锈</p>
+<p>$\ce{CoSO4·7H2O}$：绿矾、青矾</p>
+<p>$\ce{Fe5O4}$水溶液($\ce{Fe^{2+}}$溶液)：浅绿色溶液</p>
+<p>$\ce{F2}$：浅黄绿色气体</p>
+<p>$\ce{Cl2}$：黄绿色气体</p>
+<h3 id="蓝"><a href="#蓝" class="headerlink" title="蓝"></a>蓝</h3><p>淀粉+$\ce{I2}$：蓝色</p>
+<p>$\ce{Cu(OH)2}$：蓝色固体（蓝色沉淀）</p>
+<p>$\ce{CuSO4·5H2O}$：蓝色晶体</p>
+<p>$\ce{CuSO4}$水溶液：（天）蓝色</p>
+<p>$[\ce{Cu(NH3)4}]$$\ce{SO4·5H2O}$：深蓝色晶体</p>
+<h3 id="紫"><a href="#紫" class="headerlink" title="紫"></a>紫</h3><p>紫黑色固体：$\ce{I2}$、$\ce{KMnO4}$</p>
+<p>$\ce{I2}$溶于$\ce{CCl4}$（或是苯）：紫色</p>
+<p>$\ce{KMnO4}$溶液：紫色溶液</p>
+<p>$\ce{K}$元素的焰色：紫色（透过蓝色钴玻璃）</p>
+<p>苯酚与$\ce{FeCl3}$溶液反应：显紫色</p>
+<h3 id="黑"><a href="#黑" class="headerlink" title="黑"></a>黑</h3><p>$\ce{MnO2}$、$\ce{Fe}$粉、$\ce{FeO}$、$\ce{Fe3O4}$、$\ce{CuO}$、$\ce{C}$</p>
+<h3 id="白"><a href="#白" class="headerlink" title="白"></a>白</h3><p>$\ce{BaSO4}$、$\ce{PbSO4}$、$\ce{CaSO4}$、$\ce{AgCl}$、$\ce{CaCO3}$、$\ce{BaCO3}$、$\ce{CaSO3}$、$\ce{BaSO3}$、$\ce{Na2CO3}$、$\ce{NaHCO3}$、$\ce{Mg(OH)2}$、$\ce{Al(OH)3}$、$\ce{Fe(OH)2}$、$\ce{H2SiO3}$、三溴苯酚</p>
+<h3 id="酸碱指示剂"><a href="#酸碱指示剂" class="headerlink" title="酸碱指示剂"></a>酸碱指示剂</h3><p>酚酞：无色$\ce{&lt;-8.2-}$ 淡红 $\ce{ -10.0-&gt;}$红</p>
+<p>石蕊：红色$\ce{&lt;-5-}$ 紫 $\ce{ -8-&gt;}$蓝</p>
+<p>甲基橙：红色$\ce{&lt;-3.1-}$ 橙 $\ce{ -4.4-&gt;}$黄</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

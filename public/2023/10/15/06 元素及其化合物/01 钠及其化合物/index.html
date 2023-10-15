@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>元素及其化合物 · 一 · 「钠 $(\ce{Na})$ 及其化合物」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>元素及其化合物 · 一 · 「钠 $(\ce{Na})$ 及其化合物」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="钠单质"><a href="#钠单质" class="headerlink" title="钠单质"></a>钠单质</h2><h3 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
+<li><p>$\ce{Na}$ 与 氧气 反应：$\begin{cases}\ce{4Na +O2 \xlongequal{} 2Na2O\2Na +O2 \xlongequal{\Delta} Na2O2}\end{cases}\$</p>
+</li>
+<li><p>$\ce{Na}$ 与 氯气 反应：$\ce{2Na +Cl2 \xlongequal{\Delta} 2NaCl}$</p>
+</li>
+<li><p>$\ce{Na}$ 与 水 反应：$\ce{2Na +2H2O &#x3D; 2NaOH +H2 ^}$</p>
+<blockquote>
+<p>现象：「浮熔游响红」</p>
+<p>钠的密度比水小，会<strong>浮</strong>在水面上；反应时，钠迅速<strong>熔</strong>化成小球（说明反应剧烈、大量放热、钠熔点偏低）；产生的氢气推动钠在水面上<strong>游</strong>动；发出<strong>响</strong>声；滴加酚酞后变<strong>红</strong></p>
+</blockquote>
+</li>
+<li><p>$\ce{Na}$ 与 $\ce{CuSO4}$水溶液 反应：$\begin{cases}Frist.&amp;\ce{2Na +2H2O \xlongequal{} 2NaOH +H2 ^}\Second.&amp;\ce{2NaOH +CuSO4 \xlongequal{} Cu(OH)2 v + Na2SO4}\end{cases}\$</p>
+</li>
+<li><p>$\ce{Na}$ 与 乙醇 反应：$\ce{2C2H5OH +2Na-&gt;2C2H5ONa +H2 ^}$</p>
+<blockquote>
+<p>现象：钠沉于无水乙醇的底部（或因产生的氢气使得钠上下跳动），表面有气泡产生，慢慢消失；放出的气体可在空气中安静地燃烧，火焰呈淡蓝色（ $\ce{H2}$ ）；烧杯壁上有水珠生成；澄清石灰水未变浑浊（无 $\ce{CO2}$ ）</p>
+<p>解释：由于烷基具有推电子作用（$\vec{\ce{CH3CH2}}\ce{-O-H}$），使得 $\ce{O-H}$ 键极性变弱，因此反应不会很剧烈</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ol>
+<li>制取：$\ce{2NaCl(熔融) \xlongequal{通电} 2Na +Cl2 ^}$</li>
+<li>用途：钠、钾合金（液态）可用于原子反应堆的导热剂；冶炼某些金属（如钛金属）；用作电光源，制作高压钠灯</li>
+<li>密度：$p(\ce{H2O})&gt;p(\ce{Na})&gt;p($煤油$)$（密封保存，通常保存在石蜡油或煤油中）</li>
+<li>金属钠着火时用细沙覆盖灭火，不得使用水或二氧化碳灭火器</li>
+</ol>
+<h2 id="氧化钠与过氧化钠"><a href="#氧化钠与过氧化钠" class="headerlink" title="氧化钠与过氧化钠"></a>氧化钠与过氧化钠</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>氧化钠（ $\ce{Na2O}$ ）</th>
+<th>过氧化钠（ $\ce{Na2O2}$ ）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电子式</td>
+<td><img src="./images/1.1.svg" style="zoom: 33%;" /> （仅含有离子键）</td>
+<td><img src="./images/1.2.svg" style="zoom: 33%;" />（含有离子键和非极性共价键）</td>
+</tr>
+<tr>
+<td>离子个数比$^4$</td>
+<td>$\ce{Na+:O^{2-} &#x3D; 2:1}$</td>
+<td>$\ce{Na+:}$<strong>$\ce{O^{2-}2}$</strong>$ &#x3D; 2:1$</td>
+</tr>
+<tr>
+<td>化合物类型$^1$</td>
+<td>离子化合物（碱性氧化物）</td>
+<td>离子化合物（非碱性氧化物，为过氧化物）</td>
+</tr>
+<tr>
+<td>颜色、状态</td>
+<td>白色、固体</td>
+<td>淡黄色、固体</td>
+</tr>
+<tr>
+<td>主要性质</td>
+<td>具有碱性氧化物的通性</td>
+<td>具有强氧化性$^2$</td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>不稳定，加热生成 $\ce{Na2O2}$ $^3$</td>
+<td>较稳定</td>
+</tr>
+<tr>
+<td>与 水 反应</td>
+<td>$\ce{Na2O +H2O\xlongequal{}2NaOH}$</td>
+<td>$\ce{2Na2\overset{-1}{O}_2 +2H2O\xlongequal{2e^-}4NaOH +\overset{0}{O}_2 ^}^5$</td>
+</tr>
+<tr>
+<td>与 $\ce{CO2}$ 反应</td>
+<td>$\ce{Na2O +CO2\xlongequal{}Na2CO3}$</td>
+<td>$\ce{2Na2\overset{-1}{O}_2 +2CO2\xlongequal{2e^-}2Na2CO3 +\overset{0}{O}_2 ^}^5$</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>制取烧碱</td>
+<td>漂白剂、消毒剂、供氧剂</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ol>
+<li><p>碱性氧化物与酸反应生成盐和水：$\ce{Na2O +2HCl\xlongequal{}2NaCl +H2O}$</p>
+<p>（$\ce{Na2O2}$不是碱性氧化物：$\ce{2Na2O2 +4HCl\xlongequal{}4NaCl +2H2O +O2 ^}$）</p>
+</li>
+<li><p>$\ce{Na2O2}$ 具有强氧化性</p>
+<ul>
+<li>$\ce{Na2O2}$ 加入品红溶液中，在水中生成 $\ce{H2O2}$ ，利用其氧化性，使得品红溶液褪色</li>
+<li>如将其加入滴加酚酞的水中，$\ce{Na2O2}$ 会先变红，后褪色</li>
+<li>与 $\ce{SO2}$ 反应：$\ce{Na2O2 + SO2 → Na2SO4}$</li>
+<li>投入 $\ce{FeCl2}$ 溶液中生成 $\ce{Fe(OH)3}$ 沉淀</li>
+<li>投入氢硫酸，氧化硫化氢成硫单质，溶液浑浊</li>
+<li>氧化 $\ce{SO^2–_3}$ 成 $\ce{SO^2–_4}$</li>
+</ul>
+</li>
+<li><p>$\ce{Na-&gt;[O2]Na2O-&gt;[O2]Na2O2-&gt;[H2O]NaOH}$</p>
+</li>
+<li><p>考点：$1 mol\space\ce{Na2O +Na2O2}$ 混合溶液的离子数为 $3N_A$</p>
+</li>
+<li><p>考点：$\ce{Na2O_2 +H2O(}g\ce{) +CO2(}g\ce{)}$反应产生 $1 mol\space\ce{O2}$ ，即转移了 $2mol\space e^-$</p>
+</li>
+<li><p>$\ce{Na2O2}$ 与某水溶液反应与 $\ce{Na}$ 类似</p>
+<p>例如：$\ce{NaHCO3}$ 与 $\ce{Na2O2}$ 反应$\begin{cases}Frist.&amp;\ce{2Na2O2 +2H2O\xlongequal{}4NaOH +O2 ^}\Second.&amp;\ce{NaOH +NaHCO3\xlongequal{}Na2CO3 +H2O}\end{cases}\$</p>
+<p>总方程式：$\ce{4NaHCO3 +2Na2O2\xlongequal{}4Na2CO3 +2H2O +O2↑}$</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="碳酸钠与碳酸氢钠"><a href="#碳酸钠与碳酸氢钠" class="headerlink" title="碳酸钠与碳酸氢钠"></a>碳酸钠与碳酸氢钠</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>碳酸钠（ $\ce{Na2CO3}$ ）</th>
+<th>碳酸氢钠（ $\ce{NaHCO3}$ ）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>俗名</td>
+<td>纯碱、苏打</td>
+<td>小苏打</td>
+</tr>
+<tr>
+<td>溶解度</td>
+<td>易溶于水</td>
+<td>在水中溶解度比 $\ce{Na2CO3}$ 小$^1$</td>
+</tr>
+<tr>
+<td>热稳定性$^2$</td>
+<td>稳定，受热难分解</td>
+<td>受热易分解：$\ce{2NaHCO3\xlongequal{\Delta}Na2CO3 +CO2 ^ +H2O}$</td>
+</tr>
+<tr>
+<td>与酸反应</td>
+<td>$\ce{Na2CO3-&gt;[H+]NaHCO^-3&gt;[H+]CO2 ^}^3$</td>
+<td>$\ce{NaHCO^-3&gt;[H+]CO2 ^}$</td>
+</tr>
+<tr>
+<td>与 $\ce{CO2}$ 反应</td>
+<td>$\ce{Na2CO3 +CO2 ^ +H2O2\xlongequal{}NaHCO3}$</td>
+<td>不反应$^4$</td>
+</tr>
+<tr>
+<td>与 $\ce{Ca(OH)2}$ 反应</td>
+<td>$\ce{Ca^2+ +CO^2-_3 \xlongequal{} CaCO3 v}$</td>
+<td>$\ce{NaHCO3}$ 少量：$\ce{HCO^-3 +OH- +Ca^2+ \xlongequal{} CaCO3 v +H2O}$<br>$\ce{Ca(OH)2}$ 少量：$\ce{2HCO^-3 +2OH- +Ca^2+ \xlongequal{} CaCO3 v + CO^2-_3 +2H2O}$</td>
+</tr>
+<tr>
+<td>与 $\ce{CaCl2&#x2F;BaCl2}$ 反应</td>
+<td>$\ce{Ca^2+ +CO^2-_3 \xlongequal{} CaCO3 v}$</td>
+<td>不沉淀</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ol>
+<li><p>侯氏制碱法中，向饱和 $\ce{NaCl(aq)}$ 中依次通入$\ce{NH3}$ 和 $\ce{CO2}$ ，溶液中存在 $\ce{NH+4 、Na+ 、Cl- 、CO^{2-}3 、HCO^-_3}$ ，其中$\ce{HCO^-_3}$最先析出，加热析出的 $\ce{NaHCO}$ ，得到 $\ce{Na2CO3}$</p>
+</li>
+<li><p>实验：比较碳酸钠与碳酸氢钠的热稳定性</p>
+<img src="./images/1.3.png" style="zoom:50%;" />
+
+<p>碳酸钠在外层，温度高，碳酸氢钠在内层，温度低，$Ⅱ$ 的澄清石灰水变浑浊，证明碳酸钠的热稳定性更强</p>
+</li>
+<li><p>实验：辨别 $\ce{HCl}$ 和 $\ce{Na2CO3}$</p>
+<p>互滴。如 $\ce{HCl}$ 逐滴滴入 $\ce{Na2CO3}$ 溶液中，开始时没有气泡，后来有；如 $\ce{Na2CO3}$ 逐滴滴入 $\ce{HCl}$ 溶液中，一开始就有气泡</p>
+</li>
+<li><p>考点：除去 $\ce{CO2}$ 中的 $\ce{HCl}$</p>
+</li>
+</ol>
+</blockquote>
+<p>相互转化：$\ce{Na2CO3\xleftharpoondown[加入\ce{NaOH&#x2F;NaHCO3(s)}可用加热]{\xrightharpoonup{适量\ce{H+}&#x2F;通入\ce{CO2}}}NaHCO3}$</p>
+<p>除杂：</p>
+<ol>
+<li>固体 $\ce{Na2CO3(NaHCO3)}:$ 加热至恒重</li>
+<li>水溶液 $\ce{Na2CO3(NaHCO3)}:$ 加 $\ce{NaOH}$</li>
+<li>水溶液 $\ce{NaHCO3(Na2CO3)}:$ 加足量 $\ce{CO2}$</li>
+</ol>
+<h3 id="鉴别"><a href="#鉴别" class="headerlink" title="鉴别"></a>鉴别</h3><p>$$<br>物质\begin{cases}<br>液体&amp;<br>\begin{cases}<br>沉淀法：加入\ce{BaCl2}溶液或\ce{CaCl2}溶液产生沉淀的是\ce{Na2CO3}\<br>气体法：滴入稀盐酸，立即产生气泡的是 \ce{NaHCO3}\<br>测 pH 法：用pH试纸测其相同浓度的稀溶液，pH大的是 \ce{NaHCO3} 溶液<br>\end{cases}\<br>固体&amp;加热法:产生使澄清石灰水变浑浊的气体的是\ce{NaHCO3}固体\<br>\end{cases}\<br>$$</p>
+<h2 id="焰色反应"><a href="#焰色反应" class="headerlink" title="焰色反应"></a>焰色反应</h2><p>物理反应，进行焰色反应应使用<strong>铂丝</strong>（镍丝、无锈铁丝）。把嵌在玻璃棒上的金属丝在<strong>稀盐酸</strong>里蘸洗后，放在酒精灯的火焰里灼烧，不同金属元素会使火焰变为各种颜色，这便是焰色反应。焰色反应的形成与原子光谱有关</p>
+<table>
+<thead>
+<tr>
+<th align="center">离子</th>
+<th align="center">$\ce{Li+}$</th>
+<th align="center">$\ce{Na+}$</th>
+<th align="center">$\ce{K+}$</th>
+<th align="center">$\ce{Rb+}$</th>
+<th align="center">$\ce{Cs+}$</th>
+<th align="center">$\ce{Ca^{2+}}$</th>
+<th align="center">$\ce{Cr^{2+}}$</th>
+<th align="center">$\ce{Ba^{2+}}$</th>
+<th align="center">$\ce{Cu^{2+}}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">焰色</td>
+<td align="center">红</td>
+<td align="center">黄</td>
+<td align="center">紫</td>
+<td align="center">紫红</td>
+<td align="center">紫红</td>
+<td align="center">橙红</td>
+<td align="center">洋红</td>
+<td align="center">黄绿</td>
+<td align="center">绿</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ol>
+<li><p>灼烧白色粉末，火焰呈黄色，证明原粉末中有 $\ce{Na+}$ ，无 $\ce{K+}$$\quad(×)$ </p>
+<p>解析：能证明有 $\ce{Na+}$ ，但无法确定是否有 $\ce{K+}$，因为 $\ce{Na+}$ 的黄光会遮盖 $\ce{K+}$ 的微弱紫光，因此必须透过蓝色钴玻璃过滤黄光，观察是否有紫光</p>
+</li>
+<li><p>在火焰上灼烧搅拌过某无色溶液的玻璃棒，火焰出现黄色，说明溶液中含有 $\ce{Na+}$ $\quad(×)$ </p>
+<p>解析：不能用玻璃棒做焰色实验，因为玻璃棒中含有 $\ce{Na2SiO3}$ ，其焰色会干扰实验</p>
+</li>
+</ol>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

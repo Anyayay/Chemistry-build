@@ -1,0 +1,2051 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="/images/background.jpg"></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hexo</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+</div>
+<div id="home-posts-wrap" true ref="homePostsWrap">
+    <div id="home-posts">
+        
+
+<div class="post">
+    <a href="/2023/10/15/07%20%E5%8C%96%E5%AD%A6%E5%AE%9E%E9%AA%8C/03%20%E5%B8%B8%E8%A7%81%E5%AE%9E%E9%AA%8C/">
+        <h2 class="post-title">化学实验 · 三 · 「常见实验」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>制备 $\ce{FeCl3}$</p>
+<p><img src="/./images/image-20230924143606556.png" alt="image-20230924143606556"></p>
+<p>A：$\ce{MnO2 + 4HCl(浓) \xlongequal{\Delta} MnCl2 +Cl2 ^ +2H2O}$</p>
+<p>B（饱和食盐水）：吸收氯化氢气体</p>
+<p>C（浓硫酸）：除去氯气中的水分</p>
+<p>F（碱石灰）：Ⅰ尾气吸收；Ⅱ防止外界水蒸气进入</p>
+<p>E： $\ce{FeCl3}$ 易升华，使用冷水使其变为固体，方便收集</p>
+<blockquote>
+<p> $\ce{FeCl3}$ 水解程度较大（$\ce{FeCl3 +3H2O&lt;&#x3D;&gt;Fe(OH)3 +3HCl}$），因此要注意不能使外界水蒸气进入，同时如果要制备 $\ce{FeCl3}$ 溶液时，应先将 $\ce{FeCl3}$ 固体溶于少量盐酸（使反应逆向移动），再加水稀释</p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/07%20%E5%8C%96%E5%AD%A6%E5%AE%9E%E9%AA%8C/03%20%E5%B8%B8%E8%A7%81%E5%AE%9E%E9%AA%8C/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/07%20%E5%8C%96%E5%AD%A6%E5%AE%9E%E9%AA%8C/02%20%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/">
+        <h2 class="post-title">化学实验 · 二 · 「实验过程」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <blockquote>
+<p><strong>实验基本过程</strong></p>
+<p>实验前：①仪器选择与组装；②仪器的检验；③通入气体；④试剂的填装；⑤点火</p>
+<p>实验后：①先移走液面内部导管（防止倒吸液体进入装置）； ②关闭热源，停止反应； ③再停止通气（最后停止通气的常考目的：防止产物与空气接触） ④仪器的洗涤 </p>
+<p><strong>五个考察点</strong></p>
+<ol>
+<li>仪器选择与组装：①仪器规格选择、②仪器组装</li>
+<li>仪器的检验：①检验是否漏水、②气密性检验</li>
+<li>通入气体：①通气到何时停止、②通气的作用</li>
+<li>试剂的填装：①试剂的取用、②试剂的存放</li>
+<li>仪器的洗涤：①洗涤方法、②洗涤完成标志、③常见洗涤方法</li>
+</ol>
+</blockquote>
+<h2 id="仪器选择和组装"><a href="#仪器选择和组装" class="headerlink" title="仪器选择和组装"></a>仪器选择和组装</h2><h3 id="仪器规格的选择"><a href="#仪器规格的选择" class="headerlink" title="仪器规格的选择"></a>仪器规格的选择</h3><ol>
+<li><p>各类瓶瓶罐罐中液体体积范围：</p>
+<ol>
+<li>仪器不需加热时：占容积的 $[2&#x2F;3，1&#x2F;3]$</li>
+<li>仪器需要加热时：占容积的 $[1&#x2F;2，1&#x2F;3]$</li>
+</ol>
+</li>
+<li><p>量筒量取一定量的液体：应选取略大于所需液体体积的量筒</p>
+</li>
+</ol>
+<h3 id="仪器的组装"><a href="#仪器的组装" class="headerlink" title="仪器的组装"></a>仪器的组装</h3><p>仪器组装：方向为“先下后上，从左到右”</p>
+<blockquote>
+<p>模块化装置的安装放在第三节</p>
+</blockquote>
+<h2 id="仪器的检验"><a href="#仪器的检验" class="headerlink" title="仪器的检验"></a>仪器的检验</h2><ol>
+<li><p>检验是否漏水（检漏）</p>
+<p>检漏方法：向分液漏斗中加入少量水，检查旋塞处是否漏水； 将漏斗倒转过来，检查玻璃塞是否漏水</p>
+<p>（补充：在玻璃旋塞两端涂一薄层凡士林，插入塞窝转动，使之均匀，以防漏水）</p>
+</li>
+<li><p>气密性检验</p>
+<p>无论采用哪种装置制取气体．在成套装置组装完毕、装入反应物之前，必须检验装置的气密性，以确保实验的顺利进行。装置气密性的检验，其原理通常是设法造成装置的不同部位有压强差，并产生某种明显的现象。在叙述上要注意细节描述的严密性</p>
+<table>
+<thead>
+<tr>
+<th align="center">步骤</th>
+<th align="center">具体方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Step1：形成密闭&#x2F;封闭的体系<br>（活塞、弹簧夹、液封）</td>
+<td align="center">关闭：止水夹夹住导管&#x2F;关闭活塞；液封：导管末端浸入水中，加水至浸没导管</td>
+</tr>
+<tr>
+<td align="center">Step2：①制造压强差；②描述产生的现象</td>
+<td align="center">①微热法：用手焐热&#x2F;酒精灯微热现象：加热气泡冒出，停止后倒吸水柱<br>②注水法：向漏斗注水现象：形成液柱不动&#x2F;液滴无法滴下</td>
+</tr>
+<tr>
+<td align="center">Step3：一段时间后，现象保持不变</td>
+<td align="center">——</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="通入气体"><a href="#通入气体" class="headerlink" title="通入气体"></a>通入气体</h2><ol>
+<li><p>通气到什么时候为止</p>
+<ol>
+<li>水面下的导管，产生稳定气泡时；</li>
+<li>xx 装置中充满 xx 气体（描述气体颜色特点）</li>
+</ol>
+</li>
+<li><p>通气的作用：本质是各种方式去“赶跑”装置内原有气体</p>
+<table>
+<thead>
+<tr>
+<th align="left">阶段</th>
+<th>通气作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">实验前</td>
+<td>排除装置中的空气，以免与空气中的 xx 发生反应（$\ce{H2O&#x2F;CO2&#x2F;O2}$）</td>
+</tr>
+<tr>
+<td align="left">实验中</td>
+<td>①减小气体浓度，防止出现倒吸现象（特别是极易溶于水的气体）<br>②将 xx 气体充分排净&#x2F;将气体赶入 xx 装置<br/>③提供惰性气体环境，防止反应物与空气反应<br/>④减少定量实验误差<br/>⑤增大压强，加快反应速率</td>
+</tr>
+<tr>
+<td align="left">实验后</td>
+<td>将气体全部吹入 xx 中充分吸收<br/>①防止残留装置中造成污染<br/>②减小定量实验的误差</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="填装物质"><a href="#填装物质" class="headerlink" title="填装物质"></a>填装物质</h2><h3 id="试剂取用"><a href="#试剂取用" class="headerlink" title="试剂取用"></a>试剂取用</h3><table>
+<thead>
+  <tr>
+    <th></th>
+    <th colspan="3">固体药物</th>
+    <th colspan="3">液体药物</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>药瓶取用</td>
+    <td>粉末</td>
+    <td>块状</td>
+    <td>定量</td>
+    <td>少量滴加</td>
+    <td>定量</td>
+    <td>大量倾倒</td>
+  </tr>
+  <tr>
+    <td>使用仪器</td>
+    <td>药匙</td>
+    <td>镊子</td>
+    <td>托盘天平</td>
+    <td>胶头滴管</td>
+    <td>量筒或滴定管</td>
+    <td>直接倾倒</td>
+  </tr>
+  <tr>
+    <td>注意事项</td>
+    <td colspan="3">固体加入试管时：一横二放三慢竖</td>
+    <td colspan="2">竖直悬滴</td>
+    <td>倾倒口对口<br>标签对手心</td>
+  </tr>
+</tbody>
+</table>
+
+<h3 id="试剂存放"><a href="#试剂存放" class="headerlink" title="试剂存放"></a>试剂存放</h3> <img src="images/2.1.png" style="zoom: 25%;" />
+
+<h2 id="仪器洗涤"><a href="#仪器洗涤" class="headerlink" title="仪器洗涤"></a>仪器洗涤</h2><ol>
+<li><p>基本方法：</p>
+<ol>
+<li>注入少量水振荡倒掉，冲洗外壁</li>
+<li>若仍有污迹，用洗涤液处理后刷洗（洗涤液）</li>
+<li>最后用蒸馏水冲洗。（滴定管还要润洗）</li>
+</ol>
+</li>
+<li><p>洗净的标准：内壁附着一层均匀的水膜，既不聚成水滴，也不成股流下</p>
+</li>
+<li><p>常考污渍的洗涤方法</p>
+<table>
+<thead>
+<tr>
+<th align="center">附着杂质</th>
+<th align="left">油污</th>
+<th align="left">银镜</th>
+<th align="left">硫磺、碘、磷</th>
+<th align="left">$\ce{CuO}$</th>
+<th align="left">乙酸乙酯</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">选择试剂</td>
+<td align="left">碱液</td>
+<td align="left">硝酸</td>
+<td align="left">$\ce{CS2}$</td>
+<td align="left">$\ce{HNO3}$</td>
+<td align="left">$\ce{NaOH}$（水解）或 酒精（互溶）</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/07%20%E5%8C%96%E5%AD%A6%E5%AE%9E%E9%AA%8C/02%20%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/07%20%E5%8C%96%E5%AD%A6%E5%AE%9E%E9%AA%8C/01%20%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8/">
+        <h2 class="post-title">化学实验 · 一 · 「实验仪器」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="加热仪器"><a href="#加热仪器" class="headerlink" title="加热仪器"></a>加热仪器</h2><h3 id="酒精灯（酒精喷灯）"><a href="#酒精灯（酒精喷灯）" class="headerlink" title="酒精灯（酒精喷灯）"></a>酒精灯（酒精喷灯）</h3><ol>
+<li>酒精灯的火焰分为外焰、内焰和焰心，应使用酒精的外焰进行加热</li>
+<li>添加酒精时，不超过酒精灯容积的 $2&#x2F;3$；酒精不少于 $1&#x2F;4$</li>
+<li>绝对禁止向燃着的酒精灯里添加酒精，以免失火</li>
+<li>绝对禁止用酒精灯引燃另一只酒精灯</li>
+<li>用完酒精灯，必须用灯帽盖灭，不可用嘴去吹</li>
+<li>不要碰倒酒精灯，万一洒出的酒精在桌上燃烧起来，应立即用湿布扑灭</li>
+</ol>
+<h3 id="石棉网——石棉网是石棉铁丝网的简称"><a href="#石棉网——石棉网是石棉铁丝网的简称" class="headerlink" title="石棉网——石棉网是石棉铁丝网的简称"></a>石棉网——石棉网是石棉铁丝网的简称</h3><p>石棉网用于给玻璃仪器加热，石棉的隔热作用，可使受热均匀、缓和</p>
+<blockquote>
+<p>注：组装而成的加热装置，见模块化装置中的“反应装置”一节</p>
+</blockquote>
+<h2 id="可加热仪器"><a href="#可加热仪器" class="headerlink" title="可加热仪器"></a>可加热仪器</h2><p><strong>A. 可直接加热的仪器：试管、蒸发皿、坩埚、燃烧匙、硬质玻璃管</strong></p>
+<table>
+<thead>
+<tr>
+<th>直接加热的仪器</th>
+<th>试管</th>
+<th>蒸发皿</th>
+<th>坩埚</th>
+<th>燃烧匙、硬质玻璃管</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>图片</td>
+<td><img src="/./images/1.2.jpg"></td>
+<td><img src="/./images/clip_image004.jpg"></td>
+<td><img src="/./images/clip_image006.jpg"></td>
+<td><img src="/./images/clip_image008.jpg"> <img src="/./images/image-20230906200028674-1694001632562-28.png"></td>
+</tr>
+</tbody></table>
+<p>注意：可直接加热，但不能骤冷（防止冷热不均炸裂，通常放在石棉网上冷却）</p>
+<h3 id="试管"><a href="#试管" class="headerlink" title="试管"></a>试管</h3><ol>
+<li>加入液体时：不超过试管容积的 $1&#x2F;2$；若需加热，则不超过 $2&#x2F;3$<br>试管夹：应夹在离试管口 $1&#x2F;3$ 处（中上部）</li>
+<li>加热时：试管外壁应擦干，先均匀受热，再集中加热，不可骤冷骤热，管口不准对着人<ol>
+<li>给固体加热时，管口应略向下倾斜。若是粉末，试管口应加棉花。</li>
+<li>给液体加热时，应用酒精灯的外焰（外焰燃烧充分，温度高），并使试管跟桌面成 $45\degree$</li>
+</ol>
+</li>
+<li>振荡试管时，应用拇指、食指、中指握住离试管口的 $1&#x2F;3$ 处，用腕力振荡试管底部</li>
+</ol>
+<blockquote>
+<p><img src="/./images/clip_image002-1694000728695-8.jpg"> <img src="/./images/clip_image007.jpg"> <img src="/./images/clip_image009.jpg"> </p>
+</blockquote>
+<h3 id="坩埚"><a href="#坩埚" class="headerlink" title="坩埚"></a>坩埚</h3><p>耐高温，主要用于固体物质的高温灼烧</p>
+<ol>
+<li>相关仪器：配套使用的仪器有：泥三角，三脚架，酒精灯； 取放坩埚时必须使用：坩埚钳；</li>
+<li>坩埚的种类：瓷坩埚（常用）、氧化铝坩埚、石英坩埚、铁坩埚</li>
+<li>坩埚的选择：原则是不与添加的反应物发生反应；</li>
+</ol>
+<blockquote>
+<p><img src="/./images/clip_image006.jpg"></p>
+</blockquote>
+<h3 id="蒸发皿"><a href="#蒸发皿" class="headerlink" title="蒸发皿"></a>蒸发皿</h3><p>液体物质的蒸发、浓缩、结晶（常为瓷质）</p>
+<ol>
+<li>液体不超过其容量的 $1&#x2F;3$ ，边加热边搅拌</li>
+<li>若为蒸发结晶：一般当有大量晶体析出时停止加热，靠余热将剩余液体蒸干</li>
+<li>若为冷却结晶：一般是加热到表面有晶膜出现时，停止加热，降温结晶，获得晶体</li>
+</ol>
+<blockquote>
+<p><img src="/./images/clip_image006-1694001077244-22.jpg"></p>
+</blockquote>
+<h3 id="燃烧匙"><a href="#燃烧匙" class="headerlink" title="燃烧匙"></a>燃烧匙</h3><p>常用于块状或粉末状固体在气体中的燃烧实验（如硫、磷、钠等）<br>伸入集气瓶作燃烧实验时，应由瓶口慢慢下移，以使反应完全<br>高温时为防止燃烧匙与反应物反应，可铺一层细沙</p>
+<p><strong>B. 可垫石棉网加热的仪器：烧杯、 锥形瓶、 烧瓶（圆底烧瓶、蒸馏烧瓶 ,三颈烧瓶）</strong></p>
+<table>
+<thead>
+<tr>
+<th>相关仪器</th>
+<th>烧杯</th>
+<th>锥形瓶</th>
+<th>圆底、平底烧瓶</th>
+<th>蒸馏烧瓶</th>
+<th>三颈烧瓶</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>图片</td>
+<td><img src="file:///C:/Users/anyay/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg" alt="img"></td>
+<td><img src="file:///C:/Users/anyay/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg" alt="img"></td>
+<td><img src="file:///C:/Users/anyay/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg" alt="img"></td>
+<td><img src="file:///C:/Users/anyay/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg" alt="img"></td>
+<td><img src="file:///C:/Users/anyay/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg" alt="img"></td>
+</tr>
+<tr>
+<td>特点</td>
+<td>敞口</td>
+<td>管口较小</td>
+<td>有支管口</td>
+<td>“三颈”</td>
+<td>管口较小</td>
+</tr>
+</tbody></table>
+<p>注意：加热时需要垫石棉网，液体体积范围为容积的 $[1&#x2F;3,2&#x2F;3]$</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/07%20%E5%8C%96%E5%AD%A6%E5%AE%9E%E9%AA%8C/01%20%E5%AE%9E%E9%AA%8C%E4%BB%AA%E5%99%A8/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/06%20%E6%B0%9F%E4%B8%8E%E5%8D%A4%E6%97%8F%E5%85%83%E7%B4%A0/">
+        <h2 class="post-title">元素及其化合物 · 六 · 「氯 $(\ce{Cl})$ 与卤族元素」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="氯-ce-Cl"><a href="#氯-ce-Cl" class="headerlink" title="氯 $\ce{Cl}$"></a>氯 $\ce{Cl}$</h2><h3 id="氯气"><a href="#氯气" class="headerlink" title="氯气"></a>氯气</h3><h4 id="物理性质"><a href="#物理性质" class="headerlink" title="物理性质"></a>物理性质</h4><p><strong>黄绿色</strong>气体，有刺激性气味，可溶于水，密度大于空气，沸点比气体高，易液化，有毒</p>
+<p>闻氯气气味的方法：抽去盛氯气的集气瓶口处的毛玻璃片，用手掌在瓶口上方轻轻扇动，使少量氯气飘进鼻孔</p>
+<h4 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h4><ol>
+<li><p>氯气与氢气反应： $\ce{H2 + Cl2 \xlongequal{点燃} 2HCl}$</p>
+<blockquote>
+<p>氢气在氯气中安静地燃烧，发出苍白色的火焰，瓶口出现白雾</p>
+<p>工业制 $\ce{HCl}$ 时采用点燃法，工业浓 $\ce{HCl}$ 常显黄色，是因为含 $\ce{Fe^3+}$</p>
+</blockquote>
+</li>
+<li><p>氯气与金属单质反应</p>
+<ol>
+<li><p>$\ce{2Fe + 3Cl2 \xlongequal{点燃} 2FeCl3}$</p>
+<blockquote>
+<p>产生黄色火焰，棕褐色烟雾</p>
+<p>与反应物的量无关（$\ce{Fe^3+-&gt;[Fe]Fe^2+}$ 只发生在氯化铁溶液中）</p>
+<p>氧化性从高到低排列为：$\ce{Cl2}$ &gt; $\ce{O2}$ &gt; $\ce{S}$</p>
+<ol>
+<li>$\ce{Cl2}$ 与 $\ce{Fe}$ 反应生成 $\ce{FeCl3}$</li>
+<li>$\ce{O2}$ 与 $\ce{Fe}$ 反应可以生成 $\ce{Fe3O4}$</li>
+<li>$\ce{S}$ 与 $\ce{Fe}$ 反应生成 $\ce{FeS}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>$\ce{Cu + Cl2 \xlongequal{点燃} CuCl2}$</p>
+<blockquote>
+<p>产生棕黄色固体</p>
+</blockquote>
+</li>
+<li><p>$\ce{2Na + Cl2 \xlongequal{点燃} 2NaCl}$</p>
+</li>
+</ol>
+</li>
+<li><p>氯气与水反应：$\ce{Cl2 +H2O &lt;&#x3D;&gt; HCl +HClO}$</p>
+<blockquote>
+<p>注意：该反应为可逆反应，且由于 $\ce{HClO}$ 为弱酸，离子反应中不可拆</p>
+</blockquote>
+</li>
+<li><p>氯气与碱反应</p>
+<ol>
+<li><p>$\ce{Cl2}$ 与常温下的 $\ce{NaOH}$ 溶液</p>
+<p>$\ce{2NaOH + Cl2 \xlongequal{} NaCl + NaClO + H2O}$</p>
+<blockquote>
+<p>应用：</p>
+<ol>
+<li>实验室吸收多余的 $\ce{Cl2}$</li>
+<li>工业制漂白液、84消毒液，有效成分为 $\ce{NaClO}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>$\ce{Cl2}$ 与冷的石灰乳 $\ce{Ca(OH)2}$</p>
+<p>$\ce{2Ca(OH)2 + 2Cl2 \xlongequal{} CaCl2 + Ca(ClO)2 + 2H2O}$</p>
+<blockquote>
+<p>如果书写离子方程式，$\ce{Ca(OH)2}$ 不要拆开，其是以悬浊液存在的</p>
+<p>$\ce{Ca(ClO)2}$ 是漂白粉、漂白精的有效成分</p>
+<p>起效：$\ce{Ca(ClO)2 + CO2 +H2O \xlongequal{} CaCO3 + 2HClO}$</p>
+<p>失效：$\ce{2HClO\xlongequal{光照}2HCl +O2 ^}$</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>氯气与还原性无机化合物反应</p>
+<ol>
+<li>$\ce{Cl2 + 2FeCl2 \xlongequal{} 2FeCl3}$（除去 $\ce{FeCl3}$ 中的 $\ce{FeCl2}$）</li>
+<li>$\ce{Cl2 + H2S \xlongequal{} 2HCl + S}$（氧化性：$\ce{Cl2}$ &gt; $\ce{S}$）</li>
+<li>$\ce{Cl2 + 2NaBr \xlongequal{} 2NaCl + Br2}$（用于海水提取溴）</li>
+<li>$\ce{Cl2 + 2KI \xlongequal{} 2KCl + I2}$（用于用$\ce{KI -}$淀粉试纸检验 $\ce{Cl2}$）</li>
+<li>$\ce{Cl2 + SO2 + 2H2O \xlongequal{} 2HCl + H2SO4}$（失去漂白作用）</li>
+<li>$\ce{3Cl2 + 8NH3 \xlongequal{} 6NH4Cl + N2 ^}$（用浓氨水检查氯气管道是否漏气）</li>
+</ol>
+</li>
+</ol>
+<h4 id="实验室制备"><a href="#实验室制备" class="headerlink" title="实验室制备"></a>实验室制备</h4> <img src="./images/6.1.png" style="zoom: 30%;" />
+
+<ol>
+<li><p>原理：$\ce{MnO2 +4HCl(浓)\xlongequal{\Delta}MnCl2 +Cl2 ^ +H2O}$（不浓不热不反应）</p>
+</li>
+<li><p>装置：</p>
+<ol>
+<li>分液漏斗：固液加热生成气体所需，用于调节浓盐酸滴入速率</li>
+<li>饱和食盐水：降低 $\ce{Cl2}$ 对水的溶解性，减少损耗（$\ce{Cl2 +H2O &lt;&#x3D;&gt;H+ +Cl- +HClO}$，氯化钠促进平衡逆移）；用于除 $\ce{HCl}$ 气体（氯化氢极易溶于水）</li>
+<li>浓硫酸：用于除 $\ce{H2O}$ 蒸汽</li>
+<li>向上排空气法：氯气密度比空气大（或排饱和食盐水法）</li>
+<li>$\ce{NaOH}$ 水溶液：$\ce{2NaOH + Cl2 \xlongequal{} NaCl + NaClO + H2O}$</li>
+</ol>
+</li>
+<li><p>验满：将$\ce{KI -}$淀粉试纸靠近瓶口，若试纸立即变蓝，则证明氯气已经收集满</p>
+</li>
+</ol>
+<h3 id="氯水"><a href="#氯水" class="headerlink" title="氯水"></a>氯水</h3><h4 id="新制氯水"><a href="#新制氯水" class="headerlink" title="新制氯水"></a>新制氯水</h4><ol>
+<li><p>新制氯水的成分（由大到小）</p>
+<ul>
+<li><p>分子：$\ce{H2O、Cl2、HClO}$</p>
+</li>
+<li><p>离子：$\ce{H+、Cl- 、ClO- 、OH-}$</p>
+</li>
+</ul>
+</li>
+<li><p>性质</p>
+<table>
+<thead>
+<tr>
+<th align="center">成分</th>
+<th>表现性质</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$\ce{Cl2}$</td>
+<td>黄绿色<br>强氧化性</td>
+<td>$\ce{(\overset{-2}{S})H2S、HS- 、S^2–&gt;[Cl2]S v}$<br>$\ce{(\overset{+4}{S})SO2、H2SO3 、HSO^-_3 、SO^2-_3-&gt;[Cl2]SO^2-_4 v}$<br/>$\ce{SO2 +Cl2 +2H2O\xlongequal{}H2SO4 +2HCl}$<br>$\ce{2I- +Cl2\xlongequal{}I2 +2Cl- \quad 2Br- +Cl2\xlongequal{}Br2 +2Cl-}$<br>$\ce{2Fe^2+ +Cl2\xlongequal{}2Fe^3+ +2Cl-}$</td>
+</tr>
+<tr>
+<td align="center">$\ce{H+}$</td>
+<td>弱酸性</td>
+<td>与镁反应放出 $\ce{H2}$<br>与 $\ce{CaCO3}$ 反应放出 $\ce{CO2}$</td>
+</tr>
+<tr>
+<td align="center">$\ce{HClO}$</td>
+<td>弱酸性<br><strong>强氧化性</strong></td>
+<td>1. 漂白、杀菌、消毒<br/>2. $\ce{Cl2}$使湿润的有色布条褪色，不能使干燥的有色布条褪色，说明 $\ce{Cl2}$ 没有漂白性，而是 $\ce{HClO}$ 起漂白作用<br>3. 使紫色石蕊试剂先变红（$\ce{H+}$ 酸性作用），后褪色（$\ce{HClO}$ 氧化性作用）</td>
+</tr>
+<tr>
+<td align="center">$\ce{Cl-}$</td>
+<td>沉淀反应</td>
+<td>$\ce{Ag+ +Cl- \xlongequal{}AgCl v}$</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h4 id="旧置氯水"><a href="#旧置氯水" class="headerlink" title="旧置氯水"></a>旧置氯水</h4><ol>
+<li>反应方程式：$\ce{2HClO \xlongequal{光照}2HCl +O2 ^}$</li>
+<li>成分：$\ce{HCl}$ 水溶液</li>
+<li>性质：有酸性（比新制氯水强），无氧化性、无漂白性</li>
+<li>实验室中氯水需<strong>现用现配</strong>，且避光、密封保存在<strong>棕色试剂瓶</strong>中</li>
+</ol>
+<blockquote>
+<p>液氯、新制氯水、旧置氯水的比较</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>液氯</th>
+<th>新制氯水</th>
+<th>久置氯水</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分类</td>
+<td>纯净物</td>
+<td>混合物</td>
+<td>混合物</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>黄绿色</td>
+<td>浅黄绿色</td>
+<td>无色</td>
+</tr>
+<tr>
+<td>性质</td>
+<td>氧化性</td>
+<td>酸性、氧化性、漂白性</td>
+<td>酸性</td>
+</tr>
+<tr>
+<td>粒子种类</td>
+<td>$\ce{Cl2}$</td>
+<td>$\ce{Cl2、HClO、H2O、H+、Cl- 、ClO- 、OH-}$</td>
+<td>$\ce{H2O、H+、Cl- 、OH-}$</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="氯离子的检验"><a href="#氯离子的检验" class="headerlink" title="氯离子的检验"></a>氯离子的检验</h3><blockquote>
+<p>借助 $\ce{AgCl}$ 沉淀来检验氯离子的存在，但需要排除碳酸根离子的干扰</p>
+</blockquote>
+<ol>
+<li><p>实验过程：在三支试管中分别加入 2~3mL 稀盐酸、$\ce{NaCl}$ 溶液、$\ce{Na2CO3}$ 溶液，然后各滴入几滴 $\ce{AgNO3}$ 溶液，观察现象。再分别加入少量稀硝酸，观察现象</p>
+</li>
+<li><p>实验现象：</p>
+<table>
+<thead>
+<tr>
+<th align="left">物质</th>
+<th align="left">加入 $\ce{AgNO3}$ 溶液后</th>
+<th align="left">加入稀硝酸后</th>
+<th align="left">解释或离子方程式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">稀盐酸</td>
+<td align="left">白色沉淀（$\ce{AgCl}$）</td>
+<td align="left">不溶解</td>
+<td align="left">$\ce{Ag+ +Cl- \xlongequal{}AgCl v}$</td>
+</tr>
+<tr>
+<td align="left">$\ce{NaCl}$ 溶液</td>
+<td align="left">白色沉淀（$\ce{AgCl}$）</td>
+<td align="left">不溶解</td>
+<td align="left">$\ce{Ag+ +Cl- \xlongequal{}AgCl v}$</td>
+</tr>
+<tr>
+<td align="left">$\ce{Na2CO3}$ 溶液</td>
+<td align="left">白色沉淀（$\ce{Ag2CO3}$）</td>
+<td align="left">溶解并产生气泡</td>
+<td align="left">$\ce{2Ag+ +CO^2-_3\xlongequal{}Ag2CO3 v}$<br>$\ce{Ag2CO3 +2H+\xlongequal{}2Ag+ +H2O +CO2 ^}$</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>结论：</p>
+<p>检验氯离子应先加入硝酸酸化，排除 $\ce{CO^2-_3}$ 的干扰，再加入 $\ce{AgNO3}$ 检验，如果产生白色沉淀，即证明有氯离子</p>
+</li>
+</ol>
+<h2 id="卤族元素"><a href="#卤族元素" class="headerlink" title="卤族元素"></a>卤族元素</h2><h3 id="相似性"><a href="#相似性" class="headerlink" title="相似性"></a>相似性</h3><ol>
+<li>都能与大多数金属反应：$\ce{Fe-&gt;[F2&#x2F;Cl2&#x2F;Br2]Fe^3+;Fe-&gt;[I2]Fe^2+}$</li>
+<li>都能与 $\ce{H2}$ 反应：$\ce{H2 +X2\xlongequal{}2HX}$</li>
+<li>都能与水反应：$\ce{H2O +Cl2&#x2F;Br2&#x2F;I2&lt;&#x3D;&gt;HX +HXO;2H2O +2F2&lt;&#x3D;&gt;4HF +O2}$</li>
+<li>都能与碱液反应：$\ce{2NaOH +Cl2&#x2F;Br2&#x2F;I2\xlongequal{}NaX +NaXO +H2O;2F2 +4NaOH\xlongequal{}4NaF +2H2O +O2}$</li>
+</ol>
+<h3 id="递变性"><a href="#递变性" class="headerlink" title="递变性"></a>递变性</h3><p>颜色：$\ce{F2(浅黄绿色)-&gt;Cl2(黄绿色)-&gt;Br2(深红棕色)-&gt;I2(紫黑色)}$ 颜色加深</p>
+<p>熔沸点：$\ce{F2(气体)-&gt;Cl2(气体)-&gt;Br2(液体)-&gt;I2(固体)}$ 逐渐升高</p>
+<p>密度：$\ce{F2-&gt;Cl2-&gt;Br2-&gt;I2}$ 逐渐升高</p>
+<p>水溶性：$\ce{F2(反应)-&gt;Cl2(溶解)-&gt;Br2(溶解)-&gt;I2(微溶)}$ 逐渐降低</p>
+<p>氧化性：$\ce{-&gt;[F2、Cl2、Br2、I2][与氢化合由易到难]}$ 逐渐减小</p>
+<p>还原性：$\ce{-&gt;[F- 、Cl- 、Br- 、I-]}$ 逐渐增强</p>
+<blockquote>
+<p>比较氧化性的方法：<br>①与氢气化合难易程度；②氢化物的稳定性；③最高价氧化物对应水化物的酸性；④置换反应</p>
+</blockquote>
+<h3 id="特殊性"><a href="#特殊性" class="headerlink" title="特殊性"></a>特殊性</h3><ol>
+<li><p>氟  $\ce{F2}$</p>
+<ol>
+<li>氟没有正价，是非金属性最强，$\ce{F-}$的还原性最弱</li>
+<li>$\ce{F2}$ 与 $\ce{H2O}$ 反应生成 $\ce{HF}$ 和 $\ce{O2}$，$\ce{F2}$ 与 $\ce{H2}$在暗处即可爆炸反应</li>
+<li>$\ce{HF}$是弱酸，能腐蚀玻璃，应保存在铅制器皿或塑料瓶中；有毒；在卤素氢化物中，$\ce{HF}$的沸点最高（分子间存在氢键）</li>
+</ol>
+</li>
+<li><p>溴  $\ce{Br2}$</p>
+<ol>
+<li>$\ce{Br2}$ 是深红棕色液体，易挥发</li>
+<li>$\ce{Br2}$ 易溶于有机溶剂</li>
+<li>盛放液态溴时，试剂瓶需加水封，保存时不能用橡胶塞封口</li>
+</ol>
+</li>
+<li><p>碘  $\ce{I2}$</p>
+<ol>
+<li>$\ce{I2}$ 遇淀粉变蓝色</li>
+<li>$\ce{I2}$ 加热时易升华（用于分离提纯 $\ce{I2}$）</li>
+<li>$\ce{I2}$ 易溶于有机溶剂</li>
+<li>食盐中添加 $\ce{KIO3}$ 可预防和治疗甲状腺肿大</li>
+</ol>
+</li>
+</ol>
+<h3 id="卤素离子的检验"><a href="#卤素离子的检验" class="headerlink" title="卤素离子的检验"></a>卤素离子的检验</h3><ol>
+<li>$\ce{AgNO3}$ 溶液——沉淀法</li>
+</ol>
+<p>   未知液$\ce{-&gt;[稀硝酸]-&gt;[$\ce{AgNO3}$ 溶液]}$ $\ce{\begin{cases}白色沉淀&amp;Cl- \淡黄色沉淀&amp;Br- \黄色沉淀&amp;I- \end{cases}}$</p>
+<ol start="2">
+<li>置换——萃取法</li>
+</ol>
+<p>   未知液$\ce{-&gt;[适量新制饱和氯水][振荡]-&gt;[$\ce{CCl4}$ 或 汽油][振荡]}$ 有机层$\ce{\begin{cases}橙色或橙红色&amp;Br- \紫色、浅紫色或紫红色&amp;I- \end{cases}}$</p>
+<ol start="3">
+<li>氧化——淀粉法检验 $\ce{I-}$</li>
+</ol>
+<p>   未知液（无色）$\ce{-&gt;[适量新制饱和氯水][振荡]-&gt;[淀粉溶液][振荡]}$蓝色溶液$\ce{\quad I-}$</p>
+<h3 id="海水资源的开发和利用"><a href="#海水资源的开发和利用" class="headerlink" title="海水资源的开发和利用"></a>海水资源的开发和利用</h3><ol>
+<li><p>海水淡化：蒸馏法、电渗析法、离子交换法</p>
+</li>
+<li><p>海水制盐：氯碱工业</p>
+<p>$\ce{2NaCl +2H2O\xlongequal{电解}2NaOH +H2↑+Cl2↑}$</p>
+<p>$\ce{海水→粗盐-&gt;[制取]饱和食盐水-&gt;[电解]\ce{\begin{cases}阴极产物&amp;Cl2 \阳极产物&amp;H2、NaOH \end{cases}}}$</p>
+</li>
+<li><p>海水提溴</p>
+ <img src="./images/6.2.png" style="zoom:25%;" />
+</li>
+<li><p>海水提碘</p>
+ <img src="./images/6.3.png" style="zoom:25%;" /></li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/06%20%E6%B0%9F%E4%B8%8E%E5%8D%A4%E6%97%8F%E5%85%83%E7%B4%A0/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/05%20%E9%93%9D%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/">
+        <h2 class="post-title">元素及其化合物 · 五 · 「铝 $(\ce{Al})$ 及其化合物」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="铝的性质"><a href="#铝的性质" class="headerlink" title="铝的性质"></a>铝的性质</h2><ol>
+<li>物理性质：具有银白色金属光泽的固体，密度、硬度均较小，熔点较低，有良好的导电、导热性</li>
+<li>化学性质<ul>
+<li><p>与非金属单质反应</p>
+<ul>
+<li>与 $\ce{O2}$ 反应：$\ce{4Al + 3O2 \xlongequal{点燃} 2Al2O3}$</li>
+<li>与 $\ce{Cl2}$ 反应：$\ce{2Al + 3Cl2 \xlongequal{点燃} 2AlCl3}$</li>
+<li>与 $\ce{S}$ 反应：$\ce{2Al + 3S \xlongequal{\Delta} Al2S3}$</li>
+</ul>
+</li>
+<li><p>与 $\ce{H2O}$ 反应：$\ce{2Al + 6H2O \xlongequal{} 2Al(OH)3 + 3H2 ^}$</p>
+</li>
+<li><p>铝在冷的浓硫酸或浓硝酸中钝化</p>
+</li>
+<li><p>铝与强碱发生反应：$\ce{2Al + 2NaOH + 6H2 \xlongequal{} 2NaAlO2 + 4H2O + 3H2 ^}$</p>
+</li>
+<li><p>铝热反应：可以与 $\ce{FeO}、\ce{Fe2O3}、\ce{Fe3O4}、\ce{Cr2O3}、\ce{MnO2}、\ce{V2O5}$ 等氧化物反应。用于焊接金属、冶炼难溶金属$\left{\begin{array}{lr}\ce{2Al + Fe2O3 -&gt;[{高温}] Al2O3 + 2Fe}\\ce{2Al + Cr2O3 -&gt;[{高温}]Al2O3 + 2Cr}\\end{array}\right.$</p>
+</li>
+</ul>
+</li>
+<li>制备：$\ce{2Al2O3(l) \xlongequal[冰晶石]{通电} 4Al + 3O2 ^}$</li>
+</ol>
+<h2 id="铝、氧化铝和氢氧化铝"><a href="#铝、氧化铝和氢氧化铝" class="headerlink" title="铝、氧化铝和氢氧化铝"></a>铝、氧化铝和氢氧化铝</h2><p>$\ce{AlO^-2&lt;- [Al、Al2O3、Al(OH)3、Al^3+、AlO^-2]-&gt;Al^3+}$</p>
+<h3 id="与酸反应"><a href="#与酸反应" class="headerlink" title="与酸反应"></a>与酸反应</h3><ul>
+<li>$\ce{2Al + 6H+ \xlongequal{} 2Al^{3+} + 3H2 ^}$（非氧化性酸）</li>
+<li>$\ce{Al2O3 + 6H+ \xlongequal{} 2Al^{3+} + 3H2O}$</li>
+<li>$\ce{Al(OH)3 + 3H+ \xlongequal{} Al^{3+} + 3H2O}$</li>
+</ul>
+<h3 id="与强碱反应"><a href="#与强碱反应" class="headerlink" title="与强碱反应"></a>与强碱反应</h3><ul>
+<li>$\ce{2Al + 2OH- + 2H2O \xlongequal{} 2AlO^-2 + 3H2 ^}$</li>
+<li>$\ce{Al2O3 + 2OH- \xlongequal{} 2AlO^-2 + H2O}$</li>
+<li>$\ce{Al(OH)3 + OH- \xlongequal{} AlO^-2 + 2H2O}$</li>
+</ul>
+<h3 id="ce-Al-OH-3-的电离"><a href="#ce-Al-OH-3-的电离" class="headerlink" title="$\ce{Al(OH)3}$的电离"></a>$\ce{Al(OH)3}$的电离</h3><ul>
+<li>$\ce{Al(OH)3 &lt;&#x3D;&gt;[H2O] H+ + AlO^-2 + H2O}$</li>
+<li>$\ce{Al(OH)3 &lt;&#x3D;&gt;[H2O] Al^{3+} + OH-}$</li>
+</ul>
+<h3 id="铝离子"><a href="#铝离子" class="headerlink" title="铝离子"></a>铝离子</h3><ol>
+<li><p>与$\ce{NaOH}$的相互滴加缓慢滴加并搅拌</p>
+<ul>
+<li>将$\ce{NaOH}$滴入$\ce{Al^{3+}}$溶液中<ol>
+<li>先出现白色沉淀：$\ce{Al^{3+} + 3OH- \xlongequal{} Al(OH)3 v}$</li>
+<li>后沉淀消失：$\ce{Al(OH)3 + OH- \xlongequal{} AlO^-2 + 2H2O}$</li>
+</ol>
+</li>
+<li>将$\ce{Al^{3+}}$滴入$\ce{NaOH}$溶液中<ol>
+<li>先无明显现象：$\ce{Al^{3+} + 4OH- \xlongequal{} AlO^-2 + H2O}$</li>
+<li>后产生白色沉淀：$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>与氨水反应</p>
+<p>$\ce{Al^{3+} + NH3*H2O \xlongequal{} Al(OH)3 v + 3NH4+}$</p>
+</li>
+<li><p>双水解反应</p>
+<ul>
+<li><p>$\ce{Al^{3+} + 3HCO^-3 \xlongequal{} Al(OH)3 v + 3CO2 ^}$</p>
+</li>
+<li><p>$\ce{Al^{3+} + 3CO^2-_3 + 3H2O \xlongequal{} Al(OH)3 v + 3HCO^-3}$</p>
+</li>
+<li><p>$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</p>
+</li>
+<li><p>$\ce{2Al^{3+} + 3S^2- + 6H2O \xlongequal{} 2Al(OH)3 v + 3H2S ^}$</p>
+</li>
+<li><p>$\ce{AlO^-2 + NH4+ + H2O \xlongequal{} 4Al(OH)3 v + NH3 ^}$</p>
+</li>
+<li><p>$\ce{2Al^{3+} + 3SiO^2-_3 + 6H2O \xlongequal{} 2Al(OH)3 v + 3H2SiO3 v}$</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="偏铝酸根"><a href="#偏铝酸根" class="headerlink" title="偏铝酸根"></a>偏铝酸根</h3><ol>
+<li><p>与强酸相互滴加，缓慢滴加并搅拌</p>
+<ul>
+<li>将$\ce{H2SO4}$滴入$\ce{AlO^-2}$溶液中<ol>
+<li>先出现白色沉淀：$\ce{AlO^-2 + H+ + H2O \xlongequal{} Al(OH)3 v}$</li>
+<li>后沉淀消失：$\ce{Al(OH)3 + 3H+ \xlongequal{} Al^{3+} + 3H2O}$</li>
+</ol>
+</li>
+<li>将$\ce{AlO^-2}$滴入$\ce{H2SO4}$溶液中<ol>
+<li>先无明显现象：$\ce{AlO^-2 + 4H+ \xlongequal{} Al^{3+} + 2H2O}$</li>
+<li>后产生白色沉淀：$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>与碳酸反应</p>
+<p>立即生成$\ce{Al(OH)3}$沉淀且不溶解。</p>
+<ul>
+<li><p>$\ce{CO2}$过量：$\ce{AlO^-2 + 2H2O + CO2 \xlongequal{} Al(OH)3 v + HCO^-3}$</p>
+</li>
+<li><p>$\ce{CO2}$少量：$\ce{2AlO^-2 + 3H2O + CO2 \xlongequal{} 2Al(OH)3 v + CO^2-_3}$</p>
+</li>
+</ul>
+</li>
+<li><p>与铵盐溶液反应</p>
+<p>$\ce{NH4+ + AlO^-2 + H2O \xlongequal{} Al(OH)3 v + NH3 ^}$</p>
+</li>
+</ol>
+<h3 id="氢氧化铝"><a href="#氢氧化铝" class="headerlink" title="氢氧化铝"></a>氢氧化铝</h3><p>制备</p>
+<ul>
+<li>$\ce{Al^{3+} + NH3*H2O \xlongequal{} Al(OH)3 v + 3NH4+}$</li>
+<li>$\ce{AlO^-2 + 2H2O + CO2 \xlongequal{} Al(OH)3 v + HCO^-3}$</li>
+<li>$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</li>
+</ul>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
+<li>$\ce{Al:}$ 铝合金，航空航天材料</li>
+<li>$\ce{Al2O3:}$ 耐热材料；炼铝原料；刚玉（红宝石、蓝宝石）</li>
+<li>$\ce{Al(OH)3:}$ 净水剂；制酸剂（治疗胃酸过多）；阻燃剂</li>
+<li>可溶性铝盐：净水剂（明矾：$\ce{KAl(SO4)2·12H2O}$）</li>
+</ol>
+<h2 id="铝及其重要化合物的转化"><a href="#铝及其重要化合物的转化" class="headerlink" title="铝及其重要化合物的转化"></a>铝及其重要化合物的转化</h2><img src="images/4.3.svg" style="zoom: 25%;" />
+
+<ol>
+<li>$\ce{2Al + 6H+ \xlongequal{} 2Al^3+ +3H2 ^}$</li>
+<li>$\ce{2Al + 2OH- +2H2O \xlongequal{} 2AlO^-2 +3H2 ^}$ （记忆：4213，四个2、一个3）</li>
+<li>$\ce{4Al + 3O2 \xlongequal{点燃} 2Al2O3}$<br>$\ce{2Al + Fe2O3 \xlongequal{高温} Al2O3 + 2Fe}$</li>
+<li>$\ce{2Al2O3(熔融) \xlongequal[冰晶石]{通电} 4Al + 3O2 ^}$</li>
+<li>$\ce{2Al(OH)3 \xlongequal{\Delta} Al2O3 + 3H2O}$</li>
+<li>$\ce{Al2O3 + 6H+ \xlongequal{} 2Al^3+ + 3H2O}$</li>
+<li>$\ce{Al2O3 + 2OH- \xlongequal{} 2AlO^-2 + H2O}$</li>
+<li>$\ce{Al(OH)3 + 3H+ \xlongequal{} AlO^3+ + 3H2O}$</li>
+<li>$\ce{Al^3+ + 3OH- \xlongequal{} Al(OH)3 v}$</li>
+<li>$\ce{AlO^-2 + H+ +H2O \xlongequal{} Al(OH)3 v}$</li>
+<li>$\ce{Al(OH)3 + OH- \xlongequal{} AlO^-2+ + 2H2O}$</li>
+<li>$\ce{AlO^-2 + 4H+ \xlongequal{} Al^3+ + 2H2O}$</li>
+<li>$\ce{Al^3+ + 4OH- \xlongequal{} AlO^2- + 2H2O}$</li>
+</ol>
+<blockquote>
+<p>氧化铝无法一步反应为氢氧化铝</p>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/05%20%E9%93%9D%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/04%20%E9%95%81%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/">
+        <h2 class="post-title">元素及其化合物 · 四 · 「镁 $(\ce{Mg})$ 及其化合物」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="镁的性质"><a href="#镁的性质" class="headerlink" title="镁的性质"></a>镁的性质</h2><ol>
+<li><p>物理性质：具有银白色金属光泽的固体，密度、硬度均较小，熔点较低，有良好的导电、传热和延展性</p>
+</li>
+<li><p>化学性质</p>
+<ul>
+<li><p>与非金属单质反应</p>
+<ul>
+<li>与 $\ce{N2}$ 反应：$\ce{N2 +3Mg \xlongequal{点燃}Mg3N2}$</li>
+<li>与 $\ce{Cl2}$ 反应：$\ce{Cl2 +Mg \xlongequal{点燃}MgCl2}$</li>
+<li>与 $\ce{S}$ 反应：$\ce{Mg + S \xlongequal{\Delta} MgS}$</li>
+<li>与 $\ce{O2}$ 反应：$\ce{O2 +2Mg \xlongequal{点燃}2MgO}$（产生强烈白光）</li>
+</ul>
+</li>
+<li><p>与 $\ce{CO2}$ 反应：$\ce{2Mg + CO2 \xlongequal{点燃} 2MgO + C}$（耀眼白光，黑色固体生成）</p>
+</li>
+<li><p>与 $\ce{H2O}$ 反应：$\ce{Mg + H2O\xlongequal{\Delta} Mg(OH)2 + H2 ^}$</p>
+</li>
+<li><p>与 $\ce{H+}$ 反应：$\ce{Mg + H+\xlongequal{} Mg^2+ + H2 ^}$</p>
+<blockquote>
+<p>镁在空气中燃烧时会同时与 $\ce{CO2、N2、O2}$ 反应</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>工业制备$\left{\begin{array}{lr}\ce{Mg2+ + 2OH- \xlongequal{} Mg(OH)2 v}\\ce{Mg(OH)2 + 2HCl \xlongequal{} MgCl2 + H2O}\\ce{MgCl2(l) \xlongequal{通电} Mg + Cl2 ^}\\end{array}\right.$</p>
+</li>
+</ol>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><p>生产合金，冶金工业上用作还原剂和脱氧剂</p>
+<h2 id="镁的重要化合物"><a href="#镁的重要化合物" class="headerlink" title="镁的重要化合物"></a>镁的重要化合物</h2><ol>
+<li>氧化镁 $\ce{MgO}$ ，重要氧化物：$\ce{MgO +6H+\xlongequal{} Mg^2+ +H2O}$</li>
+<li>氢氧化镁 $\ce{Mg(OH)2}$<ol>
+<li>中强酸：$\ce{Mg(OH)2 +2H+\xlongequal{} Mg^2+ +2H2O}$</li>
+<li>难溶于水：$\ce{Mg2+ +2OH- \xlongequal{}Mg(OH)2 v}$</li>
+<li>溶解度小于碳酸镁：$\ce{MgCO3 +H2O\xlongequal{\Delta} Mg(OH)2 +CO2 ^}$</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<ol>
+<li>$\ce{MgO}$ 熔点很高，可作耐火材料</li>
+<li>$\ce{Mg(OH)2}$为难溶于水的白色沉淀，常用 $\ce{NaOH}$ 溶液检验 $\ce{Mg^2+}$</li>
+<li>由于 $\ce{Mg(OH)2}$ 的溶解度比 $\ce{MgCO3}$ 的小，故水垢的主要成分是 $\ce{Mg(OH)2}$</li>
+</ol>
+</blockquote>
+<h2 id="海水中镁的提取"><a href="#海水中镁的提取" class="headerlink" title="海水中镁的提取"></a>海水中镁的提取</h2> <img src="images/4.1.png" style="zoom:33%;" />
+
+<ol>
+<li>制熟石灰：$\ce{CaCO3\xlongequal{高温}CaO +CO2 ^;CaO +H2O\xlongequal{}Ca(OH)2}$</li>
+<li>沉淀：$\ce{MgCl2 + Ca(OH)2\xlongequal{}Mg(OH)2 v + CaCl2}$</li>
+<li>酸化：$\ce{Mg(OH)2 + 2HCl&#x3D;MgCl2 + 2H2O}$</li>
+<li>蒸发浓缩，冷却结晶：析出 $\ce{MgCl2·6H2O}$</li>
+<li>脱水：在 $\ce{HCl}$ 气流中使 $\ce{MgCl2·6H2O}$ 脱水制得无水氯化镁</li>
+<li>电解：电解熔融氯化镁制得镁：$\ce{MgCl2(熔融)\xlongequal{电解}Mg+ Cl2 ^}$</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/04%20%E9%95%81%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/03%20%E9%93%9C%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/">
+        <h2 class="post-title">元素及其化合物 · 三 · 「铜 $(\ce{Cu})$ 及其化合物」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="铜单质"><a href="#铜单质" class="headerlink" title="铜单质"></a>铜单质</h2><h3 id="物理性质"><a href="#物理性质" class="headerlink" title="物理性质"></a>物理性质</h3><ul>
+<li>紫红色金属，有良好的延展性、导电性和热导性</li>
+</ul>
+<h3 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h3><p>铜元素在化学性质上相对稳定，主要化合价为+1价和+2价</p>
+<img src="./images/3.1.png" style="zoom:33%;" />
+
+<ol>
+<li>与潮湿空气反应：$\ce{2Cu + O2 + H2O + CO2\xlongequal{} Cu2(OH)2CO3}$</li>
+<li>与非金属单质反应<ul>
+<li>$\ce{2Cu + O2 \xlongequal{点燃} 2Cu2O}$</li>
+<li>$\ce{Cu + Cl2 \xlongequal{点燃} CuCl2}$</li>
+<li>$\ce{Cu + S \xlongequal{\Delta} Cu2S}$</li>
+</ul>
+</li>
+<li>与酸反应<ul>
+<li>与非还原性酸（盐酸 $\ce{HCl}$ ）：不反应</li>
+<li>与浓硫酸反应：$\ce{Cu + 2H2SO4(浓) \xlongequal{\Delta} CuSO4 + SO2 ^ + 2H2O}$</li>
+<li>与稀硝酸：$\ce{3Cu + 8HNO3(稀) \xlongequal{} 3Cu(NO3)2 + 2NO ^ + 4H2O}$</li>
+<li>与浓硝酸：$\ce{Cu + 4HNO3(浓) \xlongequal{} Cu(NO3)2 + 2NO2 ^ + 2H2O}$</li>
+</ul>
+</li>
+<li>与部分盐反应<ul>
+<li>$\ce{Cu +2Ag+ \xlongequal{} 2Ag +Cu^2+}$</li>
+<li>$\ce{Cu +2Fe^3+ \xlongequal{} 2Fe^2+ +Cu^2+}$</li>
+</ul>
+</li>
+</ol>
+<h2 id="铜的氧化物"><a href="#铜的氧化物" class="headerlink" title="铜的氧化物"></a>铜的氧化物</h2><h3 id="物理性质-1"><a href="#物理性质-1" class="headerlink" title="物理性质"></a>物理性质</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>亚氧化铜 $\ce{Cu2O}$</th>
+<th>氧化铜 $\ce{CuO}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>颜色</td>
+<td>砖红色</td>
+<td>黑色</td>
+</tr>
+<tr>
+<td>化合价</td>
+<td>+1</td>
+<td>+2</td>
+</tr>
+</tbody></table>
+<h3 id="化学性质-1"><a href="#化学性质-1" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
+<li><p>亚氧化铜 $\ce{Cu2O}$ 的性质</p>
+<ul>
+<li>与酸反应：$\ce{Cu2O + 2H+ \xlongequal{} Cu^2+ +Cu + H2O}$</li>
+<li>与 $\ce{H2}$ 反应：$\ce{Cu2O + H2 \xlongequal{\Delta} 2Cu +H2O}$</li>
+</ul>
+</li>
+<li><p>氧化铜 $\ce{CuO}$ 的性质</p>
+<ul>
+<li>与酸反应：$\ce{CuO + 2H+ \xlongequal{} Cu^2+ + H2O}$</li>
+<li>与 $\ce{H2}$ 反应：$\ce{CuO + H2 \xlongequal{\Delta} Cu +H2O}$</li>
+</ul>
+</li>
+<li><p>相互转化</p>
+<p>$\ce{4CuO\xlongequal{高温}2Cu2O +O2 ^}$</p>
+</li>
+</ol>
+<h2 id="氢氧化铜"><a href="#氢氧化铜" class="headerlink" title="氢氧化铜"></a>氢氧化铜</h2><p>含有 $\ce{Cu^2+}$ 的溶液呈蓝绿色</p>
+<ol>
+<li><p>不稳定性</p>
+<p>$\ce{Cu(OH)2\xlongequal{高温}CuO +H2O}$</p>
+</li>
+<li><p>弱氧化性</p>
+<p>检验醛基：$\ce{CH3CHO + 2Cu(OH)2 + NaOH-&gt;[\Delta] CH3COONa + Cu_2O v +3H2O}$</p>
+</li>
+<li><p>弱碱性</p>
+<p>与氨水反应：$\ce{Cu(OH)₂ +2NH+_4 +2NH3·H2O\xlongequal{}Cu(NH3)+_2 + 4H₂O}$</p>
+</li>
+</ol>
+<h2 id="铜盐"><a href="#铜盐" class="headerlink" title="铜盐"></a>铜盐</h2><ol>
+<li><p>碱式碳酸铜 $\ce{Cu2(OH)2CO3}$ ：铜绿、孔雀石的主要成分。受热分解（$\ce{Cu2(OH)2CO3\xlongequal{\Delta}2CuO +CO2 ^ +H2O}$），可溶于稀硫酸（$\ce{Cu2(OH)2CO3 +4H+\xlongequal{}Cu^2+ +CO2 ^ +3H2O}$）</p>
+</li>
+<li><p>硫酸亚铜 $\ce{CuSO4·5H2O}$：俗称蓝矾、胆矾，蓝色晶体。受热分解（$\ce{CuSO4·5H2O\xlongequal{\Delta}CuSO4 +5H2O}$），转换为白色粉末。无水硫酸铜遇水变蓝，可用作水的检测试剂</p>
+</li>
+<li><p>铜盐溶液有毒，主要是因为 $\ce{Cu^2+}$ 作为一种重金属离子能与蛋白质作用，使蛋白质变性失去生理活性，因此人们利用了它的这一性质用胆矾、生石灰、水配成了波尔多液，用来杀灭植物的病毒</p>
+</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/03%20%E9%93%9C%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/02%20%E9%93%81%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/">
+        <h2 class="post-title">元素及其化合物 · 二 · 「铁 $(\ce{Fe})$ 及其化合物」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="铁单质"><a href="#铁单质" class="headerlink" title="铁单质"></a>铁单质</h2><h3 id="物理性质"><a href="#物理性质" class="headerlink" title="物理性质"></a>物理性质</h3><ul>
+<li>银白色固体，有金属性光泽</li>
+<li>容易被磁铁吸引</li>
+<li>地壳中居第四位</li>
+</ul>
+<h3 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h3><p>铁元素性质活泼，有较强的还原性，主要化合价为+2价和+3价</p>
+<ol>
+<li><p>与非金属单质反应</p>
+<ul>
+<li><p>$\ce{3Fe + 2O2 \xlongequal{点燃} Fe3O4}$</p>
+</li>
+<li><p>$\ce{2Fe + 3Cl2 \xlongequal{点燃} FeCl3}$</p>
+</li>
+<li><p>$\ce{Fe + S \xlongequal{\Delta} FeS}$</p>
+</li>
+</ul>
+</li>
+<li><p>与水反应</p>
+<ul>
+<li>铁在高温下与水蒸气反应：$\ce{3Fe + 4H2O(g) \xlongequal{高温} Fe3O4 + 4H2}$</li>
+</ul>
+</li>
+<li><p>与酸反应</p>
+<ul>
+<li><p>与非还原性酸：$\ce{Fe + 2H+ \xlongequal{} Fe^2+ + H2 ^}$</p>
+</li>
+<li><p>与过量稀硝酸：$\ce{Fe + 4H+ + NO^-_3 \xlongequal{} Fe^3+ + NO ^ + 2H2O}$</p>
+</li>
+<li><p>与少量稀硝酸：$\ce{3Fe + 8H+ + 2NO^-_3 \xlongequal{} 3Fe^2+ + 2NO ^ + 4H2O}$</p>
+</li>
+<li><p>铁遇到冷的浓硫酸或浓硝酸会钝化</p>
+</li>
+</ul>
+</li>
+<li><p>与盐溶液反应</p>
+<ul>
+<li><p>置换反应：$\ce{Fe + Cu^2+ \xlongequal{} Fe^2+ + Cu}$</p>
+</li>
+<li><p>与氯化铁溶液：$\ce{Fe + 2Fe^3+ \xlongequal{} 3Fe^2+}$</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="铁的氧化物"><a href="#铁的氧化物" class="headerlink" title="铁的氧化物"></a>铁的氧化物</h2><h3 id="物理性质-1"><a href="#物理性质-1" class="headerlink" title="物理性质"></a>物理性质</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>氧化亚铁 $\ce{FeO}$</th>
+<th>氧化铁 $\ce{Fe2O3}$</th>
+<th>四氧化三铁 $\ce{Fe3O4}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>俗称</td>
+<td>-</td>
+<td>铁红</td>
+<td>磁性氧化铁</td>
+</tr>
+<tr>
+<td>化合价</td>
+<td>+2</td>
+<td>+3</td>
+<td>+2、+3</td>
+</tr>
+<tr>
+<td>物理性质</td>
+<td>黑色粉末</td>
+<td>红褐色粉末</td>
+<td>黑色粉末</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>-</td>
+<td>炼铁、铝热剂、油漆、涂料</td>
+<td>炼铁</td>
+</tr>
+</tbody></table>
+<h3 id="化学性质-1"><a href="#化学性质-1" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
+<li><p>与非氧化性酸（盐酸 $\ce{HCl}$ ）反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + 2HCl} \xlongequal{} \ce{FeCl2 + H2O}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 6HCl} \xlongequal{} \ce{2FeCl3 + 3H2O}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 8HCl} \xlongequal{} \ce{3FeCl2 + 2FeCl3 + 4H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与氧化性酸（稀硝酸 $\ce{HNO3}$ ）反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + 2HNO3} \xlongequal{} \ce{Fe(NO3)2 + H2O}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 6HNO3} \xlongequal{} \ce{2Fe(NO3)3 + 3H2O}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 8HNO3} \xlongequal{} \ce{3Fe(NO3)2 + 2Fe(NO3)3 + 4H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与还原性酸（ 氢碘酸 $\ce{HI}$） 反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + 2HI} \xlongequal{} \ce{FeI2 + H2O}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 6HI} \xlongequal{} \ce{2FeI3 + 3H2O}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 8HI} \xlongequal{} \ce{3FeI2 + 2FeI3 + 4H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与还原性物质（ $\ce{CO}$ ）反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + CO} \xlongequal{} \ce{Fe + CO2}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 3CO} \xlongequal{} \ce{2Fe + 3CO2}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 4CO} \xlongequal{} \ce{3Fe + 4CO2}$</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="铁的氢氧化物"><a href="#铁的氢氧化物" class="headerlink" title="铁的氢氧化物"></a>铁的氢氧化物</h2><h3 id="物理性质-2"><a href="#物理性质-2" class="headerlink" title="物理性质"></a>物理性质</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>氢氧化亚铁 $\ce{Fe(OH)2}$</th>
+<th>氢氧化铁 $\ce{Fe(OH)3}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>颜色状态</td>
+<td>白色固体</td>
+<td>红褐色固体</td>
+</tr>
+<tr>
+<td>水溶性</td>
+<td>难溶</td>
+<td>难溶</td>
+</tr>
+</tbody></table>
+<h3 id="化学性质-2"><a href="#化学性质-2" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
+<li><p>与非氧化性酸（盐酸 $\ce{HCl}$ ）反应：</p>
+<ul>
+<li><p>氢氧化亚铁 $\ce{Fe(OH)2}$ ：$\ce{Fe(OH)2 + 2HCl} \xlongequal{} \ce{FeCl2 + 2H2O}$</p>
+</li>
+<li><p>氢氧化铁 $\ce{Fe(OH)3}$ ：$\ce{Fe(OH)3 + 3HCl} \xlongequal{} \ce{FeCl3 + 3H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与氧化性酸（稀硝酸 $\ce{HNO3}$ ）反应：</p>
+<ul>
+<li><p>氢氧化亚铁 $\ce{Fe(OH)2}$ ：$\ce{Fe(OH)2 + 2HNO3} \xlongequal{} \ce{Fe(NO3)2 + 2H2O}$</p>
+</li>
+<li><p>氢氧化铁 $\ce{Fe(OH)3}$ ：$\ce{Fe(OH)3 + 3HNO3} \xlongequal{} \ce{Fe(NO3)3 + 3H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与还原性酸（ 氢碘酸 $\ce{HI}$） 反应：</p>
+<ul>
+<li><p>氢氧化亚铁 $\ce{Fe(OH)2}$ ：$\ce{Fe(OH)2 + 2HI} \xlongequal{} \ce{FeI2 + 2H2O}$</p>
+</li>
+<li><p>氢氧化铁 $\ce{Fe(OH)3}$ ：$\ce{Fe(OH)3 + 3HI} \xlongequal{} \ce{FeI3 + 3H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>稳定性</p>
+<ul>
+<li>$\ce{Fe(OH)2}$ 不稳定，在空气中易被氧化</li>
+</ul>
+<p>  $\ce{4Fe(OH)2 +O2 +2H2O \xlongequal{} 4Fe(OH)2}$</p>
+<ul>
+<li>$\ce{Fe(OH)3}$ 不稳定（但较 $\ce{Fe(OH)2}$ 稳定），受热分解</li>
+</ul>
+<p>  $\ce{2Fe(OH)3 \xlongequal{\Delta} Fe2O3 +3H2O}$</p>
+</li>
+<li><p>制备</p>
+<ul>
+<li>$\ce{Fe(OH)2}$ ：$\ce{Fe^2+ + 2OH- \xlongequal{} Fe(OH)2 v}$</li>
+</ul>
+<p>  （将含有 $\ce{NaOH}$ 的滴管插入到含 $\ce{Fe^2+}$ 的溶液中，防止被空气中的 $\ce{O2}$ 氧化）</p>
+<ul>
+<li>$\ce{Fe(OH)3}$ ：$\ce{Fe^2+ + 3OH- \xlongequal{} Fe(OH)3 v}$</li>
+</ul>
+</li>
+<li><p>转化</p>
+<p>$\ce{4Fe(OH)2 + O2 + 2H2O \xlongequal{} 4Fe(OH)3}$</p>
+</li>
+</ol>
+<h2 id="铁盐与亚铁盐"><a href="#铁盐与亚铁盐" class="headerlink" title="铁盐与亚铁盐"></a>铁盐与亚铁盐</h2><h3 id="ce-Fe-2"><a href="#ce-Fe-2" class="headerlink" title="$\ce{Fe^2+}$"></a>$\ce{Fe^2+}$</h3><p>含有 $\ce{Fe^2+}$ 的溶液呈浅绿色，既有氧化性又有还原性</p>
+<ol>
+<li>氧化性：$\ce{Zn + Fe^2+ \xlongequal{} Fe + Zn^2+}$</li>
+<li>还原性：$\ce{Cl2 + 2Fe^2+ \xlongequal{} 2Fe^3+ + 2Cl^-}$</li>
+<li>特性：含有 $\ce{Fe^2+}$ 的盐溶液遇铁氰化钾 $\ce{K3[Fe(CN)6]}$ 生成蓝色沉淀</li>
+</ol>
+<h3 id="ce-Fe-3"><a href="#ce-Fe-3" class="headerlink" title="$\ce{Fe^3+}$"></a>$\ce{Fe^3+}$</h3><p>含有 $\ce{Fe^3+}$ 的溶液呈黄色，有较强的氧化性</p>
+<ol>
+<li><p>氧化性</p>
+<ol>
+<li><p>铁离子与铜（$\ce{Cu}$）的反应：$\ce{Fe^3+ + Cu \xlongequal{} Fe^2+ + Cu^2+}$</p>
+</li>
+<li><p>铁离子与碘离子（$\ce{I^-}$）的反应：$\ce{2Fe^3+ + 2I^- \xlongequal{} 2Fe^2+ + I2}$</p>
+</li>
+<li><p>铁离子与硫离子（$\ce{S^2-}$）的反应：$\ce{2Fe^3+ + 3S^2- \xlongequal{} Fe2S3}$</p>
+</li>
+</ol>
+</li>
+<li><p>特性：含有 $\ce{Fe^3+}$ 的盐溶液遇 $\ce{KSCN}$ 溶液 变成红色</p>
+</li>
+</ol>
+<h3 id="常见的铁盐与亚铁盐"><a href="#常见的铁盐与亚铁盐" class="headerlink" title="常见的铁盐与亚铁盐"></a>常见的铁盐与亚铁盐</h3><ol>
+<li><p>三氯化铁 $\ce{FeCl3}$：棕黄色固体，一种常见的氧化剂，能与多种还原剂发生氧化还原反应，能回收废铜，刻制印刷电路板时作腐蚀液，其反应的离子方程式为 $\ce{2Fe^3+ + Cu \xlongequal{} 2Fe^2+ + Cu^2+}$ </p>
+<blockquote>
+<ul>
+<li>制备无水 $\ce{FeCl3}$：在 $\ce{HCl}$ 气氛中加热蒸干  $\ce{FeCl3}$ 溶液，抑制 $\ce{FeCl3 +3H2O&lt;&#x3D;&gt;Fe(OH)3 +3HCl}$ 正移</li>
+<li>制备 $\ce{Fe(OH)3}$ 胶体：向沸水中滴入饱和 $\ce{FeCl3}$ 溶液并煮沸至溶液呈红褐色为止</li>
+</ul>
+</blockquote>
+</li>
+<li><p>绿矾 $\ce{FeSO4·7H2O}$：一种重要的还原剂，可用作补血剂及植物的补铁剂</p>
+</li>
+<li><p>高铁酸钾 $\ce{K2FeO4}$ ：深紫色晶体，具有强氧化性，可用作水处理剂和高能电池</p>
+</li>
+<li><p>铁铵矾 $\ce{NH4Fe(SO4)2·12H2O}$ ：无色晶体，易溶于水，常用作化学分析试剂药物和织物媒染剂</p>
+</li>
+<li><p>赤血盐 $\ce{K3[Fe(CN)6]}$ ：红色晶体，易溶于水，常用于检验 $\ce{Fe^2+}$ ，生成蓝色沉淀</p>
+</li>
+</ol>
+<h3 id="盐溶液保存"><a href="#盐溶液保存" class="headerlink" title="盐溶液保存"></a>盐溶液保存</h3><ul>
+<li>$\ce{Fe^2+}$ 的盐溶液：加入少量铁粉，防止 $\ce{Fe^2+}$ 被氧化；加入少量对应的酸，抑制 $\ce{Fe^2+}$ 水解</li>
+<li>$\ce{Fe^3+}$ 的盐溶液：加入少量对应的酸，抑制 $\ce{Fe^3+}$ 水解</li>
+</ul>
+<h2 id="ce-Fe-2-与-ce-Fe-3-的检验"><a href="#ce-Fe-2-与-ce-Fe-3-的检验" class="headerlink" title="$\ce{Fe^2+}$ 与 $\ce{Fe^3+}$ 的检验"></a>$\ce{Fe^2+}$ 与 $\ce{Fe^3+}$ 的检验</h2><ol>
+<li><p>直接观察颜色</p>
+<ul>
+<li>含有 $\ce{Fe^2+}$ 的溶液呈浅绿色</li>
+<li>含有 $\ce{Fe^3+}$ 的溶液呈黄色</li>
+</ul>
+</li>
+<li><p>利用显色反应</p>
+<ul>
+<li>$\ce{KSCN}$ 溶液<ul>
+<li>溶液变红色：$\ce{Fe^3+}$</li>
+<li>溶液不变色，加入 $\ce{HCl}$ &#x2F; 氯水，变红色：$\ce{Fe^2+}$</li>
+</ul>
+</li>
+<li>苯酚<ul>
+<li>溶液呈紫色：$\ce{Fe^2+}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe(OH)3}$ 沉淀的颜色</p>
+<ul>
+<li><p>$\ce{NaOH}$ 溶液</p>
+<ul>
+<li><p>红褐色沉淀：$\ce{Fe^3+}$</p>
+</li>
+<li><p>生成白色絮状沉淀，白色沉淀变为灰绿色，最后变为红褐色：$\ce{Fe^2+}$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe^3+}$ 的氧化性</p>
+<ul>
+<li>$\ce{Cu}$ 片<ul>
+<li>铜被腐蚀，溶液变为蓝绿色：$\ce{Fe^3+}$</li>
+</ul>
+</li>
+<li>淀粉$\ce{-KI}$ 试纸<ul>
+<li>变蓝：$\ce{Fe^3+}$</li>
+</ul>
+</li>
+<li>$\ce{H2S}$ 水溶液<ul>
+<li>产生淡黄色沉淀：$\ce{Fe^3+}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe^2+}$ 的还原性</p>
+<ul>
+<li>溴水<ul>
+<li>溴水褪色： $\ce{Fe^2+}$</li>
+</ul>
+</li>
+<li>$\ce{KMnO4}$ 溶液<ul>
+<li>紫色褪去：$\ce{Fe^2+}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe^2+}$ 的特殊反应</p>
+<ul>
+<li>$\ce{K3[Fe(CN)6]}$<ul>
+<li>生成蓝色沉淀：$\ce{KFe[Fe(CN)6] }$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="铁及其重要化合物的转化"><a href="#铁及其重要化合物的转化" class="headerlink" title="铁及其重要化合物的转化"></a>铁及其重要化合物的转化</h2><p><img src="/./images/2.1.svg"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/02%20%E9%93%81%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/01%20%E9%92%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/">
+        <h2 class="post-title">元素及其化合物 · 一 · 「钠 $(\ce{Na})$ 及其化合物」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="钠单质"><a href="#钠单质" class="headerlink" title="钠单质"></a>钠单质</h2><h3 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
+<li><p>$\ce{Na}$ 与 氧气 反应：$\begin{cases}\ce{4Na +O2 \xlongequal{} 2Na2O\2Na +O2 \xlongequal{\Delta} Na2O2}\end{cases}\$</p>
+</li>
+<li><p>$\ce{Na}$ 与 氯气 反应：$\ce{2Na +Cl2 \xlongequal{\Delta} 2NaCl}$</p>
+</li>
+<li><p>$\ce{Na}$ 与 水 反应：$\ce{2Na +2H2O &#x3D; 2NaOH +H2 ^}$</p>
+<blockquote>
+<p>现象：「浮熔游响红」</p>
+<p>钠的密度比水小，会<strong>浮</strong>在水面上；反应时，钠迅速<strong>熔</strong>化成小球（说明反应剧烈、大量放热、钠熔点偏低）；产生的氢气推动钠在水面上<strong>游</strong>动；发出<strong>响</strong>声；滴加酚酞后变<strong>红</strong></p>
+</blockquote>
+</li>
+<li><p>$\ce{Na}$ 与 $\ce{CuSO4}$水溶液 反应：$\begin{cases}Frist.&amp;\ce{2Na +2H2O \xlongequal{} 2NaOH +H2 ^}\Second.&amp;\ce{2NaOH +CuSO4 \xlongequal{} Cu(OH)2 v + Na2SO4}\end{cases}\$</p>
+</li>
+<li><p>$\ce{Na}$ 与 乙醇 反应：$\ce{2C2H5OH +2Na-&gt;2C2H5ONa +H2 ^}$</p>
+<blockquote>
+<p>现象：钠沉于无水乙醇的底部（或因产生的氢气使得钠上下跳动），表面有气泡产生，慢慢消失；放出的气体可在空气中安静地燃烧，火焰呈淡蓝色（ $\ce{H2}$ ）；烧杯壁上有水珠生成；澄清石灰水未变浑浊（无 $\ce{CO2}$ ）</p>
+<p>解释：由于烷基具有推电子作用（$\vec{\ce{CH3CH2}}\ce{-O-H}$），使得 $\ce{O-H}$ 键极性变弱，因此反应不会很剧烈</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ol>
+<li>制取：$\ce{2NaCl(熔融) \xlongequal{通电} 2Na +Cl2 ^}$</li>
+<li>用途：钠、钾合金（液态）可用于原子反应堆的导热剂；冶炼某些金属（如钛金属）；用作电光源，制作高压钠灯</li>
+<li>密度：$p(\ce{H2O})&gt;p(\ce{Na})&gt;p($煤油$)$（密封保存，通常保存在石蜡油或煤油中）</li>
+<li>金属钠着火时用细沙覆盖灭火，不得使用水或二氧化碳灭火器</li>
+</ol>
+<h2 id="氧化钠与过氧化钠"><a href="#氧化钠与过氧化钠" class="headerlink" title="氧化钠与过氧化钠"></a>氧化钠与过氧化钠</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>氧化钠（ $\ce{Na2O}$ ）</th>
+<th>过氧化钠（ $\ce{Na2O2}$ ）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电子式</td>
+<td><img src="./images/1.1.svg" style="zoom: 33%;" /> （仅含有离子键）</td>
+<td><img src="./images/1.2.svg" style="zoom: 33%;" />（含有离子键和非极性共价键）</td>
+</tr>
+<tr>
+<td>离子个数比$^4$</td>
+<td>$\ce{Na+:O^{2-} &#x3D; 2:1}$</td>
+<td>$\ce{Na+:}$<strong>$\ce{O^{2-}2}$</strong>$ &#x3D; 2:1$</td>
+</tr>
+<tr>
+<td>化合物类型$^1$</td>
+<td>离子化合物（碱性氧化物）</td>
+<td>离子化合物（非碱性氧化物，为过氧化物）</td>
+</tr>
+<tr>
+<td>颜色、状态</td>
+<td>白色、固体</td>
+<td>淡黄色、固体</td>
+</tr>
+<tr>
+<td>主要性质</td>
+<td>具有碱性氧化物的通性</td>
+<td>具有强氧化性$^2$</td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>不稳定，加热生成 $\ce{Na2O2}$ $^3$</td>
+<td>较稳定</td>
+</tr>
+<tr>
+<td>与 水 反应</td>
+<td>$\ce{Na2O +H2O\xlongequal{}2NaOH}$</td>
+<td>$\ce{2Na2\overset{-1}{O}_2 +2H2O\xlongequal{2e^-}4NaOH +\overset{0}{O}_2 ^}^5$</td>
+</tr>
+<tr>
+<td>与 $\ce{CO2}$ 反应</td>
+<td>$\ce{Na2O +CO2\xlongequal{}Na2CO3}$</td>
+<td>$\ce{2Na2\overset{-1}{O}_2 +2CO2\xlongequal{2e^-}2Na2CO3 +\overset{0}{O}_2 ^}^5$</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>制取烧碱</td>
+<td>漂白剂、消毒剂、供氧剂</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ol>
+<li><p>碱性氧化物与酸反应生成盐和水：$\ce{Na2O +2HCl\xlongequal{}2NaCl +H2O}$</p>
+<p>（$\ce{Na2O2}$不是碱性氧化物：$\ce{2Na2O2 +4HCl\xlongequal{}4NaCl +2H2O +O2 ^}$）</p>
+</li>
+<li><p>$\ce{Na2O2}$ 具有强氧化性</p>
+<ul>
+<li>$\ce{Na2O2}$ 加入品红溶液中，在水中生成 $\ce{H2O2}$ ，利用其氧化性，使得品红溶液褪色</li>
+<li>如将其加入滴加酚酞的水中，$\ce{Na2O2}$ 会先变红，后褪色</li>
+<li>与 $\ce{SO2}$ 反应：$\ce{Na2O2 + SO2 → Na2SO4}$</li>
+<li>投入 $\ce{FeCl2}$ 溶液中生成 $\ce{Fe(OH)3}$ 沉淀</li>
+<li>投入氢硫酸，氧化硫化氢成硫单质，溶液浑浊</li>
+<li>氧化 $\ce{SO^2–_3}$ 成 $\ce{SO^2–_4}$</li>
+</ul>
+</li>
+<li><p>$\ce{Na-&gt;[O2]Na2O-&gt;[O2]Na2O2-&gt;[H2O]NaOH}$</p>
+</li>
+<li><p>考点：$1 mol\space\ce{Na2O +Na2O2}$ 混合溶液的离子数为 $3N_A$</p>
+</li>
+<li><p>考点：$\ce{Na2O_2 +H2O(}g\ce{) +CO2(}g\ce{)}$反应产生 $1 mol\space\ce{O2}$ ，即转移了 $2mol\space e^-$</p>
+</li>
+<li><p>$\ce{Na2O2}$ 与某水溶液反应与 $\ce{Na}$ 类似</p>
+<p>例如：$\ce{NaHCO3}$ 与 $\ce{Na2O2}$ 反应$\begin{cases}Frist.&amp;\ce{2Na2O2 +2H2O\xlongequal{}4NaOH +O2 ^}\Second.&amp;\ce{NaOH +NaHCO3\xlongequal{}Na2CO3 +H2O}\end{cases}\$</p>
+<p>总方程式：$\ce{4NaHCO3 +2Na2O2\xlongequal{}4Na2CO3 +2H2O +O2↑}$</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="碳酸钠与碳酸氢钠"><a href="#碳酸钠与碳酸氢钠" class="headerlink" title="碳酸钠与碳酸氢钠"></a>碳酸钠与碳酸氢钠</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>碳酸钠（ $\ce{Na2CO3}$ ）</th>
+<th>碳酸氢钠（ $\ce{NaHCO3}$ ）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>俗名</td>
+<td>纯碱、苏打</td>
+<td>小苏打</td>
+</tr>
+<tr>
+<td>溶解度</td>
+<td>易溶于水</td>
+<td>在水中溶解度比 $\ce{Na2CO3}$ 小$^1$</td>
+</tr>
+<tr>
+<td>热稳定性$^2$</td>
+<td>稳定，受热难分解</td>
+<td>受热易分解：$\ce{2NaHCO3\xlongequal{\Delta}Na2CO3 +CO2 ^ +H2O}$</td>
+</tr>
+<tr>
+<td>与酸反应</td>
+<td>$\ce{Na2CO3-&gt;[H+]NaHCO^-3&gt;[H+]CO2 ^}^3$</td>
+<td>$\ce{NaHCO^-3&gt;[H+]CO2 ^}$</td>
+</tr>
+<tr>
+<td>与 $\ce{CO2}$ 反应</td>
+<td>$\ce{Na2CO3 +CO2 ^ +H2O2\xlongequal{}NaHCO3}$</td>
+<td>不反应$^4$</td>
+</tr>
+<tr>
+<td>与 $\ce{Ca(OH)2}$ 反应</td>
+<td>$\ce{Ca^2+ +CO^2-_3 \xlongequal{} CaCO3 v}$</td>
+<td>$\ce{NaHCO3}$ 少量：$\ce{HCO^-3 +OH- +Ca^2+ \xlongequal{} CaCO3 v +H2O}$<br>$\ce{Ca(OH)2}$ 少量：$\ce{2HCO^-3 +2OH- +Ca^2+ \xlongequal{} CaCO3 v + CO^2-_3 +2H2O}$</td>
+</tr>
+<tr>
+<td>与 $\ce{CaCl2&#x2F;BaCl2}$ 反应</td>
+<td>$\ce{Ca^2+ +CO^2-_3 \xlongequal{} CaCO3 v}$</td>
+<td>不沉淀</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ol>
+<li><p>侯氏制碱法中，向饱和 $\ce{NaCl(aq)}$ 中依次通入$\ce{NH3}$ 和 $\ce{CO2}$ ，溶液中存在 $\ce{NH+4 、Na+ 、Cl- 、CO^{2-}3 、HCO^-_3}$ ，其中$\ce{HCO^-_3}$最先析出，加热析出的 $\ce{NaHCO}$ ，得到 $\ce{Na2CO3}$</p>
+</li>
+<li><p>实验：比较碳酸钠与碳酸氢钠的热稳定性</p>
+<img src="./images/1.3.png" style="zoom:50%;" />
+
+<p>碳酸钠在外层，温度高，碳酸氢钠在内层，温度低，$Ⅱ$ 的澄清石灰水变浑浊，证明碳酸钠的热稳定性更强</p>
+</li>
+<li><p>实验：辨别 $\ce{HCl}$ 和 $\ce{Na2CO3}$</p>
+<p>互滴。如 $\ce{HCl}$ 逐滴滴入 $\ce{Na2CO3}$ 溶液中，开始时没有气泡，后来有；如 $\ce{Na2CO3}$ 逐滴滴入 $\ce{HCl}$ 溶液中，一开始就有气泡</p>
+</li>
+<li><p>考点：除去 $\ce{CO2}$ 中的 $\ce{HCl}$</p>
+</li>
+</ol>
+</blockquote>
+<p>相互转化：$\ce{Na2CO3\xleftharpoondown[加入\ce{NaOH&#x2F;NaHCO3(s)}可用加热]{\xrightharpoonup{适量\ce{H+}&#x2F;通入\ce{CO2}}}NaHCO3}$</p>
+<p>除杂：</p>
+<ol>
+<li>固体 $\ce{Na2CO3(NaHCO3)}:$ 加热至恒重</li>
+<li>水溶液 $\ce{Na2CO3(NaHCO3)}:$ 加 $\ce{NaOH}$</li>
+<li>水溶液 $\ce{NaHCO3(Na2CO3)}:$ 加足量 $\ce{CO2}$</li>
+</ol>
+<h3 id="鉴别"><a href="#鉴别" class="headerlink" title="鉴别"></a>鉴别</h3><p>$$<br>物质\begin{cases}<br>液体&amp;<br>\begin{cases}<br>沉淀法：加入\ce{BaCl2}溶液或\ce{CaCl2}溶液产生沉淀的是\ce{Na2CO3}\<br>气体法：滴入稀盐酸，立即产生气泡的是 \ce{NaHCO3}\<br>测 pH 法：用pH试纸测其相同浓度的稀溶液，pH大的是 \ce{NaHCO3} 溶液<br>\end{cases}\<br>固体&amp;加热法:产生使澄清石灰水变浑浊的气体的是\ce{NaHCO3}固体\<br>\end{cases}\<br>$$</p>
+<h2 id="焰色反应"><a href="#焰色反应" class="headerlink" title="焰色反应"></a>焰色反应</h2><p>物理反应，进行焰色反应应使用<strong>铂丝</strong>（镍丝、无锈铁丝）。把嵌在玻璃棒上的金属丝在<strong>稀盐酸</strong>里蘸洗后，放在酒精灯的火焰里灼烧，不同金属元素会使火焰变为各种颜色，这便是焰色反应。焰色反应的形成与原子光谱有关</p>
+<table>
+<thead>
+<tr>
+<th align="center">离子</th>
+<th align="center">$\ce{Li+}$</th>
+<th align="center">$\ce{Na+}$</th>
+<th align="center">$\ce{K+}$</th>
+<th align="center">$\ce{Rb+}$</th>
+<th align="center">$\ce{Cs+}$</th>
+<th align="center">$\ce{Ca^{2+}}$</th>
+<th align="center">$\ce{Cr^{2+}}$</th>
+<th align="center">$\ce{Ba^{2+}}$</th>
+<th align="center">$\ce{Cu^{2+}}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">焰色</td>
+<td align="center">红</td>
+<td align="center">黄</td>
+<td align="center">紫</td>
+<td align="center">紫红</td>
+<td align="center">紫红</td>
+<td align="center">橙红</td>
+<td align="center">洋红</td>
+<td align="center">黄绿</td>
+<td align="center">绿</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ol>
+<li><p>灼烧白色粉末，火焰呈黄色，证明原粉末中有 $\ce{Na+}$ ，无 $\ce{K+}$$\quad(×)$ </p>
+<p>解析：能证明有 $\ce{Na+}$ ，但无法确定是否有 $\ce{K+}$，因为 $\ce{Na+}$ 的黄光会遮盖 $\ce{K+}$ 的微弱紫光，因此必须透过蓝色钴玻璃过滤黄光，观察是否有紫光</p>
+</li>
+<li><p>在火焰上灼烧搅拌过某无色溶液的玻璃棒，火焰出现黄色，说明溶液中含有 $\ce{Na+}$ $\quad(×)$ </p>
+<p>解析：不能用玻璃棒做焰色实验，因为玻璃棒中含有 $\ce{Na2SiO3}$ ，其焰色会干扰实验</p>
+</li>
+</ol>
+</blockquote>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/06%20%E5%85%83%E7%B4%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/01%20%E9%92%A0%E5%8F%8A%E5%85%B6%E5%8C%96%E5%90%88%E7%89%A9/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/%E8%80%83%E7%82%B9%20%E7%A6%BB%E5%AD%90%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%AD%A3%E8%AF%AF%E5%88%A4%E6%96%AD/">
+        <h2 class="post-title">化学物质基本概念 · 考点 · 「离子方程式正误判断」</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="一、注意是否符合反应事实"><a href="#一、注意是否符合反应事实" class="headerlink" title="一、注意是否符合反应事实"></a>一、注意是否符合反应事实</h2><p>离子反应必须符合客观事实，而命题者往往设置不符合「反应原理」的陷阱</p>
+<ol>
+<li><p>$\ce{Fe-&gt;[Cl_2、Br_2]Fe^{3+}}$ ；$\ce{Fe-&gt;[I_2、S、H_2(非氧化性酸)]Fe^{2+}}$ ；稀 $ \ce{HNO3 +}\begin{cases}\ce{Fe(少量)-&gt;Fe^{3+}}\\ce{Fe(过量)-&gt;Fe^{2+}}\end{cases}\$ ； $\ce{Fe(常温)}$ 与浓 $ \ce{HNO3}$ 发生钝化</p>
+</li>
+<li><p>金属和氧化性酸（如 $\ce{HNO3}$、浓 $\ce{H2SO4}$）反应不放 $\ce{H2}$ </p>
+</li>
+<li><p>$\ce{Na}$ 不能置换出 $\ce{CuSO4}$ 溶液中的 $ \ce{Cu}$ （先与 $\ce{H2O}$ 反应生成 $\ce{NaOH}$ ）</p>
+</li>
+<li><p>忽略氧化还原</p>
+<blockquote>
+<p>例如：$\ce{Na2\overset{-2}{S} +HNO3-&gt;H2S ^ +Na\overset{-2}{S}O3\qquad(×):\overset{-2}{S}}$ 有很强的还原性，遇到稀硝酸，一定会发生氧化还原反应</p>
+</blockquote>
+</li>
+<li><p>忽略相互促进的水解反应（完全双水解）</p>
+<blockquote>
+<p>常见的双水解的离子：</p>
+<p>$\ce{Al+3:HCO^-3、CO^{2-}3、HS- 、S^-2 、ClO- 、AlO^-2}$</p>
+<p>$\ce{Fe+3:HCO^-3、CO^{2-}3 、ClO- 、AlO^-2}$</p>
+<p>$\ce{Fe+2:AlO^-2、NH+4、SiO^{2-}3}$</p>
+<p>例如：$\ce{Fe+3 +CO^{2-}3}$ 不会生成 $\ce{Fe2(CO3)3 v}$ ，因为会发生完全双水解，应生成 $\ce{Fe2(OH)3 v +CO2 ^}$</p>
+</blockquote>
+</li>
+<li><p>忽略络合反应</p>
+<blockquote>
+<p>三价铁离子和硫氰根离子反应：$\ce{Fe^{3+} +SCN- -&gt; [Fe(SCN)]+2}$</p>
+<p>铜离子遇到足量的浓氨水：$\ce{Cu^{2+} + NH3.H2O -&gt; [Cu(NH3)4]^{2+}}$</p>
+<p>银离子遇到足量的浓氨水：$\ce{Ag+ + NH3.H2O -&gt; [Ag(NH3)2]+}$</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="二、注意是否满足三守恒-（原子守恒、电荷守恒、电子得失守恒）"><a href="#二、注意是否满足三守恒-（原子守恒、电荷守恒、电子得失守恒）" class="headerlink" title="二、注意是否满足三守恒 （原子守恒、电荷守恒、电子得失守恒）"></a>二、注意是否满足三守恒 （原子守恒、电荷守恒、电子得失守恒）</h2><p>检查配平是否正确</p>
+<h2 id="三、注意-ce-、、-、-v-是否使用恰当"><a href="#三、注意-ce-、、-、-v-是否使用恰当" class="headerlink" title="三、注意 $\ce{&#x3D;、&lt;&#x3D;&gt;、 ^ 、 v}$ 是否使用恰当"></a>三、注意 $\ce{&#x3D;、&lt;&#x3D;&gt;、 ^ 、 v}$ 是否使用恰当</h2><ol>
+<li><p>强电解质的电离（强酸、强碱、绝大多数盐）用「$\ce{&#x3D;}$」；弱电解质的电离、盐类的水解用「$\ce{&lt;&#x3D;&gt;}$」，盐类水解后的产物不写</p>
+<p>「$\downarrow$」或「$\uparrow$」；若两种离子相互促进水解，可以进行到底，则要写「$\ce{&#x3D;}$」；可逆反应要用「$\ce{&lt;&#x3D;&gt;}$」表示</p>
+<blockquote>
+<p>$\ce{Mg^{2+} +2H2O&lt;&#x3D;&gt;Mg(OH)2 v +2H+\qquad(×):}$ $\ce{Mg^{2+}}$ 水解程度很弱，不足以形成沉淀，因此不标沉淀符号</p>
+</blockquote>
+</li>
+<li><p>产物中形成胶体时应备注「（胶体）」，不可写「$\downarrow$」</p>
+<blockquote>
+<p>$\ce{Fe^{3+} +3H2O\overset{\Delta}{&#x3D;}Fe(OH)3(胶体) +3H+}$</p>
+</blockquote>
+</li>
+<li><p>$\ce{NH+4}$ 与 $\ce{OH-}$ 反应时，若条件为浓溶液或加热，生成 $\ce{NH3}$ 且要注明「$\uparrow$」；若为稀溶液，则生成 $\ce{NH3\cdot H2O}$</p>
+</li>
+</ol>
+<h2 id="四、注意离子的拆分是否正确"><a href="#四、注意离子的拆分是否正确" class="headerlink" title="四、注意离子的拆分是否正确"></a>四、注意离子的拆分是否正确</h2><ol>
+<li><p>强酸（高中六大强酸：$\ce{HClO4、HI、HBr、HCl、HNO3、H2SO4}$）、可溶强碱（$\ce{NaOH、KOH、Ba(OH)2}$）、可溶性盐的化学式</p>
+<p>必须拆分，需要注意的是浓硝酸、浓盐酸的化学式可拆分，浓硫酸的化学式不拆分</p>
+</li>
+<li><p>弱电解质（弱酸、弱碱、水等）、沉淀、气体、单质、弱酸的酸式酸根离子在离子方程式中都不能拆分成离子，氧化物在水溶液</p>
+<p>中不能拆分成 $\ce{O^{2-}}$</p>
+</li>
+<li><p>对于微溶性的强电解质（如 $\ce{Ca(OH)2、CaSO4、MgCO3}$ 等），在反应物中是否拆分视情况而定</p>
+<blockquote>
+<p>澄清石灰水中 $\ce{Ca(OH)2}$ 以$\ce{Ca^{2+}、OH-}$ 的形式存在，可拆成离子形式，但石灰乳为悬浊液，有大量未溶固体， $\ce{Ca(OH)2}$ 在离子方程式中不拆分。微溶物在生成物中一般不拆分，用化学式表示</p>
+</blockquote>
+</li>
+<li><p>可溶性多元弱酸的酸式酸根离子（如 $\ce{HCO^-3、HSO^-3 、HS- 、HC2O^-4 、H2PO^-4、HPO^{2-}4}$ 等），一律保留酸式酸根离子的形式</p>
+<blockquote>
+<p>例如在水溶液中 $\ce{HSO^-3}$ 写成 $\ce{H+、SO^{2-}3}$ 是错误的。值得注意的是 $\ce{HSO^-4}$ 在水溶液中要拆分成 $\ce{H+、SO^{2-}4}$</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="五、注意是否漏写离子反应"><a href="#五、注意是否漏写离子反应" class="headerlink" title="五、注意是否漏写离子反应"></a>五、注意是否漏写离子反应</h2><p>判断离子方程式的书写正误时，要仔细审题，细心检查是否忽略了其他反应</p>
+<blockquote>
+<p>$\ce{CuSO4}$ 溶液和 $\ce{Ba(OH)2}$ 溶液反应：$\ce{Ba^{2+} +SO^{2-}4&#x3D;BaSO4 v }\quad(×):$ 忽略了$\ce{Cu^{2+} +2OH- &#x3D;Cu(OH)2 v}$ </p>
+</blockquote>
+<h2 id="六、注意是否符合反应的「量」"><a href="#六、注意是否符合反应的「量」" class="headerlink" title="六、注意是否符合反应的「量」"></a>六、注意是否符合反应的「量」</h2><p>注意离子方程式是否符合题设条件的要求，如过量、少量、等物质的量、一定浓度和体积混合以及滴加顺序对反应产物的影响</p>
+<h3 id="Ⅰ与量有关的复分解反应"><a href="#Ⅰ与量有关的复分解反应" class="headerlink" title="Ⅰ与量有关的复分解反应"></a>Ⅰ与量有关的复分解反应</h3><ol>
+<li><p>向 $\ce{NH4Al(SO4)2}$ 溶液中滴 $\ce{Ba(OH)2}$ 溶液使 $\ce{SO^{2-}4}$ 恰好完全沉淀，离子方程式为：</p>
+<p>$\ce{NH+4 + Al^{3+} + 2SO^{2-}<em>{4 } + 2Ba^{ 2 + } + 4OH- &#x3D; NH3\cdot H</em>{2}O + Al(OH)<em>{3} v + 2BaSO</em>{4} v }\quad (√)$</p>
+<blockquote>
+<ol>
+<li>由 $\ce{SO^{2-}4 +Ba^{2+}&#x3D;BaSO4 v}$ 进行配平得出由 $1$ 份 $\ce{NH4Al(SO4)2}$ 溶液 和 $2$ 份  $\ce{Ba(OH)2}$ 溶液</li>
+<li>由 $\ce{Al^{3+} + 3OH- &#x3D;Al(OH)3 v}$ 和 $\ce{NH^+4 +OH- &#x3D;NH3\cdot H2O}$ 可知，优先反应  $\ce{Al^{3+}}$ ，生成 $1$ 份 $\ce{Al(OH)3}$</li>
+<li>还剩余  $1$ 份 $\ce{OH-}$ ，与 $\ce{NH+4}$ 反应，生成 $1$ 份 $\ce{NH3\cdot H2O}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>向 $\ce{NH4Al(SO4)2}$ 溶液滴入过量的 $\ce{NaOH}$ 溶液：$\ce{NH+4 +Al^3+ +5OH- &#x3D;AlO^-2 +NH3\cdot H2O +2H2O}\quad (√)$</p>
+<blockquote>
+<ol>
+<li>优先反应 $1$ 份 $\ce{Al^{3+} + 3OH- &#x3D;Al(OH)3 v}$ </li>
+<li>其次反应 $1$ 份 $\ce{NH+4 +OH- &#x3D;NH3\cdot H2O}$ </li>
+<li>最后反应 $1$ 份 $\ce{Al(OH)3 +OH- &#x3D;AlO^-2 +2H2O}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>向 $\ce{NH4Fe(SO4)2}$ 饱和溶液中滴加几滴（少量）$\ce{NaOH}$ 溶液：$\ce{Fe^3+ +3OH- &#x3D;Fe(OH)3 v}\quad(√)$</p>
+<blockquote>
+<p>由 $\ce{NH+4 +OH- &#x3D;NH3\cdot H2O}$ 和 $\ce{Fe^3+ +3OH- &#x3D;Fe(OH)3 v}$ ，$\ce{Fe^3+}$ 优先反应</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="Ⅱ-ce-CO2-少量与过量的比较"><a href="#Ⅱ-ce-CO2-少量与过量的比较" class="headerlink" title="Ⅱ $\ce{CO2}$ 少量与过量的比较"></a>Ⅱ $\ce{CO2}$ 少量与过量的比较</h3><p>考虑反应物酸性与 $\ce{H2CO3、HCO^-3}$ 的酸性强弱比较</p>
+<blockquote>
+<p>酸性大小：$\ce{H2CO3(CO2 +H2O)&gt;HClO&gt;Ph-OH&gt;HCO^-3}$</p>
+</blockquote>
+<ol>
+<li><p>将少量的 $\ce{CO2}$ 通入 $\ce{NaClO}$ 溶液中：$\ce{2ClO- +CO2 +H2O &#x3D;2HClO +CO^2-_3}\quad (×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{H2CO3}$ 电离出的第一个 $\ce{H+}$ 用于制备 $\ce{HClO}$，$\ce{ClO- +CO2 +H2O &#x3D;HClO +HCO^-3}$</li>
+<li>$\ce{HCO^-3}$ 电离出的 $\ce{H+}$ 无法制备次氯酸（ $\ce{ClO- +HCO^-3} \not&#x3D;\ce{ HClO +CO^2-_3}$，弱酸不可制强酸）</li>
+</ol>
+</blockquote>
+</li>
+<li><p>将少量的 $\ce{CO2}$ 通入苯酚钠溶液中：$\ce{2C6H5O- +CO2 +H2O &#x3D;2C6H5OH +CO^2-_3}\quad (×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{H2CO3}$ 电离出的第一个 $\ce{H+}$ 用于制备 $\ce{C6H5OH}$，$\ce{C6H5O- +CO2 +H2O &#x3D;C6H5OH +HCO^-3}$</li>
+<li>$\ce{HCO^-3}$ 电离出的 $\ce{H+}$ 无法制备苯酚（ $\ce{C6H5O- +HCO^-3} \not&#x3D;\ce{ C6H5OH +CO^2-_3}$，弱酸不可制强酸）</li>
+</ol>
+</blockquote>
+</li>
+<li><p>$\ce{Na2S}$ 溶液吸收少量 $\ce{CO2:S^2- +CO2 +H2O &#x3D;CO^2-_3 +H2S ^}\quad(×)$</p>
+<p>[已知：$K_{a1}(\ce{H2CO3})&gt;K_{a1}(\ce{H2S})&gt;K_{a2}(\ce{H2CO3})$]</p>
+<blockquote>
+<ol>
+<li>由 $K_{a1}(\ce{H2CO3})&gt;K_{a1}(\ce{H2S})&gt;K_{a2}(\ce{HS-})$ ，$\ce{H2CO3}$ 电离出的第一个 $\ce{H+}$ 可参与反应：</li>
+</ol>
+<p>   $\ce{S^2- +CO2 +H2O &#x3D;HS- +HCO^-3}$</p>
+<ol start="2">
+<li>由 $K_{a1}(\ce{H2S})&gt;K_{a2}(\ce{H2CO3})$ ，$\ce{HCO^-3}$ 电离出的 $\ce{H+}$ 不参与反应（$\ce{HS- +HCO^-3} \not&#x3D;\ce{CO^2-_3 +H2S ^}$）</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h3 id="Ⅲ-ce-SO2-的少量与过量"><a href="#Ⅲ-ce-SO2-的少量与过量" class="headerlink" title="Ⅲ $\ce{SO2}$ 的少量与过量"></a>Ⅲ $\ce{SO2}$ 的少量与过量</h3><blockquote>
+<p>$\ce{SO2}$ 的性质：</p>
+<ol>
+<li>酸性：$\ce{SO2 +H2O&lt;&#x3D;&gt;H2SO3}$</li>
+<li>还原性：$\ce{\overset{+4}{S}O2-&gt;[氧化剂]\overset{+6}{S}O^2-_4}$</li>
+<li>氧化性：$\ce{\overset{+4}{S}O2 +H2\overset{-2}{S}-&gt;\overset{0}{S}}$</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>用过量氨水吸收工业尾气中的 $\ce{SO2:2NH3\cdot H2O +SO2&#x3D;2NH+4 +SO^2-_3 +H2O}\quad(√)$</p>
+<blockquote>
+<ol>
+<li>$\ce{SO2}$ 溶于水视为 $\ce{H2SO3}$</li>
+<li>过量氨水中和  $\ce{H2SO3}$ 电离出的所有 $\ce{H+}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>将过量的 $\ce{SO2}$ 通入次氯酸钠溶液中：$\ce{ClO- +SO2 +H2O&#x3D;Cl- +SO^{2-}4 +2H+}\quad(√)$</p>
+<blockquote>
+<ol>
+<li>少量的 $\ce{ClO-}$ 视为 $1$ 份，$\ce{SO2}$ 溶于水视为 $\ce{H2\overset{+4}{S}O3}$</li>
+<li>$\ce{ClO-}$ 为氧化剂，$\ce{H2SO3}$ 为还原剂</li>
+</ol>
+</blockquote>
+</li>
+<li><p>将少量的 $\ce{SO2}$ 通入次氯酸钠溶液中：$\ce{ClO- +SO2 +H2O&#x3D;Cl- +SO^{2-}4 +2H+}\quad(×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{H+}$ 与 $\ce{ClO-}$ 不能共存，发生反应 $\ce{H+ +ClO- &#x3D;HClO}$</li>
+<li>$\ce{3ClO- +SO2 +H2O&#x3D;Cl- +SO^{2-}4 +2HClO}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>向 $\ce{Ba(ClO)2}$ 溶液中通入少量 $\ce{SO:SO2 +Ba^2+ +2ClO- +H2O &#x3D;BaSO3 v +2HClO}\quad(×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{SO2 +H2O&#x3D;SO^{2-}4 +H+}$ </li>
+<li>$\ce{Ba^2+ +SO^{2-}4&#x3D;BaSO4 v}$</li>
+<li>$\ce{H+ +ClO- &#x3D;HClO}$</li>
+</ol>
+<p>综上：$\ce{SO2 +3ClO- +Ba^2+ +H2O&#x3D;BaSO4 v +Cl- +2HClO}$</p>
+</blockquote>
+</li>
+<li><p>向过量 $\ce{SO2}$ 溶液通入 $\ce{K2S}$ 溶液：$\ce{2SO2 +2H2O +S^2- &#x3D;2HSO^-3 +H2S}\quad(×)$</p>
+<blockquote>
+<p>$\ce{\overset{+4}{S}O2 +H2\overset{-2}{S}-&gt;\overset{0}{S}}$</p>
+</blockquote>
+</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        
+        
+    </div>
+    <a href="/2023/10/15/05%20%E5%8C%96%E5%AD%A6%E7%89%A9%E8%B4%A8%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/%E8%80%83%E7%82%B9%20%E7%A6%BB%E5%AD%90%E6%96%B9%E7%A8%8B%E5%BC%8F%E6%AD%A3%E8%AF%AF%E5%88%A4%E6%96%AD/" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
+    
+    <span class="current">1</span>
+    
+    <a class="page-num" href="/page/2">2</a>
+    
+    
+    <a class="page-num" href="/page/3">3</a>
+    
+    
+    <span class="page-omit">...</span>
+    <a class="page-num" href="/page/5">5</a>
+    
+    
+    <a class="page-num" href="/page/2/">
+        <i class="fa-solid fa-caret-right fa-fw"></i>
+    </a>
+    
+</div>
+
+    </div>
+    
+    <div id="home-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">John Doe</div>
+        <div class="description">
+            <p>Description<br>…</p>
+
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+    </div>
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+</body>
+</html>

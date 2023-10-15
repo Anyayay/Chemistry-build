@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>化学物质基本概念 · 二 · 「物质的计量」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>化学物质基本概念 · 二 · 「物质的计量」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="物质的量-及其相关概念"><a href="#物质的量-及其相关概念" class="headerlink" title="物质的量 及其相关概念"></a>物质的量 及其相关概念</h2><h3 id="物质的量-n"><a href="#物质的量-n" class="headerlink" title="物质的量 $n$"></a>物质的量 $n$</h3><ol>
+<li>符号：$n$</li>
+<li>单位：$\ce{mol}$（摩尔）</li>
+<li>使用范围：适用于微观粒子或微观粒子的特定组合</li>
+<li>阿伏伽德罗常数：指一摩尔任何粒子的粒子数，符号为 $N_A$ ， $N_A\approx 6.02\times10^{23} \ce{mol^{-1}}$ </li>
+<li>公式：$n&#x3D;\dfrac{N}{N_A}$</li>
+</ol>
+<blockquote>
+<p>$\ce{3mol\space CO2}$ 有 $9N_A$ 个原子</p>
+</blockquote>
+<h3 id="摩尔质量-M"><a href="#摩尔质量-M" class="headerlink" title="摩尔质量 $M$"></a>摩尔质量 $M$</h3><ol>
+<li><p>定义：单位物质的量的物质所具有的质量</p>
+</li>
+<li><p>符号：$M$</p>
+</li>
+<li><p>单位：$g&#x2F;\ce{mol}\space(g\cdot\ce{mol^{-1}})$</p>
+</li>
+<li><p>数值：摩尔质量以 $g&#x2F;\ce{mol}$ 为单位时，在数值上等于该粒子的相对原子质量或相对分子质量</p>
+<blockquote>
+<p>$\ce{H2O}$ 的相对分子质量为 $18$（单位为「1」），$\ce{H2O}$ 的摩尔质量为 $18\space g&#x2F;\ce{mol}$</p>
+</blockquote>
+</li>
+<li><p>物质的量、质量、摩尔质量的关系：$n&#x3D;\dfrac{m}{M}$</p>
+</li>
+</ol>
+<h3 id="气体摩尔体积-V-m"><a href="#气体摩尔体积-V-m" class="headerlink" title="气体摩尔体积 $V_m$"></a>气体摩尔体积 $V_m$</h3><ol>
+<li>定义：单位物质的量的气体所占的体积</li>
+<li>符号：$V_m$</li>
+<li>单位：$L&#x2F;\ce{mol}\space(L\cdot\ce{mol^{-1}})$</li>
+<li>公式：$V_m&#x3D;\dfrac{V}{n}$</li>
+<li>气体摩尔体积与气体所处的<strong>温度</strong>与<strong>压强</strong>有关</li>
+<li>在标准状况下（$0\ce{°C}、101\ce{kPa}$）气体的摩尔体积约为 $22.4L&#x2F;\ce{mol}$<ol>
+<li>在标况下，$\ce{1mol}$ 任何气体的体积都为 $22.4L$</li>
+<li>使用时，物质的聚集状态一定为<strong>气体</strong>（可以是混合气），但条件必须为<strong>标准状况</strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="物质的量浓度-c"><a href="#物质的量浓度-c" class="headerlink" title="物质的量浓度 $c$"></a>物质的量浓度 $c$</h3><ol>
+<li>定义：一定温度、压强下，单位溶液中所含溶质的量的多少</li>
+<li>符号：$c$</li>
+<li>单位：$\ce{mol}&#x2F;L\space(\ce{mol}\cdot L^{-1})$</li>
+<li>公式：$c&#x3D;\dfrac{n}{V}$</li>
+</ol>
+<blockquote>
+<p>物质的量 及其相关概念 常见错误</p>
+<ol>
+<li>[×] 摩尔是化学上常用的一个物理量：摩尔是单位</li>
+<li>[×] $\ce{1mol}$ 水含有 $\ce{2mol}$ 氢 和 $\ce{1mol}$ 氧：没有明确粒子的种类</li>
+<li>[×] $\ce{1mol}$ 任何物质都含有 $6.02\times10^{23}$ 个分子：物质不一定都由分子构成</li>
+<li>[×] $\ce{2mol\space H2O}$ 是 $\ce{1mol\space H2O}$ 摩尔质量的 $2$ 倍：摩尔质量与物质的量无关</li>
+</ol>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

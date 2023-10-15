@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>分子空间结构与物质性质 · 三 · 「分子的极性 手性分子」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>分子空间结构与物质性质 · 三 · 「分子的极性 手性分子」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="共价键的极性"><a href="#共价键的极性" class="headerlink" title="共价键的极性"></a>共价键的极性</h2><ol>
+<li><p>共价键有<strong>极性共价键</strong>和<strong>非极性共价键</strong></p>
+<p><strong>极性共价键</strong>：由不同原子形成的共价键，电子对会发生偏移（向电负性大的一侧偏移）。极性键中的两个键合原子，一个呈正电性（$δ^+$），另一个呈负电性（$δ^-$）。在极性共价键中，成键原子吸引电子能力的差别越大，共用电子对偏移程度越大，共价键的极性越强</p>
+<blockquote>
+<p>因此，电负性差值越大，极性越大</p>
+</blockquote>
+<p><strong>非极性共价键</strong>：电子对不发生偏移的共价键</p>
+<blockquote>
+<p>特别：$O_3$的 $O$ 电负性不同，之间形成极性共价键</p>
+</blockquote>
+</li>
+<li><p>分子可分为<strong>极性分子</strong>和<strong>非极性分子</strong></p>
+<ol>
+<li><p>极性分子的正电中心和负电中心不重合，使分子的某一个部分呈正电性（$δ^+$），另一部分呈负电性 ($δ^-$)</p>
+</li>
+<li><p>非极性分子的正电中心和负电中心重合</p>
+ <img src="images\8.1.svg" width="100" /></li>
+</ol>
+</li>
+</ol>
+<h2 id="分子的极性的判断"><a href="#分子的极性的判断" class="headerlink" title="分子的极性的判断"></a>分子的极性的判断</h2><p>判断分子的极性可依据分子中化学键的极性的<strong>向量和</strong></p>
+<ol>
+<li><p><strong>只含非极性键</strong>的分子一定是非极性分子</p>
+<blockquote>
+<p>如：$H_2、Cl_2、Br_2$</p>
+</blockquote>
+</li>
+<li><p>含极性键的分子有没有极性，必须依据分子中极性键的极性的<strong>向量和是否等于零</strong>而定。当分子中各个键的极性的向量和等于零时，是非极性分子，否则是极性分子</p>
+   <img src="images\8.2.png" width="470" />
+</li>
+<li><p>也可以根据<strong>分子的正电中心和负电中心是否重合</strong>来判断它是否是极性分子</p>
+</li>
+</ol>
+<p>快速判断方法：</p>
+<ol>
+<li><p>化合价法：$AB_m$型分子中，<strong>中心原子的化合价的绝对值</strong>等于<strong>该元素的价电子数</strong>时该分子为非极性分子，此时分子的空间结构对称；若中心原子的化合价的绝对值不等于其价电子数，则分子的空间结构不对称，其分子为极性分子，具体实例如下：</p>
+<table>
+<thead>
+<tr>
+<th>分子</th>
+<th>$BF_3$</th>
+<th>$CO_2$</th>
+<th>$PCl_5$</th>
+<th>$SO_3$</th>
+<th>$H_2O$</th>
+<th>$NH_3$</th>
+<th>$SO_2$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>中心原子的化合价的绝对值</strong></td>
+<td>$3$</td>
+<td>$4$</td>
+<td>$5$</td>
+<td>$6$</td>
+<td>$2$</td>
+<td>$3$</td>
+<td>$4$</td>
+</tr>
+<tr>
+<td><strong>该元素的价电子数</strong></td>
+<td>$3$</td>
+<td>$4$</td>
+<td>$5$</td>
+<td>$6$</td>
+<td>$6$</td>
+<td>$5$</td>
+<td>$6$</td>
+</tr>
+<tr>
+<td><strong>分子极性</strong></td>
+<td>非极性</td>
+<td>非极性</td>
+<td>非极性</td>
+<td>非极性</td>
+<td>极性</td>
+<td>极性</td>
+<td>极性</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>根据分子所含键的类型及分子立体构型判断</p>
+<table>
+<thead>
+<tr>
+<th align="left">分子所含原子个数</th>
+<th align="center">键的极性</th>
+<th align="center">键角</th>
+<th align="center">立体构型</th>
+<th align="center">分子极性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单原子：$He、 Ne$</td>
+<td align="center">$-$</td>
+<td align="center">$-$</td>
+<td align="center">$-$</td>
+<td align="center">非极性分子</td>
+</tr>
+<tr>
+<td align="left">双原子：$H_2$</td>
+<td align="center">非极性键</td>
+<td align="center">$-$</td>
+<td align="center">直线形</td>
+<td align="center">非极性分子</td>
+</tr>
+<tr>
+<td align="left">双原子：$HCI$</td>
+<td align="center">极性键</td>
+<td align="center">$-$</td>
+<td align="center">直线形</td>
+<td align="center">极性分子</td>
+</tr>
+<tr>
+<td align="left">三原子：$H_2O$</td>
+<td align="center">极性键</td>
+<td align="center">$104.5^\circ$</td>
+<td align="center">$V$形</td>
+<td align="center">极性分子</td>
+</tr>
+<tr>
+<td align="left">三原子：$CO_2$</td>
+<td align="center">极性键</td>
+<td align="center">$180^\circ$</td>
+<td align="center">直线形</td>
+<td align="center">非极性分子</td>
+</tr>
+<tr>
+<td align="left">四原子：$BF_3$</td>
+<td align="center">极性键</td>
+<td align="center">$120^\circ$</td>
+<td align="center">平面正三角形</td>
+<td align="center">非极性分子</td>
+</tr>
+<tr>
+<td align="left">四原子：$NH_3$</td>
+<td align="center">极性键</td>
+<td align="center">$107^\circ$</td>
+<td align="center">三角锥形</td>
+<td align="center">极性分子</td>
+</tr>
+<tr>
+<td align="left">五原子：$CH_4$</td>
+<td align="center">极性键</td>
+<td align="center">$109^\circ28^\prime$</td>
+<td align="center">正四面体形</td>
+<td align="center">非极性分子</td>
+</tr>
+<tr>
+<td align="left">五原子：$CH_3Cl$</td>
+<td align="center">极性键</td>
+<td align="center">$-$</td>
+<td align="center">四面体形</td>
+<td align="center">极性分子</td>
+</tr>
+</tbody></table>
+<img src="images\8.3.png" width="500"/></li>
+</ol>
+<h2 id="键的极性对化学性质的影响"><a href="#键的极性对化学性质的影响" class="headerlink" title="键的极性对化学性质的影响"></a>键的极性对化学性质的影响</h2><p>键的极性对物质的化学性质有重要影响。例如，羧酸是一大类含羧基（$-COOH$）的有机酸，羧基可电离出$H^+$而呈酸性<br>羧酸的酸性可用$pK_a$的大小来衡量，$pK_a$越小，酸性越强。羧酸的酸性大小与其分子的组成和结构有关，如下表所示：</p>
+<blockquote>
+<p>不同羧酸的$pK_a$</p>
+<table>
+<thead>
+<tr>
+<th>羧酸</th>
+<th>$pK_a$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>丙酸($C_2H_5COOH$)</td>
+<td>$4.88$</td>
+</tr>
+<tr>
+<td>乙酸($CH_3COOH$)</td>
+<td>$4.76$</td>
+</tr>
+<tr>
+<td>甲酸($HCOOH$)</td>
+<td>$3.75$</td>
+</tr>
+<tr>
+<td>氯乙酸($CH_2ClCOOH$)</td>
+<td>$2.86$</td>
+</tr>
+<tr>
+<td>二氯乙酸($CHCl_2COOH$)</td>
+<td>$1.29$</td>
+</tr>
+<tr>
+<td>三氯乙酸($CCl_3COOH$)</td>
+<td>$0.65$</td>
+</tr>
+<tr>
+<td>三氟乙酸($CF_3COOH$)</td>
+<td>$0.23$</td>
+</tr>
+</tbody></table>
+<p>酸性至上而下由弱变强</p>
+</blockquote>
+<p>三氟乙酸的酸性大于三氯乙酸酸性的原因：由于氟的电负性大于氯的电负性，$F-C$的极性大于$CI-C$的极性，使$F_3C-$的极性大于$Cl_3C-$的极性，导致三氟乙酸的羧基中的轻基的极性更大，更易电离出氢离子</p>
+<p>三氯乙酸的酸性大于二氯乙酸酸性的原因：由于$Cl_3C-$比$ClCH-$多一个氯原子，使$Cl_3C-$的极性大于$CI_2CH-$的极性， 导致三氯乙酸的羧基中的羟基的极性更大，更易电离出氢离子</p>
+<p>甲酸的酸性大于乙酸酸性的原因：烃基（$R—$）是推电子基团，烃基越长推电子效应越大，使羧基中的烃基的极性越小，羧酸的酸性越弱</p>
+<h2 id="物质的相似相溶"><a href="#物质的相似相溶" class="headerlink" title="物质的相似相溶"></a>物质的相似相溶</h2><h3 id="「相似相溶」规则"><a href="#「相似相溶」规则" class="headerlink" title="「相似相溶」规则"></a>「相似相溶」规则</h3><p>非极性溶质一般能溶于非极性溶剂，极性溶质一般能溶于极性溶剂。如蔗糖、氨、水均是极性分子，$CCl_4$、萘和碘均是非极性分子，蔗糖和氨易溶于水，难溶于$CCl_4$，而萘和碘易溶于$CCl_4$，难溶于水</p>
+<blockquote>
+<p>相似相融规则是一条经验规则，并不绝对，如$H_2$既不溶于水，也难溶于苯</p>
+</blockquote>
+<h3 id="影响物质溶解性的因素"><a href="#影响物质溶解性的因素" class="headerlink" title="影响物质溶解性的因素"></a>影响物质溶解性的因素</h3><p>   非极性溶质一般能溶于非极性溶剂，极性溶质一般能溶于极性溶剂。如蔗糖、氨、水均是极性分子，$CCl_4$、萘和碘均是非极性分子，蔗糖和氨易溶于水，难溶于$CCl_4$，而萘和碘易溶于$CCl_4$，难溶于水</p>
+<blockquote>
+<p>相似相融规则是一条经验规则，并不绝对，如$H_2$既不溶于水，也难溶于苯</p>
+</blockquote>
+<ol>
+<li><p>内因</p>
+<ol>
+<li>物质自身的结构，「相似相溶」还适用于分子结构的相似性。如低级醇（甲醇、乙醇等）可以与水以任意比互溶，而戊醇的烃基较大，其中的一个$OH$与水分子的一个$OH$的相似因素小得多，在水中的溶解度明显减小</li>
+<li>如果溶质和溶剂之间形成氢键，则溶质在溶剂中的溶解度比较大。如果溶质分子不能与水分子形成氢键，则在水中的溶解度就比较小</li>
+<li>化学反应—溶质与溶剂反应可增大溶解度。如$SO_2$与$H_2O$反应生成$H_2SO_3$等。</li>
+</ol>
+</li>
+<li><p>外因</p>
+<ol>
+<li>温度：一般来说，温度升高，固体物质的溶解度增大，气体物质的溶解度减小</li>
+<li>压强：压强越大，气体的溶解度越大</li>
+</ol>
+</li>
+</ol>
+<h2 id="分子的手性"><a href="#分子的手性" class="headerlink" title="分子的手性"></a>分子的手性</h2><ol>
+<li>手性异构体与手性分子<br>具有完全相同的组成和原子排列的一对分子，如同左乎和右手一样互为镜像，在三维空间里不能叠合，互称手性异构体或对映异构体。有手性异构体的分子称为手性分子</li>
+<li>手性分子的判断<br>在一个有机物分子中，如果有1个碳原子分别连有$4$个不同的原子或基团，则该碳原子称为手性碳原子。名有手性碳原子的有机物分子即为手性分子。判断有机物分子是否具有手性就是判断有机物分子中是否名有手性碳原子</li>
+<li>手性分子的用途<ol>
+<li>构成生命体的有机分子绝大多数为手性分子。互为手性异构体的两个分子的性质不同</li>
+<li>生成手性药物、手性催化剂（手性催化例只催化或主要催化一种手性分子的合成）</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

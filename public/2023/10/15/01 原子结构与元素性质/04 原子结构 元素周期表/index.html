@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>原子结构与元素性质 · 四 · 「原子结构 元素周期表」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>原子结构与元素性质 · 四 · 「原子结构 元素周期表」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p><img src="/images/4.1.png"></p>
+<blockquote>
+<p>类金属：$Te,Sb,B,Ge,As,Si$<br>碱金属：$Li,Na,K,Rb,Cs,Fr$<br>卤素：$F,Cl,Br,I,At,Ts$</p>
+</blockquote>
+<h2 id="核外电子排布与周期的划分"><a href="#核外电子排布与周期的划分" class="headerlink" title="核外电子排布与周期的划分"></a>核外电子排布与周期的划分</h2><blockquote>
+<p>化学家鲍林(L.Pauling)基于大量光谱实验数据及近似的理论计算，提出的多电子原子的原子轨道 <strong>近似能级图</strong></p>
+</blockquote>
+<img title="" src="images\4.2.png"  data-align="inline" width="300">
+
+<p>在这个图中，如果将<strong>能量相近的原子轨道归为一组</strong>，所得到的能级组按照能量从低到高的顺序与元素周期表中的周期相对应。<strong>不同能级组之间的能量差较大，同一能级组内能级之间的能量差较小</strong></p>
+<p>进一步研究表明，<strong>通常只有最外能级组的电子才有可能参与化学反应，最外能级组中那些有可能参与 化学反应的电子称为 价电子(valence electron)</strong></p>
+<p>一般情况下，主族元素原子的价电子只包括最外层电子；过渡元素原子的价电子除最外层电子外，还包括次外层的部分电子，甚至倒数第三层的电子</p>
+<h2 id="价层电子排布与周期的划分"><a href="#价层电子排布与周期的划分" class="headerlink" title="价层电子排布与周期的划分"></a>价层电子排布与周期的划分</h2><img title="" src="images\4.3.jpg"  data-align="inline" >
+
+<ul>
+<li>第一周期：$1s^1\longrightarrow1s^2$</li>
+<li>第二周期：$2s^1\longrightarrow2s^2\longrightarrow2s^22p^1\longrightarrow…\longrightarrow2s^22p^6$</li>
+<li>第三周期：$3s^1\longrightarrow3s^2\longrightarrow3s^23p^1\longrightarrow…\longrightarrow3s^23p^6$</li>
+<li>第四周期：$4s^1\longrightarrow4s^2\longrightarrow3d^14s^2\longrightarrow…\longrightarrow3d^{10}4s^2\longrightarrow4s^24p^1\longrightarrow…\longrightarrow4s^24p^6$</li>
+<li>第五周期：$5s^1\longrightarrow5s^2\longrightarrow4d^15s^2\longrightarrow…\longrightarrow4d^{10}5s^2\longrightarrow5s^25p^1\longrightarrow…\longrightarrow5s^25p^6$</li>
+<li>第六周期：$La$系$6s\longrightarrow4f\longrightarrow5d\longrightarrow6p$</li>
+<li>第七周期：$Ac$系$7s\longrightarrow5f\longrightarrow6d\longrightarrow7p$</li>
+</ul>
+<p>除第一周期外，其余周期总是从$ns$能级开始，以$nsnp$能级结束；<strong>一个能级组最多能容纳的电子数等于对应的周期包含的元素种数</strong></p>
+<p>过渡元素优先填充内层的$d$轨道，其余元素的价层电子无需写$d$轨道</p>
+<blockquote>
+<p>如：</p>
+<p>$_{33}As$:核外电子排布式：$[Ar]3d^{10}4s^24p^3$</p>
+<p>$_{33}As$:价层电子排布式：$4s^24p^3$</p>
+<p>$_{54}Xe$:核外电子排布式：$[Kr]4d^{10}5s^25p^6$</p>
+<p>$_{54}Xe$:价层电子排布式：$5s^25p^6$</p>
+</blockquote>
+<p>价层电子排布式书写方式：（以$Sb为例$）</p>
+<ol>
+<li>$Sb$为第五周期$ⅤA$族</li>
+<li>$ⅤA$族：最外层有五个电子</li>
+<li>第五周期：第五能层</li>
+<li>所以电子排布式为$5s^25p^3$</li>
+</ol>
+<h2 id="各族元素价层电子排布特点"><a href="#各族元素价层电子排布特点" class="headerlink" title="各族元素价层电子排布特点"></a>各族元素价层电子排布特点</h2><ul>
+<li><strong>主族</strong>：$ns^1 \longrightarrow ns^2np^5$，且主族序数$(n)$&#x3D;最外层电子数&#x3D;价层电子数</li>
+<li><strong>0族</strong>：$He$为$1s^2$，其他为$ns^2np^6$（最外层 $8$ 电子）</li>
+<li><strong>过渡元素</strong>（全部都是金属，最外层电子数不超 $2$ ）<ol>
+<li>$ⅢB$族~$ⅤⅡB$族：<br>  $(n-1)d^{1-5}ns^{1-2}$<br>  族序数&#x3D;价电子数<br>  $d$ 轨道未全满 <blockquote>
+<p>特殊：$Cr:3d^54s^1$ $Cu:3d^{10}4s^1$<br>例外：$Pd:4d^{10}$（ $d$ 轨道全满） 以及 镧系、锕系</p>
+</blockquote>
+</li>
+<li>$ⅤⅢ$族（8、9、10列）：$(n-1)d+ns$能级的电子数之和</li>
+<li>$ⅠB、ⅡB$族：<br>  $(n-1)d^{10}ns^{1-2}$  [$(n-1)d$ 轨道为全充满状态]</li>
+<li>镧系&#x2F;锕系：$(n-2)f^{0-14}(n-1)d^{0-2}ns^2$</li>
+</ol>
+</li>
+</ul>
+<h2 id="元素周期表的分区"><a href="#元素周期表的分区" class="headerlink" title="元素周期表的分区"></a>元素周期表的分区</h2><p>按照核外电子排布，可把元素周期表划分成5个区：$s$区、$p$区、$d$区、$ds$区、$f$区<br>除$ds$区外，<strong>各区的名称来自按构造原理最后填入电子的能级符号</strong></p>
+<img title="元素周期表的分区" src="images\4.4.png"  data-align="inline" width='500'>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

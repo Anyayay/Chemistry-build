@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微粒间作用力与物质性质 · 考点 · 「晶体结构」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>微粒间作用力与物质性质 · 考点 · 「晶体结构」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="考点一-晶体类型"><a href="#考点一-晶体类型" class="headerlink" title="考点一  晶体类型"></a>考点一  晶体类型</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>分子晶体$^1$</th>
+<th>共价晶体$^2$</th>
+<th>离子晶体</th>
+<th>金属晶体</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>构成微粒</td>
+<td>分子</td>
+<td>原子</td>
+<td>阴、阳离子</td>
+<td>金属阳离子和自由电子</td>
+</tr>
+<tr>
+<td>微粒间作用力</td>
+<td>分子间作用力</td>
+<td>共价键</td>
+<td>离子键</td>
+<td>金属键</td>
+</tr>
+<tr>
+<td>典例</td>
+<td>冰($H_2O$)、$P_4$、$I_2$、干冰($CO_2$)等</td>
+<td>金刚石$^3$、晶体硅、$SiO_2$、$SiC$ 等</td>
+<td>$NaCl$、$NaOH$ 等</td>
+<td>$Na、Mg、Al、Fe$ 等</td>
+</tr>
+<tr>
+<td>硬度</td>
+<td>较小</td>
+<td>高硬度</td>
+<td>硬而脆</td>
+<td>一般较高，部分较低</td>
+</tr>
+<tr>
+<td>熔、沸点</td>
+<td>低$^4$</td>
+<td>高</td>
+<td>较高</td>
+<td>一般较高，部分较低</td>
+</tr>
+<tr>
+<td>溶解性</td>
+<td>相似相溶</td>
+<td>不溶于任何溶剂</td>
+<td>多数溶于水</td>
+<td>不溶于任何溶剂</td>
+</tr>
+<tr>
+<td>导电性</td>
+<td>固态不导电，部分溶于水能导电</td>
+<td>多数不导电，部分为半导体</td>
+<td>固态不导电，熔融态$^5$或溶于水能导电</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>导热性</td>
+<td>不良</td>
+<td>不良</td>
+<td>不良</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>常见物质类别</td>
+<td>①所有非金属氢化物<br>②部分非金属单质<br/>③部分非金属氧化物<br/>④几乎所有的酸<br/>⑤绝大多数有机物的晶体</td>
+<td>①某些非金属单质<br/>②某些非金属化合物</td>
+<td>离子化合物$^6$</td>
+<td>金属单质及其合金</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>$^1$分子晶体判断：1.溶、沸点低；2.有分子式；3.一般为非金属元素组成，但 $AlCl$ 是分子晶体，$NH_4Cl$ 等铵盐不是分子晶体。注意惰性气体分子均为单原子分子</p>
+<p>$^2$共价晶体：一般由非金属元素构成，但熔沸点高，硬度大，特别是第$ⅥA$族 $C$、$Si$及其化合物，往往为共价晶体</p>
+<p>$^3$石墨不是共价晶体，是混合晶体</p>
+<p>$^4$分子晶体特征：熔沸点较低，常温下多为液态、气态（除去汞与离子液体外，常温下为液体、气体的晶体，均为分子晶体）</p>
+<p>$^5$熔融导电是离子晶体的特征</p>
+<p>$^6$离子化合物：大多由金属元素与非金属元素组成，除了少数特例如 $AlCl_3$ 以外，铵盐由非金属元素组成，但是是离子晶体</p>
+</blockquote>
+<p>过渡金属：介于典型四种晶体之间的晶体，如离子晶体与共价晶体之间的过渡晶体</p>
+<p>混合型晶体：石墨晶体属于混合型晶体，碳原子呈 $sp^2$ 杂化，形成平面六元并环结构，层与层之间靠范德华力维持，易断裂。从性质看，石墨有类似金属晶体的导电性，但只能沿着石墨平面的方向</p>
+<h2 id="考点二-晶体类型判断"><a href="#考点二-晶体类型判断" class="headerlink" title="考点二  晶体类型判断"></a>考点二  晶体类型判断</h2><ol>
+<li><strong>根据构成晶体的粒子和粒子间的作用力类别进行判断</strong><ol>
+<li>由阳离子和阴离子相互作用而形成的晶体属于离子晶体</li>
+<li>分子间通过分子间作用力（包括氢键）相结合形成的晶体属于分子晶体</li>
+<li>相邻原子间通过共价键结合形成的具有三维骨架结构的晶体属于共价晶体</li>
+<li>金属阳离子和自由电子之间通过强烈的相互作用（金属键）形成的晶体属于金属晶体</li>
+</ol>
+</li>
+<li><strong>根据物质所属类别判断</strong><ol>
+<li>活泼金属氧化物($Na_2O$、$CaO$)、强碱和绝大多数盐类属于离子晶体($AlCl_3$、$BeCl_2$例外，属于分子晶体)</li>
+<li>所有非金属氢化物、部分非金属单质（除金刚石、石墨、晶体硅、硼外）、部分非金属氧化物(除 $SiO_2$ 外)、几乎所有的酸和绝大多数有机物(除有机盐外)均属于分子晶体</li>
+<li>金属单质（除汞、灰锡外）和合金属于金属晶体</li>
+<li>金刚石、晶体硅、二氧化硅、碳化硅、硼等属于共价晶体</li>
+</ol>
+</li>
+<li><strong>根据各类晶体的特征性质判断</strong><br>主要是根据物质的物理性质，如熔点、沸点、溶解性、导电性等进行判断<ol>
+<li><strong>根据晶体的熔、沸点判断</strong>：熔、沸点低的单质和化合物一般为分子晶体；熔、沸点较高的化合物一般为离子晶体；熔、沸点很高的晶体一般为共价晶体</li>
+<li><strong>依据导电性判断</strong>：离子晶体处于固态时不导电，溶于水及处于熔融状态时能够导电；共价晶体不导电；分子晶体处于固态及熔融状态时均不导电，但部分分子晶体溶于水后能电离形成自由移动的离子，能够导电（如$HCl、H_2SO_4$等），属于非电解质的分子晶体（如酒精、蔗糖等）的水溶液不导电；金属晶体是电的良导体</li>
+<li><strong>根据硬度和机械强度判断</strong>：离子晶体硬度较大，难以压缩；共价晶体硬度大；金属晶体多数硬度较大，且具有金属光泽，有延展性；分子晶体的硬度小</li>
+</ol>
+</li>
+</ol>
+<h2 id="考点三-有关晶胞结构的分析与计算"><a href="#考点三-有关晶胞结构的分析与计算" class="headerlink" title="考点三  有关晶胞结构的分析与计算"></a>考点三  有关晶胞结构的分析与计算</h2><p>有关晶胞结构的分析与计算类题目的解题思路一般如下：</p>
+<ol>
+<li>截取一个晶胞或晶胞中的一部分（如$NaCl$晶胞中的一个小立方体）</li>
+<li>用均摊法确定晶胞或截取的部分中所包含的原子或离子数目($N$)，进而可确定晶体的化学式</li>
+<li>计算晶胞中所包含的微粒或微粒组合（如$CaF_2$）的物质的量：$n&#x3D;\frac{N}{N_A}$</li>
+<li>计算晶胞的质量：$m&#x3D;n\cdot M&#x3D;\frac{N}{N_A}\cdot M$</li>
+<li>计算晶胞的体积：对于立方晶胞，若边长为 $a$ $cm$，则体积$V(晶胞)&#x3D;a^3$ $cm^3$ [对于长方体，若底面边长分别为$a$ $cm$、$b$ $cm$，高为$c$ $cm$，则体积$V(晶胞)&#x3D;abc$ $cm^3$]</li>
+<li>计算晶体的密度：$p &#x3D; \frac { m } { V ( 晶胞 ) } &#x3D; \frac { N \cdot M } { N _ { A } \cdot a ^ { 3 } } g \cdot cm^{-3}$式子中涉及$5$个物理量，已知其中$4$个物理量便可计算第$5$个物理量</li>
+<li>根据晶胞中微粒空间位置关系、微粒半径以及晶胞胞参数，利用几何知识计算$2$个粒子之间的距离</li>
+<li>根据晶胞中所含有的原子的体积和晶胞的体积晶胞中原子的空间利用率（一般用于金属晶体）原子的体积 $V(原子)&#x3D;N\times \frac{4}{3}\pi r^3$ （其中中$N$为晶胞含有的原子数目，$r$为原子半径），则空间利用率$&#x3D;\frac{ V（原子）}{ V（晶胞）}\times100%$</li>
+<li>原子分数坐标：可以根据题中建系方式，利用投影法、截距法或对称法判断目标原子的分数坐标，默认取该晶胞的边长为 $1$</li>
+<li>「正四面体」空隙：原子周围最近的$4$个原子形成正四面体结构<br>  「正八面体」空隙：原子周围最近的$6$个原子形成正四面体结构  <img title="" src="images/7.1.jfif"  width="300">
+> $1cm=10mm\quad 1mm=10^3\mu m\quad 1\mu m=10^3nm \quad 1nm=10^3pm$
+> $1cm=10mm=10^4\mu m=10^7nm=10^{10}pm$</li>
+</ol>
+<h2 id="考点四-晶体熔、沸点的比较"><a href="#考点四-晶体熔、沸点的比较" class="headerlink" title="考点四 晶体熔、沸点的比较"></a>考点四 晶体熔、沸点的比较</h2><blockquote>
+<p>首先判断晶体类型，再利用影响因素比较熔沸点高低</p>
+</blockquote>
+<ol>
+<li><p>不同晶型的物质熔、沸点高低顺序一般是：<br>$$<br>共价晶体&gt;离子晶体&gt;分子晶体<br>$$</p>
+</li>
+<li><p><strong>共价晶体</strong>：比较共价键的强弱。一般来说，<strong>原子半径越小</strong>，形成的共价键，<strong>键长越短</strong>，<strong>键能越大</strong>，其晶<strong>体熔沸点越高</strong>，如熔点：金刚石 $&gt;$ 碳化硅 $&gt;$ 晶体硅</p>
+</li>
+<li><p><strong>离子晶体</strong>：比较晶格能的大小。阴、阳离子所带<strong>电荷数越多</strong>，<strong>离子半径越小</strong>，其<strong>晶格能越大</strong>，其离子晶体的<strong>熔沸点就越高</strong>，如熔点：$MgO&gt;MgCl_2&gt;NaCl&gt;CsCl$</p>
+</li>
+<li><p><strong>分子晶体</strong>：</p>
+<ol>
+<li>（优先考虑）含有<strong>氢键</strong>的物质，<strong>熔、沸点较高</strong></li>
+<li><strong>组成和结构相似</strong>的物质：<strong>相对分子质量越大</strong>，<strong>范德华力越大</strong>，<strong>熔、沸点越高</strong>。如：$O_2&gt;N_2，HI&gt;HBr&gt;HCl$</li>
+<li><strong>相对分子质量相等或相近</strong>：<strong>极性分子</strong>的<strong>范德华力大</strong>，<strong>熔、沸点高</strong>。如：$CO&gt;N_2，CH_3OH&gt;CH_3CH_3$</li>
+<li>在烷烃的同分异构体中，一般来说，支链数越多，熔、沸点越低。如沸点：正戊烷 $&gt;$ 异戊烷 $&gt;$ 新戊烷；芳香烃以及衍化物苯环上的同分异构体一般按照「邻位 $&gt;$ 间位 $&gt;$ 对位」的顺序</li>
+</ol>
+</li>
+<li><p><strong>金属晶体</strong>：金属<strong>离子半径越小</strong>，<strong>离子电荷数越多</strong>，其金属氧离子与自由电子间<strong>作用越强</strong>，金属<strong>熔、沸点较高</strong></p>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

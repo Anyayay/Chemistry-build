@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微粒间作用力与物质性质 · 考点 · 「化学键与相互作用力」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>微粒间作用力与物质性质 · 考点 · 「化学键与相互作用力」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="考点一-化学键与相互作用力性质总结"><a href="#考点一-化学键与相互作用力性质总结" class="headerlink" title="考点一 化学键与相互作用力性质总结"></a>考点一 化学键与相互作用力性质总结</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>总结</th>
+<th>影响因素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>共价键</td>
+<td>原子之间共用电子形成的化学键，本质是高概率地出现在两个原子核之间的电子与两个原子核之间的电性作用；具有方向性和饱和性</td>
+<td>$$键能 \propto \frac { 1 } { 键长 } \propto \frac { 1 } { r }$$</td>
+</tr>
+<tr>
+<td>离子键</td>
+<td>阴阳离子通过静电作用形成的化学键，本质是离子间引力与斥力平衡(实质是静电作用)；无方向性和饱和性，但成键数目受到空间体积的限制</td>
+<td>$$键能 \propto 晶格能 \propto \frac { Q _ { 1 } Q _ { 2 } } { r }$$</td>
+</tr>
+<tr>
+<td>金属键</td>
+<td>自由电子与金属阳离子间的相互作用，本质类似于共价键，也是电性作用；无方向性和饱和性。金属键导致产生了金属光泽、导电性、导热性</td>
+<td>$$键能 \propto\frac{Q}{r}$$</td>
+</tr>
+<tr>
+<td>范德华力</td>
+<td>分子间普遍存在的一种短程相互作用力，是指也是电性作用，不属于化学键，属于分子间作用力；无方向性和饱和性。范德华力可提升物质熔沸点</td>
+<td>$$作用力大小 \propto M$$</td>
+</tr>
+<tr>
+<td>氢键</td>
+<td>一个裸露的 原子核与相邻原子产生静电相互作用和一定的轨道重叠作用，不属于化学键，属于分子间作用力；有方向性和饱和性。一般只有 $O、N、F$ 可以形成。分子间氢键可显著提升物质熔沸点，与水形成分子间氢键增大溶解度，形成分子内氢键降低溶解度</td>
+<td>$$作用力大小 \propto 氢键原子电负性$$</td>
+</tr>
+</tbody></table>
+<h2 id="考点二-化学键键角比较"><a href="#考点二-化学键键角比较" class="headerlink" title="考点二 化学键键角比较"></a>考点二 化学键键角比较</h2><p>从四个影响因素入手：<strong>杂化方式</strong>、<strong>孤电子对</strong>、<strong>电负性</strong>、<strong>多重键</strong></p>
+<ol>
+<li><p><strong>杂化方式</strong></p>
+<p>$sp&gt;sp^2&gt;sp^3$</p>
+</li>
+<li><p><strong>孤电子对</strong></p>
+<p>孤电子对的斥力是大于成键电子的斥力</p>
+<blockquote>
+<p>$\ce{H2O(两对孤电子)&gt;NH3(一对孤电子)&gt;CH4(没有孤电子)}$</p>
+</blockquote>
+</li>
+<li><p><strong>电负性</strong></p>
+<p>电负性大的原子，吸引电子的能力越强，键角更大</p>
+<blockquote>
+<p>可以理解为，电负性大的原子将成键电子吸引，会把键角撑开，键角更大</p>
+</blockquote>
+<blockquote>
+<p>电负性：$\ce{N&gt;P&gt;As}\quad$键角：$\ce{NH3&gt;PH3&gt;AsH3}$</p>
+</blockquote>
+</li>
+<li><p><strong>多重键</strong></p>
+<p>斥力：三键$&gt;$双键$&gt;$单键</p>
+<blockquote>
+<p>甲醛的 $\ce{∠ O-C-H}$ &gt; $\ce{∠ H-C-H}$ </p>
+</blockquote>
+<p>第二周期元素的氟化物的键角小于相应的氢化物而其他周期元素则有相反的规律</p>
+<blockquote>
+<p>第二周期：$\ce{NF3&lt;NH3\quad OF2&lt;OH2}$</p>
+<p>第三周期：$\ce{PF3&gt;PH3\quad AsF3&lt;AsH}$</p>
+</blockquote>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

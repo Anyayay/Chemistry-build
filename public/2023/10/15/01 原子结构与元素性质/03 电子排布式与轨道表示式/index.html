@@ -1,0 +1,496 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>原子结构与元素性质 · 三 · 「电子排布式与轨道表示式」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>原子结构与元素性质 · 三 · 「电子排布式与轨道表示式」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <blockquote>
+<p>价层电子排布式书写规则是处于稳定状态的原子，核外电子将尽可能地按能量最低原理排布</p>
+</blockquote>
+<table>
+    <tr>
+        <th rowspan="3">电子排布式</th>
+        <th>含义</th>
+        <td>用数字在能级符号右上角标明该能级上排布的 <b>电子数</b> ，这就是电子排布式</td>
+    </tr>
+    <tr>
+        <th>意义</th>
+        <td>能直观反映出核外的电子层、能级及各能级上的电子数</td>
+    </tr>
+    <tr>
+        <th>实例</th>
+        <td>K： 1s<sup>2</sup>2s<sup>2</sup>2p<sup>6</sup>3s<sup>2</sup>3p<sup>6</sup>4s<sup>1</sup> </td>
+    </tr>
+    <tr>
+        <th rowspan="3">简化电子排布式</th>
+        <th>含义</th>
+        <td>为了避免电子排布式书写过于繁琐，把内层电子达到稀有气体原子结构的部分以相应稀有气体元素符号外加 方括号 表示</td>
+    </tr>
+    <tr>
+        <th>意义</th>
+        <td>避免书写电子排布式过于繁琐</td>
+    </tr>
+    <tr>
+        <th>实例</th>
+        <td>K：[Ar] 4s<sup>1</sup> </td>
+    </tr>
+    <tr>
+        <th rowspan="3">轨道表示式</th>
+        <th>含义</th>
+        <td>每个方框代表一个原子轨道，每个箭头代表一个 <b>电子</b> </td>
+    </tr>
+    <tr>
+        <th>意义</th>
+        <td>能直观反映出电子的排布情况及电子的 <b>自旋</b> 状态</td>
+    </tr>
+    <tr>
+        <th>实例</th>
+        <td><img src="images/3.31.png" height="50"></td>
+    </tr>
+</table>
+
+<table>
+<thead>
+<tr>
+<th>原子序数</th>
+<th>元素名称</th>
+<th>元素符号</th>
+<th>电子排布式</th>
+<th>价层电子轨道表示式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>氢</td>
+<td>$H$</td>
+<td>$1s^1$</td>
+<td>$\frac {↑\quad}{1s}$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>氦</td>
+<td>$He$</td>
+<td>$1s^2$</td>
+<td>$\frac {↑ ↓ }{1s}$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>锂</td>
+<td>$Li$</td>
+<td>$1s^2 2s^1$</td>
+<td>$\frac {↑ \quad}{2s}$</td>
+</tr>
+<tr>
+<td>4</td>
+<td>铍</td>
+<td>$Be$</td>
+<td>$1s^2 2s^2$</td>
+<td>$\frac {↑ ↓ }{2s}$</td>
+</tr>
+<tr>
+<td>5</td>
+<td>硼</td>
+<td>$B$</td>
+<td>$1s^2 2s^2 2p^1$</td>
+<td>$\frac {↑ ↓ }{2s} \frac {↑\quad</td>
+</tr>
+<tr>
+<td>6</td>
+<td>碳</td>
+<td>$C$</td>
+<td>$1s^2 2s^2 2p^2$</td>
+<td>$\frac {↑ ↓ }{2s}\ \frac {↑\quad</td>
+</tr>
+<tr>
+<td>7</td>
+<td>氮</td>
+<td>$N$</td>
+<td>$1s^2 2s^2 2p^3$</td>
+<td>$\frac {↑ ↓ }{2s}\ \frac {↑\quad</td>
+</tr>
+<tr>
+<td>10</td>
+<td>氖</td>
+<td>$Ne$</td>
+<td>$1s^2 2s^2 2p^6$</td>
+<td>$\frac{↑ ↓ }{2s} \frac{↑ ↓</td>
+</tr>
+<tr>
+<td>11</td>
+<td>钠</td>
+<td>$Na$</td>
+<td>$1s^2 2s^2 2p^6 3s^1$</td>
+<td>$\frac {↑\quad}{3s}$</td>
+</tr>
+<tr>
+<td>12</td>
+<td>镁</td>
+<td>$Mg$</td>
+<td>$1s^2 2s^2 2p^6 3s^2$</td>
+<td>$\frac {↑ ↓ }{3s}$</td>
+</tr>
+<tr>
+<td>13</td>
+<td>铝</td>
+<td>$Al$</td>
+<td>$1s^2 2s^2 2p^6 3s^2 3p^1$</td>
+<td>$\frac {↑ ↓ }{3s}\ \frac {↑\quad</td>
+</tr>
+<tr>
+<td>14</td>
+<td>硅</td>
+<td>$Si$</td>
+<td>$1s^2 2s^2 2p^6 3s^2 3p^2$</td>
+<td>$\frac {↑ ↓ }{3s}\ \frac {↑\quad</td>
+</tr>
+<tr>
+<td>18</td>
+<td>氩</td>
+<td>$Ar$</td>
+<td>$1s^2 2s^2 2p^6 3s^2 3p^6$</td>
+<td>$\frac {↑ ↓ }{3s}\ \frac {↑↓</td>
+</tr>
+<tr>
+<td>19</td>
+<td>钾</td>
+<td>$K$</td>
+<td>$[Ar] 4s^1$</td>
+<td>$\frac {↑\quad}{4s}$</td>
+</tr>
+<tr>
+<td>20</td>
+<td>钙</td>
+<td>$Ca$</td>
+<td>$[Ar] 4s^2$</td>
+<td>$\frac {↑ ↓ }{4s}$</td>
+</tr>
+<tr>
+<td>21</td>
+<td>钪</td>
+<td>$Sc$</td>
+<td>$[Ar] 3d^1 4s^2$</td>
+<td>$\frac {↑ \quad</td>
+</tr>
+<tr>
+<td>22</td>
+<td>钛</td>
+<td>$Ti$</td>
+<td>$[Ar] 3d^2 4s^2$</td>
+<td>$\frac {↑ \quad</td>
+</tr>
+<tr>
+<td>23</td>
+<td>钒</td>
+<td>$V$</td>
+<td>$[Ar] 3d^3 4s^2$</td>
+<td>$\frac {↑ \quad</td>
+</tr>
+<tr>
+<td>24</td>
+<td>铬</td>
+<td>$Cr$</td>
+<td>$[Ar] 3d^5 4s^1$</td>
+<td>$\frac {↑ \quad</td>
+</tr>
+<tr>
+<td>25</td>
+<td>锰</td>
+<td>$Mn$</td>
+<td>$[Ar] 3d^5 4s^2$</td>
+<td>$\frac {↑ \quad</td>
+</tr>
+<tr>
+<td>26</td>
+<td>铁</td>
+<td>$Fe$</td>
+<td>$[Ar] 3d^6 4s^2$</td>
+<td>$\frac {↑ ↓</td>
+</tr>
+<tr>
+<td>27</td>
+<td>钴</td>
+<td>$Co$</td>
+<td>$[Ar] 3d^7 4s^2$</td>
+<td>$\frac {↑ ↓</td>
+</tr>
+<tr>
+<td>28</td>
+<td>镍</td>
+<td>$Ni$</td>
+<td>$[Ar] 3d^8 4s^2$</td>
+<td>$\frac {↑ ↓</td>
+</tr>
+<tr>
+<td>29</td>
+<td>铜</td>
+<td>$Cu$</td>
+<td>$[Ar] 3d^{10} 4s^1$</td>
+<td>$\frac {↑ ↓</td>
+</tr>
+<tr>
+<td>30</td>
+<td>锌</td>
+<td>$Zn$</td>
+<td>$[Ar] 3d^{10} 4s^2$</td>
+<td>$\frac {↑ ↓</td>
+</tr>
+<tr>
+<td>31</td>
+<td>镓</td>
+<td>$Ga$</td>
+<td>$[Ar] 3d^{10} 4s^2 4p^1$</td>
+<td>$\frac {↑ ↓ }{4s}\ \frac {↑\quad</td>
+</tr>
+<tr>
+<td>32</td>
+<td>锗</td>
+<td>$Ge$</td>
+<td>$[Ar] 3d^{10} 4s^2 4p^2$</td>
+<td>$\frac {↑ ↓ }{4s}\ \frac {↑\quad</td>
+</tr>
+<tr>
+<td>33</td>
+<td>砷</td>
+<td>$As$</td>
+<td>$[Ar] 3d^{10} 4s^2 4p^3$</td>
+<td>$\frac {↑ ↓ }{4s} \frac {↑\quad</td>
+</tr>
+<tr>
+<td>36</td>
+<td>氪</td>
+<td>$Kr$</td>
+<td>$[Ar] 3d^{10} 4s^2 4p^6$</td>
+<td>$\frac {↑ ↓ }{4s} \frac {↑↓</td>
+</tr>
+<tr>
+<td>37</td>
+<td>铷</td>
+<td>$Rb$</td>
+<td>$[Kr] 5s^1$</td>
+<td>$\frac {↑\quad}{5s}$</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>特殊情况：$Cr:[Ar]3d^54s^1\quad Cu: [Ar]3d^{10}4s^1$</p>
+</blockquote>
+<h2 id="过渡金属阳离子"><a href="#过渡金属阳离子" class="headerlink" title="过渡金属阳离子"></a>过渡金属阳离子</h2><blockquote>
+<p><strong>从最外层电子开始失去</strong></p>
+</blockquote>
+<ul>
+<li>$Fe:[Ar]3d^64s^2$<br>$Fe^{2+}:[Ar]3d^6$<br>$Fe^{3+}:[Ar]3d^5$</li>
+<li>$Cu:[Ar]3d^{10}4s^1$<br>$Cu^{1+}:[Ar]3d^{10}$<br>$Cu^{2+}:[Ar]3d^9$</li>
+<li>$Zn:[Ar]3d^{10}4s^2$<br>$Zn^{1+}:[Ar]3d^{10}$</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

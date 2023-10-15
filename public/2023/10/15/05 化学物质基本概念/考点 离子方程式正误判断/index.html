@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>化学物质基本概念 · 考点 · 「离子方程式正误判断」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>化学物质基本概念 · 考点 · 「离子方程式正误判断」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="一、注意是否符合反应事实"><a href="#一、注意是否符合反应事实" class="headerlink" title="一、注意是否符合反应事实"></a>一、注意是否符合反应事实</h2><p>离子反应必须符合客观事实，而命题者往往设置不符合「反应原理」的陷阱</p>
+<ol>
+<li><p>$\ce{Fe-&gt;[Cl_2、Br_2]Fe^{3+}}$ ；$\ce{Fe-&gt;[I_2、S、H_2(非氧化性酸)]Fe^{2+}}$ ；稀 $ \ce{HNO3 +}\begin{cases}\ce{Fe(少量)-&gt;Fe^{3+}}\\ce{Fe(过量)-&gt;Fe^{2+}}\end{cases}\$ ； $\ce{Fe(常温)}$ 与浓 $ \ce{HNO3}$ 发生钝化</p>
+</li>
+<li><p>金属和氧化性酸（如 $\ce{HNO3}$、浓 $\ce{H2SO4}$）反应不放 $\ce{H2}$ </p>
+</li>
+<li><p>$\ce{Na}$ 不能置换出 $\ce{CuSO4}$ 溶液中的 $ \ce{Cu}$ （先与 $\ce{H2O}$ 反应生成 $\ce{NaOH}$ ）</p>
+</li>
+<li><p>忽略氧化还原</p>
+<blockquote>
+<p>例如：$\ce{Na2\overset{-2}{S} +HNO3-&gt;H2S ^ +Na\overset{-2}{S}O3\qquad(×):\overset{-2}{S}}$ 有很强的还原性，遇到稀硝酸，一定会发生氧化还原反应</p>
+</blockquote>
+</li>
+<li><p>忽略相互促进的水解反应（完全双水解）</p>
+<blockquote>
+<p>常见的双水解的离子：</p>
+<p>$\ce{Al+3:HCO^-3、CO^{2-}3、HS- 、S^-2 、ClO- 、AlO^-2}$</p>
+<p>$\ce{Fe+3:HCO^-3、CO^{2-}3 、ClO- 、AlO^-2}$</p>
+<p>$\ce{Fe+2:AlO^-2、NH+4、SiO^{2-}3}$</p>
+<p>例如：$\ce{Fe+3 +CO^{2-}3}$ 不会生成 $\ce{Fe2(CO3)3 v}$ ，因为会发生完全双水解，应生成 $\ce{Fe2(OH)3 v +CO2 ^}$</p>
+</blockquote>
+</li>
+<li><p>忽略络合反应</p>
+<blockquote>
+<p>三价铁离子和硫氰根离子反应：$\ce{Fe^{3+} +SCN- -&gt; [Fe(SCN)]+2}$</p>
+<p>铜离子遇到足量的浓氨水：$\ce{Cu^{2+} + NH3.H2O -&gt; [Cu(NH3)4]^{2+}}$</p>
+<p>银离子遇到足量的浓氨水：$\ce{Ag+ + NH3.H2O -&gt; [Ag(NH3)2]+}$</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="二、注意是否满足三守恒-（原子守恒、电荷守恒、电子得失守恒）"><a href="#二、注意是否满足三守恒-（原子守恒、电荷守恒、电子得失守恒）" class="headerlink" title="二、注意是否满足三守恒 （原子守恒、电荷守恒、电子得失守恒）"></a>二、注意是否满足三守恒 （原子守恒、电荷守恒、电子得失守恒）</h2><p>检查配平是否正确</p>
+<h2 id="三、注意-ce-、、-、-v-是否使用恰当"><a href="#三、注意-ce-、、-、-v-是否使用恰当" class="headerlink" title="三、注意 $\ce{&#x3D;、&lt;&#x3D;&gt;、 ^ 、 v}$ 是否使用恰当"></a>三、注意 $\ce{&#x3D;、&lt;&#x3D;&gt;、 ^ 、 v}$ 是否使用恰当</h2><ol>
+<li><p>强电解质的电离（强酸、强碱、绝大多数盐）用「$\ce{&#x3D;}$」；弱电解质的电离、盐类的水解用「$\ce{&lt;&#x3D;&gt;}$」，盐类水解后的产物不写</p>
+<p>「$\downarrow$」或「$\uparrow$」；若两种离子相互促进水解，可以进行到底，则要写「$\ce{&#x3D;}$」；可逆反应要用「$\ce{&lt;&#x3D;&gt;}$」表示</p>
+<blockquote>
+<p>$\ce{Mg^{2+} +2H2O&lt;&#x3D;&gt;Mg(OH)2 v +2H+\qquad(×):}$ $\ce{Mg^{2+}}$ 水解程度很弱，不足以形成沉淀，因此不标沉淀符号</p>
+</blockquote>
+</li>
+<li><p>产物中形成胶体时应备注「（胶体）」，不可写「$\downarrow$」</p>
+<blockquote>
+<p>$\ce{Fe^{3+} +3H2O\overset{\Delta}{&#x3D;}Fe(OH)3(胶体) +3H+}$</p>
+</blockquote>
+</li>
+<li><p>$\ce{NH+4}$ 与 $\ce{OH-}$ 反应时，若条件为浓溶液或加热，生成 $\ce{NH3}$ 且要注明「$\uparrow$」；若为稀溶液，则生成 $\ce{NH3\cdot H2O}$</p>
+</li>
+</ol>
+<h2 id="四、注意离子的拆分是否正确"><a href="#四、注意离子的拆分是否正确" class="headerlink" title="四、注意离子的拆分是否正确"></a>四、注意离子的拆分是否正确</h2><ol>
+<li><p>强酸（高中六大强酸：$\ce{HClO4、HI、HBr、HCl、HNO3、H2SO4}$）、可溶强碱（$\ce{NaOH、KOH、Ba(OH)2}$）、可溶性盐的化学式</p>
+<p>必须拆分，需要注意的是浓硝酸、浓盐酸的化学式可拆分，浓硫酸的化学式不拆分</p>
+</li>
+<li><p>弱电解质（弱酸、弱碱、水等）、沉淀、气体、单质、弱酸的酸式酸根离子在离子方程式中都不能拆分成离子，氧化物在水溶液</p>
+<p>中不能拆分成 $\ce{O^{2-}}$</p>
+</li>
+<li><p>对于微溶性的强电解质（如 $\ce{Ca(OH)2、CaSO4、MgCO3}$ 等），在反应物中是否拆分视情况而定</p>
+<blockquote>
+<p>澄清石灰水中 $\ce{Ca(OH)2}$ 以$\ce{Ca^{2+}、OH-}$ 的形式存在，可拆成离子形式，但石灰乳为悬浊液，有大量未溶固体， $\ce{Ca(OH)2}$ 在离子方程式中不拆分。微溶物在生成物中一般不拆分，用化学式表示</p>
+</blockquote>
+</li>
+<li><p>可溶性多元弱酸的酸式酸根离子（如 $\ce{HCO^-3、HSO^-3 、HS- 、HC2O^-4 、H2PO^-4、HPO^{2-}4}$ 等），一律保留酸式酸根离子的形式</p>
+<blockquote>
+<p>例如在水溶液中 $\ce{HSO^-3}$ 写成 $\ce{H+、SO^{2-}3}$ 是错误的。值得注意的是 $\ce{HSO^-4}$ 在水溶液中要拆分成 $\ce{H+、SO^{2-}4}$</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="五、注意是否漏写离子反应"><a href="#五、注意是否漏写离子反应" class="headerlink" title="五、注意是否漏写离子反应"></a>五、注意是否漏写离子反应</h2><p>判断离子方程式的书写正误时，要仔细审题，细心检查是否忽略了其他反应</p>
+<blockquote>
+<p>$\ce{CuSO4}$ 溶液和 $\ce{Ba(OH)2}$ 溶液反应：$\ce{Ba^{2+} +SO^{2-}4&#x3D;BaSO4 v }\quad(×):$ 忽略了$\ce{Cu^{2+} +2OH- &#x3D;Cu(OH)2 v}$ </p>
+</blockquote>
+<h2 id="六、注意是否符合反应的「量」"><a href="#六、注意是否符合反应的「量」" class="headerlink" title="六、注意是否符合反应的「量」"></a>六、注意是否符合反应的「量」</h2><p>注意离子方程式是否符合题设条件的要求，如过量、少量、等物质的量、一定浓度和体积混合以及滴加顺序对反应产物的影响</p>
+<h3 id="Ⅰ与量有关的复分解反应"><a href="#Ⅰ与量有关的复分解反应" class="headerlink" title="Ⅰ与量有关的复分解反应"></a>Ⅰ与量有关的复分解反应</h3><ol>
+<li><p>向 $\ce{NH4Al(SO4)2}$ 溶液中滴 $\ce{Ba(OH)2}$ 溶液使 $\ce{SO^{2-}4}$ 恰好完全沉淀，离子方程式为：</p>
+<p>$\ce{NH+4 + Al^{3+} + 2SO^{2-}<em>{4 } + 2Ba^{ 2 + } + 4OH- &#x3D; NH3\cdot H</em>{2}O + Al(OH)<em>{3} v + 2BaSO</em>{4} v }\quad (√)$</p>
+<blockquote>
+<ol>
+<li>由 $\ce{SO^{2-}4 +Ba^{2+}&#x3D;BaSO4 v}$ 进行配平得出由 $1$ 份 $\ce{NH4Al(SO4)2}$ 溶液 和 $2$ 份  $\ce{Ba(OH)2}$ 溶液</li>
+<li>由 $\ce{Al^{3+} + 3OH- &#x3D;Al(OH)3 v}$ 和 $\ce{NH^+4 +OH- &#x3D;NH3\cdot H2O}$ 可知，优先反应  $\ce{Al^{3+}}$ ，生成 $1$ 份 $\ce{Al(OH)3}$</li>
+<li>还剩余  $1$ 份 $\ce{OH-}$ ，与 $\ce{NH+4}$ 反应，生成 $1$ 份 $\ce{NH3\cdot H2O}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>向 $\ce{NH4Al(SO4)2}$ 溶液滴入过量的 $\ce{NaOH}$ 溶液：$\ce{NH+4 +Al^3+ +5OH- &#x3D;AlO^-2 +NH3\cdot H2O +2H2O}\quad (√)$</p>
+<blockquote>
+<ol>
+<li>优先反应 $1$ 份 $\ce{Al^{3+} + 3OH- &#x3D;Al(OH)3 v}$ </li>
+<li>其次反应 $1$ 份 $\ce{NH+4 +OH- &#x3D;NH3\cdot H2O}$ </li>
+<li>最后反应 $1$ 份 $\ce{Al(OH)3 +OH- &#x3D;AlO^-2 +2H2O}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>向 $\ce{NH4Fe(SO4)2}$ 饱和溶液中滴加几滴（少量）$\ce{NaOH}$ 溶液：$\ce{Fe^3+ +3OH- &#x3D;Fe(OH)3 v}\quad(√)$</p>
+<blockquote>
+<p>由 $\ce{NH+4 +OH- &#x3D;NH3\cdot H2O}$ 和 $\ce{Fe^3+ +3OH- &#x3D;Fe(OH)3 v}$ ，$\ce{Fe^3+}$ 优先反应</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="Ⅱ-ce-CO2-少量与过量的比较"><a href="#Ⅱ-ce-CO2-少量与过量的比较" class="headerlink" title="Ⅱ $\ce{CO2}$ 少量与过量的比较"></a>Ⅱ $\ce{CO2}$ 少量与过量的比较</h3><p>考虑反应物酸性与 $\ce{H2CO3、HCO^-3}$ 的酸性强弱比较</p>
+<blockquote>
+<p>酸性大小：$\ce{H2CO3(CO2 +H2O)&gt;HClO&gt;Ph-OH&gt;HCO^-3}$</p>
+</blockquote>
+<ol>
+<li><p>将少量的 $\ce{CO2}$ 通入 $\ce{NaClO}$ 溶液中：$\ce{2ClO- +CO2 +H2O &#x3D;2HClO +CO^2-_3}\quad (×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{H2CO3}$ 电离出的第一个 $\ce{H+}$ 用于制备 $\ce{HClO}$，$\ce{ClO- +CO2 +H2O &#x3D;HClO +HCO^-3}$</li>
+<li>$\ce{HCO^-3}$ 电离出的 $\ce{H+}$ 无法制备次氯酸（ $\ce{ClO- +HCO^-3} \not&#x3D;\ce{ HClO +CO^2-_3}$，弱酸不可制强酸）</li>
+</ol>
+</blockquote>
+</li>
+<li><p>将少量的 $\ce{CO2}$ 通入苯酚钠溶液中：$\ce{2C6H5O- +CO2 +H2O &#x3D;2C6H5OH +CO^2-_3}\quad (×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{H2CO3}$ 电离出的第一个 $\ce{H+}$ 用于制备 $\ce{C6H5OH}$，$\ce{C6H5O- +CO2 +H2O &#x3D;C6H5OH +HCO^-3}$</li>
+<li>$\ce{HCO^-3}$ 电离出的 $\ce{H+}$ 无法制备苯酚（ $\ce{C6H5O- +HCO^-3} \not&#x3D;\ce{ C6H5OH +CO^2-_3}$，弱酸不可制强酸）</li>
+</ol>
+</blockquote>
+</li>
+<li><p>$\ce{Na2S}$ 溶液吸收少量 $\ce{CO2:S^2- +CO2 +H2O &#x3D;CO^2-_3 +H2S ^}\quad(×)$</p>
+<p>[已知：$K_{a1}(\ce{H2CO3})&gt;K_{a1}(\ce{H2S})&gt;K_{a2}(\ce{H2CO3})$]</p>
+<blockquote>
+<ol>
+<li>由 $K_{a1}(\ce{H2CO3})&gt;K_{a1}(\ce{H2S})&gt;K_{a2}(\ce{HS-})$ ，$\ce{H2CO3}$ 电离出的第一个 $\ce{H+}$ 可参与反应：</li>
+</ol>
+<p>   $\ce{S^2- +CO2 +H2O &#x3D;HS- +HCO^-3}$</p>
+<ol start="2">
+<li>由 $K_{a1}(\ce{H2S})&gt;K_{a2}(\ce{H2CO3})$ ，$\ce{HCO^-3}$ 电离出的 $\ce{H+}$ 不参与反应（$\ce{HS- +HCO^-3} \not&#x3D;\ce{CO^2-_3 +H2S ^}$）</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<h3 id="Ⅲ-ce-SO2-的少量与过量"><a href="#Ⅲ-ce-SO2-的少量与过量" class="headerlink" title="Ⅲ $\ce{SO2}$ 的少量与过量"></a>Ⅲ $\ce{SO2}$ 的少量与过量</h3><blockquote>
+<p>$\ce{SO2}$ 的性质：</p>
+<ol>
+<li>酸性：$\ce{SO2 +H2O&lt;&#x3D;&gt;H2SO3}$</li>
+<li>还原性：$\ce{\overset{+4}{S}O2-&gt;[氧化剂]\overset{+6}{S}O^2-_4}$</li>
+<li>氧化性：$\ce{\overset{+4}{S}O2 +H2\overset{-2}{S}-&gt;\overset{0}{S}}$</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>用过量氨水吸收工业尾气中的 $\ce{SO2:2NH3\cdot H2O +SO2&#x3D;2NH+4 +SO^2-_3 +H2O}\quad(√)$</p>
+<blockquote>
+<ol>
+<li>$\ce{SO2}$ 溶于水视为 $\ce{H2SO3}$</li>
+<li>过量氨水中和  $\ce{H2SO3}$ 电离出的所有 $\ce{H+}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>将过量的 $\ce{SO2}$ 通入次氯酸钠溶液中：$\ce{ClO- +SO2 +H2O&#x3D;Cl- +SO^{2-}4 +2H+}\quad(√)$</p>
+<blockquote>
+<ol>
+<li>少量的 $\ce{ClO-}$ 视为 $1$ 份，$\ce{SO2}$ 溶于水视为 $\ce{H2\overset{+4}{S}O3}$</li>
+<li>$\ce{ClO-}$ 为氧化剂，$\ce{H2SO3}$ 为还原剂</li>
+</ol>
+</blockquote>
+</li>
+<li><p>将少量的 $\ce{SO2}$ 通入次氯酸钠溶液中：$\ce{ClO- +SO2 +H2O&#x3D;Cl- +SO^{2-}4 +2H+}\quad(×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{H+}$ 与 $\ce{ClO-}$ 不能共存，发生反应 $\ce{H+ +ClO- &#x3D;HClO}$</li>
+<li>$\ce{3ClO- +SO2 +H2O&#x3D;Cl- +SO^{2-}4 +2HClO}$</li>
+</ol>
+</blockquote>
+</li>
+<li><p>向 $\ce{Ba(ClO)2}$ 溶液中通入少量 $\ce{SO:SO2 +Ba^2+ +2ClO- +H2O &#x3D;BaSO3 v +2HClO}\quad(×)$</p>
+<blockquote>
+<ol>
+<li>$\ce{SO2 +H2O&#x3D;SO^{2-}4 +H+}$ </li>
+<li>$\ce{Ba^2+ +SO^{2-}4&#x3D;BaSO4 v}$</li>
+<li>$\ce{H+ +ClO- &#x3D;HClO}$</li>
+</ol>
+<p>综上：$\ce{SO2 +3ClO- +Ba^2+ +H2O&#x3D;BaSO4 v +Cl- +2HClO}$</p>
+</blockquote>
+</li>
+<li><p>向过量 $\ce{SO2}$ 溶液通入 $\ce{K2S}$ 溶液：$\ce{2SO2 +2H2O +S^2- &#x3D;2HSO^-3 +H2S}\quad(×)$</p>
+<blockquote>
+<p>$\ce{\overset{+4}{S}O2 +H2\overset{-2}{S}-&gt;\overset{0}{S}}$</p>
+</blockquote>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

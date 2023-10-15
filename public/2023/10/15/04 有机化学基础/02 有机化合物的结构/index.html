@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>有机化学基础 · 二 · 「有机化合物的结构」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>有机化学基础 · 二 · 「有机化合物的结构」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="有机化合物中碳原子的成键特点"><a href="#有机化合物中碳原子的成键特点" class="headerlink" title="有机化合物中碳原子的成键特点"></a>有机化合物中碳原子的成键特点</h2><h3 id="碳原子的成键特点"><a href="#碳原子的成键特点" class="headerlink" title="碳原子的成键特点"></a>碳原子的成键特点</h3><p>碳原子最外电子层有 $4$ 个电子，不易失去或获得电子而形成阳离子或阴离子，可以彼此间或与$\ce{H、O、Cl、S、N}$ 等非金属元素原子形成共价键</p>
+<h3 id="碳原子间的成键方式"><a href="#碳原子间的成键方式" class="headerlink" title="碳原子间的成键方式"></a>碳原子间的成键方式</h3><ol>
+<li>碳原子间不仅可以形成碳碳单键（ $\ce{-C-C -}$ ）如乙烷( $\ce{CH3-CH3}$ )；还可以形成碳碳双键<img title="" src="images/2.1.png"  height="25">或碳碳三键( $\ce{-C#C-}$ )，如乙烯( $\ce{CH2&#x3D;CH2}$ )、乙炔( $\ce{CH#CH}$ )</li>
+<li>多个碳原子之间可以结合形成碳链，碳链既可以是一条直链，也可以带有支链，如正丁烷( $\ce{CH3-CH2-CH2-CH3}$ )和异丁烷(<img title="" src="images/2.2.svg"  height="75">)；碳原子间也可以结合成碳环，环上的碳原子还可以连接支链，如环丁烷(<img title="" src="images/2.3.svg"  height="75">)和甲基环丙烷(<img title="" src="images/2.4.gif"  height="35">)</li>
+</ol>
+<h3 id="碳原子与其他原子间的成键方式"><a href="#碳原子与其他原子间的成键方式" class="headerlink" title="碳原子与其他原子间的成键方式"></a>碳原子与其他原子间的成键方式</h3><ol>
+<li>碳原子与氢原子、卤素原子间只能形成单键</li>
+<li>碳原子与氧原子、硫原子间可以形成单键、双键</li>
+<li>碳原子与氮原子间可以形成单键、双键、三键</li>
+</ol>
+<h3 id="碳原子的成键方式与分子结构"><a href="#碳原子的成键方式与分子结构" class="headerlink" title="碳原子的成键方式与分子结构"></a>碳原子的成键方式与分子结构</h3><p>$$<br>\begin{cases}<br>饱和碳原子 &amp; 单键碳原子 \<br>不饱和碳原子 &amp;\begin{cases}<br>双键碳原子 \<br>三键碳原子 \<br>苯环碳原子 \<br>\end{cases}<br>\end{cases}<br>$$</p>
+<p>含有不饱和键的有机化合物分子由于双键或三键中有部分键容易断裂，双键或三键两端的碳原子还可以结合其他原子或原子团，一般易于发生加成反应（苯环结构具有特殊性）</p>
+<h2 id="有机化合物分子组成或结构的表示方法"><a href="#有机化合物分子组成或结构的表示方法" class="headerlink" title="有机化合物分子组成或结构的表示方法"></a>有机化合物分子组成或结构的表示方法</h2><table>
+<thead>
+<tr>
+<th>种类</th>
+<th>表示方式</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分子式</td>
+<td>用元素符号表示物质的分子组成</td>
+<td>$\ce{CH4}$</td>
+</tr>
+<tr>
+<td>最简式(实验式)</td>
+<td>用元素符号表示化合物中各元素原子个数的最简整数比</td>
+<td>$\ce{CH2O}$<br>（乙烯$\ce{C2H12O6}$）</td>
+</tr>
+<tr>
+<td>电子式</td>
+<td>在元素符号周围用「$·$」或「$×$」表示原子的最外层电子的成键情况</td>
+<td><img title="" src="images/2.7.png"  width="100"></td>
+</tr>
+<tr>
+<td>结构式</td>
+<td>用短线「$\ce{-}$」来表示1个共价键，用「$\ce{-}$」（单键）「$\ce{&#x3D;}$」（双键）或「$\ce$」不能省略<br>③醛基、羧基可简化成$\ce{-CHO、-COOH}$</td>
+<td>$\ce{CH3CH&#x3D;CH2}$</td>
+</tr>
+<tr>
+<td>键线式</td>
+<td>①在结构简式的基础上，进一步省去碳原子及与碳原子直接相连的氢原子的元素符号，只要求表示出分子中键的连接情况和基团<br>②键线式中的每个拐点或端点均表示一个碳原子，每个碳原子都形成四个共价键，不足的用氢原子补足</td>
+<td><img title="" src="images/2.9.svg"  width="100"></td>
+</tr>
+<tr>
+<td>球棍模型</td>
+<td>小球表示原子，短棍表示化学键</td>
+<td><img title="" src="images/2.10.png"  width="100"></td>
+</tr>
+<tr>
+<td>空间填充模型</td>
+<td>用不同体积的小球表示不同大小的原子</td>
+<td><img title="" src="images/2.11.svg"  width="100"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>书写结构简式时，同一个碳原子上的相同原子或原子团可以合并，相邻且相同的原子团亦可以合并，如：$2,2$-二甲基戊烷可以写作 $\ce{(CH3)3C(CH2)2CH3}$</li>
+<li>结构简式不能表示有机化合物的真实空间结构。如从结构简式看，$\ce{CH3-CH2-CH2-CH3}$ 中的碳链是直线形的，而实际上是锯齿形的</li>
+<li>键线式中只可以省略与碳原子相连的氢原子，与其他原子相连的氢原子（如 $\ce{-OH}$ 中的氢原子）不可以省略</li>
+<li>用空间填充模型表示有机化合物结构时，代表不同原子的各小球的相对大小关系应与原子实际相对大小关系一致</li>
+</ol>
+</blockquote>
+<h2 id="有机化合物的同分异构现象"><a href="#有机化合物的同分异构现象" class="headerlink" title="有机化合物的同分异构现象"></a>有机化合物的同分异构现象</h2><p><strong>同分异构现象</strong>：分子内部原子的成键方式、连接顺序等差异产生分子式相同而结构不同的现象叫同分异构现象<br><strong>同分异构体</strong>：分子式相同，结构不同，性质不同</p>
+<h3 id="同分异构现象的分类"><a href="#同分异构现象的分类" class="headerlink" title="同分异构现象的分类"></a>同分异构现象的分类</h3><p>$$<br>同分异构现象 \begin{cases}<br>构造异构 &amp; \begin{cases}<br>碳链异构 \<br>位置异构 \<br>官能团异构 \<br>\end{cases}\<br>立体异构 &amp; 顺反异构、对映异构等\<br>\end{cases}<br>$$</p>
+<ul>
+<li><p><strong>碳链异构</strong><br>  碳链骨架不同</p>
+<blockquote>
+<p>$\ce{CH3CH2CH2CH3}$ 和 $\ce{CH3CH(CH3)2}$</p>
+</blockquote>
+</li>
+<li><p><strong>位置异构</strong><br>  官能团或取代基在碳骨架（碳链或碳环）上位置不同</p>
+<blockquote>
+<p>$\ce{CH2&#x3D;CHCH2CH3}$ 和 $\ce{CH3CH&#x3D;CHCH3}$</p>
+<p>$\ce{CH3CH2CH2OH}$ 和 $\ce{CH3CH(OH)CH3}$</p>
+<p>$\ce{CH3OCH2CH2CH3}$ 和 $\ce{CH3CH2OCH2CH3}$</p>
+<p>$\ce{R1COOR2}$ 和 $\ce{R2COOR1}$ ($R1 \neq R2$，且均为烃基)</p>
+</blockquote>
+</li>
+<li><p><strong>官能团异构</strong><br>  官能团不同</p>
+<blockquote>
+<p>$\ce{CH3CH2OH}$ 和 $\ce{CH3OCH3}$</p>
+<p>$\ce{CH3CH2CHO}$ 和 $\ce{CH3COCH3}$</p>
+<p>$\ce{CH3COOH}$ 和 $\ce{HCOOCH3}$</p>
+</blockquote>
+</li>
+<li><p><strong>顺反异构</strong><br>  原子或原子团在碳碳双键上的位置不同</p>
+<p>  从复杂基团到简单的为正方向，当两侧均为同一方向，为顺，反之为反</p>
+  <img title="" src="images/2.12.png"  width="250">
+
+<blockquote>
+<p>双键上的碳原子及与其直接相连的原子位于同一平面，碳碳双里中任意一个双键碳原子上连接2个相同的原子或原子团时，不存在顺反异构</p>
+</blockquote>
+</li>
+<li><p><strong>对映异构</strong><br>  互为镜像且不能重叠的结构</p>
+<p>  手性碳原子：饱和碳的周围接了4个两两不同的原子或原子团</p>
+  <img title="" src="images/2.13.svg"  width="250"></li>
+</ul>
+<h3 id="同分异构体的书写与数目判断"><a href="#同分异构体的书写与数目判断" class="headerlink" title="同分异构体的书写与数目判断"></a>同分异构体的书写与数目判断</h3><h4 id="同分异构体的书写方法"><a href="#同分异构体的书写方法" class="headerlink" title="同分异构体的书写方法"></a>同分异构体的书写方法</h4><p>高中阶段有关同分异构体的考查主要考虑构造异构（如需考虑立体异构，一般会给出说明），其中碳链异构是基础。书写同分异构体时要有一定的原则和顺序，做到不重复、不遗漏</p>
+<ol>
+<li><p><strong>烷烃同分异构体的书写</strong><br>由于烷烃只存在碳链异构，其书写一般采用「减碳法」。「减碳法」书写同分异构体的技巧如下：</p>
+<ol>
+<li><strong>三注意</strong>：注意要选择最长的碳链作主链；注意要找出对称轴；注意要保证每次减掉碳原子后的碳链仍为主链</li>
+<li><strong>三原则</strong>：对称性原则、有序性原则、互补性原则</li>
+<li><strong>四顺序</strong><ol>
+<li><strong>主链由长到短</strong>：选取最长的碳链为主链，再逐步减少主链的碳原子数，余下的碳原子作为取代基。</li>
+<li>取代基由整到散余下的碳原子先作为一个取代基，再逐步拆散为多个小取代基。当有多个取代基存在时，应按连接在同一碳原子、相邻碳原子、相间碳原子…的顺序依次移动，避免漏项</li>
+<li><strong>位置由心到边不到端</strong>：把取代基连在主链上，由主链的对称中心开始，逐步向一边移动，但注意不要移到端点</li>
+<li><strong>排列由对、邻到间</strong>：两个取代基可以相对(连在同一个碳原子上)、相邻（分别连在相邻的两个碳原子上）和相间（分别连在不相邻的两个碳原子上）</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>注意：利用减碳法书写同分异构体时应注意保证减掉碳原子后的碳链仍为主链，如甲基连在主链的端点碳原子上、乙基连在主链的二号碳原子上，均会改变主链，导致书写重复</p>
+</blockquote>
+</li>
+<li><p><strong>具有官能团的有机化合物同分异构体的书写</strong><br>书写步骤为先确定可能含有的官能团类别，之后按照烷烃同分异构体的书写方法分别写出除官能团外的碳链异构，然后再移动官能团的位置，最后按照碳原子形成四个共价键的原则，把氢原子补齐</p>
+</li>
+</ol>
+<h4 id="同分异构体数目的判断方法"><a href="#同分异构体数目的判断方法" class="headerlink" title="同分异构体数目的判断方法"></a>同分异构体数目的判断方法</h4><ol>
+<li><p><strong>等效氢法</strong><br>等效氢法在判断有机化合物的一元取代物同分异构体的数目时尤其适用。有机化合物分子中有几种不同化学环境的氢原子，则其一元取代物就有几种同分异构体</p>
+<ol>
+<li><strong>同一碳原子上的氢原子是等效的</strong>，如 $\ce{CH4}$ 分子中的 $4$ 个氢原子是等效的</li>
+<li><strong>同一碳原子所连的相同基团上的氢原子是等效的</strong>，如新戊烷(<img  align=center title="" src="images/2.14.png"  height="75">)分子中的 $4$ 个甲基等效，各甲基上的氢原子完全等效，即新戊烷分子中的 $12$ 个氢原子是等效的</li>
+<li><strong>处于镜面对称位置上的氢原子是等效的</strong>（相当于平面镜成像时，物与像的关系），如 $\ce{CH3CH2CH2CH3}$ 分子中有 $2$ 种等效氢原子</li>
+</ol>
+<blockquote>
+<p><strong>以 含多个苯环的有机物 为例</strong></p>
+<p>萘的一氯代物有 $2$ 种：<img src="./images/2.20.svg" style="zoom:30%;" /></p>
+<p>萘的二氯代物有 $10$ 种：<img src="./images/2.21.svg" style="zoom:30%;" /></p>
+<blockquote>
+<p>「×」是由于在情况一中已经被考虑，之后不再考虑</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p><strong>定$-$移$-$法</strong>及其模板<br>确定链状烷烃<strong>二元取代物</strong>的同分异构体数目时，可首先固定一个取代基，再按照顺序移动另一个取代基以确定同分异构体数目，下面以确定 $\ce{CH3CH2CH3}$ 的二氯代物的数目为例</p>
+<img title="" src="images/2.15.svg"  width="250">
+
+<ol>
+<li><p>先固定 $1$ 个氯原子，有 $2$ 种</p>
+</li>
+<li><p>然后移动第 $2$ 个氯原子（a&#x2F;b&#x2F;c&#x2F;d&#x2F;e表示第 $2$ 个氯原子的位置）：①结构中有3种，②结构中有 $2$ 种。其中①b和②d重复。故 $\ce{CH3CH2CH3}$ 的二氯代物有 $4$ 种</p>
+</li>
+<li><p>通过上述案例可以得到：</p>
+<ul>
+<li><p>形如 $\ce{C3X2}$ 的二元取代物有 $4$ 种</p>
+</li>
+<li><p>形如 $\ce{C3XY}$ 的二元取代物有 $5$ 种</p>
+</li>
+<li><p>形如 $\ce{C4X2}$ 的二元取代物有 $9$ 种</p>
+</li>
+<li><p>形如 $\ce{C4XY}$ 的二元取代物有 $12$ 种</p>
+</li>
+</ul>
+</li>
+<li><p>确定苯环上的二元、三元取代物的同分异构体数目时（不考虑基团异构），也可以采用类似定$-$移$-$法的方法，可以得到：</p>
+<ul>
+<li>苯环上二取代的同分异构体数目有 $3$ 种</li>
+<li>苯环上三取代($\ce{C6H3X3}$)的同分异构体数目有 $3$ 种</li>
+<li>苯环上三取代($\ce{C6H3X2Y}$)的同分异构体数目有 $6$ 种</li>
+<li>苯环上三取代($\ce{C6H3XYZ}$)的同分异构体数目有 $10$ 种</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p><strong>烷基取代法</strong><br>该法主要适用于单一基团取代的同分异构体（可见下面案例），若题目限定了其他条件，则仍建议改用定$-$移$-$法防止数多</p>
+<ol>
+<li>记住常见烷基的结构总数：甲基 $1$ 种，乙基 $1$ 种，丙基有 $2$ 种，丁基有 $4$ 种，戊基有 $8$ 种（ $1、1、2、4、8$ ）</li>
+<li>将有机物分子拆分为烃基和官能团两部分，根据烃基异构体的数目，确定有机物分子的数目。如分子式为 $\ce{C4H10O}$ 属于醇的同分异构体，可改写成 $\ce{C4H9-OH}$ ，共有 $4$ 种结构；分子式为 $\ce{C5H10O}$ 属于醛的同分异构体，可改写成 $\ce{C4H9-CHO}$ ，共有 $4$ 种结构</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p><strong>常见官能团提示词</strong></p>
+<ul>
+<li><p>遇 $\ce{FeCl3}$ 溶液发生显色反应，或加入饱和溴水出现白色沉淀：$\ce{-OH(酚)}$</p>
+</li>
+<li><p>加入新制的 $\ce{Cu(OH)2}$ ，加热有砖红色沉淀生成或加入银氨溶液，加热有银镜生成：$\ce{-CHO、HCOO-}$（甲酸酯基）</p>
+</li>
+<li><p>与 $\ce{Na}$ 反应生成 $\ce{H2}$：$\ce{-COOH、-OH(醇、酚)}$</p>
+</li>
+<li><p>加入 $\ce{Na2CO3}$ 溶液产生 $\ce{CO2}$：$\ce{-COOH、-OH(酚)}$</p>
+</li>
+<li><p>加入  $\ce{NaHCO3}$ 溶液产生 $\ce{CO2}$ ：$\ce{-COOH}$</p>
+</li>
+<li><p>加入 $\ce{NaOH}$ 溶液并加热放出 $\ce{NH3}$ ：<img src="./images/K-2.1.svg" style="zoom:100%;" /></p>
+</li>
+<li><p>与 $\ce{NaOH(aq)}$ 反应</p>
+<ol>
+<li><p>中和反应：$\ce{-COOH、-OH(酚)}$</p>
+</li>
+<li><p>水解反应：$\ce{}$<img src="./images/5.32.svg" style="zoom: 70%;" />、<img src="./images/5.38.svg" style="zoom:100%;" />、<img src="./images/K-2.2.svg" style="zoom:100%;" /></p>
+<blockquote>
+<p>注意酚酯，既有水解又有中和</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>同时发生水解反应与银镜反应：$\ce{HCOO -}$ 或同时具有酯基和醛基</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：题目中如问<strong>给定结构</strong>的物质的同分异构体数目，<strong>需要扣除该物质本身</strong></p>
+</blockquote>
+<h2 id="有机化合物的共线、共面判断"><a href="#有机化合物的共线、共面判断" class="headerlink" title="有机化合物的共线、共面判断"></a>有机化合物的共线、共面判断</h2><h3 id="经典结构"><a href="#经典结构" class="headerlink" title="经典结构"></a>经典结构</h3><table>
+<thead>
+<tr>
+<th>代表物</th>
+<th>空间结构</th>
+<th>碳原子杂化方式</th>
+<th>结构特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\ce{CH4}$</td>
+<td>正四面体</td>
+<td>$sp^3$</td>
+<td>任意3原子共面，$\ce{C-C}$ 可以旋转</td>
+</tr>
+<tr>
+<td>$\ce{C2H4}$</td>
+<td>平面结构</td>
+<td>$sp^2$</td>
+<td>6点共面，$\ce{C&#x3D;C}$ 不能旋转</td>
+</tr>
+<tr>
+<td>$\ce{C2H2}$</td>
+<td>直线型</td>
+<td>$sp$</td>
+<td>4点共线(面)，$\ce{C&#x3D;C}$ 不能旋转</td>
+</tr>
+<tr>
+<td>$\ce{C6H6}$</td>
+<td>平面正六边形</td>
+<td>$sp^2$</td>
+<td>12点共面，4点共线</td>
+</tr>
+<tr>
+<td>$\ce{CH2O}$（甲苯）</td>
+<td>平面型</td>
+<td>$sp^2$</td>
+<td>平面三角形结构，至少4原子共面</td>
+</tr>
+<tr>
+<td>萘、蒽</td>
+<td>平面型</td>
+<td>$sp^2$</td>
+<td>所有原子一定共平面</td>
+</tr>
+<tr>
+<td>$\ce{C12H10}$（连苯）$\ce{⌬!-!⌬}$</td>
+<td>-</td>
+<td>-</td>
+<td>至少14个原子共平面，最多22个原子共平面<br>至少6个原子共线，最多6个原子共线</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>有时有机化合物的结构简式、键线式会省略氢，此时氢原子应考虑</p>
+</blockquote>
+<h3 id="思路流程"><a href="#思路流程" class="headerlink" title="思路流程"></a>思路流程</h3><ol>
+<li><p>可能出现的题目要求</p>
+<p>「碳原子」、「所有原子」；「一定」、「可能」、「至少」、「最多」；「共线」、「共面」</p>
+</li>
+<li><p>选定主体结构</p>
+<ol>
+<li>凡出现碳碳双键结构形式的原子共面问题，以乙烯的结构为主体</li>
+<li>凡出现碳碳三键结构形式的原子共线问题，以乙炔的结构为主体</li>
+<li>凡出现苯环结构形式的原子共面问题，以苯的结构为主体</li>
+</ol>
+</li>
+<li><p>画出有机化合物的结构式，观察原子的共线、共面情况。注意：单键可以旋转，双键、三键不可以旋转</p>
+</li>
+<li><p>常见结构的重要结论</p>
+<ol>
+<li>结构中出现饱和原子，则所有原子不可能共平面</li>
+<li>结构中每出现一个碳碳双键，至少有6个原子共面</li>
+<li>结构中每出现一个碳碳三键，至少有4个原子共线</li>
+<li>结构中每出现一个苯环，至少有12个原子共面</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>原子共面共线例题</p>
+<ol>
+<li><p>$\ce{CH2&#x3D;CH-C≡CH}$ 最多几个原子共平面？几个原子共线？</p>
+<img title="" src="images/2.16.svg" >
+
+<blockquote>
+<p> 至少&#x2F;最多8个原子共平面，4个原子共线</p>
+</blockquote>
+</li>
+<li><p>苯乙烯最多几个原子共平面？</p>
+<img title="" src="images/2.17.svg"  width="400">
+
+<blockquote>
+<p> 共平面原子至少12个，最多16个</p>
+</blockquote>
+</li>
+<li><p>[福建化学2021·2·B,4分] 豆甾醇是否含有平面环状结构？</p>
+<img title="" src="images/2.18.svg" >
+
+<blockquote>
+<p> 其所含的环状结构中大多数为饱和碳原子，饱和碳原子为四面体构型，因此形成的环状结构不是平面结构</p>
+</blockquote>
+</li>
+<li><p>最多几个碳原子共平面？</p>
+<img title="" src="images/2.19.svg" >
+
+<blockquote>
+<p>最多11个碳原子共平面</p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

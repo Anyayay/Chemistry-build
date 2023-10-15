@@ -1,0 +1,518 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>元素及其化合物 · 二 · 「铁 $(\ce{Fe})$ 及其化合物」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>元素及其化合物 · 二 · 「铁 $(\ce{Fe})$ 及其化合物」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="铁单质"><a href="#铁单质" class="headerlink" title="铁单质"></a>铁单质</h2><h3 id="物理性质"><a href="#物理性质" class="headerlink" title="物理性质"></a>物理性质</h3><ul>
+<li>银白色固体，有金属性光泽</li>
+<li>容易被磁铁吸引</li>
+<li>地壳中居第四位</li>
+</ul>
+<h3 id="化学性质"><a href="#化学性质" class="headerlink" title="化学性质"></a>化学性质</h3><p>铁元素性质活泼，有较强的还原性，主要化合价为+2价和+3价</p>
+<ol>
+<li><p>与非金属单质反应</p>
+<ul>
+<li><p>$\ce{3Fe + 2O2 \xlongequal{点燃} Fe3O4}$</p>
+</li>
+<li><p>$\ce{2Fe + 3Cl2 \xlongequal{点燃} FeCl3}$</p>
+</li>
+<li><p>$\ce{Fe + S \xlongequal{\Delta} FeS}$</p>
+</li>
+</ul>
+</li>
+<li><p>与水反应</p>
+<ul>
+<li>铁在高温下与水蒸气反应：$\ce{3Fe + 4H2O(g) \xlongequal{高温} Fe3O4 + 4H2}$</li>
+</ul>
+</li>
+<li><p>与酸反应</p>
+<ul>
+<li><p>与非还原性酸：$\ce{Fe + 2H+ \xlongequal{} Fe^2+ + H2 ^}$</p>
+</li>
+<li><p>与过量稀硝酸：$\ce{Fe + 4H+ + NO^-_3 \xlongequal{} Fe^3+ + NO ^ + 2H2O}$</p>
+</li>
+<li><p>与少量稀硝酸：$\ce{3Fe + 8H+ + 2NO^-_3 \xlongequal{} 3Fe^2+ + 2NO ^ + 4H2O}$</p>
+</li>
+<li><p>铁遇到冷的浓硫酸或浓硝酸会钝化</p>
+</li>
+</ul>
+</li>
+<li><p>与盐溶液反应</p>
+<ul>
+<li><p>置换反应：$\ce{Fe + Cu^2+ \xlongequal{} Fe^2+ + Cu}$</p>
+</li>
+<li><p>与氯化铁溶液：$\ce{Fe + 2Fe^3+ \xlongequal{} 3Fe^2+}$</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="铁的氧化物"><a href="#铁的氧化物" class="headerlink" title="铁的氧化物"></a>铁的氧化物</h2><h3 id="物理性质-1"><a href="#物理性质-1" class="headerlink" title="物理性质"></a>物理性质</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>氧化亚铁 $\ce{FeO}$</th>
+<th>氧化铁 $\ce{Fe2O3}$</th>
+<th>四氧化三铁 $\ce{Fe3O4}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>俗称</td>
+<td>-</td>
+<td>铁红</td>
+<td>磁性氧化铁</td>
+</tr>
+<tr>
+<td>化合价</td>
+<td>+2</td>
+<td>+3</td>
+<td>+2、+3</td>
+</tr>
+<tr>
+<td>物理性质</td>
+<td>黑色粉末</td>
+<td>红褐色粉末</td>
+<td>黑色粉末</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>-</td>
+<td>炼铁、铝热剂、油漆、涂料</td>
+<td>炼铁</td>
+</tr>
+</tbody></table>
+<h3 id="化学性质-1"><a href="#化学性质-1" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
+<li><p>与非氧化性酸（盐酸 $\ce{HCl}$ ）反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + 2HCl} \xlongequal{} \ce{FeCl2 + H2O}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 6HCl} \xlongequal{} \ce{2FeCl3 + 3H2O}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 8HCl} \xlongequal{} \ce{3FeCl2 + 2FeCl3 + 4H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与氧化性酸（稀硝酸 $\ce{HNO3}$ ）反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + 2HNO3} \xlongequal{} \ce{Fe(NO3)2 + H2O}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 6HNO3} \xlongequal{} \ce{2Fe(NO3)3 + 3H2O}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 8HNO3} \xlongequal{} \ce{3Fe(NO3)2 + 2Fe(NO3)3 + 4H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与还原性酸（ 氢碘酸 $\ce{HI}$） 反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + 2HI} \xlongequal{} \ce{FeI2 + H2O}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 6HI} \xlongequal{} \ce{2FeI3 + 3H2O}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 8HI} \xlongequal{} \ce{3FeI2 + 2FeI3 + 4H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与还原性物质（ $\ce{CO}$ ）反应：</p>
+<ul>
+<li><p>氧化亚铁 $\ce{FeO}$：$\ce{FeO + CO} \xlongequal{} \ce{Fe + CO2}$</p>
+</li>
+<li><p>氧化铁 $\ce{Fe2O3}$：$\ce{Fe2O3 + 3CO} \xlongequal{} \ce{2Fe + 3CO2}$</p>
+</li>
+<li><p>四氧化三铁 $\ce{Fe3O4}$：$\ce{Fe3O4 + 4CO} \xlongequal{} \ce{3Fe + 4CO2}$</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="铁的氢氧化物"><a href="#铁的氢氧化物" class="headerlink" title="铁的氢氧化物"></a>铁的氢氧化物</h2><h3 id="物理性质-2"><a href="#物理性质-2" class="headerlink" title="物理性质"></a>物理性质</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>氢氧化亚铁 $\ce{Fe(OH)2}$</th>
+<th>氢氧化铁 $\ce{Fe(OH)3}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>颜色状态</td>
+<td>白色固体</td>
+<td>红褐色固体</td>
+</tr>
+<tr>
+<td>水溶性</td>
+<td>难溶</td>
+<td>难溶</td>
+</tr>
+</tbody></table>
+<h3 id="化学性质-2"><a href="#化学性质-2" class="headerlink" title="化学性质"></a>化学性质</h3><ol>
+<li><p>与非氧化性酸（盐酸 $\ce{HCl}$ ）反应：</p>
+<ul>
+<li><p>氢氧化亚铁 $\ce{Fe(OH)2}$ ：$\ce{Fe(OH)2 + 2HCl} \xlongequal{} \ce{FeCl2 + 2H2O}$</p>
+</li>
+<li><p>氢氧化铁 $\ce{Fe(OH)3}$ ：$\ce{Fe(OH)3 + 3HCl} \xlongequal{} \ce{FeCl3 + 3H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与氧化性酸（稀硝酸 $\ce{HNO3}$ ）反应：</p>
+<ul>
+<li><p>氢氧化亚铁 $\ce{Fe(OH)2}$ ：$\ce{Fe(OH)2 + 2HNO3} \xlongequal{} \ce{Fe(NO3)2 + 2H2O}$</p>
+</li>
+<li><p>氢氧化铁 $\ce{Fe(OH)3}$ ：$\ce{Fe(OH)3 + 3HNO3} \xlongequal{} \ce{Fe(NO3)3 + 3H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>与还原性酸（ 氢碘酸 $\ce{HI}$） 反应：</p>
+<ul>
+<li><p>氢氧化亚铁 $\ce{Fe(OH)2}$ ：$\ce{Fe(OH)2 + 2HI} \xlongequal{} \ce{FeI2 + 2H2O}$</p>
+</li>
+<li><p>氢氧化铁 $\ce{Fe(OH)3}$ ：$\ce{Fe(OH)3 + 3HI} \xlongequal{} \ce{FeI3 + 3H2O}$</p>
+</li>
+</ul>
+</li>
+<li><p>稳定性</p>
+<ul>
+<li>$\ce{Fe(OH)2}$ 不稳定，在空气中易被氧化</li>
+</ul>
+<p>  $\ce{4Fe(OH)2 +O2 +2H2O \xlongequal{} 4Fe(OH)2}$</p>
+<ul>
+<li>$\ce{Fe(OH)3}$ 不稳定（但较 $\ce{Fe(OH)2}$ 稳定），受热分解</li>
+</ul>
+<p>  $\ce{2Fe(OH)3 \xlongequal{\Delta} Fe2O3 +3H2O}$</p>
+</li>
+<li><p>制备</p>
+<ul>
+<li>$\ce{Fe(OH)2}$ ：$\ce{Fe^2+ + 2OH- \xlongequal{} Fe(OH)2 v}$</li>
+</ul>
+<p>  （将含有 $\ce{NaOH}$ 的滴管插入到含 $\ce{Fe^2+}$ 的溶液中，防止被空气中的 $\ce{O2}$ 氧化）</p>
+<ul>
+<li>$\ce{Fe(OH)3}$ ：$\ce{Fe^2+ + 3OH- \xlongequal{} Fe(OH)3 v}$</li>
+</ul>
+</li>
+<li><p>转化</p>
+<p>$\ce{4Fe(OH)2 + O2 + 2H2O \xlongequal{} 4Fe(OH)3}$</p>
+</li>
+</ol>
+<h2 id="铁盐与亚铁盐"><a href="#铁盐与亚铁盐" class="headerlink" title="铁盐与亚铁盐"></a>铁盐与亚铁盐</h2><h3 id="ce-Fe-2"><a href="#ce-Fe-2" class="headerlink" title="$\ce{Fe^2+}$"></a>$\ce{Fe^2+}$</h3><p>含有 $\ce{Fe^2+}$ 的溶液呈浅绿色，既有氧化性又有还原性</p>
+<ol>
+<li>氧化性：$\ce{Zn + Fe^2+ \xlongequal{} Fe + Zn^2+}$</li>
+<li>还原性：$\ce{Cl2 + 2Fe^2+ \xlongequal{} 2Fe^3+ + 2Cl^-}$</li>
+<li>特性：含有 $\ce{Fe^2+}$ 的盐溶液遇铁氰化钾 $\ce{K3[Fe(CN)6]}$ 生成蓝色沉淀</li>
+</ol>
+<h3 id="ce-Fe-3"><a href="#ce-Fe-3" class="headerlink" title="$\ce{Fe^3+}$"></a>$\ce{Fe^3+}$</h3><p>含有 $\ce{Fe^3+}$ 的溶液呈黄色，有较强的氧化性</p>
+<ol>
+<li><p>氧化性</p>
+<ol>
+<li><p>铁离子与铜（$\ce{Cu}$）的反应：$\ce{Fe^3+ + Cu \xlongequal{} Fe^2+ + Cu^2+}$</p>
+</li>
+<li><p>铁离子与碘离子（$\ce{I^-}$）的反应：$\ce{2Fe^3+ + 2I^- \xlongequal{} 2Fe^2+ + I2}$</p>
+</li>
+<li><p>铁离子与硫离子（$\ce{S^2-}$）的反应：$\ce{2Fe^3+ + 3S^2- \xlongequal{} Fe2S3}$</p>
+</li>
+</ol>
+</li>
+<li><p>特性：含有 $\ce{Fe^3+}$ 的盐溶液遇 $\ce{KSCN}$ 溶液 变成红色</p>
+</li>
+</ol>
+<h3 id="常见的铁盐与亚铁盐"><a href="#常见的铁盐与亚铁盐" class="headerlink" title="常见的铁盐与亚铁盐"></a>常见的铁盐与亚铁盐</h3><ol>
+<li><p>三氯化铁 $\ce{FeCl3}$：棕黄色固体，一种常见的氧化剂，能与多种还原剂发生氧化还原反应，能回收废铜，刻制印刷电路板时作腐蚀液，其反应的离子方程式为 $\ce{2Fe^3+ + Cu \xlongequal{} 2Fe^2+ + Cu^2+}$ </p>
+<blockquote>
+<ul>
+<li>制备无水 $\ce{FeCl3}$：在 $\ce{HCl}$ 气氛中加热蒸干  $\ce{FeCl3}$ 溶液，抑制 $\ce{FeCl3 +3H2O&lt;&#x3D;&gt;Fe(OH)3 +3HCl}$ 正移</li>
+<li>制备 $\ce{Fe(OH)3}$ 胶体：向沸水中滴入饱和 $\ce{FeCl3}$ 溶液并煮沸至溶液呈红褐色为止</li>
+</ul>
+</blockquote>
+</li>
+<li><p>绿矾 $\ce{FeSO4·7H2O}$：一种重要的还原剂，可用作补血剂及植物的补铁剂</p>
+</li>
+<li><p>高铁酸钾 $\ce{K2FeO4}$ ：深紫色晶体，具有强氧化性，可用作水处理剂和高能电池</p>
+</li>
+<li><p>铁铵矾 $\ce{NH4Fe(SO4)2·12H2O}$ ：无色晶体，易溶于水，常用作化学分析试剂药物和织物媒染剂</p>
+</li>
+<li><p>赤血盐 $\ce{K3[Fe(CN)6]}$ ：红色晶体，易溶于水，常用于检验 $\ce{Fe^2+}$ ，生成蓝色沉淀</p>
+</li>
+</ol>
+<h3 id="盐溶液保存"><a href="#盐溶液保存" class="headerlink" title="盐溶液保存"></a>盐溶液保存</h3><ul>
+<li>$\ce{Fe^2+}$ 的盐溶液：加入少量铁粉，防止 $\ce{Fe^2+}$ 被氧化；加入少量对应的酸，抑制 $\ce{Fe^2+}$ 水解</li>
+<li>$\ce{Fe^3+}$ 的盐溶液：加入少量对应的酸，抑制 $\ce{Fe^3+}$ 水解</li>
+</ul>
+<h2 id="ce-Fe-2-与-ce-Fe-3-的检验"><a href="#ce-Fe-2-与-ce-Fe-3-的检验" class="headerlink" title="$\ce{Fe^2+}$ 与 $\ce{Fe^3+}$ 的检验"></a>$\ce{Fe^2+}$ 与 $\ce{Fe^3+}$ 的检验</h2><ol>
+<li><p>直接观察颜色</p>
+<ul>
+<li>含有 $\ce{Fe^2+}$ 的溶液呈浅绿色</li>
+<li>含有 $\ce{Fe^3+}$ 的溶液呈黄色</li>
+</ul>
+</li>
+<li><p>利用显色反应</p>
+<ul>
+<li>$\ce{KSCN}$ 溶液<ul>
+<li>溶液变红色：$\ce{Fe^3+}$</li>
+<li>溶液不变色，加入 $\ce{HCl}$ &#x2F; 氯水，变红色：$\ce{Fe^2+}$</li>
+</ul>
+</li>
+<li>苯酚<ul>
+<li>溶液呈紫色：$\ce{Fe^2+}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe(OH)3}$ 沉淀的颜色</p>
+<ul>
+<li><p>$\ce{NaOH}$ 溶液</p>
+<ul>
+<li><p>红褐色沉淀：$\ce{Fe^3+}$</p>
+</li>
+<li><p>生成白色絮状沉淀，白色沉淀变为灰绿色，最后变为红褐色：$\ce{Fe^2+}$</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe^3+}$ 的氧化性</p>
+<ul>
+<li>$\ce{Cu}$ 片<ul>
+<li>铜被腐蚀，溶液变为蓝绿色：$\ce{Fe^3+}$</li>
+</ul>
+</li>
+<li>淀粉$\ce{-KI}$ 试纸<ul>
+<li>变蓝：$\ce{Fe^3+}$</li>
+</ul>
+</li>
+<li>$\ce{H2S}$ 水溶液<ul>
+<li>产生淡黄色沉淀：$\ce{Fe^3+}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe^2+}$ 的还原性</p>
+<ul>
+<li>溴水<ul>
+<li>溴水褪色： $\ce{Fe^2+}$</li>
+</ul>
+</li>
+<li>$\ce{KMnO4}$ 溶液<ul>
+<li>紫色褪去：$\ce{Fe^2+}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>利用 $\ce{Fe^2+}$ 的特殊反应</p>
+<ul>
+<li>$\ce{K3[Fe(CN)6]}$<ul>
+<li>生成蓝色沉淀：$\ce{KFe[Fe(CN)6] }$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="铁及其重要化合物的转化"><a href="#铁及其重要化合物的转化" class="headerlink" title="铁及其重要化合物的转化"></a>铁及其重要化合物的转化</h2><p><img src="/./images/2.1.svg"></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微粒间作用力与物质性质 · 五 · 「离子键 离子晶体」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>微粒间作用力与物质性质 · 五 · 「离子键 离子晶体」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="离子键"><a href="#离子键" class="headerlink" title="离子键"></a>离子键</h2><ol>
+<li>概念：带相反电荷离子之间的相互作用称为离子键（ionic bond）。其成键粒子为阴阳离子，相互作用为<strong>静电作用</strong>（引力和斥力），成键过程为：阴阳离子接近到某一定距离时， 吸引和排斥达到平衡</li>
+<li>离子键没有<strong>方向性</strong>和<strong>饱和性</strong>，因此，以离子键结合的微粒倾向于形成紧密堆积，使每个离子周围尽可能多地排列带异性电荷的离子，从而达到稳定结构</li>
+</ol>
+<h3 id="晶格能"><a href="#晶格能" class="headerlink" title="晶格能"></a>晶格能</h3><ol>
+<li>概念：离子晶体中阴、阳离子间相互作用力的大小可用晶格能（lattice energy）来衡量。<strong>晶格能</strong>（符号为 $U$）是指拆开$1 mol$离子晶体使之形成气态阴离子和气态阳离子时所吸收的能量。例如<br>$$NaCl(s)\rightarrow Na^+(g)＋Cl^－(g) \qquad U&#x3D;786 kJ·mol^{－1}$$</li>
+<li><strong>影响因素</strong>：<ol>
+<li><strong>离子的电荷数</strong>：离子所带的电荷数越多，晶格能越大</li>
+<li><strong>离子半径</strong>：离子半径越小，晶格能越大</li>
+</ol>
+</li>
+<li>与离子晶体性质的关系<br><strong>晶格能越大，形成的离子晶体更稳定，熔点更高，硬度更大</strong></li>
+</ol>
+<h2 id="离子晶体"><a href="#离子晶体" class="headerlink" title="离子晶体"></a>离子晶体</h2><ol>
+<li>概念：由  <strong>阳离子</strong>  和  <strong>阴离子</strong>  相互作用而形成的晶体</li>
+<li>相互作用力：阴、阳离子间以离子键结合，离子晶体中还可能存在共价键、氢键等</li>
+<li>常见的离子晶体：强碱、活泼金属的氧化物和过氧化物、大部分的盐</li>
+</ol>
+<blockquote>
+<p><strong>离子晶体相关概念理解时的注意点</strong></p>
+<ol>
+<li>离子晶体中无分子。如 $NaCl$、$CsCl$ 只表示晶体中阴、阳离子的个数比，为化学式，不是分子式</li>
+<li>由金属元素和非金属元素形成的晶体不一定是离子晶体，如$AlCl_3$，是分子晶体；全由非金属元素形成的晶体也可能是离子晶体，如$NH_4Cl、NH_4NO_3$，等铵盐的晶体为离子晶体</li>
+<li>离子晶体中一定存在离子键，除离子键外可能有其他类型的化学键。如$NaOH$晶体中除有钠离子与氢氧根离子间的离子键外，还有氢氧根离子内氢原子和氧原子间形成的极性共价键</li>
+<li>离子晶体中，每一个离子周围排列的带相反电荷的离子数目都是固定的，不是任意的</li>
+<li>对于超导材料，一般暗示为离子晶体</li>
+</ol>
+</blockquote>
+<h3 id="物理性质"><a href="#物理性质" class="headerlink" title="物理性质"></a>物理性质</h3><ol>
+<li><p><strong>熔沸点</strong><br>离子晶体具有<strong>较高的熔、沸点</strong>，难挥发。离子晶体中，阴、阳离子间有强烈的相互作用（离子键），要克服离子间的相互作用力使物质熔化或沸腾，就需要较多的能量。因此，离子晶体具有熔、沸点较高和难挥发的性质</p>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>离子晶体的熔、沸点和硬度与离子键的强弱有关，<strong>离子键越强</strong>，离子晶体的<strong>熔、沸点越高</strong>，<strong>硬度越大</strong></li>
+<li>离子键的强弱与离子半径和离子所带电荷数有关，<strong>离子半径越小</strong>，离子所带的<strong>电荷数越多</strong>，<strong>离子键越强</strong></li>
+</ol>
+</blockquote>
+</li>
+<li><p><strong>硬度</strong><br><strong>离子晶体硬而脆</strong>。离子晶体中，阴、阳离子间存在较强的离子键，使晶体表现出较大的便度，当晶体受到冲击力作用时，部分离子键发生断裂，导致晶体破碎</p>
+</li>
+<li><p><strong>导电性</strong><br><strong>离子晶体固态时不导电，熔融状态或溶于水后能导电</strong>。离子晶体中离子键较强，离子不能自由移动，即晶体中无自由移动的离子，因此固态时不导电。当温度升高时，阴、阳离子获得足够能量，克服了离子间的相互作用，成为自由移动的离子，在外界电场作用下，离子定向移动而导电<br>离子化合物溶于水时，阴、阳离子受到水分子作用变成了自由移动的离子（或水合离子），在外加电场作用下，阴、阳离子定向移动而导电</p>
+</li>
+<li><p><strong>溶解性</strong><br>大多数离子晶体易溶于极性溶剂（如水），难溶于非极性溶剂（如汽油、煤油）。当把离子晶体放在水中时，极性水分子对离子晶体中的离子产生吸引作用，使晶体中的阴、阳离子克服了离子间的相互作用而发生电离，变成在水中自由移动的离子</p>
+</li>
+</ol>
+<h2 id="常见离子晶体的结构"><a href="#常见离子晶体的结构" class="headerlink" title="常见离子晶体的结构"></a>常见离子晶体的结构</h2><ol>
+<li>$NaCl$ 晶胞<img title="" src="images/5.1.png"  width="120">
+$NaCl$ 晶胞如图所示，每个 $Na^＋$ 周围距离最近的 $Cl^－$ 有  $6$  个，构成正八面体。每个 $Cl^－$ 周围距离最近的 $Na^＋$ 有  $6$ 个，构成正八面体，由此可推知晶体的化学式为 $NaCl$ 
+1. 每个$Na^＋(Cl^－)$周围距离相等且最近的$Na^＋(Cl^－)$是  $12$  个
+2. 每个晶胞中实际拥有的 $Na^＋$ 数是 $4$ 个，$Cl^－$数是 $4$ 个
+3. 若晶胞参数为$a$ $pm$，则氯化钠晶体的密度为$\frac{234}{N_A\cdot a^3\times10^{-30}} g·cm^{－3}$</li>
+<li>$CsCl$ 晶胞<img title="" src="images/5.2.png"  width="120"> 
+$CsCl$ 晶胞如图所示，每个 $Cs^＋$ 周围距离最近的 $Cl^－$ 有  $8$ 个，每个 $Cl^－$ 周围距离最近的$Cs^＋$有 $8$ 个，它们均构成正六面体，由此可推知晶体的化学式为$CsCl$
+1. 每个$Cs^＋(Cl^－)$周围距离最近的$Cs^＋(Cl^－)$有 $6$ 个，构成  正八面体  
+2. 每个晶胞中实际拥有的$Cs^＋$有 $1$ 个，$Cl^－$有 $1$ 个
+3. 若晶胞参数为$a$ $pm$，则氯化铯晶体的密度为$\frac{168.5}{N_A\cdot a^3\times10^{-30}}g·cm^{－3}$</li>
+<li>$CaF_2$ 晶胞<img title="" src="images/1.5.png"  width="120"> 
+1. $Ca^{2+}$的堆积方式为面心立方堆积，$F^-$所处位置为$8$个小正方体的体心
+2. $Ca^{2+}$呈立方密堆积，阴离子$F^-$填充在四面体空隙中，位于对角线的$\frac{1}{4}$和$\frac{3}{4}$处。$Ca^{2+}、F^-$离子的配位数分别为$8$和$4$
+3. 在一个晶胞中有$4$个$Ca^{2+}$、$8$个$F^-$</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

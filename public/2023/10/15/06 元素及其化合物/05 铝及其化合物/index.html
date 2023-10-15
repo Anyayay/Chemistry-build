@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>元素及其化合物 · 五 · 「铝 $(\ce{Al})$ 及其化合物」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>元素及其化合物 · 五 · 「铝 $(\ce{Al})$ 及其化合物」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="铝的性质"><a href="#铝的性质" class="headerlink" title="铝的性质"></a>铝的性质</h2><ol>
+<li>物理性质：具有银白色金属光泽的固体，密度、硬度均较小，熔点较低，有良好的导电、导热性</li>
+<li>化学性质<ul>
+<li><p>与非金属单质反应</p>
+<ul>
+<li>与 $\ce{O2}$ 反应：$\ce{4Al + 3O2 \xlongequal{点燃} 2Al2O3}$</li>
+<li>与 $\ce{Cl2}$ 反应：$\ce{2Al + 3Cl2 \xlongequal{点燃} 2AlCl3}$</li>
+<li>与 $\ce{S}$ 反应：$\ce{2Al + 3S \xlongequal{\Delta} Al2S3}$</li>
+</ul>
+</li>
+<li><p>与 $\ce{H2O}$ 反应：$\ce{2Al + 6H2O \xlongequal{} 2Al(OH)3 + 3H2 ^}$</p>
+</li>
+<li><p>铝在冷的浓硫酸或浓硝酸中钝化</p>
+</li>
+<li><p>铝与强碱发生反应：$\ce{2Al + 2NaOH + 6H2 \xlongequal{} 2NaAlO2 + 4H2O + 3H2 ^}$</p>
+</li>
+<li><p>铝热反应：可以与 $\ce{FeO}、\ce{Fe2O3}、\ce{Fe3O4}、\ce{Cr2O3}、\ce{MnO2}、\ce{V2O5}$ 等氧化物反应。用于焊接金属、冶炼难溶金属$\left{\begin{array}{lr}\ce{2Al + Fe2O3 -&gt;[{高温}] Al2O3 + 2Fe}\\ce{2Al + Cr2O3 -&gt;[{高温}]Al2O3 + 2Cr}\\end{array}\right.$</p>
+</li>
+</ul>
+</li>
+<li>制备：$\ce{2Al2O3(l) \xlongequal[冰晶石]{通电} 4Al + 3O2 ^}$</li>
+</ol>
+<h2 id="铝、氧化铝和氢氧化铝"><a href="#铝、氧化铝和氢氧化铝" class="headerlink" title="铝、氧化铝和氢氧化铝"></a>铝、氧化铝和氢氧化铝</h2><p>$\ce{AlO^-2&lt;- [Al、Al2O3、Al(OH)3、Al^3+、AlO^-2]-&gt;Al^3+}$</p>
+<h3 id="与酸反应"><a href="#与酸反应" class="headerlink" title="与酸反应"></a>与酸反应</h3><ul>
+<li>$\ce{2Al + 6H+ \xlongequal{} 2Al^{3+} + 3H2 ^}$（非氧化性酸）</li>
+<li>$\ce{Al2O3 + 6H+ \xlongequal{} 2Al^{3+} + 3H2O}$</li>
+<li>$\ce{Al(OH)3 + 3H+ \xlongequal{} Al^{3+} + 3H2O}$</li>
+</ul>
+<h3 id="与强碱反应"><a href="#与强碱反应" class="headerlink" title="与强碱反应"></a>与强碱反应</h3><ul>
+<li>$\ce{2Al + 2OH- + 2H2O \xlongequal{} 2AlO^-2 + 3H2 ^}$</li>
+<li>$\ce{Al2O3 + 2OH- \xlongequal{} 2AlO^-2 + H2O}$</li>
+<li>$\ce{Al(OH)3 + OH- \xlongequal{} AlO^-2 + 2H2O}$</li>
+</ul>
+<h3 id="ce-Al-OH-3-的电离"><a href="#ce-Al-OH-3-的电离" class="headerlink" title="$\ce{Al(OH)3}$的电离"></a>$\ce{Al(OH)3}$的电离</h3><ul>
+<li>$\ce{Al(OH)3 &lt;&#x3D;&gt;[H2O] H+ + AlO^-2 + H2O}$</li>
+<li>$\ce{Al(OH)3 &lt;&#x3D;&gt;[H2O] Al^{3+} + OH-}$</li>
+</ul>
+<h3 id="铝离子"><a href="#铝离子" class="headerlink" title="铝离子"></a>铝离子</h3><ol>
+<li><p>与$\ce{NaOH}$的相互滴加缓慢滴加并搅拌</p>
+<ul>
+<li>将$\ce{NaOH}$滴入$\ce{Al^{3+}}$溶液中<ol>
+<li>先出现白色沉淀：$\ce{Al^{3+} + 3OH- \xlongequal{} Al(OH)3 v}$</li>
+<li>后沉淀消失：$\ce{Al(OH)3 + OH- \xlongequal{} AlO^-2 + 2H2O}$</li>
+</ol>
+</li>
+<li>将$\ce{Al^{3+}}$滴入$\ce{NaOH}$溶液中<ol>
+<li>先无明显现象：$\ce{Al^{3+} + 4OH- \xlongequal{} AlO^-2 + H2O}$</li>
+<li>后产生白色沉淀：$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>与氨水反应</p>
+<p>$\ce{Al^{3+} + NH3*H2O \xlongequal{} Al(OH)3 v + 3NH4+}$</p>
+</li>
+<li><p>双水解反应</p>
+<ul>
+<li><p>$\ce{Al^{3+} + 3HCO^-3 \xlongequal{} Al(OH)3 v + 3CO2 ^}$</p>
+</li>
+<li><p>$\ce{Al^{3+} + 3CO^2-_3 + 3H2O \xlongequal{} Al(OH)3 v + 3HCO^-3}$</p>
+</li>
+<li><p>$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</p>
+</li>
+<li><p>$\ce{2Al^{3+} + 3S^2- + 6H2O \xlongequal{} 2Al(OH)3 v + 3H2S ^}$</p>
+</li>
+<li><p>$\ce{AlO^-2 + NH4+ + H2O \xlongequal{} 4Al(OH)3 v + NH3 ^}$</p>
+</li>
+<li><p>$\ce{2Al^{3+} + 3SiO^2-_3 + 6H2O \xlongequal{} 2Al(OH)3 v + 3H2SiO3 v}$</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="偏铝酸根"><a href="#偏铝酸根" class="headerlink" title="偏铝酸根"></a>偏铝酸根</h3><ol>
+<li><p>与强酸相互滴加，缓慢滴加并搅拌</p>
+<ul>
+<li>将$\ce{H2SO4}$滴入$\ce{AlO^-2}$溶液中<ol>
+<li>先出现白色沉淀：$\ce{AlO^-2 + H+ + H2O \xlongequal{} Al(OH)3 v}$</li>
+<li>后沉淀消失：$\ce{Al(OH)3 + 3H+ \xlongequal{} Al^{3+} + 3H2O}$</li>
+</ol>
+</li>
+<li>将$\ce{AlO^-2}$滴入$\ce{H2SO4}$溶液中<ol>
+<li>先无明显现象：$\ce{AlO^-2 + 4H+ \xlongequal{} Al^{3+} + 2H2O}$</li>
+<li>后产生白色沉淀：$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>与碳酸反应</p>
+<p>立即生成$\ce{Al(OH)3}$沉淀且不溶解。</p>
+<ul>
+<li><p>$\ce{CO2}$过量：$\ce{AlO^-2 + 2H2O + CO2 \xlongequal{} Al(OH)3 v + HCO^-3}$</p>
+</li>
+<li><p>$\ce{CO2}$少量：$\ce{2AlO^-2 + 3H2O + CO2 \xlongequal{} 2Al(OH)3 v + CO^2-_3}$</p>
+</li>
+</ul>
+</li>
+<li><p>与铵盐溶液反应</p>
+<p>$\ce{NH4+ + AlO^-2 + H2O \xlongequal{} Al(OH)3 v + NH3 ^}$</p>
+</li>
+</ol>
+<h3 id="氢氧化铝"><a href="#氢氧化铝" class="headerlink" title="氢氧化铝"></a>氢氧化铝</h3><p>制备</p>
+<ul>
+<li>$\ce{Al^{3+} + NH3*H2O \xlongequal{} Al(OH)3 v + 3NH4+}$</li>
+<li>$\ce{AlO^-2 + 2H2O + CO2 \xlongequal{} Al(OH)3 v + HCO^-3}$</li>
+<li>$\ce{Al^{3+} + 3AlO^-2 + 6H2O \xlongequal{} 4Al(OH)3 v}$</li>
+</ul>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><ol>
+<li>$\ce{Al:}$ 铝合金，航空航天材料</li>
+<li>$\ce{Al2O3:}$ 耐热材料；炼铝原料；刚玉（红宝石、蓝宝石）</li>
+<li>$\ce{Al(OH)3:}$ 净水剂；制酸剂（治疗胃酸过多）；阻燃剂</li>
+<li>可溶性铝盐：净水剂（明矾：$\ce{KAl(SO4)2·12H2O}$）</li>
+</ol>
+<h2 id="铝及其重要化合物的转化"><a href="#铝及其重要化合物的转化" class="headerlink" title="铝及其重要化合物的转化"></a>铝及其重要化合物的转化</h2><img src="images/4.3.svg" style="zoom: 25%;" />
+
+<ol>
+<li>$\ce{2Al + 6H+ \xlongequal{} 2Al^3+ +3H2 ^}$</li>
+<li>$\ce{2Al + 2OH- +2H2O \xlongequal{} 2AlO^-2 +3H2 ^}$ （记忆：4213，四个2、一个3）</li>
+<li>$\ce{4Al + 3O2 \xlongequal{点燃} 2Al2O3}$<br>$\ce{2Al + Fe2O3 \xlongequal{高温} Al2O3 + 2Fe}$</li>
+<li>$\ce{2Al2O3(熔融) \xlongequal[冰晶石]{通电} 4Al + 3O2 ^}$</li>
+<li>$\ce{2Al(OH)3 \xlongequal{\Delta} Al2O3 + 3H2O}$</li>
+<li>$\ce{Al2O3 + 6H+ \xlongequal{} 2Al^3+ + 3H2O}$</li>
+<li>$\ce{Al2O3 + 2OH- \xlongequal{} 2AlO^-2 + H2O}$</li>
+<li>$\ce{Al(OH)3 + 3H+ \xlongequal{} AlO^3+ + 3H2O}$</li>
+<li>$\ce{Al^3+ + 3OH- \xlongequal{} Al(OH)3 v}$</li>
+<li>$\ce{AlO^-2 + H+ +H2O \xlongequal{} Al(OH)3 v}$</li>
+<li>$\ce{Al(OH)3 + OH- \xlongequal{} AlO^-2+ + 2H2O}$</li>
+<li>$\ce{AlO^-2 + 4H+ \xlongequal{} Al^3+ + 2H2O}$</li>
+<li>$\ce{Al^3+ + 4OH- \xlongequal{} AlO^2- + 2H2O}$</li>
+</ol>
+<blockquote>
+<p>氧化铝无法一步反应为氢氧化铝</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

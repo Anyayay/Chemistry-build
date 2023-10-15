@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微粒间作用力与物质性质 · 一 · 「晶体与晶胞」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>微粒间作用力与物质性质 · 一 · 「晶体与晶胞」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="物质的聚集状态"><a href="#物质的聚集状态" class="headerlink" title="物质的聚集状态"></a>物质的聚集状态</h2><ol>
+<li>20世纪前，人们以为分子是所有化学物质能够保持其性质的最小粒子，物质固、液、气三态的相互转化只是分子间距离发生了变化</li>
+<li>20世纪初，通过X射线衍射等实验手段，发现许多常见的晶体中并无分子，如氯化钠、石墨、二氧化硅、金刚石以及各种金属等</li>
+<li>气态和液态物质不一定都是由分子构成。如 <strong>等离子体</strong> 是由 <strong>电子</strong> 、 <strong>阳离子</strong> 和 <strong>电中性粒子（分子或原子）</strong> 组成的整体上呈电中性的气态物质；离子液体是熔点不高的仅由离子组成的液体物质</li>
+<li>其他物质聚集状态，如晶态、非晶态、塑晶态、液晶态等</li>
+</ol>
+<p><strong>晶体</strong>：内部微粒在三维空间里呈周期性有序排列而构成的具有规则几何外形的固体，分为离子晶体、分子晶体(共价晶体)、原子晶体、金属晶体</p>
+<p><strong>非晶体</strong>：内部微粒排列呈相对无序状态，不具有规则几何外形的固体</p>
+<h2 id="晶体的特点"><a href="#晶体的特点" class="headerlink" title="晶体的特点"></a>晶体的特点</h2><ol>
+<li><p>自范性：</p>
+<ol>
+<li><p>定义：在 <strong>适宜的条件</strong> 下，晶体能够 <strong>自发地呈现封闭的、规则的几何多面体外形</strong></p>
+</li>
+<li><p>形成条件：晶体生长的速率适当</p>
+<blockquote>
+<p>晶体呈自范性的条件之一是晶体生长的速率适当熔融态物质冷却凝固，有时得到晶体，但凝固速率过快，常常只得到看不到多面体外形的粉末或没有规则外形的块状物。水晶球是岩浆里熔融态的 $SiO_2$ 侵入地壳内的空洞冷却形成的。剖开水晶球，它的外层是看不到晶体外形的玛瑙，内层才是呈现晶体外形的水晶。不同的是，玛瑙是熔融态 $SiO_2$ 快速冷却形成的，而水晶则是熔融态 $SiO_2$ ，缓慢冷却形成的</p>
+</blockquote>
+</li>
+<li><p>本质原因：<strong>晶体的自范性是晶体中原子、分子和离子等微粒在三维空间里呈现周期性有序排列的宏观表现</strong> 。相反， <strong>非晶体</strong> 中微粒的排列则相对无序，因而 <strong>无自范性</strong> 。例如，自然界中存在的各种石英晶体（晶体 $SiO_2$ ）,它们几乎都具有对称的六角形棱柱状的外形，而玻璃、玛瑙(非晶体 $SiO_2$ )等就没有天然的、有规则的外形</p>
+</li>
+</ol>
+</li>
+<li><p>各向异性：<br>晶体内部微粒的排列呈现周期性，而 <strong>不同方向上的微粒排列情况是不同的</strong> 。因此，在晶体中， <strong>不同的方向上具有不同的物理性质</strong> ，如导电性、导热性、硬度、解理性等</p>
+<blockquote>
+<p>例：石墨在与层平行的方向上的电导率数值约为在与层垂直的方向上的电导率数值的1万倍。云母晶体各个方向解理性不同，若沿两层平面的平行方向施加外力就容易剥离，若沿着垂直于平面的方向剥离就困难得多<br>非晶体在各个方向上的物理性质都一致，显各向同性。例如，玻璃的折光率、热膨胀系数等，一般不随测定的方向而改变。</p>
+</blockquote>
+</li>
+<li><p>晶体有固定的熔点。</p>
+</li>
+<li><p>外形和内部质点排列的高度有序性。</p>
+</li>
+</ol>
+<h2 id="晶体与非晶体的辨别"><a href="#晶体与非晶体的辨别" class="headerlink" title="晶体与非晶体的辨别"></a>晶体与非晶体的辨别</h2><p><strong>区分晶体和非晶体最好的方法：X-射线衍射</strong></p>
+<img title="" src="images/1.1.png"  width="500">
+
+<h2 id="获得晶体的途径"><a href="#获得晶体的途径" class="headerlink" title="获得晶体的途径"></a>获得晶体的途径</h2><ol>
+<li>熔融态物质凝固</li>
+<li>气态物质冷却不经液态直接凝固（凝华）</li>
+<li>溶质从溶液中析出</li>
+</ol>
+<h2 id="晶胞"><a href="#晶胞" class="headerlink" title="晶胞"></a>晶胞</h2><ol>
+<li>概念：描述晶体结构的基本单元</li>
+<li>晶胞与晶体的关系一般来说，晶胞都是 <strong>平行六面体</strong>，整块晶体可以看作是数量巨大的晶胞「无隙并置」而成<ul>
+<li>「无隙」是指相邻晶胞之间无任何间隙</li>
+<li>「并置」是指所有晶胞都是 <strong>平行排列</strong> 的，<strong>取向相同</strong></li>
+<li>所有晶胞的 <strong>形状</strong> 及其内部的原子<strong>种类</strong>、<strong>个数</strong> 及几何排列是完全相同的</li>
+</ul>
+</li>
+</ol>
+<img title="" src="images/1.2.png"  width="400">
+
+<h2 id="晶胞中粒子数目的计算：均摊法"><a href="#晶胞中粒子数目的计算：均摊法" class="headerlink" title="晶胞中粒子数目的计算：均摊法"></a>晶胞中粒子数目的计算：均摊法</h2><p>晶胞中粒子数目的计算：均摊法确定晶胞中粒子的个数<br>若晶胞中某个粒子为 $n$ 个晶胞所共用，则该粒子有 $\frac{1}{n}$ 属于这个晶胞。<br>长方体形（正方体形）晶胞中不同位置的粒子对晶胞的贡献</p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

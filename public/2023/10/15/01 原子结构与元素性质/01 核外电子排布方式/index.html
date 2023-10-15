@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>原子结构与元素性质 · 一 · 「核外电子排布方式」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>原子结构与元素性质 · 一 · 「核外电子排布方式」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="能层与能级"><a href="#能层与能级" class="headerlink" title="能层与能级"></a>能层与能级</h2><ul>
+<li><p><strong>能层：</strong> 多电子原子的核外电子的能量是不同的，离核近的电子能量较低，离核越远，电子的能量越高。可以将核外电子分成不同的能层，并用符号 $K、L、M、N、O、P、Q….$ 表示相应离核最近的第一能层，次之的第二能层，以此类推三、四、五、六、七能层</p>
+<table>
+<thead>
+<tr>
+<th>电子层序数( $n$ )</th>
+<th>$1$</th>
+<th>$2$</th>
+<th>$3$</th>
+<th>$4$</th>
+<th>$5$</th>
+<th>$6$</th>
+<th>$7$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>符号表示</strong></td>
+<td>$K$</td>
+<td>$L$</td>
+<td>$M$</td>
+<td>$N$</td>
+<td>$O$</td>
+<td>$P$</td>
+<td>$Q$</td>
+</tr>
+<tr>
+<td><strong>能量大小</strong></td>
+<td>小</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>大</td>
+</tr>
+<tr>
+<td><strong>距核远近</strong></td>
+<td>近</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>$\longrightarrow$</td>
+<td>远</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>实验和量子力学研究表明，多电子原子中，同一能层的电子，能量可能不同，因此还能再将它们分成若干能级。在每一个能层中，能级符号的顺序是$ns、np、nd、nf…$ （ $n$ 表示能层）</p>
+  <table>
+      <tr>
+          <th rowspan="2">能层</th>
+          <td>n=1</td>
+          <td colspan="2">n=2</td>
+          <td colspan="3">n=3</td>
+          <td colspan="4">n=4</td>
+      </tr>
+      <tr>
+          <td>K</td>
+          <td colspan="2">L</td>
+          <td colspan="3">M</td>
+          <td colspan="4">N</td>
+      </tr>
+      <tr>
+          <th>能级种类</th>
+          <td>s</td>
+          <td>s</td>
+          <td>p</td>
+          <td>s</td>
+          <td>p</td>
+          <td>d</td>
+          <td>s</td>
+          <td>p</td>
+          <td>d</td>
+          <td>f</td>
+      </tr>
+      <tr>
+          <th>原子轨道</th>
+          <td>1s</td>
+          <td>2s</td>
+          <td>2p</td>
+          <td>3s</td>
+          <td>3p</td>
+          <td>3d</td>
+          <td>4s</td>
+          <td>4p</td>
+          <td>4d</td>
+          <td>4f</td>
+      </tr>
+      <tr>
+          <th>原子轨道数</th>
+          <td>1</td>
+          <td colspan="2">1+3=4</td>
+          <td colspan="3">1+3+5=9</td>
+          <td colspan="4">1+3+5+7=16</td>
+      </tr>
+  </table></li>
+</ul>
+<blockquote>
+<p>原子轨道数为 $n^2$<br>每一电子层所容纳的电子数最多为 $2n^2$ 个</p>
+</blockquote>
+<h2 id="电子云与原子轨道"><a href="#电子云与原子轨道" class="headerlink" title="电子云与原子轨道"></a>电子云与原子轨道</h2><h3 id="概率密度"><a href="#概率密度" class="headerlink" title="概率密度"></a>概率密度</h3><p>1913年，  <strong>玻尔</strong>  提出氢原子模型，电子在  <strong>线性轨道</strong>  上绕核运行。量子力学指出，一定空间运动状态的电子在核外空间各处都可能出现，但出现的  <strong>概率</strong>  不同，可用概率密度 $(ρ)$ 表示，即<br>$$<br>ρ＝\frac{P}{V}(P表示电子在某处出现的概率,V表示该处的体积)<br>$$</p>
+<h3 id="电子云"><a href="#电子云" class="headerlink" title="电子云"></a>电子云</h3><ul>
+<li><p>定义：处于一定空间 <strong>运动状态</strong> 的电子在原子核外空间的概率密度分布的形象化描述</p>
+</li>
+<li><p>含义：用单位体积内小黑点的疏密程度表示电子在原子核外出现概率大小，小黑点越 <strong>密</strong> ，表示概率密度越 <strong>大</strong></p>
+<blockquote>
+<p>[×]  $4s$ 电子能量较高，总是在比 $3s$ 电子离核更远的地方运动</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="原子轨道"><a href="#原子轨道" class="headerlink" title="原子轨道"></a>原子轨道</h3><p>量子力学把电子在原子核外的一个 空间运动状态  称为一个原子轨道</p>
+<p>$$形状   \begin{cases}<br>s电子云：&amp; 球形 &amp; 只有一种空间伸展方向 \<br>p电子云：&amp; 哑铃形 &amp; 有3种空间伸展方向分别相对于 x,y,z 轴对称\<br>\end{cases}$$</p>
+<blockquote>
+<p>$空间运动状态种数&#x3D;轨道数； 电子运动状态种数&#x3D;电子数$<br>$eg$：基态 $C$ 原子核外共有 $4$ 种不同的空间运动状态，共有 $6$ 个运动状态不同的电子</p>
+</blockquote>
+<h3 id="原子轨道与能层序数的关系"><a href="#原子轨道与能层序数的关系" class="headerlink" title="原子轨道与能层序数的关系"></a>原子轨道与能层序数的关系</h3><ol>
+<li><p>不同能层的同种能级的原子轨道形状  <strong>相同</strong>  ，只是半径  <strong>不同</strong>  。能层序数 $n$ 越  <strong>大</strong>  ，原子轨道的半径越  <strong>大</strong>  </p>
+</li>
+<li><p>$s$ 能级只有 $1$ 个原子轨道。$p$ 能级有 $3$ 个原子轨道，它们互相垂直，分别以 $p_x、p_y、p_z$ 表示</p>
+</li>
+<li><p>原子轨道数与能层序数 $(n)$ 的关系：原子轨道数目＝$n^2$</p>
+</li>
+</ol>
+<h3 id="原子轨道能量高低"><a href="#原子轨道能量高低" class="headerlink" title="原子轨道能量高低"></a>原子轨道能量高低</h3><ol>
+<li><p>相同能层上原子轨道能量的高低：$ns&lt;np&lt;nd&lt;nf$</p>
+</li>
+<li><p>形状相同的原子轨道能量的高低：$1s&lt;2s&lt;3s&lt;4s&lt;…$</p>
+</li>
+<li><p>同一能层内形状相同而伸展方向不同的原子轨道的能量相等，如$np_x,np_y,np_z$轨道的能量相等</p>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

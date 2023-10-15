@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>微粒间作用力与物质性质 · 四 · 「金属键 金属晶体」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>微粒间作用力与物质性质 · 四 · 「金属键 金属晶体」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="金属键"><a href="#金属键" class="headerlink" title="金属键"></a>金属键</h2><ol>
+<li><strong>金属键的概念</strong><br> 除汞等少数金属外，大多数金属单质具有<strong>较高的熔点</strong>，说明金属晶体中存在着<strong>强烈的相互作用</strong><ol>
+<li>金属键：金属阳离子与自由电子之间的强烈的相互作用</li>
+<li>成键微粒： 金属阳离子和自由电子</li>
+<li>存在：<strong>金属单质</strong>或<strong>合金</strong></li>
+</ol>
+</li>
+<li><strong>金属键的本质</strong><br>描述金属键本质的最简单理论是 「<strong>电子气理论</strong>」。该理论把金属键形象地描绘为金属原子脱落下来的价电子形成遍布整块晶体的「电子气」，被所有原子所共用，从而把所有的金属原子维系在一起，形成一种「巨分子」</li>
+<li><strong>金属键的特征</strong><br>金属键<strong>无方向性和饱和性</strong>。金属晶体里的自由电子不专属于某几个特定的金属原子，而是几乎均匀地分布在整个晶体里，把所有金属原子维系在一起，所以金属键没有方向性和饱和性（共价键则有方向性和饱和性）<img title="" src="images/4.1.png"  height="90"></li>
+</ol>
+<h2 id="电子气理论解释金属的物理性质"><a href="#电子气理论解释金属的物理性质" class="headerlink" title="电子气理论解释金属的物理性质"></a>电子气理论解释金属的物理性质</h2><ol>
+<li><strong>金属的延展性</strong><br>弥漫在金属原子间的电子气可以起到类似轴承中滚珠之间润滑剂的作用。当金属晶体受到外力作用时，晶体中的各原子层就会发生相对滑动<img title="" src="images/4.2.png"  height="60"></li>
+<li><strong>金属的导电性</strong><br>在金属晶体中，存在许多自由电子，这些电子移动是没有方向的，但是<strong>在外加电场的作用下，自由电子就会发生定向移动，形成电流，使金属表现出导电性</strong><br>当温度升高时，阳离子的振动加剧，对自由电子的定向移动产生了阻碍作用，故导电能力下降。金属导电的粒子是自由电子，而电解质溶液导电的粒子是自由移动的阴阳离子<img title="" src="images/4.3.png"  height="60"></li>
+<li><strong>金属的导热性</strong><br>自由电子在运动时与金属阳离子碰撞，引起两者能量的交换。当金属某部分受热时，那个区域里的自由电子能量增加，运动速度加快，通过碰撞，把能量传递给金属阳离子。自由电子与金属阳离子频繁碰撞，把能量从温度高的部分传递到温度低的部分，从而使整块金属达到相同的温度</li>
+<li>金属光泽：<br>由于金属内部原子以最紧密堆积状态排列，且存在自由电子，所以当光线照射到金属表面时，<strong>自由电子可以吸收所有频率的光并迅速释放</strong>，使金属不透明且具有金属光泽。而金属在粉末状态时，晶格排列不规则，吸收可见光后反射不出去，所以金属粉末常呈暗灰色或黑色</li>
+</ol>
+<h2 id="金属晶体的熔沸点、硬度比较"><a href="#金属晶体的熔沸点、硬度比较" class="headerlink" title="金属晶体的熔沸点、硬度比较"></a>金属晶体的熔沸点、硬度比较</h2><ol>
+<li><p>金属的熔沸点高低及硬度大小与金属键的强弱直接相关。金属键越强，金属的熔沸点越高，硬度一般也越大</p>
+</li>
+<li><p><strong>金属键的强弱主要取决于金属阳离子的半径和离子所带的电荷数</strong></p>
+</li>
+<li><p>同周期金属单质，从左到右（如$Na、Mg、AI$）熔、沸点逐渐升高同主族金属单质，从上到下（如碱金属）熔、沸点逐渐降低</p>
+<blockquote>
+<p>$$熔点:Na&lt;Mg&lt;Al  \begin{cases}<br> 半径 &amp; Na^+&gt;Mg^{2+}&gt;Al^{3+}\<br> 电荷数 &amp; Na^+&lt;Mg^{2+}&lt;Al^{3+}\<br> \end{cases}$$</p>
+</blockquote>
+</li>
+<li><p>金属晶体熔点差别很大，如汞常温为液体，熔点很低 ( $38.9\ce{°!C}$ ) ，而铁等金属熔点很高( $1535\ce{°!C}$ )，这是由于金属晶体紧密堆积方式、金属键强弱不同而造成的差别（碱金属的堆积方式类似，只考虑金属键强弱）</p>
+<blockquote>
+<p>$碱金属熔点：Li&gt;Na&gt;K&gt;Rb&gt;Cs$ (常考)</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="常见金属结构"><a href="#常见金属结构" class="headerlink" title="常见金属结构"></a>常见金属结构</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>简单立方堆积</th>
+<th>体心立方堆积</th>
+<th>面心立方最密堆积</th>
+<th align="left">六方最密堆积</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>原子位置</strong></td>
+<td>顶角</td>
+<td>顶角、体心</td>
+<td>顶角、面心</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td><strong>原子数</strong></td>
+<td>$8 \times \frac{1}{8}&#x3D;1$</td>
+<td>$8\times\frac{1}{8}+1&#x3D;2$</td>
+<td>$8\times\frac{1}{8}+6\times\frac{1}{2}&#x3D;4$</td>
+<td align="left">$12\times\frac{1}{6}+2\times\frac{1}{2}+3&#x3D;6$</td>
+</tr>
+<tr>
+<td><strong>配位数</strong></td>
+<td>$6$</td>
+<td>$8$</td>
+<td>$12$</td>
+<td align="left">$12$</td>
+</tr>
+<tr>
+<td><strong>空间利用率</strong></td>
+<td>$\frac{\frac{4}{3}πr^3}{8r^3}\cdot100%\approx52.4%$</td>
+<td>$\frac{2\cdot \frac{4}{3}πr^3}{(\frac{4}{\sqrt{3}}r)^3}\cdot100%\approx68.02%$</td>
+<td>$\frac{4\cdot \frac{4}{3}πr^3}{16\sqrt{2}r^3}\cdot 100%\approx74.05%$</td>
+<td align="left">$\frac{8\pi R^3}{24\sqrt2R^3}\times100%\approx74.05%$</td>
+</tr>
+<tr>
+<td><strong>代表金属</strong></td>
+<td>$Po$</td>
+<td>$Na、K、Fe、Li、Ba$</td>
+<td>$Cu、Ag、Au、Al、Pd、Ca$</td>
+<td align="left">$Mg、Zn、Ti$</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>性质: 原子配位数越高，金属延展性、可塑性越好</p>
+</blockquote>
+<blockquote>
+<img title="" src="images/1.4.png"  width="350">
+
+<p>钠晶胞（体心堆积）：钠原子：$8\times\frac{1}{8}+1&#x3D;2$，配位数：$8$</p>
+<p>铜晶胞（面心立方最密堆积）：铜原子：$8\times\frac{1}{8}+6\times\frac{1}{2}&#x3D;4$，配位数：$12$</p>
+<p>$NaCl$ 晶胞：</p>
+<ul>
+<li>氯离子：$8\times\frac{1}{8}+6\times\frac{1}{2}&#x3D;4$ </li>
+<li>钠离子：$12\times\frac{1}{4}+1&#x3D;4$</li>
+<li>$Na:Cl&#x3D;1:1$<br>与 $Na^+$ 最近的 $Cl^-$ 有 $6$ 个；与 $Na^+$ 最近的 $Na^+$ 有 $12$ 个<br>$Na^+$ 位于 $Cl^-$ <strong>正八面体</strong> 中心</li>
+</ul>
+</blockquote>
+<blockquote>
+<img title="" src="images/1.5.png"  width="120">
+
+<p>$CaF_2$ 晶胞 ：$Ca^{2+}$：$8\times\frac{1}{8}+6\times\frac{1}{2}&#x3D;4$</p>
+</blockquote>
+<blockquote>
+<img title="" src="images/1.6.png"  width="100">
+
+<p>六方最密堆积：分子数：$12\times\frac{1}{6}+2\times\frac{1}{2}+3&#x3D;6$ 配位数：$12$</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

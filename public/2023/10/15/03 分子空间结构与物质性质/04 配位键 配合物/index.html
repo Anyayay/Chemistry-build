@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>分子空间结构与物质性质 · 四 · 「配位键 配合物」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>分子空间结构与物质性质 · 四 · 「配位键 配合物」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="配位键"><a href="#配位键" class="headerlink" title="配位键"></a>配位键</h2><ol>
+<li>概念：由一个原子单方面提供  <strong>孤电子对</strong>  ，而另一个原子提供  <strong>空轨道</strong>  而形成的化学键，即「电子对给予—接受」键</li>
+<li>表示方法：配位键常用 $A-B$ 表示，其中$A$是  <strong>提供</strong>  孤电子对的原子，叫给予体，$B$是接受孤电子对的原子，叫  <strong>接受体</strong>  <blockquote>
+<p>如：<img title="" src="images/6.1.png"  width="200"></p>
+<ol>
+<li><p>形成条件：形成配位键的一方(如$A$)是能够提供  <strong>孤电子对</strong>  的原子，另一方(如$B$)是具有能够接受孤电子对的空轨道的原子</p>
+</li>
+<li><p>孤电子对：分子或离子中，没有跟其他原子共用的电子对就是孤电子对<br>  含有孤电子对的微粒：分子如$CO$、$NH_3$、$H_2O$等，离子如$Cl^－$、$CN^－$、$NO^{2－}$等，如：</p>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code> &lt;img title=&quot;&quot; src=&quot;images/6.2.png&quot;  width=&quot;350&quot;&gt;
+</code></pre>
+<ol start="3">
+<li>含有空轨道的微粒：过渡金属的原子或离子。一般来说，多数过渡金属的原子或离子形成配位键的数目基本上是固定的，如$Ag^＋$形成$2$个配位键，$Cu^{2＋}$形成$4$个配位键等</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>配位键与共价键的区别</p>
+<ol>
+<li>配位键是共价键的一种，只不过是一种特殊的共价键</li>
+<li>共价键一般是成键的双方都提供电子，配位键是一方提供孤电子对，一方提供空轨道</li>
+</ol>
+</blockquote>
+<h2 id="配合物"><a href="#配合物" class="headerlink" title="配合物"></a>配合物</h2><ol>
+<li><p>概念：通常把金属离子或原子(称为 <strong>中心离子</strong> 或原子)与某些分子或离子(称为  <strong>配体或配位体</strong>  )以  <strong>配位键</strong>  结合形成的化合物称为配位化合物，简称配合物。如 $[Cu(NH_3)_4]SO_4$、$[Ag(NH_3)_2]OH$ 等均为配合物</p>
+</li>
+<li><p>组成：配合物$[Cu(NH_3)_4]SO_4$的组成如下图所示：</p>
+<img title="" src="images/6.3.png"  width="350">
+
+<ol>
+<li><p><strong>中心原子</strong>：提供 <strong>空轨道</strong> 接受  孤电子对  的原子。中心原子一般都是带正电荷的阳离子(此时又叫  <strong>中心离子</strong>  )，最常见的有过渡金属离子：$Fe^{3＋}、Ag^＋、Cu^{2＋}、Zn^{2＋}$等</p>
+</li>
+<li><p><strong>配体</strong>：提供  <strong>孤电子对</strong>  的阴离子或分子，如 $Cl^－、NH_3、H_2O$ 等。配体中直接同中心原子配位的原子叫做 <strong>配位原子</strong> 。配位原子必须是含有  <strong>孤电子对</strong>  的原子，</p>
+<blockquote>
+<p>如 $[Cu(NH_3)_4]^{2+}$ 中的 $N$ 原子是配位原子， $NH_3$ 是配体</p>
+</blockquote>
+</li>
+<li><p><strong>配位数</strong>：直接与中心原子形成的  <strong>配位键</strong>  的数目。如 $[Fe(CN)_6]_4^－$ 中 $Fe^{2＋}$ 的配位数为  $6$</p>
+<blockquote>
+<p>注意：配位数不一定等于中心原子与配位原子形成的配位键的键数或配位体的数目</p>
+<ol>
+<li>当中心原子与多基配体配合时，配位数不等于配位体的数目。如 $[Cu(en)_2]^{2+}$ 中， $en$ （乙二胺 $NH_2CH_2CH_2NH_2$ 的简写）属于双基配体，每个分子有 $2$ 个 $N$ 原子可以形成配位键，故 $Cu^{2+}$ 的配位数为 $4$ 而不是 $2$<img title="" src="images/6.4.png"  width="70"></li>
+<li>当中心离子原子同时以共价键与配位键结合时，配位数不等于配位键的键数。如 $[BF_4]^－$、$ [B(OH)_4]^－$、$[AlCl_4]^－$、$[Al(OH)_4]^－$ 等配离子中，$B$、$Al$原子均缺电子，它们形成的化学键，既有共价键，又有配位键，配位数与配位键的键数不相等，配位数均为 $4$<img title="" src="images/6.5.png"  width="170"></li>
+<li>如 $Fe(CO)_5$ 中 $C$ 与 $O$ 之间还可以生成一个配位键，所以 $Fe(CO)_5$ 共有 $10$ 个配位键</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p><strong>配合物的形成对性质的影响</strong></p>
+<ol>
+<li><strong>对溶解性的影响</strong><br>一些难溶于水的金属氢氧化物、氯 化物、溴化物、碘化物、氰化物，可以溶解于氨水中，或依次溶解于含过量的$OH^－、Cl^－、Br^－、I^－、CN^－$的溶液中，形成可溶性的配合物<blockquote>
+<p>如：$Cu(OH)_2＋4NH_3&#x3D;!&#x3D;!&#x3D;[Cu(NH_3)_4]_2^＋＋2OH^－$</p>
+</blockquote>
+</li>
+<li><strong>颜色的改变</strong><br>当简单离子形成配离子时，其性质往往有很大差异。颜色发生变化就是一种常见的现象，根据颜色的变化就可以判断是否有配离子生成<blockquote>
+<p>如：$Fe^{3＋}$与$SCN^－$形成硫氰化铁配离子，其溶液显  <strong>红色</strong>  </p>
+</blockquote>
+</li>
+<li><strong>稳定性增强</strong><br>配合物具有一定的稳定性，若配位体给出电子的能力越强，配合物中的配位键越  <strong>强</strong>  ，配合物越  <strong>稳定</strong> 。当作为中心离子的金属离子相同时，配合物的稳定性与配体的性质有关<blockquote>
+<ol>
+<li>电负性：$I&lt;Cl$，所以 $I^-$ 更容易给出孤电子对 $e^-$ 与 $Hg^{2+}$ 形成配位键，所以稳定性 ：$HgI^{2-}_4&gt;HgCl^{2-}_4$</li>
+<li>已知 $N F _ { 3 } $ 与 $ N H _ { 3 }$ 的空间构型相同，但 $N F _ { 3 }$ 不易与 $C u ^ { 2+ } $ 形成配离子，原因是 $N H _ { 3 }$ 的 $N$ 原子偏正电性， $ N H _ { 3 }$ 的 $N$ 原子偏负电性，所以 $ N H _ { 3 }$ 的 $N$ 更容易与 $C u ^ { 2+ }$ 形成配位键</li>
+<li>$C N ^ - $ 与 $ C O $ 均为配合物中常见的配体，提供孤电子对的通常是 $C$ 原子而不是 $N$ 原子，其原因是 $C$ 电负性较小，更容易提供孤电子对，形成配位键</li>
+<li>某一化合物形成了 $H_2O$ 及 $NH_3$ 与 $Cu^{2+}$ 之间的配位键，加热时首先失去的组分是 $H_2O$，因为 $N$ 的电负性弱于 $O$ ，$NH_3$ 的配位能力强于 $H_2O$ 的配位能力</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>常见配合物的形状</p>
+<ol>
+<li>正四面体：$[ZnCl_4]^{2-}\quad[Cd(CN)_4]^{2-}\quad[Zn(NH_3)_4]^{2+}$</li>
+<li>平面正方形：$[PtCl_4]^{2-}\quad[Ni(CN)_4]^{2-}\quad[Cu(NH_3)_4]^{2+}$</li>
+</ol>
+<p> 特殊配位离子： $\left[ A g \left( N H _ { 3 } \right) _ { 2 } \right] ^ { + }  → s p ^ { 1 }  ；[ Z n \left( N H _ { 3 } \right) _ { 4 } ] ^ { 2 + } \rightarrow  s p ^ { 3 } ；[C u \left( N H _ { 3 } \right) _ { 4 } ] ^ { 2 + }  → d s p ^ { 2 } $ (平面正方形)。只有 $ⅠB$ ，$ⅡB$ 族金属具有这种性质<br> 现象：在 $ Z n S O _ { 4 } $ 溶液中加入过量氨水，先产生白色沉淀后溶解</p>
+</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

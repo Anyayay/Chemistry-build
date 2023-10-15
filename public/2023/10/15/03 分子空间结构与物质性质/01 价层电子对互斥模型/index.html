@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>分子空间结构与物质性质 · 一 · 「价层电子对互斥模型」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>分子空间结构与物质性质 · 一 · 「价层电子对互斥模型」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <ul>
+<li>价层电子对互斥模型（<strong>V</strong>alence <strong>S</strong>hell <strong>E</strong>lectron <strong>P</strong>air <strong>R</strong>epulsion）可以用来预测分子的立体模型</li>
+<li>理论认为，分子的空间构型是中心原子周围的「价层电子对」相互排斥的结果。价层电子对是指分子中的中心原子与结合原子间的 <strong>$\sigma$ 键电子对</strong>和<strong>中心原子上的孤电子对</strong>，由于相互排斥作用，尽可能趋向彼此远离，<strong>排斥力最小</strong></li>
+<li>多重键只计其中的 $\sigma$ 键电子对，<strong>不计 $\pi$ 键电子对</strong></li>
+</ul>
+<h2 id="判断分子中中心原子上的价层电子对数"><a href="#判断分子中中心原子上的价层电子对数" class="headerlink" title="判断分子中中心原子上的价层电子对数"></a>判断分子中中心原子上的价层电子对数</h2><h3 id="情况一-题目给定分子式"><a href="#情况一-题目给定分子式" class="headerlink" title="情况一 题目给定分子式"></a>情况一 题目给定分子式</h3><p>$$<br>价层电子对数&#x3D;孤电子对数+成键电子对数\<br>价层电子对数&#x3D;\frac{1}{2}(a-xb)<br>$$</p>
+<blockquote>
+<p>$a$ 是中心原子的价电子数（阳离子要减去电荷数、阴离子要加上电荷数）；$x$ 是与中心原子结合的原子数；$b$ 是与中心原子结合的原子最多能接受的电子数（$\ce{H、F、Cl、Br、I}$ 为 1 ；$\ce{O、S}$ 为 2 ；$\ce{N、P}$ 为 3 ；$\ce{S、C}$ 为 4）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>分子或离子</th>
+<th>中心原子</th>
+<th>$a$</th>
+<th>$x$</th>
+<th>$b$</th>
+<th>孤电子对数</th>
+<th>价层电子对数</th>
+<th>说明</th>
+<th>$V!SEPR$ 模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$SO_2$</td>
+<td>$S$</td>
+<td>$6$</td>
+<td>$2$</td>
+<td>$2$</td>
+<td>$\frac{1}{2}(6-2\times2)&#x3D;1$</td>
+<td>$2+1&#x3D;3$</td>
+<td>$2 \sigma + 1 孤电子对$</td>
+<td>平面三角形</td>
+</tr>
+<tr>
+<td>$NH_4^+$</td>
+<td>$N$</td>
+<td>$5-1&#x3D;4$</td>
+<td>$4$</td>
+<td>$1$</td>
+<td>$\frac{1}{2}(4-4\times1)&#x3D;0$</td>
+<td>$4+0&#x3D;4$</td>
+<td>$4 \sigma + 0 孤电子对$</td>
+<td>正四面体形</td>
+</tr>
+<tr>
+<td>$CO_3^{2-}$</td>
+<td>$C$</td>
+<td>$4+2&#x3D;6$</td>
+<td>$3$</td>
+<td>$0$</td>
+<td>$\frac{1}{2}(6-3\times2)&#x3D;1$</td>
+<td>$3+0&#x3D;3$</td>
+<td>$3 \sigma + 0 孤电子对$</td>
+<td>平面三角形</td>
+</tr>
+</tbody></table>
+<h3 id="情况二-题目给定结构式"><a href="#情况二-题目给定结构式" class="headerlink" title="情况二 题目给定结构式"></a>情况二 题目给定结构式</h3><p>看最外层电子数可以形成几个共价键（包含 σ 键和 π 键），剩余的电子数&#x2F;2，即为孤电子对数。如果是阳离子（或阴离子），则最外层电子数减去（或加上）其电荷的绝对值</p>
+<blockquote>
+<ol>
+<li><p>[ 2020 全国卷 Ⅲ ] $\ce{B3H^{3-}6}$  的结构为：<img src="/images%5C1.1.svg">，$\ce{B}$ 原子的杂化轨道类型为：**$sp^2$**</p>
+<blockquote>
+<p>$\ce{B}$ 原子最外层有3个电子，有3个电子形成共价键，无孤电子对，因此 $\ce{B}$ 原子的杂化轨道类型为：**$sp^2$**</p>
+</blockquote>
+</li>
+<li><p><img src="/images%5C1.2.svg"> 中的 $\ce{N}$ 最外层有5个电子，由3个电子形成共价键，因此，还剩下2个电子未形成共价键，因此，  $\ce{N}$ 原子含一个孤电子对，杂化轨道类型为：$sp^3$</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="V-SEPR-模型与分子空间结构"><a href="#V-SEPR-模型与分子空间结构" class="headerlink" title="$V!SEPR$ 模型与分子空间结构"></a>$V!SEPR$ 模型与分子空间结构</h2><table>
+<thead>
+<tr>
+<th>分子</th>
+<th>价层电子对数</th>
+<th>$σ$ 键电子对数</th>
+<th>孤电子对数</th>
+<th>$V!SEPR$ 模型</th>
+<th>分子立体构型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$CO_2$</td>
+<td>$2$</td>
+<td>$2$</td>
+<td>$0$</td>
+<td>直线形</td>
+<td>直线形</td>
+</tr>
+<tr>
+<td>$BF_3$</td>
+<td>$3$</td>
+<td>$3$</td>
+<td>$0$</td>
+<td>平面三角形</td>
+<td>平面三角形</td>
+</tr>
+<tr>
+<td>$SO_2$</td>
+<td>$3$</td>
+<td>$2$</td>
+<td>$1$</td>
+<td>平面三角形</td>
+<td>$V$形</td>
+</tr>
+<tr>
+<td>$CH_4$</td>
+<td>$4$</td>
+<td>$4$</td>
+<td>$0$</td>
+<td>正四面体形</td>
+<td>正四面体形</td>
+</tr>
+<tr>
+<td>$NH_3$</td>
+<td>$4$</td>
+<td>$3$</td>
+<td>$1$</td>
+<td>四面体</td>
+<td>三角锥</td>
+</tr>
+<tr>
+<td>$H_2O$</td>
+<td>$4$</td>
+<td>$2$</td>
+<td>$2$</td>
+<td>四面体</td>
+<td>$V$形</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>电子间排斥力大小：孤电阻对$-$孤电阻对 $&gt;$ 孤电阻对$-$成键电子对 $&gt;$ 成键电子对$-$成键电子对</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>

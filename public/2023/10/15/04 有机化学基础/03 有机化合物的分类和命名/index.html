@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>有机化学基础 · 三 · 「有机化合物的分类和命名」 | Hexo</title>
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.4/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.8.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.8.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.8/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.8/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>有机化学基础 · 三 · 「有机化合物的分类和命名」</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/10/15
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h2 id="有机化合物的分类"><a href="#有机化合物的分类" class="headerlink" title="有机化合物的分类"></a>有机化合物的分类</h2><ol>
+<li><p><strong>官能团</strong><br> 反映一类有机化合物其同特性的原子或原子团叫做官能团</p>
+</li>
+<li><p><strong>同系物</strong><br> 结构相似，分子组成相差一个或若干个 $\ce{CH2}$ 原子团的有机化合物互相称为同系物。同系物一般可用通式表示</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>通式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>链烷烃</td>
+<td>$\ce{C_{n}H_{2n+2}} \left( n \geqslant 1 \right)$</td>
+</tr>
+<tr>
+<td>单烯烃</td>
+<td>$\ce{C_{n}H_{2n}} \left( n \geqslant 2 \right)$</td>
+</tr>
+<tr>
+<td>环烷烃</td>
+<td>$\ce{C_{n}H_{2n}} \left( n \geqslant 3 \right)$</td>
+</tr>
+<tr>
+<td>炔烃</td>
+<td>$\ce{C_{n}H_{2n-2}} \left( n \geqslant 2 \right)$</td>
+</tr>
+<tr>
+<td>二烯烃</td>
+<td>$\ce{C_{n}H_{2n-2}} \left( n \geqslant 4 \right)$</td>
+</tr>
+<tr>
+<td>苯及其同系物</td>
+<td>$\ce{C_{n}H_{3n-6}} \left( n \geqslant 6 \right)$</td>
+</tr>
+</tbody></table>
+<p>同系物因组成和结构相似，化学性质相似，而物理性质如熔沸点、密度，一般呈规律性变化</p>
+<p>同系物定义中的「结构相似」是指碳链和成键方式相同、官能团相同、官能团数目相同、官能团与其他原子的连接<br>方式相同等。如 $\ce{CH3CH2OH}$ 与 $\ce{HOCH2CH2OH}$ 不属于同系物</p>
+</blockquote>
+</li>
+</ol>
+<table>
+    <tr>
+        <th>类别</th>
+        <th>官能团名称</th>
+        <th>官能团结构</th>
+    </tr>
+    <tr>
+        <td>烯烃</td>
+        <td>碳碳双键</td>
+        <td><img src="images/3.8.svg" height="50"></td>
+    </tr>
+    <tr>
+        <td>炔烃</td>
+        <td>碳碳三键</td>
+        <td><img src="images/3.9.svg" height="25"></td>
+    </tr>
+    <tr>
+        <td>卤代烃</td>
+        <td>碳卤键</td>
+        <td><img src="images/3.10.svg" height="50"></td>
+    </tr>
+    <tr>
+        <td>醇</td>
+        <td>醇羟基</td>
+        <td rowspan="2"><img src="images/3.11.svg" height="25"></td>
+    </tr>
+    <tr>
+        <td>酚</td>
+        <td>酚羟基</td>
+    </tr>
+    <tr>
+        <td>醚</td>
+        <td>醚键</td>
+        <td><img src="images/3.12.svg" height="50"></td>
+    </tr>
+    <tr>
+        <td>醛</td>
+        <td>醛基</td>
+        <td><img src="images/3.13.svg" height="50"></td>
+    </tr>
+    <tr>
+        <td>酮</td>
+        <td>酮羰基</td>
+        <td><img src="images/3.14.svg" height="50"></td>
+    </tr>
+    <tr>
+        <td>羧酸</td>
+        <td>羧基</td>
+        <td><img src="images/3.15.svg" height="50"></td>
+    </tr>
+    <tr>
+        <td>酯</td>
+        <td>酯基</td>
+        <td><img src="images/3.16.svg" height="50"></td>
+    </tr>
+    <tr>
+        <td>胺</td>
+        <td>氨基</td>
+        <td><img src="images/3.17.svg" height="25"></td>
+    </tr>
+    <tr>
+        <td>酰胺</td>
+        <td>酰胺基</td>
+        <td><img src="images/3.18.svg" height="50"></td>
+    </tr>
+</table>
+
+<blockquote>
+<ol>
+<li>酚和醇的官能团均为羟基( $\ce{-OH}$ )，但酚中羟基直接与苯环相连，而醇中羟基直接连在饱和碳原子上；但最好应区分醇羟基与酚羟基</li>
+<li>酯基中与 $\ce{O}$ 成键的一定是 $\ce{C}$ </li>
+<li><img src="images/3.21.svg" style="zoom: 80%;" />含酯基、醛基，属于酯类</li>
+<li>醚键两端的 $\ce{C}$ 原子不一定要接三个单键</li>
+</ol>
+</blockquote>
+<h2 id="习惯命名法"><a href="#习惯命名法" class="headerlink" title="习惯命名法"></a>习惯命名法</h2><p>$$<br>碳原子数 \begin{cases}<br>十以下 &amp; 依次用 甲、乙、丙、丁、戊、己、庚、辛、壬、癸 表示\<br>十以上 &amp; 用 中文数字 表示\<br>相同时 &amp; 正、异、新\<br>\end{cases}<br>$$</p>
+<blockquote>
+<p>正：直链无支链的烷烃、异：带有一个支链的烷烃、新：带有两个支链的烷烃；正戊烷的主链是丁烷</p>
+</blockquote>
+<h2 id="系统命名法"><a href="#系统命名法" class="headerlink" title="系统命名法"></a>系统命名法</h2><h3 id="烃基"><a href="#烃基" class="headerlink" title="烃基"></a>烃基</h3><p><em>命名架构：位置编号-取代基-主碳链</em></p>
+<h3 id="烷烃的系统命名步骤"><a href="#烷烃的系统命名步骤" class="headerlink" title="烷烃的系统命名步骤"></a>烷烃的系统命名步骤</h3><ol>
+<li>定主链要遵循 <strong>「长」「多」</strong> 原则<br>以最长的连续碳链为主链，以此主链决定烷烃的基本名称<br>当有几个相同长度的不同碳链时，选择<strong>含支链最多的一个作为主链</strong></li>
+<li>以阿拉伯数字（$1、2、3$）表示取代基或官能团的<strong>位置编号</strong><br>以中文数字（$一、二、三$）表示<strong>取代基个数</strong><br>阿拉伯数字与汉字间以短横线「$-$」分开，取代基则由<strong>碳数少的小取代基</strong>先写<blockquote>
+ <img title="" src="images/3.1.png"  height="100"></blockquote>
+</li>
+<li>编号位要遵循 <strong>「近」「简」「小」</strong> 原则<ol>
+<li><strong>首先考虑「近」</strong>：以<strong>离支链较近</strong>的一端给主链碳原子编号<img title="" src="images/3.2.jpg"  height="100"></li>
+<li><strong>同「近」考虑「简」</strong>：有两个不同的支链，且分别处于距主链两端同近的位置则从<strong>支链较简单的一端</strong>开始编号<img title="" src="images/3.3.jpg"  height="100"></li>
+<li><strong>同「近」同「简」考虑「小」</strong>：若有两个相同的支链，且分别处于距主链两端同近的位置，而中间还有其他支链，从主链的两个方向编号，可得到两种不同的编号序列，两序列中各支链<strong>位次和最小者</strong>即为正确的编号<img title="" src="images/3.4.jpg"  height="100"></li>
+</ol>
+</li>
+</ol>
+<h3 id="单烯烃和单炔烃的命名"><a href="#单烯烃和单炔烃的命名" class="headerlink" title="单烯烃和单炔烃的命名"></a>单烯烃和单炔烃的命名</h3><ol>
+<li><strong>选主链</strong>：将<strong>含有碳碳双键或碳碳三键</strong>的<strong>最长碳链</strong>作为主链，称为「某烯」或「某炔」</li>
+<li><strong>编序号</strong>：从距离碳碳双键或碳碳三键<strong>最近</strong>的一端对主链上的碳原子进行编号定位</li>
+<li><strong>写名称</strong>：将支链作为取代基，写在「某烯」或「某炔」的前面，并用阿拉伯数字标明碳碳双键或碳碳三键的位置，写出有机物的名称<br>从前到后的顺序依次为 <strong>简单取代基位置</strong> $-$ <strong>简单取代基数目</strong> $-$ <strong>简单取代基名称</strong> $-$ <strong>复杂取代基位置</strong> $-$ <strong>复杂取代基数目</strong> $-$ <strong>复杂取代基名称</strong> $-$ <strong>碳碳双键或三键位置</strong> $-$ <strong>主链名</strong><img title="" src="images/3.5.jpg"  height="100"></li>
+</ol>
+<blockquote>
+<p>烯烃、炔烃的命名与烷烃的命名的不同点</p>
+<ol>
+<li>主链的选取：必须是含有碳碳双键或碳碳三键的最长碳链</li>
+<li>主链的编号：从距离碳碳双键或碳碳三键最近的一端开始编号</li>
+<li>名称的书写：先写取代基的位置和名称，再写碳碳双键或碳碳三键的位置</li>
+</ol>
+</blockquote>
+<h3 id="多烯烃和多炔烃的命名"><a href="#多烯烃和多炔烃的命名" class="headerlink" title="多烯烃和多炔烃的命名"></a>多烯烃和多炔烃的命名</h3><p>与单烯烃或单炔烃的命名主要区分点在于主链的选择与不饱和键序号的确定。</p>
+<ol>
+<li><p><strong>选主链</strong>：将<strong>含有碳碳双键或碳碳三键</strong>的<strong>最多</strong>的<strong>最长碳链</strong>作为主链，称为「某几烯」或「某几炔」</p>
+</li>
+<li><p><strong>编序号</strong>：从距离碳碳双键或碳碳三键<strong>最近</strong>的一端开始，双键或三键的位号由小到大排列。</p>
+</li>
+<li><p><strong>写名称</strong>：将支链作为取代基，写在「某几烯」或「某几炔」的前面，并用阿拉伯数字标明碳碳双键或碳碳三键的位置，写出有机物的名称。</p>
+<p>  若分子中同时含有碳碳双键与碳碳三键，可用某烯炔作结尾，并给予双键、三键尽可能低的位号，如果位号有选择时，使双键位号比三键小，书写时先烯后炔。</p>
+  <img title="" src="images/3.19.svg"  height="150" width="250"></li>
+</ol>
+<h3 id="芳香烃的命名"><a href="#芳香烃的命名" class="headerlink" title="芳香烃的命名"></a>芳香烃的命名</h3><ol>
+<li><p><strong>基本原则</strong>：环状化合物的命名通常选择环作为母体，从环上连有最简单取代基的碳原子开始编号</p>
+</li>
+<li><p><strong>苯的同系物的命名</strong>：</p>
+<p>将苯环上的 $6$ 个碳原子按最小位次和原则进行编号（从 $1-6$ ），命名时要指出取代基的位置和名称</p>
+<ol>
+<li><p>以苯环作为命名的母体，苯环上的侧链烷基为取代基进行命名，如苯环上的一个氢原子被甲基取代称为甲苯，苯环上的一个氢原子被乙基取代称为乙苯。</p>
+<p>当苯环上有两个取代基时，根据取代基在苯环上的相对位置，可分别用「邻」「间」「对」来表示，如「对二甲苯」 「邻甲基苯酚」 等；当苯环上有三个<strong>相同</strong>取代基时，根据取代基在苯环上的相对位置，可分别用「连」「偏」「均」来表示。</p>
+<img title="" src="images/3.6.jpg"  height="260"> 
+</li>
+<li><p>采用习惯命名法命名，当苯环上有两个不同取代基时，以较大的取代基为母体来命名</p>
+<blockquote>
+<p>如图所示<br><img title="" src="images/3.7.jpg"  height="100"></p>
+</blockquote>
+</li>
+<li><p>当苯环上连接不饱和基团或虽为饱和基团，但体积较大或结构比较复杂时，可将苯作为取代基</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="单官能团烃衍生物的系统命名"><a href="#单官能团烃衍生物的系统命名" class="headerlink" title="单官能团烃衍生物的系统命名"></a>单官能团烃衍生物的系统命名</h3><ol>
+<li><p>将官能团作为取代基，仍以烷烃为母体，按烷烃的命名原则来命名</p>
+<p> 采用这种方法的官能团有：卤素原子、硝基、（亚硝基）</p>
+</li>
+<li><p>将含有官能团的最长主链作为母体化合物，其命名步骤如下：</p>
+<p> ① <strong>选主链</strong>：将<strong>含有母体官能团</strong>的<strong>最长碳链</strong>作为主链<br> ② <strong>编序号</strong>：按<strong>最低系列原则</strong>（即让官能团的位置号尽可能小）依次给主链碳原子编号。<br> ③ <strong>写名称</strong>：将支链作为取代基，然后写全名。写全名时，根据主链的碳原子数称为某A（A&#x3D; 醇、醛、酮、酸、酰卤、酰胺、腈等）<br> 从前到后的顺序依次为 <strong>简单取代基位置</strong> $-$ <strong>简单取代基数目</strong> $-$ <strong>简单取代基名称</strong> $-$ <strong>复杂取代基位置</strong> $-$ <strong>复杂取代基数目</strong> $-$ <strong>复杂取代基名称</strong> $-$ <strong>母体官能团位置</strong> $-$ <strong>母体名称</strong></p>
+</li>
+<li><p>酯的命名</p>
+<p> 酯是羧酸与醇脱水缩合形成的产物，此处以乙酸苯甲酯为例：<br> ① 命名时先把羧酸名称放在前面，即「乙酸」；<br> ② 将醇的名称放在后面，先删去「醇」字，而后加上「酯」字，即「乙酸苯甲酯」。</p>
+</li>
+</ol>
+<h3 id="含有多个相同官能团的烃衍生物的系统命名"><a href="#含有多个相同官能团的烃衍生物的系统命名" class="headerlink" title="含有多个相同官能团的烃衍生物的系统命名"></a>含有多个相同官能团的烃衍生物的系统命名</h3><p>可参照<strong>单官能团烃衍生物的命名</strong>与<strong>烯烃和炔烃的命名</strong>进行</p>
+<!-- 如果需要保证完整度，可进一步补充 -->
+
+<h3 id="含多种官能团的烃衍生物的系统命名"><a href="#含多种官能团的烃衍生物的系统命名" class="headerlink" title="含多种官能团的烃衍生物的系统命名"></a>含多种官能团的烃衍生物的系统命名</h3><ol>
+<li>当分子中含有多种官能团时，首先要确定一个主官能团，确定主官能团的顺序是查看下表所列顺序：<!-- 本表格尚不全 -->
+<table>
+ <tr>
+     <th>母体名称</th>
+     <th>官能团名称</th>
+     <th>官能团结构</th>
+ </tr>
+ <tr>
+     <td>羧酸</td>
+     <td>羧基</td>
+     <td><img src="images/3.15.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>酯</td>
+     <td>酯基</td>
+     <td><img src="images/3.16.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>酰胺</td>
+     <td>酰胺基</td>
+     <td><img src="images/3.18.svg" height="50"></td>
+ </tr>
+     <td>腈</td>
+     <td>氰基</td>
+     <td>（图片待补充）</td>
+ </tr>
+ <tr>
+     <td>醛</td>
+     <td>醛基</td>
+     <td><img src="images/3.13.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>酮</td>
+     <td>酮羰基</td>
+     <td><img src="images/3.14.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>醇</td>
+     <td rowspan="2">羟基</td>
+     <td rowspan="2"><img src="images/3.11.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>酚</td>
+ </tr>
+ <tr>
+     <td>胺</td>
+     <td>氨基</td>
+     <td><img src="images/3.17.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>醚</td>
+     <td>醚键</td>
+     <td><img src="images/3.12.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>炔烃</td>
+     <td>碳碳三键</td>
+     <td><img src="images/3.9.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>烯烃</td>
+     <td>碳碳双键</td>
+     <td><img src="images/3.8.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>烷烃</td>
+     <td>N/A</td>
+     <td>N/A
+ </tr>
+ <tr>
+     <td>（一般不做母体）</td>
+     <td>碳卤键(卤素原子)</td>
+     <td><img src="images/3.10.svg" height="50"></td>
+ </tr>
+ <tr>
+     <td>（一般不做母体）</td>
+     <td>硝基</td>
+     <td>（图片待补充）</td>
+ </tr>
+</table></li>
+<li>然后，选择含有 <strong>主官能团</strong> 及尽可能含 <strong>较多官能团</strong> 的 <strong>最长碳链</strong> 为主链</li>
+<li>主链编号的原则是要让官能团的位号尽可能小。</li>
+</ol>
+<p>下面来看一个简单的实例：</p>
+<img title="" src="images/3.20.svg"  height="150" width="300"> 
+
+<blockquote>
+<p>先确定母体为羧酸，因此该物质以「某酸」结尾<br>选择含有<strong>主官能团</strong>及尽可能含<strong>较多官能团</strong>的<strong>最长碳链</strong>为主链，该化合物较为简单，直接选取整条碳链，因此该物质为「某戊酸」。<br>进行主链编号：羧基的位置被锁定在1号位，此时氯原子处于3号位，羟基处于5号位，因此该物质为 <strong>5-羟基-3-氯戊酸</strong>。 </p>
+</blockquote>
+<blockquote>
+<p>至于在编号已经完全正确时，「氯」和「羟基」在命名时究竟谁写在前面，也就是 3-氯-5-羟基戊酸 这个命名是否正确的问题，其实在高考中并无刻板要求.<br>只要官能团<strong>编号正确</strong>，就能拿到相应分数（目前此类复杂化合物的命名在真题中出现率相对较低）</p>
+</blockquote>
+<pre><code>但是，若要刨根问底或追求精确，可以了解：
+    先写简单基团，与取代基相连的原子序数小的基团排在前面（常见原子为I&gt;Br&gt;Cl&gt;S&gt;O&gt;N&gt;C&gt;H，如羟基中的氧与氯比较，氧序数较小，则氯排在前面）；而对于甲基、乙基、丙基等同为碳原子的基团，复杂度逐渐上升。该方法简便易用，且目前流传度尚广
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;John Doe
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
