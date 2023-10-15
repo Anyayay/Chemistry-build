@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "hexo-renderer-mathjax": "^0.6.0"
+  }
+}
